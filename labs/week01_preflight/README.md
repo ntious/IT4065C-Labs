@@ -53,7 +53,7 @@ psql
 5.	Exit the postgres user:
 exit
 ________________________________________
-Step 5: Create Your Local Course Database and Schema
+## Step 5: Create Your Local Course Database and Schema
 1.	From your normal Ubuntu user account, run:
 sudo -u postgres createdb it4065c
 sudo -u postgres psql it4065c
@@ -63,7 +63,7 @@ CREATE SCHEMA student_kofi;
 \q
 This simulates schema-level governance isolation used later in the course.
 ________________________________________
-Step 6: Clone the Course GitHub Repository
+## Step 6: Clone the Course GitHub Repository
 1.	From your home directory:
 cd ~
 git clone https://github.com/ntious/IT4065C-Labs.git
@@ -77,14 +77,14 @@ You should see the following folders:
 📸 Screenshot 1:
 Take a screenshot showing the repository structure (docs, labs, dbt).
 ________________________________________
-Step 7: Install dbt for PostgreSQL
+## Step 7: Install dbt for PostgreSQL
 1.	Install dbt:
 pip3 install dbt-postgres
 2.	Verify installation:
 dbt --version
 You must see the Postgres adapter listed.
 ________________________________________
-Step 8: Configure dbt profiles.yml
+## Step 8: Configure dbt profiles.yml
 Step 8.1: Create dbt Configuration Directory
 mkdir -p ~/.dbt
 Step 8.2: Copy the Profile Template
@@ -109,7 +109,7 @@ Note:
 If your VM uses peer authentication, leaving password blank is expected.
 Save and exit: CTRL + O, ENTER, CTRL + X.
 ________________________________________
-Step 9: Run dbt debug
+## Step 9: Run dbt debug
 1.	Navigate to the dbt project directory:
 cd dbt/it4065c_platform
 2.	Run:
@@ -122,7 +122,7 @@ If this fails, consult docs/troubleshooting.md.
 📸 Screenshot 2:
 Take a screenshot showing successful dbt debug.
 ________________________________________
-Step 10: Run Basic SQL Queries
+## Step 10: Run Basic SQL Queries
 1.	Open PostgreSQL:
 psql it4065c
 2.	Run:
@@ -139,11 +139,11 @@ SELECT COUNT(*) FROM student_kofi.test_table;
 📸 Screenshot 3:
 Take a screenshot showing the SELECT COUNT(*) result.
 ________________________________________
-Step 11: Lab 1 Deliverables
+## Step 11: Lab 1 Deliverables
 Submit one MS Word or PDF file on Canvas containing:
 1.	Screenshot 1: Repository structure (docs, labs, dbt)
 2.	Screenshot 2: Successful dbt debug output
 3.	Screenshot 3: SELECT COUNT(*) query output
-4.	Short reflection (3–5 sentences):
+4.	Short reflection (2–4 sentences):
 What schema am I responsible for, and why does schema isolation matter in governed data systems?
 
