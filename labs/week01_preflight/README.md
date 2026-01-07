@@ -1,8 +1,5 @@
 # Lab 1: Preflight & Environment Readiness
-Course: IT4065C – Data Technologies Administration
-Repository: https://github.com/ntious/IT4065C-Labs
-Time Required: ≤ 2 hours
-Environment: Individual Ubuntu VM (VMware Cloud Services)
+Environment: Individual Ubuntu VM
 ________________________________________
 ## Goal of Lab 1
 By the end of this lab, you will be able to:
