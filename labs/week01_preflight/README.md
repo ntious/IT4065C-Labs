@@ -55,8 +55,10 @@ ________________________________________
 sudo -u postgres createdb it4065c
 sudo -u postgres psql it4065c
 2.	Inside PostgreSQL, run:
+'''
 CREATE SCHEMA raw;
 CREATE SCHEMA student_kofi;
+'''
 \q
 This simulates schema-level governance isolation used later in the course.
 ________________________________________
