@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: core_entity
+    description: "Core business entity model"
+    columns:
+      - name: entity_id
+        description: "Unique identifier for the entity"
+        tests:
+          - unique
+          - not_null
+      - name: entity_name
+        description: "Name of the entity"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp when the entity was created"
+        tests:
+          - not_null
+      - name: updated_at
+        description: "Timestamp when the entity was last updated"
+        tests:
+          - not_null

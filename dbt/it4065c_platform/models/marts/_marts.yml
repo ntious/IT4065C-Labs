@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: mart_analytics_example
+    description: "Analytics-ready dataset"
+    columns:
+      - name: analytics_id
+        description: "Unique identifier for the analytics record"
+        tests:
+          - unique
+          - not_null
+      - name: metric_value
+        description: "Value of the key metric"
+        tests:
+          - not_null
+      - name: recorded_at
+        description: "Timestamp when the metric was recorded"
+        tests:
+          - not_null
