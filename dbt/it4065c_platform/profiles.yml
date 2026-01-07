@@ -1,0 +1,13 @@
+it4065c_platform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password:
+      port: 5432
+      dbname: it4065c
+      schema: student_kofi
+      threads: 2
+      sslmode: prefer
