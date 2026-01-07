@@ -32,19 +32,27 @@ ________________________________________
 1.	Install Git, Python, and PostgreSQL:
 sudo apt install -y git python3 python3-pip postgresql postgresql-contrib
 2.	Verify each installation:
+```bash
 git --version
 python3 --version
 psql --version
+```
 Each command should return a version number.
 ________________________________________
 ## Step 4: Start and Verify PostgreSQL
 1.	Check PostgreSQL service status:
+```bash
 sudo systemctl status postgresql
+```
 You should see active (running).
 2.	Switch to the postgres user:
+```bash
 sudo -i -u postgres
+```
 3.	Open the PostgreSQL shell:
+```bash
 psql
+```
 4.	Exit PostgreSQL:
 \q
 5.	Exit the postgres user:
@@ -52,23 +60,29 @@ exit
 ________________________________________
 ## Step 5: Create Your Local Course Database and Schema
 1.	From your normal Ubuntu user account, run:
+```bash
 sudo -u postgres createdb it4065c
 sudo -u postgres psql it4065c
+```
 2.	Inside PostgreSQL, run:
-'''
+```bash
 CREATE SCHEMA raw;
 CREATE SCHEMA student_kofi;
-'''
 \q
+```
 This simulates schema-level governance isolation used later in the course.
 ________________________________________
 ## Step 6: Clone the Course GitHub Repository
 1.	From your home directory:
+```bash
 cd ~
 git clone https://github.com/ntious/IT4065C-Labs.git
 cd IT4065C-Labs
+```
 2.	Confirm the repository structure:
+```bash
 ls
+```
 You should see the following folders:
 •	docs
 •	labs
@@ -78,20 +92,29 @@ Take a screenshot showing the repository structure (docs, labs, dbt).
 ________________________________________
 ## Step 7: Install dbt for PostgreSQL
 1.	Install dbt:
+```bash
 pip3 install dbt-postgres
+```
 2.	Verify installation:
-dbt --version
+```bash dbt --version
+```
 You must see the Postgres adapter listed.
 ________________________________________
 ## Step 8: Configure dbt profiles.yml
 Step 8.1: Create dbt Configuration Directory
-mkdir -p ~/.dbt
+```bash mkdir -p ~/.dbt
+```
 Step 8.2: Copy the Profile Template
+```bash
 cp dbt/it4065c_platform/profiles_template.yml ~/.dbt/profiles.yml
+```
 Step 8.3: Edit profiles.yml
 1.	Open the file:
+```bash
 nano ~/.dbt/profiles.yml
+```
 2.	Update it as follows:
+```bash
 it4065c_platform:
   target: dev
   outputs:
@@ -104,15 +127,20 @@ it4065c_platform:
       dbname: it4065c
       schema: student_kofi
       threads: 2
+```
 Note:
 If your VM uses peer authentication, leaving password blank is expected.
 Save and exit: CTRL + O, ENTER, CTRL + X.
 ________________________________________
 ## Step 9: Run dbt debug
 1.	Navigate to the dbt project directory:
+```bash
 cd dbt/it4065c_platform
+```
 2.	Run:
+```bash
 dbt debug
+```
 Success Criteria
 You must see:
 •	Profile loaded successfully
@@ -123,8 +151,11 @@ Take a screenshot showing successful dbt debug.
 ________________________________________
 ## Step 10: Run Basic SQL Queries
 1.	Open PostgreSQL:
+```bash
 psql it4065c
+```
 2.	Run:
+```bash
 SELECT schema_name
 FROM information_schema.schemata;
 
@@ -133,8 +164,11 @@ Then run:
 CREATE TABLE student_kofi.test_table (id INT);
 INSERT INTO student_kofi.test_table VALUES (1), (2);
 SELECT COUNT(*) FROM student_kofi.test_table;
+```
 3.	Exit PostgreSQL:
+```bash
 \q
+```
 📸 Screenshot 3:
 Take a screenshot showing the SELECT COUNT(*) result.
 ________________________________________
