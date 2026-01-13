@@ -4,8 +4,8 @@ it4065c_platform:
     dev:
       type: postgres
       host: localhost
-      user: postgres
-      password:
+      user: student_kofi_user
+      password: "changeme123"
       port: 5432
       dbname: it4065c
       schema: student_kofi
