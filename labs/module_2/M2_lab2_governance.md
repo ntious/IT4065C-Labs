@@ -180,26 +180,18 @@ labs/module_2/lab2_insert_templates.sql
 ---
 
 ## Part 6 — Verify Your Work
-
+* A verification script has been provided for you.
+* Run the following command from the course repository:
 Run:
 
 ```sql
-SELECT table_name, COUNT(*) AS classified_columns
-FROM student_kofi.data_classification_register
-GROUP BY table_name;
+psql -h localhost -U postgres -d it4065c \
+  -f labs/module_2/lab2_verify_register.sql
 ```
-
-Then:
-
-```sql
-SELECT *
-FROM student_kofi.data_classification_register
-ORDER BY table_name, column_name;
-```
-
-You should see real, meaningful entries.
-
----
+### Review the output carefully:
+* Do you see entries for both customers and orders?
+* Does the number of classified columns match your expectations?
+* Do the classifications make sense when viewed together?
 
 ## Part 7 — Reflection (Short, Important)
 
