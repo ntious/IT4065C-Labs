@@ -169,28 +169,14 @@ This table represents how governance is **actually tracked** in practice.
 ---
 
 ## Part 5 — Populate the Register (Main Task)
-
-### Minimum Requirement
-
-You must classify:
-
-* **At least 12 columns**
-* From **at least 2 different tables**
-
-### Example Insert
-
+* You must classify: At least one column from raw.customers and one column from raw.orders
+* Use the provided file (template)
+* One INSERT block per column and replace placeholder values only
 ```sql
-INSERT INTO student_kofi.data_classification_register
-(schema_name, table_name, column_name, data_type, classification, rationale, owner_role, retention_type)
-VALUES
-('raw', 'customers', 'email', 'text', 'Sensitive',
- 'Direct customer identifier used for communication.',
- 'Customer Data', 'Long-term');
+labs/module_2/lab2_insert_templates.sql
 ```
-
-✔ Your **rationale must be specific**
+✔ Your rationale must be specific
 ❌ Avoid vague reasons like “because it is PII”
-
 ---
 
 ## Part 6 — Verify Your Work
