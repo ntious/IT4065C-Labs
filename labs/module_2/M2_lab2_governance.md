@@ -1,11 +1,7 @@
 # Lab 2 — Raw Data Exploration & Data Classification
-
-**Course:** IT4065C – Data Technologies Administration
-**Module:** Module 1 – Foundations of Data Governance & Data Classification
-**Mode:** 🧪 Light Hands-On (Required)
-**Estimated Time:** 45–75 minutes
-**Risk Level:** Low
-**Environment Stress:** Minimal (Postgres + SQL only)
+* **Estimated Time:** 45–75 minutes
+* **Risk Level:** Low
+* **Environment Stress:** Minimal (Postgres + SQL only)
 
 ---
 
