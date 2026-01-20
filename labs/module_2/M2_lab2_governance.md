@@ -156,20 +156,12 @@ There is **no single “correct” answer**—your **reasoning** matters.
 
 You will document your decisions in your own schema.
 
-### Step 4.1: Create the register table
-
+### Step 4.1: Initialize the Governance Register
+A governance register template has been provided for you.
+You will execute it once to create your own classification workspace.
 ```sql
-CREATE TABLE IF NOT EXISTS student_kofi.data_classification_register (
-  schema_name     TEXT NOT NULL,
-  table_name      TEXT NOT NULL,
-  column_name     TEXT NOT NULL,
-  data_type       TEXT NOT NULL,
-  classification  TEXT NOT NULL,
-  rationale       TEXT NOT NULL,
-  owner_role      TEXT NOT NULL,
-  retention_type  TEXT NOT NULL,
-  created_at      TIMESTAMP DEFAULT NOW()
-);
+psql -h localhost -U postgres -d it4065c \
+  -f labs/module_2/lab2_governance_register.sql
 ```
 
 This table represents how governance is **actually tracked** in practice.
