@@ -1,57 +1,9 @@
-# =============================================================================
-# Module 2 – Lab 3
-# File: models/lab3/_lab3_models.yml
-#
-# Purpose:
-# --------
-# This YAML file defines dbt "schema tests" and basic model documentation for
-# the Lab 3 models. It is part of the repo so students do NOT need to write or
-# edit tests during the lab.
-#
-# dbt Schema Tests (What They Are):
-# --------------------------------
-# dbt tests are automated checks that validate data quality assumptions.
-# In professional environments, these tests are essential because:
-#   - Raw data is often messy or inconsistent
-#   - Pipelines can silently introduce errors
-#   - Data quality problems can cause incorrect dashboards and decisions
-#   - Referential integrity is not always enforced at the database level
-#
-# What This File Enforces:
-# ------------------------
-# 1) Primary keys are:
-#      - not null
-#      - unique
-# 2) Foreign keys reference real parent rows via relationship tests:
-#      - orders.customer_id must exist in customers
-#      - order_items.order_id must exist in orders
-#      - order_items.product_id must exist in products
-#
-# Why We Test in dbt Instead of the Database:
-# -------------------------------------------
-# In many analytics platforms:
-#   - Raw/source schemas are not modified (no constraints added)
-#   - Warehouses prioritize flexible loading over strict constraints
-#   - Integrity is enforced in the modeling layer and monitored continuously
-#
-# Student Safety Notes:
-# ---------------------
-# - Students should NOT include passwords, secrets, or .env files in submissions.
-# - If a test fails, students should NOT delete the test to "make it pass."
-#   Instead, they should interpret what the failure means (this is valuable
-#   reasoning evidence in reflection answers).
-#
-# =============================================================================
-
 version: 2
 
 models:
 
   # ---------------------------------------------------------------------------
   # STAGING MODELS
-  # ---------------------------------------------------------------------------
-  # Staging models standardize raw tables into consistent column sets and
-  # predictable formats. They should remain lightweight and avoid complex logic.
   # ---------------------------------------------------------------------------
 
   - name: stg_customers
@@ -64,11 +16,7 @@ models:
           Primary identifier for a customer. Must be present and unique to avoid
           duplicated customers and ambiguous joins.
         tests:
-          # not_null: prevents missing identifiers (a customer row without an id
-          # is not reliably usable)
           - not_null
-          # unique: prevents duplicate customer IDs (which would break joins and
-          # inflate metrics)
           - unique
 
       - name: email
@@ -101,12 +49,10 @@ models:
           a real customer record.
         tests:
           - not_null
-          # relationships: ensures every customer_id in orders exists in customers
-          # If this fails, it indicates an "orphan order" (order references a
-          # non-existent customer).
           - relationships:
-              to: ref('stg_customers')
-              field: customer_id
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
 
       - name: total_amount
         description: >
@@ -158,8 +104,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_orders')
-              field: order_id
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
 
       - name: product_id
         description: >
@@ -168,15 +115,13 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_products')
-              field: product_id
+              arguments:
+                to: ref('stg_products')
+                field: product_id
 
 
   # ---------------------------------------------------------------------------
   # CORE MODELS
-  # ---------------------------------------------------------------------------
-  # Core models represent trusted business entities and facts. These are the
-  # tables downstream users should rely on instead of raw sources.
   # ---------------------------------------------------------------------------
 
   - name: dim_customers
@@ -224,8 +169,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_customers')
-              field: customer_id
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
 
 
   - name: fct_order_items
@@ -248,8 +194,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('fct_orders')
-              field: order_id
+              arguments:
+                to: ref('fct_orders')
+                field: order_id
 
       - name: product_id
         description: >
@@ -258,8 +205,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_products')
-              field: product_id
+              arguments:
+                to: ref('dim_products')
+                field: product_id
 
       - name: line_total
         description: >
