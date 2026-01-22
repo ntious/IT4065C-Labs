@@ -9,7 +9,7 @@
 #
 #   1. Activate the Python virtual environment (dbt-venv)
 #   2. Validate dbt configuration and database connectivity
-#   3. Build ONLY the Lab 3 dbt models
+#   3. Build ONLY the Lab 3 dbt models (staging → core → marts)
 #   4. Run dbt tests for keys and relationships
 #   5. Execute SQL validation queries to inspect outputs
 #
@@ -86,14 +86,16 @@ dbt debug
 # -----------------------------------------------------------------------------
 # Step 5 — Build Lab 3 Models Only
 # -----------------------------------------------------------------------------
-# The --select path:models/lab3 flag ensures:
-#   - Only Lab 3 models are built
-#   - Other labs or experiments are not affected
+# We explicitly select Lab 3 models by LAYER (staging → core → marts).
+# This follows standard dbt project structure and supports future labs.
 #
-# dbt automatically resolves dependencies between staging, core, and marts.
+# dbt automatically resolves dependencies in the correct order.
 # -----------------------------------------------------------------------------
 echo "▶ Building Lab 3 dbt models..."
-dbt run --select path:models/lab3
+dbt run --select \
+  path:models/staging/lab3 \
+  path:models/core/lab3 \
+  path:models/marts/lab3
 
 
 # -----------------------------------------------------------------------------
@@ -106,7 +108,7 @@ dbt run --select path:models/lab3
 # A failure here indicates a DATA QUALITY issue, not a scripting error.
 # -----------------------------------------------------------------------------
 echo "▶ Running dbt tests for Lab 3 models..."
-dbt test --select path:models/lab3
+dbt test --select path:models
 
 
 # -----------------------------------------------------------------------------
