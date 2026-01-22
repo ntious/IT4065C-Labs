@@ -99,4 +99,4 @@ select
     /* Payment metadata: often sensitive from a governance perspective */
     payment_method
 
-from src;
+from src

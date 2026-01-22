@@ -93,4 +93,4 @@ select
     /* Monetary attribute; often business-sensitive */
     price
 
-from src;
+from src

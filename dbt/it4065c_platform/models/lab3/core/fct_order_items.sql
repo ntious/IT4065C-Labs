@@ -118,4 +118,4 @@ select
 
     (quantity * unit_price) AS line_total
 
-from {{ ref('stg_order_items') }};
+from {{ ref('stg_order_items') }}

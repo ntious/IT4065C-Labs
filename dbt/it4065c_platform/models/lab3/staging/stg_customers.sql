@@ -107,4 +107,4 @@ select
     /* Customer account creation timestamp/date (may require casting in real systems) */
     created_at
 
-from src;
+from src

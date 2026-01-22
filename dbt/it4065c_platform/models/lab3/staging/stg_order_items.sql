@@ -110,4 +110,4 @@ select
     /* Price per unit at time of purchase */
     unit_price
 
-from src;
+from src
