@@ -135,6 +135,15 @@ SELECT
 FROM student_kofi.oltp_order_detail
 LIMIT 10;
 
+-- Check whether order header totals match summed line totals (basic reconciliation)
+select
+  order_id,
+  total_amount as order_header_total,
+  sum(line_total) as sum_of_line_items,
+  (total_amount - sum(line_total)) as difference
+from student_kofi.oltp_order_detail
+group by order_id, total_amount
+order by order_id
 
 /*
 -------------------------------------------------------------------------------
