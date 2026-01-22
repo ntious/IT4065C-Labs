@@ -80,4 +80,4 @@ select
 
     created_at
 
-from {{ ref('stg_customers') }};
+from {{ ref('stg_customers') }}

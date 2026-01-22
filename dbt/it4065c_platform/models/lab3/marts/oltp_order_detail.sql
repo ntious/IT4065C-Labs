@@ -144,4 +144,4 @@ join {{ ref('fct_order_items') }} oi
     using (order_id)
 
 join {{ ref('dim_products') }} p
-    using (product_id);
+    using (product_id)

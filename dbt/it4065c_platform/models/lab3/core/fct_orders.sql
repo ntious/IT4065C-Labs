@@ -89,5 +89,5 @@ select
     /* Payment metadata (often governance-sensitive) */
     payment_method
 
-from {{ ref('stg_orders') }};
+from {{ ref('stg_orders') }}
 -- End of fct_orders.sql

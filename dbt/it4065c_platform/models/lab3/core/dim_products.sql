@@ -74,4 +74,4 @@ select
     /* Business-sensitive attribute in many organizations */
     price
 
-from {{ ref('stg_products') }};
+from {{ ref('stg_products') }}

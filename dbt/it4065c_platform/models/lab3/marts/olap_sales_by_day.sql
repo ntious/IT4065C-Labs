@@ -141,5 +141,5 @@ group by 1
  plotting in dashboards.
 -------------------------------------------------------------------------------
 */
-order by 1;
+order by 1
 -- File: dbt/it4065c_platform/models/lab3/marts/oltp_order_detail.sql
