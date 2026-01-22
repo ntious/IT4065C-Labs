@@ -108,6 +108,7 @@ select
     quantity,
 
     /* Price per unit at time of purchase */
-    unit_price
+    price_at_purchase as unit_price
+
 
 from src

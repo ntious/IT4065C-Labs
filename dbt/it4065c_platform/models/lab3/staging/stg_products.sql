@@ -91,6 +91,6 @@ select
     category,
 
     /* Monetary attribute; often business-sensitive */
-    price
+    standard_price as price
 
 from src
