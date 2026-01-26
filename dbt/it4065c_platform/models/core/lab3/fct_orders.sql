@@ -50,44 +50,23 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/core/fct_orders.sql
+
+ ENHANCEMENT
+ -----------
+ - Uses ref() only.
+ - Assumes 1 row per order (explicit grain).
+===============================================================================
+*/
+
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Fact Table Structure
-    ---------------------------------------------------------------------------
-    This fact table uses a 1-row-per-order grain.
-
-    The "grain" of a fact table answers the question:
-      → What does a single row represent?
-
-    Here:
-      - One row = one customer order
-
-    This clarity is critical for:
-      - Correct aggregations
-      - Avoiding double-counting
-      - Reliable analytics
-    ---------------------------------------------------------------------------
-    */
-
-    /* Primary key for the order fact */
     order_id,
-
-    /* Foreign key linking to the customer dimension */
     customer_id,
-
-    /* Date/time of the order event */
     order_date,
-
-    /* Operational state of the order */
     order_status,
-
-    /* Financial measure: total order amount */
     total_amount,
-
-    /* Payment metadata (often governance-sensitive) */
     payment_method
-
 from {{ ref('stg_orders') }}
--- End of fct_orders.sql
