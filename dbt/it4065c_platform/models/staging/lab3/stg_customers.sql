@@ -49,62 +49,54 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/staging/stg_customers.sql
+
+ ENHANCEMENT (dbt best practice + lineage)
+ ----------------------------------------
+ - Uses {{ source('raw','customers') }} so dbt can build lineage (RAW → STG).
+ - Keeps transformations lightweight (staging should standardize, not “decide”).
+ - Leaves raw PII available in staging for learning, but normalizes formatting.
+===============================================================================
+*/
+
 with src as (
 
-    /*
-    ---------------------------------------------------------------------------
-    Source Extraction
-    ---------------------------------------------------------------------------
-    We select from the raw source table as-is.
-
-    dbt best practice:
-    - Staging models typically:
-        * select from raw/source
-        * rename / cast columns
-        * standardize formats
-        * avoid heavy business logic
-    ---------------------------------------------------------------------------
-    */
     select
         *
-    from raw.customers
+    from {{ source('raw', 'customers') }}
+
+),
+
+standardized as (
+
+    select
+
+        /* Primary identifier */
+        cast(customer_id as integer)                                  as customer_id,
+
+        /* Basic attributes */
+        nullif(trim(first_name), '')                                  as first_name,
+        nullif(trim(last_name), '')                                   as last_name,
+
+        /* Potential PII: normalized for consistency (still sensitive) */
+        lower(nullif(trim(email), ''))                                as email,
+        nullif(regexp_replace(phone_number, '[^0-9]', '', 'g'), '')    as phone_number,
+
+        /* Timestamp/date: cast defensively */
+        cast(created_at as timestamp)                                 as created_at
+
+    from src
 
 )
 
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Column Selection & Standardization
-    ---------------------------------------------------------------------------
-
-    We explicitly select columns instead of using `select *` downstream.
-    Reasons:
-      - Improves clarity: everyone sees which fields are "official"
-      - Prevents schema drift: if raw adds a column, it won't silently appear
-      - Supports governance: makes it easier to review sensitive fields
-
-    NOTE:
-    This lab keeps transformations minimal to reduce cognitive load.
-    In advanced implementations, you may also:
-      - cast data types (e.g., created_at::timestamp)
-      - trim whitespace
-      - standardize casing (lower(email))
-      - validate ID formats
-    ---------------------------------------------------------------------------
-    */
-
     customer_id,
     first_name,
     last_name,
-
-    /* Potential PII: email address */
     email,
-
-    /* Potential PII: phone number */
     phone_number,
-
-    /* Customer account creation timestamp/date (may require casting in real systems) */
     created_at
-
-from src
+from standardized
