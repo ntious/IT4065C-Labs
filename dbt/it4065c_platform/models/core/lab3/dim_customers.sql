@@ -51,33 +51,77 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/core/dim_customers.sql
+
+ ENHANCEMENT (secure-by-default for PII)
+ --------------------------------------
+ - Keeps original columns for learning and compatibility.
+ - Adds masked + hashed fields to model secure analytics practices.
+ - Downstream marts will use masked values by default.
+===============================================================================
+*/
+
+with stg as (
+
+    select
+        *
+    from {{ ref('stg_customers') }}
+
+),
+
+final as (
+
+    select
+
+        customer_id,
+        first_name,
+        last_name,
+
+        /*
+          PII NOTE (Educational):
+          We keep raw email/phone here for learning, BUT also provide safer fields.
+          In production, many teams would remove raw PII from dimensional layers.
+        */
+        email,
+        phone_number,
+
+        /* Privacy-preserving linkage */
+        md5(coalesce(email, ''))                          as email_hash,
+        md5(coalesce(phone_number, ''))                   as phone_hash,
+
+        /* Display-safe masking */
+        case
+            when email is null then null
+            when position('@' in email) > 2
+                then left(email, 2) || '***' || substring(email from position('@' in email))
+            else '***'
+        end                                               as email_masked,
+
+        case
+            when phone_number is null then null
+            when length(phone_number) >= 4
+                then '***-***-' || right(phone_number, 4)
+            else '***'
+        end                                               as phone_masked,
+
+        created_at
+
+    from stg
+
+)
+
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Core Entity Selection
-    ---------------------------------------------------------------------------
-    For this lab, the core customer dimension is a direct pass-through from
-    staging. This keeps complexity low so you can focus on the layering concept.
-
-    In real implementations, core dimensions may also:
-      - deduplicate records (one row per customer)
-      - standardize name formatting
-      - handle slowly changing dimensions (SCD Type 1/2)
-      - apply row-level security or masking policies
-    ---------------------------------------------------------------------------
-    */
-
     customer_id,
     first_name,
     last_name,
-
-    /* Potential PII */
     email,
-
-    /* Potential PII */
     phone_number,
-
+    email_hash,
+    phone_hash,
+    email_masked,
+    phone_masked,
     created_at
-
-from {{ ref('stg_customers') }}
+from final
