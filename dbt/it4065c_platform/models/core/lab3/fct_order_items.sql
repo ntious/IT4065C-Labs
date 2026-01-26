@@ -62,60 +62,26 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/core/fct_order_items.sql
+
+ ENHANCEMENT
+ -----------
+ - Uses ref() only.
+ - Adds line_total in the fact layer (centralized metric logic).
+ - Uses coalesce to avoid null math.
+===============================================================================
+*/
+
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Fact Table Structure & Grain
-    ---------------------------------------------------------------------------
-    The grain of this fact table is:
-      → one row per order-item (product per order)
-
-    This means:
-      - Multiple rows can exist for the same order_id
-      - Each row represents a distinct product purchase
-
-    Clearly defining grain prevents:
-      - Incorrect joins
-      - Inflated metrics
-      - Ambiguous aggregations
-    ---------------------------------------------------------------------------
-    */
-
-    /* Primary key for the order-item fact */
     order_item_id,
-
-    /* Foreign key linking to the parent order */
     order_id,
-
-    /* Foreign key linking to the product dimension */
     product_id,
-
-    /* Number of units purchased for this product */
     quantity,
-
-    /* Price per unit at time of purchase */
     unit_price,
 
-    /*
-    ---------------------------------------------------------------------------
-    Derived Measure
-    ---------------------------------------------------------------------------
-    Line-level revenue is calculated here as:
-      quantity × unit_price
-
-    Why calculate this in the fact table?
-      - Centralizes business logic
-      - Prevents repeated calculations downstream
-      - Reduces risk of inconsistent metrics across reports
-
-    In production systems, additional considerations might include:
-      - Handling returns or refunds
-      - Applying discounts or promotions
-      - Currency normalization
-    ---------------------------------------------------------------------------
-    */
-
-    (quantity * unit_price) AS line_total
+    (coalesce(quantity, 0) * coalesce(unit_price, 0))     as line_total
 
 from {{ ref('stg_order_items') }}
