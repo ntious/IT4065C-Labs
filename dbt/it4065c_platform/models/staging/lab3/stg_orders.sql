@@ -44,59 +44,54 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/staging/stg_orders.sql
+
+ ENHANCEMENT (dbt best practice + lineage)
+ ----------------------------------------
+ - Uses {{ source('raw','orders') }} so dbt draws RAW → STG edges in the DAG.
+ - Standardizes types and trims strings to reduce downstream errors.
+===============================================================================
+*/
+
 with src as (
 
-    /*
-    ---------------------------------------------------------------------------
-    Source Extraction
-    ---------------------------------------------------------------------------
-    Pull from the raw orders table without applying business logic.
-    Staging models typically remain lightweight and predictable.
-    ---------------------------------------------------------------------------
-    */
     select
         *
-    from raw.orders
+    from {{ source('raw', 'orders') }}
+
+),
+
+standardized as (
+
+    select
+
+        cast(order_id as integer)                         as order_id,
+        cast(customer_id as integer)                      as customer_id,
+
+        /* Dates: cast to date for consistent aggregation */
+        cast(order_date as date)                          as order_date,
+
+        /* Standardize status text */
+        lower(nullif(trim(order_status), ''))             as order_status,
+
+        /* Amounts: cast to numeric for safe analytics */
+        cast(total_amount as numeric(12,2))               as total_amount,
+
+        /* Governance-sensitive metadata */
+        lower(nullif(trim(payment_method), ''))           as payment_method
+
+    from src
 
 )
 
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Column Selection & Standardization
-    ---------------------------------------------------------------------------
-
-    We explicitly select columns to:
-      - Avoid schema drift (new raw columns won't auto-appear downstream)
-      - Improve clarity and reviewability
-      - Support governance review (which fields are used and why)
-
-    Minimal transformations are used in this lab to reduce cognitive load.
-    In a production setting, you might also:
-      - cast order_date to DATE/TIMESTAMP
-      - cast total_amount to NUMERIC/DECIMAL
-      - standardize order_status values
-      - validate that amounts are non-negative
-    ---------------------------------------------------------------------------
-    */
-
-    /* Primary identifier for the order */
     order_id,
-
-    /* Foreign key linking an order to a customer */
     customer_id,
-
-    /* Date/time the order was placed (may require casting in real systems) */
     order_date,
-
-    /* Operational state of the order (e.g., pending, shipped, completed) */
     order_status,
-
-    /* Financial attribute: total amount of the order (may require casting) */
     total_amount,
-
-    /* Payment metadata: often sensitive from a governance perspective */
     payment_method
-
-from src
+from standardized
