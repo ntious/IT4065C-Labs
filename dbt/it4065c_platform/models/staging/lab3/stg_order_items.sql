@@ -54,61 +54,45 @@
 
 ===============================================================================
 */
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/staging/stg_order_items.sql
+
+ ENHANCEMENT (dbt best practice + lineage)
+ ----------------------------------------
+ - Uses {{ source('raw','order_items') }} so dbt builds lineage.
+ - Casts numeric fields to support reliable revenue math downstream.
+===============================================================================
+*/
 
 with src as (
 
-    /*
-    ---------------------------------------------------------------------------
-    Source Extraction
-    ---------------------------------------------------------------------------
-    Select all columns from the raw order_items table.
-
-    Best practice:
-    - Keep staging logic lightweight
-    - Avoid joins and aggregations
-    - Preserve raw values while clarifying structure
-    ---------------------------------------------------------------------------
-    */
     select
         *
-    from raw.order_items
+    from {{ source('raw', 'order_items') }}
+
+),
+
+standardized as (
+
+    select
+
+        cast(order_item_id as integer)                    as order_item_id,
+        cast(order_id as integer)                         as order_id,
+        cast(product_id as integer)                       as product_id,
+
+        cast(quantity as integer)                         as quantity,
+        cast(unit_price as numeric(12,2))                 as unit_price
+
+    from src
 
 )
 
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Column Selection & Standardization
-    ---------------------------------------------------------------------------
-
-    Explicit column selection helps:
-      - Prevent schema drift
-      - Make key relationships obvious
-      - Support data governance and review
-
-    In production systems, additional steps might include:
-      - casting quantity to INTEGER
-      - casting unit_price to NUMERIC/DECIMAL
-      - validating non-negative quantities and prices
-      - handling returns or refunds as separate records
-    ---------------------------------------------------------------------------
-    */
-
-    /* Primary identifier for each order line item */
     order_item_id,
-
-    /* Foreign key referencing the parent order */
     order_id,
-
-    /* Foreign key referencing the purchased product */
     product_id,
-
-    /* Number of units purchased for this product */
     quantity,
-
-    /* Price per unit at time of purchase */
-    price_at_purchase as unit_price
-
-
-from src
+    unit_price
+from standardized
