@@ -51,27 +51,21 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/core/dim_products.sql
+
+ ENHANCEMENT
+ -----------
+ - Uses ref() only (dbt best practice).
+ - Keeps model simple and trusted for joins.
+===============================================================================
+*/
+
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Core Entity Selection
-    ---------------------------------------------------------------------------
-    For this lab, `dim_products` is a direct pass-through from staging.
-
-    In production systems, this model might also:
-      - standardize product names and categories
-      - handle discontinued/inactive products
-      - manage product versioning or category hierarchies
-      - integrate with multiple source systems
-    ---------------------------------------------------------------------------
-    */
-
     product_id,
     product_name,
     category,
-
-    /* Business-sensitive attribute in many organizations */
     price
-
 from {{ ref('stg_products') }}
