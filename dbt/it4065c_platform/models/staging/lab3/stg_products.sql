@@ -43,54 +43,42 @@
 ===============================================================================
 */
 
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/staging/stg_products.sql
+
+ ENHANCEMENT (dbt best practice + lineage)
+ ----------------------------------------
+ - Uses {{ source('raw','products') }} so dbt can draw RAW → STG lineage.
+ - Standardizes strings and casts price to numeric.
+===============================================================================
+*/
+
 with src as (
 
-    /*
-    ---------------------------------------------------------------------------
-    Source Extraction
-    ---------------------------------------------------------------------------
-    Select directly from the raw products table.
-
-    Best practice:
-    - Avoid applying business logic in staging
-    - Preserve source values while standardizing structure
-    ---------------------------------------------------------------------------
-    */
     select
         *
-    from raw.products
+    from {{ source('raw', 'products') }}
+
+),
+
+standardized as (
+
+    select
+
+        cast(product_id as integer)                       as product_id,
+        nullif(trim(product_name), '')                    as product_name,
+        nullif(trim(category), '')                        as category,
+        cast(price as numeric(12,2))                      as price
+
+    from src
 
 )
 
 select
-
-    /*
-    ---------------------------------------------------------------------------
-    Column Selection & Standardization
-    ---------------------------------------------------------------------------
-
-    Columns are explicitly selected to:
-      - Make the "official" product attributes visible
-      - Prevent unexpected schema changes from affecting downstream models
-      - Support governance review of which product fields are in use
-
-    In a production system, additional transformations might include:
-      - casting price to NUMERIC/DECIMAL
-      - normalizing category names
-      - handling discontinued or inactive products
-    ---------------------------------------------------------------------------
-    */
-
-    /* Primary identifier for the product */
     product_id,
-
-    /* Human-readable product name */
     product_name,
-
-    /* High-level grouping used for analytics and reporting */
     category,
-
-    /* Monetary attribute; often business-sensitive */
-    standard_price as price
-
-from src
+    price
+from standardized
