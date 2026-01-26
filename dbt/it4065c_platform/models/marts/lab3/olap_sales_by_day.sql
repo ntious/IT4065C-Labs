@@ -64,82 +64,31 @@
 ===============================================================================
 */
 
+with daily as (
+
+    select
+        o.order_date,
+
+        count(distinct o.order_id)                         as orders_count,
+        sum(oi.quantity)                                   as items_sold,
+        sum(oi.line_total)                                 as gross_sales,
+
+        /* Helpful secondary metric */
+        avg(o.total_amount)                                as avg_order_value
+
+    from {{ ref('fct_orders') }} o
+    join {{ ref('fct_order_items') }} oi
+      on o.order_id = oi.order_id
+    group by 1
+
+)
+
 select
+    order_date,
+    orders_count,
+    items_sold,
+    gross_sales,
+    avg_order_value
+from daily
+order by order_date
 
-    /*
-    ---------------------------------------------------------------------------
-    Time Dimension (Aggregation Key)
-    ---------------------------------------------------------------------------
-    We aggregate by order_date to create daily metrics.
-
-    Note:
-    - If order_date includes time (timestamp), a production model may need to
-      cast or truncate to a date (e.g., DATE(order_date)).
-    - This lab assumes order_date is already date-like or consistent enough.
-    ---------------------------------------------------------------------------
-    */
-    o.order_date,
-
-    /*
-    ---------------------------------------------------------------------------
-    Metric 1 — Orders per Day
-    ---------------------------------------------------------------------------
-    We count DISTINCT order_id because:
-      - We are joining to line items
-      - A single order can have multiple line items
-      - Counting order_id without DISTINCT would inflate order counts
-    ---------------------------------------------------------------------------
-    */
-    count(distinct o.order_id) as orders,
-
-    /*
-    ---------------------------------------------------------------------------
-    Metric 2 — Gross Sales per Day
-    ---------------------------------------------------------------------------
-    We sum line_total (quantity × unit_price) from the line-item fact table.
-
-    Why use line_total?
-      - It represents item-level revenue before any advanced adjustments.
-      - It aggregates cleanly across time, products, and customers.
-
-    In real organizations, "sales" might be net of discounts/refunds and might
-    exclude taxes/shipping depending on metric definitions.
-    ---------------------------------------------------------------------------
-    */
-    sum(oi.line_total) as gross_sales
-
-from {{ ref('fct_orders') }} o
-
-/*
--------------------------------------------------------------------------------
- Join to Line Items
--------------------------------------------------------------------------------
- We join to fct_order_items because revenue is represented at the line level
- (quantity × unit_price). This provides the most accurate basis for summations.
-
- Relationship tests in dbt are expected to ensure:
- - Every line item references a valid order
--------------------------------------------------------------------------------
-*/
-join {{ ref('fct_order_items') }} oi
-    using (order_id)
-
-/*
--------------------------------------------------------------------------------
- Aggregation
--------------------------------------------------------------------------------
- Group by the time key (order_date) to produce one row per day.
--------------------------------------------------------------------------------
-*/
-group by 1
-
-/*
--------------------------------------------------------------------------------
- Ordering
--------------------------------------------------------------------------------
- Ordering by date makes the output immediately readable for validation and
- plotting in dashboards.
--------------------------------------------------------------------------------
-*/
-order by 1
--- File: dbt/it4065c_platform/models/lab3/marts/oltp_order_detail.sql
