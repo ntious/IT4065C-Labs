@@ -63,85 +63,48 @@
 ===============================================================================
 */
 
-select
+/*
+===============================================================================
+ Module 2 – Lab 3
+ File: models/lab3/marts/oltp_order_detail.sql
 
-    /*
-    ---------------------------------------------------------------------------
-    Order Header Fields (from fct_orders)
-    ---------------------------------------------------------------------------
-    These fields describe the order as a whole (the "header"):
-      - order_id, order_date, status, payment method, total amount
-    ---------------------------------------------------------------------------
-    */
+ ENHANCEMENT (PII-safe default)
+ -----------------------------
+ - Uses masked PII fields from dim_customers by default.
+ - Still includes hashes for join/debug (privacy-preserving).
+===============================================================================
+*/
+
+select
+    /* Order header */
     o.order_id,
     o.order_date,
     o.order_status,
     o.total_amount,
     o.payment_method,
 
-    /*
-    ---------------------------------------------------------------------------
-    Customer Fields (from dim_customers)
-    ---------------------------------------------------------------------------
-    These fields describe WHO placed the order.
-    Note: email and phone are potential PII.
-    ---------------------------------------------------------------------------
-    */
-    o.customer_id,
+    /* Customer */
+    c.customer_id,
     c.first_name,
     c.last_name,
-    c.email,
-    c.phone_number,
+    c.email_masked,
+    c.phone_masked,
+    c.email_hash,
+    c.phone_hash,
 
-    /*
-    ---------------------------------------------------------------------------
-    Line Item Fields (from fct_order_items)
-    ---------------------------------------------------------------------------
-    These fields describe WHAT was purchased and in what quantity.
-    Grain reminder: one row per order_item_id.
-    ---------------------------------------------------------------------------
-    */
+    /* Line items */
     oi.order_item_id,
     oi.product_id,
-    oi.quantity,
-    oi.unit_price,
-    oi.line_total,
-
-    /*
-    ---------------------------------------------------------------------------
-    Product Fields (from dim_products)
-    ---------------------------------------------------------------------------
-    These fields describe the purchased product.
-    ---------------------------------------------------------------------------
-    */
     p.product_name,
     p.category,
-    p.price
+    oi.quantity,
+    oi.unit_price,
+    oi.line_total
 
 from {{ ref('fct_orders') }} o
-
-/*
--------------------------------------------------------------------------------
- Join Strategy
--------------------------------------------------------------------------------
- We use inner joins because:
-   - In a clean, integrity-enforced model, orders should have valid customers
-   - Order items should have valid orders and products
-
- If any join reduces row counts unexpectedly, that may indicate:
-   - orphaned foreign keys in the source data
-   - missing dimension records
-   - data quality issues
-
- dbt relationship tests (in _lab3_models.yml) are designed to detect these
- conditions proactively.
--------------------------------------------------------------------------------
-*/
 join {{ ref('dim_customers') }} c
-    using (customer_id)
-
+  on o.customer_id = c.customer_id
 join {{ ref('fct_order_items') }} oi
-    using (order_id)
-
+  on o.order_id = oi.order_id
 join {{ ref('dim_products') }} p
-    using (product_id)
+  on oi.product_id = p.product_id
