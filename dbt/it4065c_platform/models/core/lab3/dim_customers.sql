@@ -51,18 +51,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/core/dim_customers.sql
-
- ENHANCEMENT (secure-by-default for PII)
- --------------------------------------
- - Keeps original columns for learning and compatibility.
- - Adds masked + hashed fields to model secure analytics practices.
- - Downstream marts will use masked values by default.
-===============================================================================
-*/
 
 with stg as (
 
