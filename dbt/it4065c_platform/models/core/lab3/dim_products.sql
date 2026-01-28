@@ -1,6 +1,6 @@
 /*
 ===============================================================================
- Module 2 – Lab 3
+ Module 3 – Lab 1
  File: models/lab3/core/dim_products.sql
 
  Model Type:
@@ -51,17 +51,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/core/dim_products.sql
-
- ENHANCEMENT
- -----------
- - Uses ref() only (dbt best practice).
- - Keeps model simple and trusted for joins.
-===============================================================================
-*/
 
 select
     product_id,
