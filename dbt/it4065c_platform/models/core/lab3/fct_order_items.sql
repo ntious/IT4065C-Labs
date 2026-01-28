@@ -62,19 +62,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/core/fct_order_items.sql
-
- ENHANCEMENT
- -----------
- - Uses ref() only.
- - Adds line_total in the fact layer (centralized metric logic).
- - Uses coalesce to avoid null math.
-===============================================================================
-*/
-
 select
     order_item_id,
     order_id,
