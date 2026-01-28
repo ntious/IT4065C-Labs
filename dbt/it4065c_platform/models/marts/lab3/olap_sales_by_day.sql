@@ -91,4 +91,3 @@ select
     avg_order_value
 from daily
 order by order_date
-
