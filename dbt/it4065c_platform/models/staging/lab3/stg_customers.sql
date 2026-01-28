@@ -49,19 +49,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/staging/stg_customers.sql
-
- ENHANCEMENT (dbt best practice + lineage)
- ----------------------------------------
- - Uses {{ source('raw','customers') }} so dbt can build lineage (RAW → STG).
- - Keeps transformations lightweight (staging should standardize, not “decide”).
- - Leaves raw PII available in staging for learning, but normalizes formatting.
-===============================================================================
-*/
-
 with src as (
 
     select
