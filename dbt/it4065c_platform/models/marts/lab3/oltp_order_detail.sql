@@ -63,18 +63,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/marts/oltp_order_detail.sql
-
- ENHANCEMENT (PII-safe default)
- -----------------------------
- - Uses masked PII fields from dim_customers by default.
- - Still includes hashes for join/debug (privacy-preserving).
-===============================================================================
-*/
-
 select
     /* Order header */
     o.order_id,
