@@ -44,18 +44,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/staging/stg_orders.sql
-
- ENHANCEMENT (dbt best practice + lineage)
- ----------------------------------------
- - Uses {{ source('raw','orders') }} so dbt draws RAW → STG edges in the DAG.
- - Standardizes types and trims strings to reduce downstream errors.
-===============================================================================
-*/
-
 with src as (
 
     select
