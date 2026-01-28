@@ -54,17 +54,6 @@
 
 ===============================================================================
 */
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/staging/stg_order_items.sql
-
- ENHANCEMENT (dbt best practice + lineage)
- ----------------------------------------
- - Uses {{ source('raw','order_items') }} so dbt builds lineage.
- - Casts numeric fields to support reliable revenue math downstream.
-===============================================================================
-*/
 
 with src as (
 
