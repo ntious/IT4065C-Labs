@@ -43,17 +43,6 @@
 ===============================================================================
 */
 
-/*
-===============================================================================
- Module 2 – Lab 3
- File: models/lab3/staging/stg_products.sql
-
- ENHANCEMENT (dbt best practice + lineage)
- ----------------------------------------
- - Uses {{ source('raw','products') }} so dbt can draw RAW → STG lineage.
- - Standardizes strings and casts price to numeric.
-===============================================================================
-*/
 
 with src as (
 
