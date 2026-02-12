@@ -59,7 +59,7 @@ standardized as (
         cast(product_id as integer)                       as product_id,
         nullif(trim(product_name), '')                    as product_name,
         nullif(trim(category), '')                        as category,
-        cast(price as numeric(12,2))                      as price
+        cast(standard_price as numeric(12,2))                      as price
 
     from src
 
