@@ -4,135 +4,118 @@
 # File: labs/module_2/lab3/lab3_run_all.sh
 #
 # Purpose:
-# --------
-# This script provides a SAFE, ONE-COMMAND way to run the entire Lab 3 workflow:
+#   SAFE, ONE-COMMAND execution of the Lab 3 workflow:
+#     1) Activate dbt virtual environment (dbt-venv)
+#     2) Validate dbt configuration + DB connectivity (dbt debug)
+#     3) Build ONLY Lab 3 dbt models (staging → core → marts)
+#     4) Run ONLY Lab 3 tests (PK/FK integrity + not-null/unique)
+#     5) Run read-only SQL quick checks
 #
-#   1. Activate the Python virtual environment (dbt-venv)
-#   2. Validate dbt configuration and database connectivity
-#   3. Build ONLY the Lab 3 dbt models (staging → core → marts)
-#   4. Run dbt tests for keys and relationships
-#   5. Execute SQL validation queries to inspect outputs
-#
-# This script is OPTIONAL for students but serves as:
-#   - A safety net if something goes wrong
-#   - A reference implementation of the correct execution order
-#   - A TA/instructor troubleshooting shortcut
-#
-# IMPORTANT STUDENT NOTES:
-# ------------------------
-# - You are NOT required to edit this script.
-# - You are NOT required to understand every line.
-# - You should NOT add passwords, secrets, or credentials here.
-# - This script does NOT modify any data manually; it only runs dbt and
-#   read-only validation queries.
-#
-# BEST PRACTICE:
-# --------------
-# Scripts like this are common in professional data teams to:
-#   - Standardize execution
-#   - Reduce human error
-#   - Support reproducibility
-#
+# Student notes:
+#   - Do NOT add passwords/secrets here.
+#   - This script runs dbt + read-only validation queries only.
 ###############################################################################
 
-# -----------------------------------------------------------------------------
-# Safety Settings
-# -----------------------------------------------------------------------------
-# -e : Exit immediately if any command fails
-# This prevents later steps from running on a broken state
-# -----------------------------------------------------------------------------
-set -e
-
+set -euo pipefail
 
 # -----------------------------------------------------------------------------
-# Step 1 — Navigate to the Course Repository
+# Helpers
 # -----------------------------------------------------------------------------
-# Assumes the repo was cloned into the home directory as instructed in Lab 1
-# -----------------------------------------------------------------------------
-echo "▶ Navigating to course repository..."
-cd ~/IT4065C-Labs
+banner() { echo -e "\n============================================================\n$1\n============================================================"; }
+step()   { echo -e "\n▶ $1"; }
+die()    { echo -e "\n❌ ERROR: $1\n"; exit 1; }
 
-
-# -----------------------------------------------------------------------------
-# Step 2 — Activate Python Virtual Environment
-# -----------------------------------------------------------------------------
-# dbt is installed inside a virtual environment to avoid system-wide conflicts
-# -----------------------------------------------------------------------------
-echo "▶ Activating dbt virtual environment..."
-source dbt-venv/bin/activate
-
+# Trap unexpected failures with a clearer message
+trap 'echo -e "\n❌ Script stopped due to an error. Review the output above.\n"; exit 1' ERR
 
 # -----------------------------------------------------------------------------
-# Step 3 — Navigate to dbt Project Directory
+# Config (paths)
 # -----------------------------------------------------------------------------
-echo "▶ Navigating to dbt project..."
-cd dbt/it4065c_platform
+REPO_DIR="${HOME}/IT4065C-Labs"
+DBT_PROJECT_DIR="${REPO_DIR}/dbt/it4065c_platform"
+VENV_ACTIVATE="${REPO_DIR}/dbt-venv/bin/activate"
+QUICK_CHECKS_SQL="${REPO_DIR}/labs/module_2/lab3/lab3_quick_checks.sql"
+
+# Lab 3 selection (models live here; tests live under models/lab3)
+LAB3_MODEL_SELECTORS=(
+  "path:models/staging/lab3"
+  "path:models/core/lab3"
+  "path:models/marts/lab3"
+)
+LAB3_TEST_SELECTOR="path:models/lab3"
+
+# -----------------------------------------------------------------------------
+# Pre-flight checks (student-proofing)
+# -----------------------------------------------------------------------------
+banner "Module 2 – Lab 3: Run All (Build + Test + Validate)"
+
+step "Checking repository and required files..."
+[[ -d "${REPO_DIR}" ]] || die "Course repo not found at: ${REPO_DIR}. Did you complete Lab 1 (clone repo)?"
 
 
+[[ -f "${VENV_ACTIVATE}" ]] || die "Virtual environment not found: ${VENV_ACTIVATE}. Did you complete Lab 1 setup?"
+[[ -d "${DBT_PROJECT_DIR}" ]] || die "dbt project directory not found: ${DBT_PROJECT_DIR}"
+[[ -f "${QUICK_CHECKS_SQL}" ]] || die "Quick checks SQL not found: ${QUICK_CHECKS_SQL}"
+
+command -v dbt  >/dev/null 2>&1 || true
+command -v psql >/dev/null 2>&1 || die "psql not found. Ensure PostgreSQL client is installed (per Lab 1)."
+
 # -----------------------------------------------------------------------------
-# Step 4 — Verify dbt Configuration and Database Connectivity
+# Step 1 — Go to repo root
 # -----------------------------------------------------------------------------
-# This checks:
-#   - profiles.yml configuration
-#   - database credentials
-#   - ability to connect to PostgreSQL
-#
-# If this step fails, the lab should NOT continue.
+step "Navigating to course repository..."
+cd "${REPO_DIR}"
+
 # -----------------------------------------------------------------------------
-echo "▶ Running dbt debug (configuration check)..."
+# Step 2 — Activate venv
+# -----------------------------------------------------------------------------
+step "Activating dbt virtual environment..."
+# shellcheck disable=SC1090
+source "${VENV_ACTIVATE}"
+
+# -----------------------------------------------------------------------------
+# Step 3 — Go to dbt project
+# -----------------------------------------------------------------------------
+step "Navigating to dbt project..."
+cd "${DBT_PROJECT_DIR}"
+
+# -----------------------------------------------------------------------------
+# Step 4 — dbt debug (connectivity + profiles)
+# -----------------------------------------------------------------------------
+step "Running dbt debug (configuration + database connectivity)..."
 dbt debug
 
-
 # -----------------------------------------------------------------------------
-# Step 5 — Build Lab 3 Models Only
+# Step 5 — Build Lab 3 models only (staging → core → marts)
 # -----------------------------------------------------------------------------
-# We explicitly select Lab 3 models by LAYER (staging → core → marts).
-# This follows standard dbt project structure and supports future labs.
-#
-# dbt automatically resolves dependencies in the correct order.
-# -----------------------------------------------------------------------------
-echo "▶ Building Lab 3 dbt models..."
+step "Building Lab 3 dbt models (staging → core → marts)..."
 dbt run --select \
-  path:models/staging/lab3 \
-  path:models/core/lab3 \
-  path:models/marts/lab3
-
-
-# -----------------------------------------------------------------------------
-# Step 6 — Run Data Quality Tests for Lab 3
-# -----------------------------------------------------------------------------
-# These tests validate:
-#   - Primary keys are not null and unique
-#   - Foreign keys reference valid parent records
-#
-# A failure here indicates a DATA QUALITY issue, not a scripting error.
-# -----------------------------------------------------------------------------
-echo "▶ Running dbt tests for Lab 3 models..."
-dbt test --select path:models
-
+  "${LAB3_MODEL_SELECTORS[0]}" \
+  "${LAB3_MODEL_SELECTORS[1]}" \
+  "${LAB3_MODEL_SELECTORS[2]}"
 
 # -----------------------------------------------------------------------------
-# Step 7 — Run SQL Validation Queries
+# Step 6 — Run Lab 3 tests only (IMPORTANT: do NOT run all project tests)
 # -----------------------------------------------------------------------------
-# These queries:
-#   - Confirm tables exist and contain data
-#   - Display OLAP aggregated results
-#   - Show a sample of OLTP-style detail rows
-#
-# IMPORTANT:
-# - These queries are READ-ONLY
-# - They do NOT modify any data
-# -----------------------------------------------------------------------------
-echo "▶ Running SQL validation checks..."
-cd ~/IT4065C-Labs
-
-psql -h localhost -U postgres -d it4065c \
-     -f labs/module_2/lab3/lab3_quick_checks.sql
-
+step "Running Lab 3 dbt tests (PK/FK integrity, not-null, unique)..."
+dbt test --select "${LAB3_TEST_SELECTOR}"
 
 # -----------------------------------------------------------------------------
-# Completion Message
+# Step 7 — SQL validation quick checks (read-only)
 # -----------------------------------------------------------------------------
-echo "✅ Lab 3 pipeline completed successfully."
-echo "You may now review outputs and complete reflection questions."
-###############################################################################
+step "Running SQL validation checks (read-only)..."
+cd "${REPO_DIR}"
+
+# NOTE:
+# - If your local PostgreSQL requires a password for -U postgres, psql may prompt.
+# - This is expected. Do NOT hardcode passwords into this script.
+psql -h localhost -U postgres -d it4065c -f "${QUICK_CHECKS_SQL}"
+
+# -----------------------------------------------------------------------------
+# Completion
+# -----------------------------------------------------------------------------
+banner "✅ Lab 3 pipeline completed successfully"
+echo "Next:"
+echo "  • Review your dbt run/test output"
+echo "  • Capture required screenshots"
+echo "  • Complete the reflection questions"
