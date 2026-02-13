@@ -1,4 +1,4 @@
-# IT4065C: Data Technologies Administration  
+# Data Technologies Administration  
 ## Public Course Framework Overview
 
 ---

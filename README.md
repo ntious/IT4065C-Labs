@@ -206,6 +206,11 @@ This repository represents a complete lifecycle framework for developing those c
 
 Welcome to enterprise data administration.
 
+## Versioning
+
+Spring 2026 Edition  
+Future updates will be tagged by semester.
+
 ## License
 
 - Code components are licensed under the MIT License.
