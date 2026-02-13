@@ -192,7 +192,7 @@ Evaluation reflects the strength of your reasoning.
 
 The capstone follows a complete enterprise architecture lifecycle:
 
-```mermaid
+
 flowchart LR
     A[Phase 1<br>Discovery] --> B[Phase 2<br>Logical Data Model]
     B --> C[Phase 3<br>Workload Strategy<br>OLTP vs OLAP]
