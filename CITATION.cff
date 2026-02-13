@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository (labs, capstone framework, or code) in teaching,
+  research, or curriculum development, please cite it using the metadata below.
+  Citation helps document instructional impact and supports continued open
+  educational development.
+title: "IT4065C: Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
+type: software
+authors:
+  - family-names: "Nti"
+    given-names: "Isaac K."
+    affiliation: "University of Cincinnati"
+year: 2026
+date-released: 2026-02-13
+license: MIT
+repository-code: "https://github.com/ntious/IT4065C-Labs"
+keywords:
+  - data-governance
+  - data-architecture
+  - data-lifecycle
+  - analytics-engineering
+  - dbt
+  - postgresql
+  - role-based-access-control
+  - rbac
+  - audit-logging
+  - compliance
+  - cybersecurity
+  - open-educational-resources
+  - curriculum
+  - higher-education
+abstract: >-
+  An open educational framework for teaching enterprise data governance and
+  architecture through a progressive lab sequence (infrastructure, classification,
+  layered modeling, lifecycle/lineage, access control, monitoring/audit) and a
+  multi-phase capstone simulation (requirements, logical modeling, OLTP/OLAP
+  workload strategy, governance overlay, evidence validation, executive defense,
+  and professional reflection).
+
+preferred-citation:
+  type: software
+  title: "IT4065C: Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
+  authors:
+    - family-names: "Nti"
+      given-names: "Isaac K."
+      affiliation: "University of Cincinnati"
+  year: 2026
+  date-released: 2026-02-13
+  repository-code: "https://github.com/ntious/IT4065C-Labs"
+  license: MIT
