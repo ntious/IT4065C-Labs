@@ -197,10 +197,6 @@ It requires:
 This repository represents a complete lifecycle framework for developing those competencies.
 
 Welcome to enterprise data administration.
-<<<<<<< HEAD
-=======
-
->>>>>>> 14b9d01c9b8c6a1fd0465839ac6659aa68b574c8
 
 ## License
 
