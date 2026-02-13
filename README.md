@@ -203,5 +203,5 @@ Welcome to enterprise data administration.
 - Code components are licensed under the MIT License.
 - Curriculum and documentation content are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
 
-See `LICENSE` and `LICENSE-CONTENT.md` for details.
+**See `LICENSE` and `LICENSE-CONTENT.md` for details.**
 ---
