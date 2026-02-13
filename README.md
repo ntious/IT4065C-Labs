@@ -197,8 +197,6 @@ It requires:
 This repository represents a complete lifecycle framework for developing those competencies.
 
 Welcome to enterprise data administration.
-```
----
 
 ## License
 
