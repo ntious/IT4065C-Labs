@@ -193,21 +193,34 @@ Evaluation reflects the strength of your reasoning.
 The capstone follows a complete enterprise architecture lifecycle:
 
 
-flowchart LR
-    A[Phase 1<br>Discovery] --> B[Phase 2<br>Logical Data Model]
-    B --> C[Phase 3<br>Workload Strategy<br>OLTP vs OLAP]
-    C --> D[Phase 4<br>Governance Overlay]
-    D --> E[Phase 5<br>Integration & Evidence]
-    E --> F[Phase 6<br>Executive Defense]
-    F --> G[Phase 7<br>Architectural Reflection]
+## 📊 Requirements → Architecture → Governance Flow
 
-    style A fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px
-    style B fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px
-    style C fill:#FFF3E0,stroke:#EF6C00,stroke-width:2px
-    style D fill:#FCE4EC,stroke:#C2185B,stroke-width:2px
-    style E fill:#EDE7F6,stroke:#5E35B1,stroke-width:2px
-    style F fill:#F1F8E9,stroke:#558B2F,stroke-width:2px
-    style G fill:#ECEFF1,stroke:#37474F,stroke-width:2px
+The capstone follows a structured traceability model.
+
+Every architectural decision must originate from stakeholder requirements and
+flow through modeling, governance, and enforcement layers.
+
+
+flowchart TD
+
+A[Business Interview Transcript] --> B[Phase 1: Requirements Extraction]
+B --> C[Phase 2: Logical Data Model]
+
+C --> D[Phase 3: Workload Strategy<br>OLTP vs OLAP]
+
+D --> E[Phase 4: Governance Overlay<br>Ownership • Sensitivity • Retention • Risk]
+
+E --> F[Phase 5: Evidence Validation<br>Lifecycle • RBAC • Monitoring]
+
+F --> G[Phase 6: Executive Defense]
+
+G --> H[Phase 7: Individual Reflection]
+
+style A fill:#f9f9f9,stroke:#333,stroke-width:1px
+style E fill:#ffe6e6,stroke:#cc0000,stroke-width:1px
+style F fill:#e6f2ff,stroke:#0066cc,stroke-width:1px
+style G fill:#f2f2f2,stroke:#444,stroke-width:1px
+
 
 ---
 
