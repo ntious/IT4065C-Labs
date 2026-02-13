@@ -83,6 +83,14 @@ Each lab introduces one governance layer and validates it technically.
 📄 See: `labs/README.md`
 
 ---
+## Case Study Source
+
+All capstone phases are grounded in the Business Interview Transcript:
+
+📄 See: `Business_Interview_Transcript.md`
+
+Architectural and governance decisions must be traceable to transcript evidence.
+---
 
 ## Capstone – Governed Retail Data Architecture
 
