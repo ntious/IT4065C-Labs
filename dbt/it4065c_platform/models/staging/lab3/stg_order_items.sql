@@ -72,7 +72,7 @@ standardized as (
         cast(product_id as integer)                       as product_id,
 
         cast(quantity as integer)                         as quantity,
-        cast(unit_price as numeric(12,2))                 as unit_price
+        cast(price_at_purchase as numeric(12,2))                 as unit_price
 
     from src
 
