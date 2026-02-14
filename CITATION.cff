@@ -4,7 +4,7 @@ message: >-
   research, or curriculum development, please cite it using the metadata below.
   Citation helps document instructional impact and supports continued open
   educational development.
-title: "IT4065C: Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
+title: "Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
 type: software
 authors:
   - family-names: "Nti"
@@ -39,7 +39,7 @@ abstract: >-
 
 preferred-citation:
   type: software
-  title: "IT4065C: Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
+  title: "Data Technologies Administration — Enterprise Data Governance & Architecture Framework"
   authors:
     - family-names: "Nti"
       given-names: "Isaac K."
