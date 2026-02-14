@@ -1,7 +1,7 @@
-# IT4065C – Data Technologies Administration  
+# Data Technologies Administration  
 ## Enterprise Data Governance & Architecture Framework
 
-Welcome to the public repository for **IT4065C: Data Technologies Administration**.
+Welcome to the public repository for **Data Technologies Administration**.
 
 This course is designed as a full-lifecycle enterprise data architecture simulation.
 
@@ -217,4 +217,5 @@ Future updates will be tagged by semester.
 - Curriculum and documentation content are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
 
 **See `LICENSE` and `LICENSE-CONTENT.md` for details.**
+
 ---
