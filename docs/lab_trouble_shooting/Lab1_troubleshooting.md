@@ -2,7 +2,7 @@
 
 This troubleshooting guide is tailored to **Lab 1: Preflight & Environment Readiness** and focuses on the most common (and most likely) failure points students hit while completing Steps 1–11. It is written to be “copy/paste ready” with concrete commands.
 
-> Scope: Ubuntu VM (UC Sandbox) **and** Windows WSL Ubuntu (Microsoft Store).  
+> Scope: Ubuntu VM (Sandbox) **and** Windows WSL Ubuntu (Microsoft Store).  
 > Lab reference: *Lab 1: Preflight & Environment Readiness* (PDF). fileciteturn0file0
 
 ---
