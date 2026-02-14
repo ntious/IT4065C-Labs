@@ -268,7 +268,7 @@ You are building a layered transformation pipeline with traceability and control
 
 ---
 
-**Course:** IT4065C – Data Technologies Administration
+**Course:** Data Technologies Administration
 **Layer:** Transformation Engine
 **Framework:** dbt + PostgreSQL
 
