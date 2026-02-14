@@ -1,20 +1,39 @@
 # Lab 6 Troubleshooting Guide
-## Monitoring Evidence & Compliance Reasoning (IT4065C)
+## Module 6 – Lab 6: Monitoring Evidence & Compliance Reasoning (IT4065C)
 
-This guide covers common errors students may encounter when running **Lab 6** and how to fix them. It also includes anticipated pitfalls that frequently cause confusion.
+This guide is tailored to the **actual Lab 6 script**:
 
-> **Lab 6 goal reminder:** You are generating and interpreting a **32-hour audit window** of access logs (Section 0–8 output), then writing an audit memo supported by **Section 7 (Candidate Incidents)**.
+- **DB:** `it4065c`  
+- **Host:** `localhost`  
+- **User:** `postgres`  
+- **SQL files:**  
+  - `labs/module_6/lab6/00_prepare_audit_evidence.sql`  
+  - `labs/module_6/lab6/01_generate_audit_report.sql`
+
+Script excerpt (for reference):
+
+```bash
+psql -h localhost -U postgres -d it4065c -f labs/module_6/lab6/00_prepare_audit_evidence.sql
+psql -h localhost -U postgres -d it4065c -f labs/module_6/lab6/01_generate_audit_report.sql
+````
+
+> **Lab 6 goal:** Generate a monitoring/audit report and use **the output** as evidence for a compliance-style analysis (routine vs suspicious activity, attempted violation vs control failure).
 
 ---
 
-## Quick Preflight Checklist (Do This First)
+## Quick Preflight Checklist (Run These First)
 
-Run these from your Ubuntu terminal:
+From repo root:
 
 ```bash
 cd ~/IT4065C-Labs
-ls -R labs/module_6/lab6
-````
+```
+
+Confirm files exist:
+
+```bash
+ls -l labs/module_6/lab6
+```
 
 You should see:
 
@@ -22,74 +41,27 @@ You should see:
 * `00_prepare_audit_evidence.sql`
 * `01_generate_audit_report.sql`
 
-Also confirm your PostgreSQL client is available:
+Confirm Postgres is reachable:
 
 ```bash
-psql --version
+psql -h localhost -U postgres -d it4065c -c "SELECT now();"
 ```
+
+If that works, the lab should run.
 
 ---
 
-## Most Common Problems and Fixes
+## Common Errors and Fixes
 
-### 1) “No such file or directory” when trying to `cd` into lab6
+### 1) `Permission denied` when running the script
 
-**Symptoms**
-
-* `cd: .../labs/module_6/lab6: No such file or directory`
-
-**Cause**
-
-* You didn’t create the directory, or you’re not inside `~/IT4065C-Labs`.
-
-**Fix**
-
-```bash
-cd ~
-cd IT4065C-Labs
-mkdir -p labs/module_6/lab6
-ls -R labs/module_6
-```
-
----
-
-### 2) Script runs but says it can’t find SQL files
-
-**Symptoms**
-
-* `psql: error: could not open file "00_prepare_audit_evidence.sql": No such file or directory`
-* Or the script prints file-not-found messages.
-
-**Cause**
-
-* The three Lab 6 files were not copied into the correct folder, or were renamed.
-
-**Fix**
-
-```bash
-cd ~/IT4065C-Labs/labs/module_6/lab6
-ls -l
-```
-
-Make sure the filenames match **exactly**:
-
-* `run_lab6_audit_report.sh`
-* `00_prepare_audit_evidence.sql`
-* `01_generate_audit_report.sql`
-
-If needed, re-copy from the unzipped folder (wherever you extracted it).
-
----
-
-### 3) “Permission denied” when running the script
-
-**Symptoms**
+**Symptom**
 
 * `bash: .../run_lab6_audit_report.sh: Permission denied`
 
 **Cause**
 
-* Script doesn’t have execute permission (common after zip extraction).
+* Script is not executable (common after unzip or git permissions issues).
 
 **Fix**
 
@@ -100,337 +72,307 @@ bash labs/module_6/lab6/run_lab6_audit_report.sh
 
 ---
 
-### 4) Password prompts keep appearing (or password auth fails)
+### 2) `psql: error: connection to server at "localhost"... failed`
 
 **Symptoms**
 
-* You are repeatedly asked for a password.
-* `psql: FATAL: password authentication failed for user ...`
+* `Connection refused`
+* `No such file or directory`
+* `could not connect to server`
 
-**Common causes**
+**Most common causes**
 
-* `PGPASSWORD` not set in the same terminal session.
-* Password contains special characters and was not quoted correctly.
-* Wrong database user/host/DB name in the script.
+* PostgreSQL service is not running
+* You are using an environment where Postgres is not installed locally
+* Postgres is running, but not on `localhost` / not on default port (rare in this course)
 
-**Fix**
-Set the password exactly as the lab instructs, in the SAME terminal:
-
-```bash
-export PGPASSWORD='Pa$$w0rd123!'
-```
-
-Then rerun:
-
-```bash
-cd ~/IT4065C-Labs
-bash labs/module_6/lab6/run_lab6_audit_report.sh
-```
-
-If you still see auth failures, test direct login (adjust username/dbname to your course setup if needed):
-
-```bash
-psql -h localhost -U airflow -d airflow_db -c "SELECT now();"
-```
-
-If that fails, the problem is not Lab 6—it’s your Postgres connectivity or credentials.
-
----
-
-### 5) “Could not connect to server” (PostgreSQL not reachable)
-
-**Symptoms**
-
-* `psql: error: connection to server at "localhost" (...) failed: Connection refused`
-* or “No such file or directory” for the socket.
-
-**Cause**
-
-* PostgreSQL service isn’t running (common after reboot).
-* You are in an environment where Postgres runs inside Docker and the script expects localhost.
-
-**Fix A: If Postgres is installed on Ubuntu**
+**Fix A: Start PostgreSQL (Ubuntu service)**
 
 ```bash
 sudo service postgresql status
 sudo service postgresql start
 ```
 
-**Fix B: If your course uses Docker services**
-Check containers:
+Re-test:
 
 ```bash
-docker ps
+psql -h localhost -U postgres -d it4065c -c "SELECT 1;"
 ```
 
-Start your stack if required by your course environment (example):
+**Fix B: If you’re in a Docker-only setup**
+Lab 6 script assumes Postgres is on `localhost`. If your Postgres is in Docker with a different host/port, this lab will fail until the environment matches the course standard. Use the course-provided Postgres service (recommended) or adjust your environment to expose it on localhost.
+
+---
+
+### 3) `FATAL: password authentication failed for user "postgres"`
+
+**Symptoms**
+
+* Password prompt appears; password is rejected
+* Or you see authentication failure immediately
+
+**Cause**
+
+* The `postgres` user password differs from the expected one for your environment
+* You are typing the wrong password
+* You changed the password earlier (common when troubleshooting prior labs)
+* `.pgpass` or environment variables are not set, causing confusion
+
+**Fix A: Confirm you can log in manually**
 
 ```bash
-docker compose up -d
+psql -h localhost -U postgres -d it4065c
 ```
 
-Then test:
+If you cannot log in, Lab 6 cannot run. Fix Postgres auth first.
+
+**Fix B: If you know the password, set it once**
 
 ```bash
-psql -h localhost -U airflow -d airflow_db -c "SELECT 1;"
+export PGPASSWORD='YOUR_POSTGRES_PASSWORD'
+bash labs/module_6/lab6/run_lab6_audit_report.sh
+```
+
+**Fix C: If you do not know/reset password (Ubuntu local Postgres)**
+In many Ubuntu setups, local `postgres` can connect via peer auth:
+
+```bash
+sudo -u postgres psql -d it4065c -c "SELECT now();"
+```
+
+If that works, your `psql -U postgres -h localhost` path is using password auth. You may need to:
+
+* set a password for postgres, or
+* adjust pg_hba.conf auth method (only if your lab policy allows it)
+
+If your course environment expects a standard auth setup, ask the TA before changing `pg_hba.conf`.
+
+---
+
+### 4) `psql: error: could not open file ".../00_prepare_audit_evidence.sql": No such file or directory`
+
+**Cause**
+
+* Files are not in the correct path
+* Files were renamed
+* You ran the script outside the repository root and relative paths broke (rare here, but possible if your script assumes root)
+
+**Fix**
+From repo root:
+
+```bash
+cd ~/IT4065C-Labs
+ls -l labs/module_6/lab6/00_prepare_audit_evidence.sql
+ls -l labs/module_6/lab6/01_generate_audit_report.sql
+```
+
+If missing, re-copy the lab files into:
+
+```bash
+~/IT4065C-Labs/labs/module_6/lab6/
 ```
 
 ---
 
-### 6) “relation does not exist” / missing tables or schemas
+### 5) `ERROR: database "it4065c" does not exist`
+
+**Cause**
+
+* Database was not created (Lab 1/previous setup not completed), or it was created under a different name.
+
+**Fix**
+Check databases:
+
+```bash
+psql -h localhost -U postgres -c "\l"
+```
+
+If missing, create it (only if permitted in your course environment):
+
+```bash
+createdb -h localhost -U postgres it4065c
+```
+
+Then rerun Lab 6.
+
+---
+
+### 6) `ERROR: relation ... does not exist` (missing tables/views)
 
 **Symptoms**
 
 * `ERROR: relation ... does not exist`
 * `ERROR: schema ... does not exist`
-* Audit report sections are empty or fail early.
 
 **Cause**
 
-* Prerequisite lab objects weren’t created (Labs 3–5 feed into Lab 6 assumptions).
-* You ran Lab 6 before your pipeline/security work existed in the database.
+* Prerequisite objects weren’t created (Labs 3–5 not fully executed), or
+* You are running in the wrong database, or
+* `00_prepare_audit_evidence.sql` expects certain base schemas/tables to already exist
 
 **Fix**
-Verify that your course database objects exist (examples — adapt schema names to your account):
-
-```sql
--- inside psql
-\dn
-\dt
-```
-
-If key schemas/tables are missing, return to the prerequisite lab and re-run its scripts.
-
----
-
-### 7) “role does not exist” (analyst_02, steward_01, etc.)
-
-**Symptoms**
-
-* `ERROR: role "analyst_02" does not exist`
-* `ERROR: role "steward_01" does not exist`
-
-**Cause**
-
-* Lab 5 RBAC roles/users were not created, or were created under different names.
-* You are running Lab 6 in a fresh environment without the Lab 5 security setup.
-
-**Fix**
-Confirm roles:
-
-```sql
--- in psql
-\du
-```
-
-If roles are missing, re-run Lab 5 role/user creation scripts, or confirm the expected role names for your section.
-
----
-
-### 8) “permission denied for schema/table” during audit generation
-
-**Symptoms**
-
-* `ERROR: permission denied for schema ...`
-* `ERROR: permission denied for relation ...`
-
-**Cause**
-
-* The script is executing as a user who lacks required privileges to read logs/tables used by the audit.
-* RBAC grants are incomplete or were applied to different objects.
-
-**Fix**
-Run the script using the intended privileged account for this lab (the one used in the script).
-If you’re unsure, test as the user configured in your environment:
+Confirm you are in the right DB:
 
 ```bash
-psql -h localhost -U airflow -d airflow_db -c "SELECT current_user;"
+psql -h localhost -U postgres -d it4065c -c "SELECT current_database();"
 ```
 
-Then validate privileges (examples):
+List schemas:
 
-```sql
--- in psql
-\dp
+```bash
+psql -h localhost -U postgres -d it4065c -c "\dn"
 ```
 
-If permissions are missing, revisit Lab 5 and confirm grants were applied to the correct schemas/views.
+If expected schemas (e.g., your `student_*` schema) are missing, revisit earlier labs and ensure the pipeline and security artifacts were created successfully.
 
 ---
 
-### 9) Script runs, but you “don’t see Section 7 / Section 8”
-
-**Symptoms**
-
-* You only see part of the output.
-* You can’t find the Candidate Incidents.
+### 7) `ERROR: permission denied for schema ...` or `permission denied for relation ...`
 
 **Cause**
 
-* Terminal buffer/scrollback is limited, or output is long.
+* This typically happens when the script is not truly running as `postgres`, or
+* Your database privileges were altered, or
+* Objects referenced in SQL are owned by another role and permissions were removed
 
-**Fix A: Increase scrollback**
-In your terminal settings, increase scrollback history.
-
-**Fix B: Capture output to a file**
+**Fix**
+Confirm who is executing:
 
 ```bash
-cd ~/IT4065C-Labs
+psql -h localhost -U postgres -d it4065c -c "SELECT current_user;"
+```
+
+If it is not `postgres`, you are not using the intended account.
+
+If it is `postgres` and you still see permission denied, the database security configuration may have been changed. Contact the TA with the exact error line.
+
+---
+
+### 8) Script runs, but you “lose” the report output (can’t find Section 7/8)
+
+**Cause**
+
+* Terminal scrollback is limited
+* Output is long and scrolls away
+
+**Fix: Capture output to a file**
+From repo root:
+
+```bash
 bash labs/module_6/lab6/run_lab6_audit_report.sh | tee lab6_audit_output.txt
 ```
 
-Then search:
+Search within:
 
 ```bash
-grep -n "Section 7" -n lab6_audit_output.txt
-grep -n "Candidate" -n lab6_audit_output.txt
+grep -n "Section 7" lab6_audit_output.txt
+grep -n "Candidate" lab6_audit_output.txt
+grep -n "Incident" lab6_audit_output.txt
 ```
 
 ---
 
-### 10) ZIP extraction issues (files not appearing)
+## Anticipated Student Pitfalls (Common Mistakes)
 
-**Symptoms**
+### A) Running the script from the wrong folder
 
-* You downloaded `Lab6_Source.zip` but don’t see files after unzip.
-
-**Cause**
-
-* Unzipped into a different directory than expected.
-* Using GUI extractor that nested directories unexpectedly.
-
-**Fix**
-Locate the zip and unzip explicitly:
-
-```bash
-cd ~/Downloads
-ls
-unzip -l Lab6_Source.zip
-unzip Lab6_Source.zip -d ~/lab6_tmp
-ls -R ~/lab6_tmp
-```
-
-Then copy the required files into:
-
-```bash
-cp ~/lab6_tmp/* ~/IT4065C-Labs/labs/module_6/lab6/
-```
-
----
-
-## Anticipated Student Pitfalls (Not “Errors,” But Common Mistakes)
-
-### A) Running the script from the wrong directory
-
-The lab expects execution from repo root:
+While the script uses relative paths, best practice is:
 
 ```bash
 cd ~/IT4065C-Labs
 bash labs/module_6/lab6/run_lab6_audit_report.sh
 ```
 
-Running it from inside `lab6/` may break relative paths depending on how the script is written.
+---
+
+### B) Confusing **Attempted Violation** vs **Control Failure**
+
+Your audit memo should classify incidents correctly:
+
+* **Attempted Violation:** suspicious action occurred but access was blocked and logged correctly
+* **Control Failure:** suspicious action succeeded when it should not have, or logging is missing/incomplete
+
+A strong memo explicitly uses this language.
 
 ---
 
-### B) Forgetting to include Section 7 screenshot in the submission
+### C) Treating logs as “facts” without interpretation
 
-Your submission must include proof you ran the script:
+Lab 6 is not “copy the log.”
 
-* Screenshot of **Section 7: Candidate Incidents**
-* Your written audit memo (Steps 3–4)
+Strong analysis connects:
 
-**Tip:** If output scrolls away, use the `tee` capture method above.
+* role used
+* action attempted
+* object targeted
+* time-of-day
+* repeated pattern
+* success/denial outcome
 
----
-
-### C) Confusing “Attempted Violation” vs “Control Failure”
-
-* **Attempted Violation:** suspicious behavior occurred, but the system denied access correctly.
-* **Control Failure:** access succeeded when it should have been blocked, or logging is incomplete.
-
-Your memo should explicitly label which one applies to each incident.
+…into a governance conclusion.
 
 ---
 
-### D) Writing descriptions instead of governance reasoning
+### D) Overlooking context fields (IP, app_name, time patterns)
 
-Weak: “I saw denied attempts.”
-Strong: “Repeated denied attempts + role switching indicates intent to escalate privileges; system enforcement appears effective, suggesting attempted violation rather than control failure.”
+These fields exist for accountability:
 
----
+* repeated after-hours access
+* unusual application names
+* IP inconsistencies
+* rapid role switching
 
-### E) Ignoring `client_ip` and `app_name`
-
-These fields are part of **accountability**. Use them:
-
-* Shared credentials become traceable
-* Unexpected app_name can indicate automation or misuse
-* IP patterns can suggest offsite access
+Use them as reasoning evidence.
 
 ---
 
-### F) Overusing GenAI without evidence checks
+### E) Writing generic risk statements
 
-If you consult GenAI:
-
-* You must still confirm the evidence is actually present in your output
-* Write in your own words
-* Include a brief note/screenshot of the prompt (per lab instructions)
+Weak: “This is suspicious.”
+Strong: “Repeated denied access attempts against restricted customer profile views suggests privilege probing; controls appear effective, indicating attempted violation rather than control failure.”
 
 ---
 
-## When to Escalate to Instructor/TA
+## When to Escalate to TA/Instructor
 
-Escalate (with screenshots) if:
+Escalate with screenshots + terminal output if:
 
-* You have verified file placement and permissions, but the script still fails
-* You can connect to Postgres manually, but the script cannot
-* Section 7 shows empty incidents unexpectedly across multiple students (possible upstream dataset or script issue)
+* Postgres is running and `psql -h localhost -U postgres -d it4065c -c "SELECT 1"` works, **but** the script still fails
+* The SQL files exist but reference objects that do not exist (possible environment mismatch)
+* Multiple students see the same error (possible packaging or SQL dependency issue)
 
 When asking for help, include:
 
-* The exact error message
-* The command you ran
-* Output of:
-
 ```bash
 pwd
-ls -R labs/module_6/lab6
+ls -l labs/module_6/lab6
+psql -h localhost -U postgres -d it4065c -c "SELECT current_user, current_database();"
 ```
 
 ---
 
-## Quick “Reset” Strategy (If You’re Stuck)
-
-1. Confirm repo root:
+## Fast Reset Workflow (Recommended)
 
 ```bash
 cd ~/IT4065C-Labs
-```
-
-2. Confirm lab6 files exist:
-
-```bash
-ls -l labs/module_6/lab6
-```
-
-3. Set password:
-
-```bash
-export PGPASSWORD='Pa$$w0rd123!'
-```
-
-4. Run and capture output:
-
-```bash
+export PGPASSWORD='YOUR_POSTGRES_PASSWORD'
 bash labs/module_6/lab6/run_lab6_audit_report.sh | tee lab6_audit_output.txt
-```
-
-5. Search for Section 7:
-
-```bash
 grep -n "Section 7" lab6_audit_output.txt
 ```
 
 ---
+
+## Notes for TAs (Quick Diagnosis)
+
+If a student reports failure, determine which category it is:
+
+1. **File/path issue** (missing SQL/script)
+2. **Service issue** (Postgres not running / wrong environment)
+3. **Auth issue** (postgres password / login method mismatch)
+4. **Dependency issue** (missing schemas/tables from prior labs)
+5. **Output capture issue** (report ran but student can’t retrieve evidence)
+
+Most Lab 6 problems fall into one of these five buckets.
+
+```
+```
