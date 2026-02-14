@@ -51,16 +51,16 @@ This course uses controlled versions to simulate enterprise deployment disciplin
 
 ---
 
-# 🧭 Step 1 — Clone the Course Repository
+# 🧭 Step 1: Clone the Course Repository
 
 ```bash
-git clone <COURSE_REPO_URL>
+git clone https://github.com/ntious/IT4065C-Labs
 cd IT4065C-Labs
 ````
 
 ---
 
-# 🧭 Step 2 — Activate the Controlled Environment
+# 🧭 Step 2: Activate the Controlled Environment
 
 Inside the repository root:
 
@@ -76,7 +76,7 @@ If successful, your terminal will show:
 
 ---
 
-# 🔎 Verification Gate 1 — dbt Version Check
+# 🔎 Verification Gate 1: dbt Version Check
 
 Run:
 
@@ -98,7 +98,7 @@ Do NOT run `pip install` manually.
 
 ---
 
-# 🧭 Step 3 — Configure profiles.yml
+# 🧭 Step 3: Configure profiles.yml
 
 Location:
 
@@ -139,7 +139,7 @@ student_kofi
 
 ---
 
-# 🔎 Verification Gate 2 — Connection Test
+# 🔎 Verification Gate 2: Connection Test
 
 Navigate into the dbt project directory:
 
@@ -168,7 +168,7 @@ If not:
 
 ---
 
-# 🔎 Verification Gate 3 — Controlled Execution Test
+# 🔎 Verification Gate 3: Controlled Execution Test
 
 Run:
 
