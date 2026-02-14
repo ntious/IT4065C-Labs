@@ -1,7 +1,7 @@
-# IT4065C – Data Technologies Administration  
+# Data Technologies Administration  
 ## Labs 1–6: Enterprise Data Governance & Architecture Sequence
 
-Welcome to the lab sequence for **IT4065C: Data Technologies Administration**.
+Welcome to the lab sequence for **Data Technologies Administration**.
 
 These labs are not isolated technical exercises.  
 They are a structured progression through the lifecycle of modern enterprise data systems.
@@ -44,7 +44,7 @@ Design → Classify → Model → Execute → Protect → Monitor → Evaluate
 
 ---
 
-# 🧱 Lab 1 – Building Your Personal Data Platform
+# 🧱 Lab 1: Building Your Personal Data Platform
 
 **Focus:** Infrastructure & Environment Governance
 
@@ -67,7 +67,7 @@ Without Lab 1, all later modeling and governance work would remain theoretical.
 
 ---
 
-# 🗂 Lab 2 – Raw Data Exploration & Data Classification
+# 🗂 Lab 2: Raw Data Exploration & Data Classification
 
 **Focus:** Governance Reasoning & Stewardship Thinking
 
@@ -91,7 +91,7 @@ Classification informs every architectural and security decision that follows.
 
 ---
 
-# 🏗 Lab 3 – Structured Modeling (Staging → Core → Marts)
+# 🏗 Lab 3: Structured Modeling (Staging → Core → Marts)
 
 **Focus:** Layered Enterprise Architecture
 
@@ -120,7 +120,7 @@ This lab introduces production-grade architecture thinking.
 
 ---
 
-# 🔄 Lab 4 – Lifecycle Execution & Lineage Analysis
+# 🔄 Lab 4: Lifecycle Execution & Lineage Analysis
 
 **Focus:** Understanding System Flow
 
@@ -152,7 +152,7 @@ If you cannot explain the lineage, you do not fully understand the system.
 
 ---
 
-# 🔐 Lab 5 – Enforcing Data Access Policies
+# 🔐 Lab 5: Enforcing Data Access Policies
 
 **Focus:** Role-Based Access Control & Data Masking
 
@@ -185,7 +185,7 @@ If everything succeeds, governance has failed.
 
 ---
 
-# 📊 Lab 6 – Monitoring Evidence & Compliance Reasoning
+# 📊 Lab 6: Monitoring Evidence & Compliance Reasoning
 
 **Focus:** Audit & Compliance Evaluation
 
