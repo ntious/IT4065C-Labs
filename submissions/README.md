@@ -1,2 +1,2 @@
-# IT4065C-Labs
+# Labs
 Hands on lab 
