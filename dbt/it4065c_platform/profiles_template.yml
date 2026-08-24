@@ -3,12 +3,12 @@ it4065c_platform:
   outputs:
     dev:
       type: postgres
-      host: "<POSTGRES_HOST>"
-      user: "<STUDENT_USERNAME>"
-      password: "<STUDENT_PASSWORD>"
-      port: 5432
-      dbname: "it4065c"
-      schema: "<YOUR_SCHEMA>"   # e.g., team01 or s_john
+      host: "{{ env_var('IT4065C_DB_HOST', 'localhost') }}"
+      user: "{{ env_var('IT4065C_DB_USER') }}"
+      password: "{{ env_var('IT4065C_DB_PASSWORD') }}"
+      port: "{{ env_var('IT4065C_DB_PORT', '5432') | int }}"
+      dbname: "{{ env_var('IT4065C_DB_NAME', 'it4065c') }}"
+      schema: "{{ env_var('IT4065C_DB_SCHEMA', 'student') }}"
       threads: 2
       keepalives_idle: 0
       connect_timeout: 10
