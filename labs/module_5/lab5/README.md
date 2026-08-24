@@ -73,11 +73,13 @@ The `lab5` folder in your repository currently contains empty placeholder files.
 To avoid repeated password prompts during the automation, set your PostgreSQL password for this terminal session:
 
 ```bash
-export PGPASSWORD='Pa$$w0rd123!'
+read -rsp 'PostgreSQL password: ' PGPASSWORD && echo
+export PGPASSWORD
 
 ```
 
-*(Note: If you used a different password in Lab 1, use that value here.)*
+Use the unique password assigned to your dedicated course role. Never use a
+shared course-wide password or commit the value to this repository.
 
 ---
 

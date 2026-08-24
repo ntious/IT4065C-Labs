@@ -218,16 +218,23 @@ This is OK in re-runs. Continue.
 
 ### 5E) **Hard bug in lab instructions: postgres password is never actually set**
 **Where it shows up**
-- Step 8/9 expects dbt to connect as `user: postgres` with password `"Pa$$w0rd123!"`.  
+- Step 8/9 requires dbt credentials supplied through `IT4065C_DB_USER` and `IT4065C_DB_PASSWORD`.
 - Step 10 expects you to authenticate with `psql -h localhost -U postgres ...` using that password. fileciteturn0file0
 
 **Why students fail**
 - On a fresh Ubuntu Postgres install, local connections commonly use **peer authentication** (no password), and the `postgres` role often has **no password set** for TCP connections. The lab does not include an `ALTER USER postgres PASSWORD ...` step.
 
 **Fix (recommended, do once)**
-1) Set the postgres password:
+1) Create a dedicated login role, then set a unique password interactively so
+   it does not appear in the repository or shell history:
 ```bash
-sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'Pa$$w0rd123!';"
+sudo -u postgres createuser --login it4065c_student 2>/dev/null || true
+sudo -u postgres psql
+\password it4065c_student
+\q
+export IT4065C_DB_USER=it4065c_student
+read -rsp 'Unique database password: ' IT4065C_DB_PASSWORD && echo
+export IT4065C_DB_PASSWORD
 ```
 
 2) Ensure localhost auth allows password (common on Ubuntu):
@@ -255,9 +262,9 @@ sudo service postgresql restart
 
 Then test:
 ```bash
-psql -h localhost -U postgres -d it4065c
+psql -h localhost -U "$IT4065C_DB_USER" -d it4065c
 ```
-Use password: `Pa$$w0rd123!` fileciteturn0file0
+Use the unique password you assigned interactively. Never reuse or commit it. fileciteturn0file0
 
 > Teaching note: This is the single biggest “it works for me but not for them” issue in this lab.
 
@@ -373,8 +380,8 @@ it4065c_platform:
   outputs:
     dev:
       type: postgres
-      user: postgres
-      password: "Pa$$w0rd123!"
+      user: "{{ env_var('IT4065C_DB_USER') }}"
+      password: "{{ env_var('IT4065C_DB_PASSWORD') }}"
       host: localhost
       port: 5432
       dbname: it4065c
@@ -454,7 +461,9 @@ sudo ss -ltnp | grep 5432
 **Fix**
 - Re-run the password set command and restart Postgres:
 ```bash
-sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'Pa$$w0rd123!';"
+sudo -u postgres psql
+\password it4065c_student
+\q
 sudo systemctl restart postgresql  # or sudo service postgresql restart (WSL)
 ```
 - Try again.

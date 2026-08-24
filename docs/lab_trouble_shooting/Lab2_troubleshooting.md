@@ -71,7 +71,7 @@ sudo systemctl enable postgresql
 2. If you *know* Postgres is yours (personal install) and you need to reset:
    ```bash
    sudo -u postgres psql
-   ALTER USER postgres WITH PASSWORD 'Pa$$w0rd123!';
+   \password it4065c_student
    \q
    ```
 3. If you are on the UC Sandbox and password doesn’t work, do **not** keep guessing—verify the course-provided password in the Lab 1 environment instructions or ask your instructor/TA.
