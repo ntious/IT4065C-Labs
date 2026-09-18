@@ -2,15 +2,20 @@
 
 ## Published Ubuntu result
 
-At commit `f7b01ce777f6ee94743e139b48aaf2cad555afdd`,
-[workflow run 35348054840](https://github.com/ntious/IT4065C-Labs/actions/runs/35348054840)
-passed every step on **Ubuntu 22.04 and 24.04**: fresh setup, configuration tests,
-nine labs twice with failure recovery, optional ingestion and publication checks,
-and a non-default database/user/schema rehearsal. The earlier Ubuntu 22.04
-hash-installation issue is resolved by the explicit `mashumaro[msgpack]==3.14` pin.
+The published base commit `527559b6502dbdd12eca6e2d3b3bee7e63baf04c` passed
+[workflow run 35352357594](https://github.com/ntious/IT4065C-Labs/actions/runs/35352357594)
+on **Ubuntu 22.04 and 24.04**: setup, configuration tests, nine labs twice with
+failure recovery, optional ingestion/publication, and a non-default configuration.
 
-This result applies to that commit's executable checks, not subsequent modifications,
-interactive student usability, independent capstone implementations or WSL itself.
+New Optional Labs 12–14 passed local PostgreSQL 17.11/Python 3.12 executions with
+default and alternate role names. Checks included server CSV correlation, actual
+source shutdown/recovery, TLS negative controls and password rotation. Generated
+passwords were checked absent from saved logs/evidence. Teaching servers stopped.
+The expanded Ubuntu workflow executes these experiments twice after publication;
+that new workflow has not yet run. Local tests do not establish Ubuntu/WSL behavior.
+
+Optional Lab 15 is a human-assessed case, not an executable check. An instructor
+walkthrough is documented separately and does not substitute for real student pilots.
 
 ## Reproduce the checks
 
@@ -35,6 +40,19 @@ the verifier succeeds only when the expected data test fails and recovery passes
 22.04 and 24.04, then provisions a second database with a different builder/schema
 and executes every lab. See the associated commit's Actions results; the existence
 of this workflow alone is not proof of a successful run.
+
+## Reproduce optional infrastructure checks
+
+Follow the [optional prerequisites](../labs/extensions/infrastructure_setup.md), then:
+
+```bash
+.venv/bin/python scripts/infrastructure_labs.py audit
+.venv/bin/python scripts/infrastructure_labs.py transfer
+.venv/bin/python scripts/infrastructure_labs.py tls
+```
+
+Each uses fresh private instances and stops them. The same commands can be repeated
+without resetting the core dataset. Save only redacted evidence excerpts privately.
 
 ## Development evidence
 

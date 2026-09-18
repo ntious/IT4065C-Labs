@@ -5,8 +5,9 @@
 - Select a tested commit and record it in the private course plan.
 - Reconcile the module map with the official syllabus and actual teaching calendar.
 - Confirm external platform names, access arrangements, activities and alternatives.
-- Resolve stronger practical syllabus promises for multi-cluster operation, server
-  monitoring and encryption before claiming full coverage.
+- Review Optional Labs 12–14 against stronger practical syllabus promises for
+  multi-instance operation, server monitoring and encryption before claiming full
+  coverage; optional availability does not establish every student completed them.
 - Rehearse setup, core labs, selected optional labs and recovery on disposable Ubuntu.
 - Prepare private grading calibration and the approved submission route.
 

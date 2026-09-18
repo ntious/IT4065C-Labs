@@ -36,8 +36,15 @@ assess the same concept rather than requiring screenshots.
 
 Labs 8–11 extend the main work. Inspect their prerequisites and deliverables before
 assigning them. External platform exploration follows the platform guide and LMS
-instructions. Server audit, TLS and multi-instance exercises are not yet supported
-runnable activities; do not improvise them on shared university infrastructure.
+instructions. Optional Labs 12–14 use dedicated local instances for server logging, batch transfer
+and TLS/rotation. Follow their setup and recovery guide. Optional Lab 15 supplies a
+primary-source governance case. Do not improvise these on shared university infrastructure.
+
+For Labs 12–14, predict the negative control before execution, inspect evidence.json
+after PASS, and spend at least half the session on interpretation. Audit: distinguish
+statement start from completion. Transfer: distinguish batch copying from replication.
+TLS: distinguish trust, hostname and password checks. For Lab 15, ask which missing
+fact changes applicability before accepting a control recommendation.
 
 ---
 
