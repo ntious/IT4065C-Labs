@@ -32,24 +32,31 @@ Start with the [foundations bridge](../../docs/foundations.md) if needed, then c
 [setup](../../docs/setup.md). No earlier lab is required.
 The runner checks its required state and reports missing prerequisites.
 
-Setup automatically runs Lab 1's technical checks to confirm installation. Seeing
-`LAB 1 COMPLETE` during setup means those checks passed; it does not complete the
-investigation or written work. Continue below: predict the result, rerun the check,
-then complete the investigation, interpretation and submission evidence.
-You do not need to reinstall packages or regenerate credentials.
+## Review your setup result
 
-## Predict and run
+Setup completes the technical-check portion of Lab 1 automatically. If setup
+succeeded, **do not run the check again**. Use its PASS lines as your execution
+evidence and continue to **Hands-on investigation** below.
 
-Read the expected result below and predict what would fail with the wrong identity or missing input.
-From the repository root in your Ubuntu terminal:
+Expected evidence: connection, dedicated database, schemas and non-superuser
+builder checks pass, followed by `PASS: dbt debug` and `LAB 1 CHECKS PASSED`.
+Older checkouts print `LAB 1 COMPLETE`; that message also refers only to the
+technical checks. The investigation and written evidence complete the lab activity.
+
+If setup failed, follow the recovery guidance before continuing. You do not need
+to reinstall packages or regenerate credentials after a successful setup.
+
+### Optional: rerun the technical check
+
+Use this only after fixing an error, changing configuration, or if you need to
+recapture the check output. From the repository root in your Ubuntu terminal:
 
 ```bash
 .venv/bin/python scripts/course.py lab 1
 ```
 
-Expected: **Connection, dedicated database and least-privilege builder verified; dbt debug succeeds.** The final line is `LAB 1 COMPLETE`.
-Rerunning is supported; existing raw and governance data are preserved.
-Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
+Rerunning is safe and preserves existing raw and governance data. It is not an
+additional required step after successful setup.
 
 ## Hands-on investigation
 
@@ -66,7 +73,9 @@ Explain the difference between your Linux account, builder login, analyst login 
 
 ## Submit
 
-Use the [submission template](../../submissions/template.md). Include the command,
+Use the [submission template](../../submissions/template.md). Record
+`bash scripts/setup.sh` as your execution command when using the setup result
+(or the Lab 1 command if you reran it). Include the
 relevant PASS lines or accessible text evidence, your interpretation, one limitation,
 and your transfer-task response. A screenshot is optional; crop/redact identities
 and never include configuration secrets. Submit privately through your course system;
