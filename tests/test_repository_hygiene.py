@@ -22,6 +22,9 @@ class RepositoryHygieneTests(unittest.TestCase):
             with self.subTest(path=name):
                 self.assertFalse(name == ".env" or name.startswith((".local/", ".venv/")))
                 self.assertNotIn(path.suffix, {".pdf", ".xlsx", ".log"}, "Review binary/runtime assets before publishing")
+                if name == "labs/module_2/images/lab2-nano-guide.png":
+                    self.assertTrue(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
+                    continue  # Reviewed instructional screenshot; text checks apply below.
                 text = path.read_text(encoding="utf-8")
                 self.assertIsNone(re.search(r"(?m)^(?:<{7}|={7}|>{7})(?: |$)", text), "Unresolved merge marker")
                 self.assertIsNone(re.search(r"[A-Za-z]:[/\\]Users[/\\][^\s]+", text), "Personal Windows profile path")
