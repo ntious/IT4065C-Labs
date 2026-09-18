@@ -3,6 +3,35 @@
 **Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## Why this lab matters
+
+A data administrator needs to explain who owns a field, why it is used, how
+sensitive it is and what restrictions apply. A governance register makes those
+decisions visible for review. In this lab, you record decisions for synthetic
+retail data and distinguish documented policy from an enforced database control.
+
+## Learning objectives
+
+These instructor-developed lab objectives support the course outcomes above.
+By the end of this lab, you should be able to:
+
+- Classify a field using its purpose, sensitivity and potential harm.
+- Insert and inspect a governance-register entry using a provided SQL pattern.
+- Justify ownership, retention assumptions and permitted AI use.
+- Explain why recording a policy does not enforce it.
+
+## Skills you will practice
+
+Read a simple SQL INSERT, edit a private SQL file in Nano, execute it with the
+course query helper, interpret JSON results and verify that an entry survives a rerun.
+No prior INSERT-writing experience is assumed; complete the guided example first.
+
+## What you will produce
+
+A guided example observation, two independent written field classifications,
+one original register entry with before/after evidence, and a short explanation
+of your decisions and their limits. Use the submission checklist at the end.
+
 ## Concept
 
 Classification connects a data field to an intended use, accountable owner and
@@ -74,19 +103,105 @@ Use the inspection command below to see those rows. No extra installation is nee
 
    This prints register rows as JSON, including classification, rationale, owner,
    retention rule and AI use. Read the two worked examples before choosing new fields.
-2. Choose one additional customer field and one additional order field. In
+### Guided example: insert a complete entry
+
+Assume the retailer needs account-age reporting for internal account administration.
+For this example, the steward proposes Internal classification for `customers.created_at`
+and limits AI use to aggregate reporting. These are scenario decisions, not a
+universal policy or a legal retention rule. Another context could justify a different
+classification. Review the assumptions rather than treating the example as an answer key.
+
+Create a separate private example file so you do not overwrite your independent work:
+
+```bash
+nano .local/worked-classification.sql
+```
+
+If the file is new, Nano opens a blank editing area. Paste the complete SQL below.
+If you previously saved different work under this filename, preserve it and choose
+another private filename instead. Run SQL through `scripts/query.py`, not directly
+at the shell prompt: the helper replaces `{{schema}}` with your configured schema.
+
+```sql
+INSERT INTO {{schema}}.data_classification_register
+    (table_name, column_name, classification, rationale,
+     owner_role, retention_rule, ai_use)
+VALUES (
+    'customers',
+    'created_at',
+    'Internal',
+    'Supports account-age reporting; linked timestamps can reveal customer activity.',
+    'Customer Data Steward',
+    'Retain while needed for account administration; review before deletion and honor approved holds.',
+    'Aggregate account-age reporting only; individual profiling requires a separate purpose review.'
+)
+ON CONFLICT (table_name, column_name) DO NOTHING;
+```
+
+The column names above `VALUES` tell PostgreSQL where each value belongs. Match
+values to columns in the same order:
+
+| Column | Example value and meaning |
+| --- | --- |
+| `table_name` | `customers`: the source table described by the register entry |
+| `column_name` | `created_at`: the source field being classified |
+| `classification` | `Internal`: the sensitivity decision under this scenario |
+| `rationale` | Why account-age reporting needs the field and what exposure could reveal |
+| `owner_role` | The fictional role responsible for reviewing the decision |
+| `retention_rule` | A proposed purpose-based rule requiring review, not a legal duration |
+| `ai_use` | A limited use and a condition for considering a different purpose |
+
+This INSERT adds metadata to the register. It does not add a customer, change the
+customer timestamp, delete expired data or enforce the stated AI-use restriction.
+`ON CONFLICT` skips a table/column pair that already exists; it does not update it.
+
+Save with **Ctrl+O**, press **Enter** to confirm the filename, then **Ctrl+X** to
+return to the shell. Before running, predict how many entries you will see.
+
+```bash
+.venv/bin/python scripts/query.py .local/worked-classification.sql
+.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+```
+
+The INSERT may print no result rows. The inspection command should include the
+following JSON row inside its outer list, alongside the original examples:
+
+```json
+[
+  "customers",
+  "created_at",
+  "Internal",
+  "Supports account-age reporting; linked timestamps can reveal customer activity.",
+  "Customer Data Steward",
+  "Retain while needed for account administration; review before deletion and honor approved holds.",
+  "Aggregate account-age reporting only; individual profiling requires a separate purpose review."
+]
+```
+
+Expect **three entries** if you started with only the two baseline examples.
+Rows are sorted by table and column, so your new row need not appear last. If the
+pair already existed, its earlier values remain; inspect and explain that result
+rather than deleting it to match the example. Record the actual row and explain
+why this command records a governance decision without enforcing it.
+
+### Independent practice: make your own decision
+
+The guided `customers.created_at` entry is practice, not your independent answer.
+Use different fields below. Keep the worked file separate from your own draft.
+
+1. Choose one additional customer field and one additional order field. In
    `labs/module_2/lab2_seed.sql`, the names immediately after `CREATE TABLE
    raw.customers (` and `CREATE TABLE raw.orders (` define the available columns.
-   Choose from these fields (the two worked examples are excluded):
+   Choose from these fields (the two baseline examples and guided example are excluded):
 
    | Table | Available fields for your task |
    | --- | --- |
-   | `customers` | `customer_id`, `first_name`, `last_name`, `phone_number`, `created_at` |
+   | `customers` | `customer_id`, `first_name`, `last_name`, `phone_number` |
    | `orders` | `order_id`, `customer_id`, `order_date`, `order_status`, `payment_method` |
 
    Classify both in writing. Select one of them to insert below. You choose and
    justify the classification; there is no single classification supplied for you.
-3. Create and edit a private draft. Run the copy command only the first time; copying
+2. Create and edit a private draft. Run the copy command only the first time; copying
    again would overwrite your draft. To resume work, use only the `nano` command.
 
    ```bash
@@ -123,8 +238,10 @@ Use the inspection command below to see those rows. No extra installation is nee
    classification. Keep `{{schema}}` exactly as written; the runner supplies it.
 
    ```sql
-   INSERT INTO {{schema}}.data_classification_register VALUES
-   (
+   INSERT INTO {{schema}}.data_classification_register
+       (table_name, column_name, classification, rationale,
+        owner_role, retention_rule, ai_use)
+   VALUES (
      'REPLACE_TABLE',
      'REPLACE_COLUMN',
      'REPLACE_CLASSIFICATION',
@@ -155,11 +272,11 @@ Use the inspection command below to see those rows. No extra installation is nee
 
    The first command executes your INSERT; it need not print the new row. The
    second displays register rows as JSON arrays in the seven-value order above.
-   Expect three entries if you started with only the two worked examples. If you
-   already added other fields, expect those too. Find your table/column pair and
+   Expect **four entries** after the two baseline examples, guided example and
+   your one new independent entry. If you already added other fields, expect those too. Find your table/column pair and
    check that all seven values match your draft.
 
-4. Test preservation by rerunning the baseline and inspecting again:
+3. Test preservation by rerunning the baseline and inspecting again:
 
    ```bash
    .venv/bin/python scripts/course.py lab 2
@@ -191,9 +308,12 @@ Leave the repository template unchanged. Include:
 2. **Prediction:** your recorded expectation before the baseline run. If you already
    ran it without recording one, say so honestly; do not invent a prior prediction.
    Before the preservation experiment, predict whether your new row will survive.
-3. **Observed register evidence:** the inspection command and the JSON excerpt for
-   your inserted field before and after rerunning Lab 2. Describe the comparison.
-4. **Your classifications:** the two written field classifications and your edited
+3. **Observed register evidence:** include the guided example row you actually
+   observed and explain whether it was inserted or already present. Then include
+   the inspection command and JSON excerpt for your independent field before and
+   after rerunning Lab 2. Describe the comparison.
+4. **Your classifications:** the two independent written field classifications (not
+   the guided example) and your edited
    INSERT statement for one of them. This reasoning is your work, not runner output.
 5. **Interpretation and transfer:** the alternative classification and the distinction
    between recording a policy and enforcing it. State one limitation of these checks.
