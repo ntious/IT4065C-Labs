@@ -16,4 +16,5 @@ python3 -m venv .venv
 if [ ! -f .env ]; then .venv/bin/python scripts/course.py configure; fi
 .venv/bin/python scripts/course.py bootstrap
 .venv/bin/python scripts/course.py lab 1
-echo 'Setup complete. Next: .venv/bin/python scripts/course.py lab 2'
+echo 'Setup complete. Next: open labs/module1_preflight/README.md.'
+echo 'Rerun the Lab 1 check and complete its investigation and written evidence before Lab 2.'
