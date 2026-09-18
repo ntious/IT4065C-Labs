@@ -32,45 +32,47 @@ A guided example observation, two independent written field classifications,
 one original register entry with before/after evidence, and a short explanation
 of your decisions and their limits. Use the submission checklist at the end.
 
-## Concept
-
-Classification connects a data field to an intended use, accountable owner and
-control. A label alone does not restrict a query. The register records your reasoning;
-Lab 5 implements selected controls through database grants and views.
-
-Use the field’s meaning, context and plausible harm to justify its class. A customer
-email is a contact identifier even if its SQL type is merely text. Aggregation can
-reduce exposure but small groups and joins may reveal information. Classification
-can change when data is combined or repurposed for AI.
-
-Worked entries demonstrate the format, not an organization-wide policy. Retention
-periods must come from an approved purpose and applicable requirements; do not invent
-a universal legal retention duration. Record unresolved assumptions explicitly.
-
-**Check your understanding:** Two teams classify an amount differently. What business
-context would resolve the disagreement? What evidence would show that their chosen
-control actually operates? Add a field with your own rationale using the investigation below.
-
-> **Completion:** Automation passing means the environment checks worked. Complete
-> the independent investigation, interpretation and evidence below before submitting.
-
 ## Before you begin
 
-Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
-The runner checks its required state and reports missing prerequisites.
+Complete [setup](../../docs/setup.md) and Lab 1. Run all shell commands from the
+repository root in your Ubuntu terminal, one command at a time. If a command reports
+an error, stop and use Recovery before continuing. No external account is needed.
 
-## Predict and run
+| Part | What you do | Success checkpoint on a fresh walkthrough |
+| --- | --- | --- |
+| A: Follow the worked example | Run the supplied SQL unchanged; no placeholders to replace | Two baseline entries become three, and all three survive a rerun |
+| B: Apply the method independently | Edit your own SQL file for a different field and justify your decisions | Your new row appears and survives a rerun; normally four entries total |
+| C: Submit | Assemble the specified evidence and explanations privately | Part A and Part B evidence are clearly separated |
 
-Read the expected result below and predict what would fail with the wrong identity or missing input.
-From the repository root in your Ubuntu terminal:
+If you have already practiced, additional rows are normal. Check the named fields
+rather than deleting data to reproduce an exact count. Completing Part A with three
+entries is correct; the fourth entry is required only after Part B's independent insert.
+
+## Concept: a register records decisions
+
+Classification connects a field to its purpose, sensitivity, accountable owner and
+proposed controls. A register label does not restrict a query, enforce deletion or
+block AI use. Lab 5 investigates selected access controls. Here, you learn to record
+and justify a decision and verify that it remains stored.
+
+The examples use synthetic data and fictional owner roles. Their retention and
+AI-use statements are scenario proposals, not universal policies or legal conclusions.
+
+## Part A: Follow the worked example unchanged
+
+**Goal:** reproduce the supplied example successfully before making your own choices.
+Do not create or edit `.local/my-classification.sql` in Part A.
+
+### A1. Prepare the baseline
+
+Record a short prediction: what should happen if the configured database identity
+is wrong? Then run:
 
 ```bash
 .venv/bin/python scripts/course.py lab 2
 ```
 
-### Expected terminal output
-
-A successful run prints these summary checks:
+Expected checks:
 
 ```text
 PASS: connection, dedicated database, schemas and non-superuser builder.
@@ -78,38 +80,21 @@ PASS: synthetic seed present (existing data preserved).
 PASS: governance register. Add your own rationale in the submission template.
 ```
 
-A completion message follows. Older checkouts may show a garbled separator after
-`LAB 2 COMPLETE`; that does not change the check results. Use the three PASS lines
-as evidence, not the exact punctuation of the completion message.
+The runner checks the environment, prepares the synthetic tables and seeds two
+worked register entries. The register check requires at least two entries; it does
+not grade their reasoning. The completion banner confirms technical checks only.
+Older versions may have a garbled separator in that banner; compare the PASS lines.
+If you ran this before recording a prediction, say so rather than inventing one.
 
-| Check | What it establishes | What you still need to investigate |
-| --- | --- | --- |
-| Connection and builder | The same environment checks used in Lab 1 pass. | This is not a new test of all analyst/steward permissions. |
-| Synthetic seed | The runner creates the four source tables on first use and checks the expected table presence and that customers are present. Existing data are preserved. | This is not a complete data-quality check; later modeling tests examine additional rules. |
-| Governance register | The register setup and worked-example inserts succeed, and the register contains at least two entries. | The runner does not grade your rationale, validate every classification, or enforce retention and AI-use rules. |
-
-On a fresh course database there are two worked register entries: `customers.email`
-and `orders.total_amount`. Reruns can show more entries because your additions are
-preserved. **The lab command does not print the table contents or register rows.**
-Use the inspection command below to see those rows. No extra installation is needed.
-
-## Hands-on investigation
-
-### Initial inspection: understand the existing register
-
-**Purpose:** read the two example governance decisions already stored by the
-baseline run. This command reads the register; it does not insert or change rows.
-From the repository root, run:
+### A2. Inspect the two baseline entries
 
 ```bash
 .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
 ```
 
-**What you should see:** first, the environment-check PASS line; then the register
-rows printed in JSON format. On a fresh baseline, the output is:
+The first line is the environment PASS check. The remaining output is a JSON list:
 
-```text
-PASS: connection, dedicated database, schemas and non-superuser builder.
+```json
 [
   [
     "customers",
@@ -132,75 +117,40 @@ PASS: connection, dedicated database, schemas and non-superuser builder.
 ]
 ```
 
-**How to read it:** the outer square brackets contain all returned entries. Each
-inner bracketed group is one register row describing a field, not a customer or
-an order record. The values have no printed labels; read them in the order selected
-by `labs/practice/inspect_register.sql`:
+Each inner list is one governance entry describing a field, not a customer or order.
+Read its seven values using this key:
 
-| Position in each row | Meaning | First row example |
+| Position | Register column | Meaning in the first row |
 | --- | --- | --- |
-| 1 | Source table | `customers` |
-| 2 | Field in that table | `email` |
-| 3 | Sensitivity classification | `Sensitive` |
-| 4 | Reason for that decision | Contact identifier; exclude from public analytics |
-| 5 | Accountable business role | `Customer Data` is a fictional owner role, not a database login |
-| 6 | Proposed retention rule | Delete when purpose ends, subject to approved holds |
-| 7 | Permitted or restricted AI use | Not permitted as a model feature |
+| 1 | `table_name` | `customers`: source table |
+| 2 | `column_name` | `email`: source field |
+| 3 | `classification` | `Sensitive`: chosen sensitivity |
+| 4 | `rationale` | Why the field needs this treatment |
+| 5 | `owner_role` | `Customer Data`: accountable fictional business role, not a database login |
+| 6 | `retention_rule` | Proposed deletion/hold rule |
+| 7 | `ai_use` | Proposed restriction on use as a model feature |
 
-The second row describes `orders.total_amount` using the same seven positions.
-These are instructional policy examples. The text does not itself restrict queries,
-delete data or block AI use. The PASS line confirms environment checks; it does not
-approve these policy decisions.
+**Checkpoint:** locate `customers.email` and `orders.total_amount`. Read one row
+using the key. No separate screenshot or essay is required for this initial check.
+Do not paste this JSON into Nano; JSON is the displayed result, not an INSERT command.
+If either baseline pair is missing, resolve that before continuing.
 
-**What to do with this output now:**
+### A3. Copy and read the complete guided SQL
 
-1. Locate `customers.email` and `orders.total_amount`. If you already added entries
-   during an earlier attempt, those can appear too; do not delete them to match
-   the example or expect the total to return to two.
-2. In your private notes, record the table/field pairs you see. Choose one example
-   row and identify its rationale, owner and AI-use rule using the key above.
-   This is preparation for your own decision, not a new graded essay.
-3. Keep this initial observation available for comparison after insertion. Do not
-   paste the JSON into Nano, execute it as SQL or edit the displayed output.
-   The next step creates a separate SQL file to add a new register entry.
-
-**Submission boundary:** this initial output is a reference checkpoint; no separate
-screenshot or full JSON transcript is required for it. The Submit section specifies
-which later guided and independent observations to include in your private submission.
-
-**If your result differs:** additional rows can be normal after previous practice.
-If the command fails, displays an empty list, or either baseline pair is missing,
-check that Lab 2 completed successfully and that you are using the same checkout
-and configuration. Follow Recovery before inserting new work. Do not reset the
-register or change credentials merely to match this illustration.
-
-**Next:** complete the guided INSERT below. It adds `customers.created_at`, which
-is different from the two baseline fields you just inspected.
-
-### Guided example: insert a complete entry
-
-Assume the retailer needs account-age reporting for internal account administration.
-For this example, the steward proposes Internal classification for `customers.created_at`
-and limits AI use to aggregate reporting. These are scenario decisions, not a
-universal policy or a legal retention rule. Another context could justify a different
-classification. Review the assumptions rather than treating the example as an answer key.
-
-The complete, commented example is provided in
-[lab2_guided_insert.sql](lab2_guided_insert.sql). Copy it into your private workspace
-and open it to read the column/value mapping:
+Run:
 
 ```bash
 cp -i labs/module_2/lab2_guided_insert.sql .local/worked-classification.sql
 nano .local/worked-classification.sql
 ```
 
-If the copy asks whether to overwrite an existing file, answer `n` to preserve your
-work. Inspect that file before running it; use a different private filename if it
-contains another exercise. For a new copy, no replacements or edits are needed:
-this is a complete runnable example, not the independent placeholder skeleton.
-You can also copy and paste the SQL below into a new private SQL file.
-Run SQL through `scripts/query.py`, not directly at the shell prompt: the helper
-replaces `{{schema}}` with your configured schema.
+If asked to overwrite an existing file, answer `n` to preserve it. Check its contents
+against the example below. If it contains different work, preserve that file and
+use a different private filename consistently for this example.
+
+For a new copy, **do not change any values**. Read the supplied SQL, then press
+**Ctrl+X** to exit Nano. Alternatively, paste the following complete SQL into a new
+private file; save with **Ctrl+O**, **Enter**, then **Ctrl+X**.
 
 ```sql
 INSERT INTO {{schema}}.data_classification_register
@@ -218,37 +168,39 @@ VALUES (
 ON CONFLICT (table_name, column_name) DO NOTHING;
 ```
 
-The column names above `VALUES` tell PostgreSQL where each value belongs. Match
-values to columns in the same order:
+The column names and values match in order. `customers.created_at` is the field;
+`Internal` is the example classification; the remaining text explains rationale,
+accountability, retention and AI use. Assume internal account-age reporting is the
+purpose. Another purpose could justify a different classification.
 
-| Column | Example value and meaning |
-| --- | --- |
-| `table_name` | `customers`: the source table described by the register entry |
-| `column_name` | `created_at`: the source field being classified |
-| `classification` | `Internal`: the sensitivity decision under this scenario |
-| `rationale` | Why account-age reporting needs the field and what exposure could reveal |
-| `owner_role` | The fictional role responsible for reviewing the decision |
-| `retention_rule` | A proposed purpose-based rule requiring review, not a legal duration |
-| `ai_use` | A limited use and a condition for considering a different purpose |
+Keep `{{schema}}` unchanged: the course helper replaces it safely. This SQL adds
+metadata to the register, not a new customer. `ON CONFLICT` skips an existing
+table/column pair and does not update its stored values.
 
-This INSERT adds metadata to the register. It does not add a customer, change the
-customer timestamp, delete expired data or enforce the stated AI-use restriction.
-`ON CONFLICT` skips a table/column pair that already exists; it does not update it.
+### A4. Run the guided example and inspect the result
 
-If you only read the copied file, press **Ctrl+X** to return to the shell. If you
-pasted the example into a new file, save with **Ctrl+O**, **Enter**, then **Ctrl+X**.
-Before running, predict how many entries you will see.
+Predict the number of entries, then execute the saved file:
 
 ```bash
 .venv/bin/python scripts/query.py .local/worked-classification.sql
+```
+
+Expected:
+
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+[]
+```
+
+`[]` means the statement returned no rows because it has no RETURNING clause.
+It is not an empty register and does not prove a new row was added: a skipped
+duplicate produces the same result. Now inspect:
+
+```bash
 .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
 ```
 
-The INSERT prints the environment PASS line followed by `[]` because this
-statement has no `RETURNING` clause. `[]` means no result rows were returned;
-it does NOT mean the register is empty or prove a new row was inserted. An insert
-skipped by `ON CONFLICT` can produce the same output. The inspection command should include the
-following JSON row inside its outer list, alongside the original examples:
+**Checkpoint:** the two original rows remain, and this row appears:
 
 ```json
 [
@@ -262,214 +214,182 @@ following JSON row inside its outer list, alongside the original examples:
 ]
 ```
 
-Expect **three entries** if you started with only the two baseline examples.
-Rows are sorted by table and column, so your new row need not appear last. If the
-pair already existed, its earlier values remain; inspect and explain that result
-rather than deleting it to match the example. Record the actual row and explain
-why this command records a governance decision without enforcing it.
+There are **three entries** on a fresh walkthrough. Rows are sorted by table and
+column, so `customers.created_at` appears before `customers.email`, not at the end.
+If this pair already existed, its prior values remain; record what you actually see.
 
-### Independent practice: make your own decision
+### A5. Confirm the worked example is preserved
 
-The guided `customers.created_at` entry is practice, not your independent answer.
-Use different fields below. Keep the worked file separate from your own draft.
+Run the baseline again, then inspect:
 
-1. Choose one additional customer field and one additional order field. In
-   `labs/module_2/lab2_seed.sql`, the names immediately after `CREATE TABLE
-   raw.customers (` and `CREATE TABLE raw.orders (` define the available columns.
-   Choose from these fields (the two baseline examples and guided example are excluded):
+```bash
+.venv/bin/python scripts/course.py lab 2
+.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+```
 
-   | Table | Available fields for your task |
-   | --- | --- |
-   | `customers` | `customer_id`, `first_name`, `last_name`, `phone_number` |
-   | `orders` | `order_id`, `customer_id`, `order_date`, `order_status`, `payment_method` |
+Expect the same baseline PASS lines and the same three entries with unchanged values.
+This rerun deliberately checks preservation. Save the guided row's before/after
+inspection excerpts privately and explain what remained unchanged.
 
-   Classify both in writing. Select one of them to insert below. You choose and
-   justify the classification; there is no single classification supplied for you.
-2. Create and edit a private draft. Run the copy command only the first time; copying
-   again would overwrite your draft. To resume work, use only the `nano` command.
+> **Part A complete:** seeing the two baseline rows plus `customers.created_at`,
+> unchanged after A5, is the correct guided result. No fourth entry is needed here.
+> You have finished following the supplied example. Continue to Part B to create
+> your own entry; Part B is a separate required learning task.
 
-   ```bash
-   cp labs/module_2/lab2_insert_templates.sql .local/my-classification.sql
-   nano .local/my-classification.sql
-   ```
+## Part B: Apply the method independently
 
-   **Inside Nano:** keep the comments, `INSERT INTO ... VALUES` line and final
-   `ON CONFLICT ... DO NOTHING;` line. Replace BOTH example entries with ONE entry
-   of your own. Use the arrow keys to move to the first example line. `Ctrl+K`
-   removes the current line; remove the four example-value lines, stopping before
-   `ON CONFLICT`. Type or paste your new entry between `VALUES` and `ON CONFLICT`.
-   Your editor may wrap long lines; check that both original examples are gone.
+**Goal:** make and justify your own governance decision. Part B deliberately differs
+from the unchanged worked example. Edit only your private draft, not the repository
+SQL files or the Part A file. The runnable guided example remains available in A3.
 
-   ![Annotated Nano screenshot: keep the INSERT and ON CONFLICT lines, replace both example entries with one seven-value entry, then save with Ctrl+O and Enter and exit with Ctrl+X.](images/lab2-nano-guide.png)
+### B1. Choose two fields and write your decisions
 
-   The image is an annotated editing aid. Follow the text and SQL structure below;
-   do not transcribe small screenshot text. The same steps are provided in text.
+Choose one customer field and one order field from this list. The three teaching
+examples are excluded:
 
-   **Seven values, in order:**
+| Table | Available fields |
+| --- | --- |
+| `customers` | `customer_id`, `first_name`, `last_name`, `phone_number` |
+| `orders` | `order_id`, `customer_id`, `order_date`, `order_status`, `payment_method` |
 
-   | Position | Value | What to enter |
-   | --- | --- | --- |
-   | 1 | Table | `customers` or `orders`, without `raw.` |
-   | 2 | Column | An actual field from that table's list above |
-   | 3 | Classification | Exactly `Public`, `Internal`, `Sensitive` or `Restricted`; justify your choice |
-   | 4 | Rationale | Your intended purpose, plausible harm and reason for the classification |
-   | 5 | Owner role | A fictional business role accountable for the data, not your name |
-   | 6 | Retention rule | A purpose-based proposal, with assumptions or unresolved requirements stated |
-   | 7 | AI use | An allowed use or restriction consistent with your purpose and rationale |
+These names come from the CREATE TABLE definitions in `labs/module_2/lab2_seed.sql`.
+For each chosen field, write its purpose, classification, rationale, owner role,
+retention assumptions and permitted AI use in your private submission draft.
+Choose **one of those two fields** to insert below. The other is written analysis
+only; you do not need a fifth register row. Avoid pairs already in your register.
 
-   **Editing skeleton, not a completed answer:** replace EVERY `REPLACE_...` value
-   before running. The classification placeholder is deliberately not an allowed
-   classification. Keep `{{schema}}` exactly as written; the runner supplies it.
+### B2. Create a separate draft from the working example
 
-   ```sql
-   INSERT INTO {{schema}}.data_classification_register
-       (table_name, column_name, classification, rationale,
-        owner_role, retention_rule, ai_use)
-   VALUES (
-     'REPLACE_TABLE',
-     'REPLACE_COLUMN',
-     'REPLACE_CLASSIFICATION',
-     'REPLACE_RATIONALE',
-     'REPLACE_OWNER_ROLE',
-     'REPLACE_RETENTION_RULE',
-     'REPLACE_AI_USE'
-   )
-   ON CONFLICT (table_name,column_name) DO NOTHING;
-   ```
+```bash
+cp -i labs/module_2/lab2_guided_insert.sql .local/my-classification.sql
+nano .local/my-classification.sql
+```
 
-   ![Unfinished SQL template: replace all seven REPLACE values with your table, field, classification, rationale, owner role, retention rule and AI-use decision. Keep schema and SQL structure unchanged.](images/lab2-placeholder-guide.png)
+Answer `n` if asked to overwrite an existing draft, then edit that existing draft.
+The first-time copy contains runnable guided values. **Running it unchanged only
+repeats Part A; it does not produce an independent entry.**
 
-   **Read the numbered image with the seven-value table above.** It shows an
-   unfinished template, not a successful insertion. Replace the text inside each
-   quoted placeholder with your own value. For example, `REPLACE_TABLE` becomes
-   `customers` when you choose a customer field; the matching column must actually
-   belong to that table. Keep `{{schema}}` unchanged. The other values are your
-   governance decisions, using the complete guided example as a syntax reference.
-   No `REPLACE_...` text should remain when you save and execute the file.
+Replace the seven values under VALUES using your decision from B1:
 
-   Keep single quotes around each value and commas between values. There is no
-   comma after the seventh value or after `)`. If your text contains an apostrophe,
-   double it inside the SQL string: `customer''s`. Use straight quotes, not curly
-   word-processor quotes. The register does not automatically check that a field
-   name exists in the source; verify it against the list above yourself.
+| Current guided value | Replace it with |
+| --- | --- |
+| `customers` | The table of your selected field: `customers` or `orders` |
+| `created_at` | Your actual selected column from B1 |
+| `Internal` | Your justified choice: exactly `Public`, `Internal`, `Sensitive` or `Restricted` |
+| Account-age reporting rationale | Your purpose, potential harm and justification |
+| `Customer Data Steward` | A fictional accountable business role appropriate to your field |
+| Account-administration retention rule | Your proposed retention rule and stated assumptions |
+| Aggregate account-age AI-use statement | Your permitted AI use or restriction and its conditions |
 
-   **Save and exit:** press `Ctrl+O` (letter O), then `Enter` to confirm the filename,
-   then `Ctrl+X`. Nano's `^` notation means Ctrl. You should return to the shell
-   prompt. Saving edits a file; it does not update the database.
+Some values, such as the table or classification, may legitimately stay the same;
+review all seven. Your table/column pair must be different from the teaching examples.
+Use arrow keys to move through Nano, and Backspace/Delete to replace text. Keep the
+single quotes, commas, parentheses, explicit column names and ON CONFLICT clause.
+There is no comma after the seventh value or the closing value parenthesis.
+An apostrophe inside text is doubled, for example `customer''s`. Keep `{{schema}}`
+unchanged. The register does not validate whether your source field actually exists;
+check your spelling against B1.
 
-   **Stop and check before execution:** replace all seven `REPLACE_...` values,
-   not just the classification. Keep only `{{schema}}` unchanged. Confirm the real
-   table/field pair differs from the three teaching examples. Nano's `*` beside
-   the filename means unsaved edits; save before exiting.
+**If your earlier draft contains REPLACE placeholders:** replace every placeholder
+with the corresponding decision above. The image below explains that older draft
+format; it is not a second file to create or a runnable example to paste.
 
-   Run the INSERT at the shell prompt, not inside Nano. Run commands one at a time.
-   If it reports `SQL stopped`, fix the draft before continuing to inspection:
+![Older placeholder draft: replace all seven REPLACE values with real decisions; keep schema and SQL structure unchanged.](images/lab2-placeholder-guide.png)
 
-   ```bash
-   .venv/bin/python scripts/query.py .local/my-classification.sql
-   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
-   ```
+Save with **Ctrl+O** (letter O), **Enter**, then exit with **Ctrl+X**. Nano's `*`
+indicates unsaved edits. Saving changes the file, not the database.
 
-   A successful INSERT without RETURNING prints `[]`; this is not proof of a new
-   entry. If you see `SQLSTATE 23514`, the check constraint rejected a value. In this
-   lab, verify the classification is exactly one of the four allowed labels and
-   replace every remaining placeholder. Reopen `.local/my-classification.sql`,
-   edit, save and rerun that file. Do not recopy the original template over your work.
-   Older helpers append advice about `42501` to every error; `23514` is a constraint
-   failure, not a permission denial. The failed INSERT did not add your new row.
+### B3. Execute your independent INSERT
 
-   After the INSERT succeeds, the
-   second displays register rows as JSON arrays in the seven-value order above.
-   Expect **four entries** after the two baseline examples, guided example and
-   your one new independent entry. If you already added other fields, expect those too. Find your table/column pair and
-   check that all seven values match your draft.
+Check that no `REPLACE_...` text remains, then run:
 
-3. **Proceed only when inspection shows your independent row.** Three teaching
-   entries alone mean the independent insertion is still incomplete. A later
-   baseline PASS does not repair a failed INSERT or validate your independent work.
-   Test preservation by rerunning the baseline and inspecting again:
+```bash
+.venv/bin/python scripts/query.py .local/my-classification.sql
+```
 
-   ```bash
-   .venv/bin/python scripts/course.py lab 2
-   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
-   ```
+Expected: environment PASS followed by `[]`, without `SQL stopped`.
+**If there is an error, stop here:** reopen the same private file, correct it, save
+and retry. Do not copy over your draft or rerun the baseline as a substitute for
+fixing the INSERT. In particular, `23514` means a check constraint failed; verify
+the classification label. It does not mean permission denied.
 
-   Confirm your selected row and its rationale remain. This repeat has a specific
-   purpose: testing preservation after your edit. Do not claim preservation from
-   the baseline PASS message alone; compare the observed row before and after.
+### B4. Find your independent row
 
-For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
+```bash
+.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+```
 
-## Interpret and transfer
+Find your chosen table/column pair and compare all seven values with your file.
+Normally you now have **four entries**: two baseline, one guided and one independent.
+If only the three teaching entries appear, Part A still succeeded but Part B has
+not added its row. Check for an unchanged guided pair or an earlier SQL error.
+`ON CONFLICT` skips duplicates; it does not modify the existing entry.
 
-Use the two fields you selected above; no third field is required. Defend one
-plausible alternative classification and explain which business context would change
-your decision. Compare with a peer if available; independent learners can write the
-alternative perspective themselves. Explain why a register label alone does not
-prevent an unauthorized query.
+Save your actual independent row's JSON excerpt privately. Do not proceed to B5
+until that row is present. More than four entries is fine after prior practice.
 
-## Submit
+### B5. Confirm your independent row is preserved
 
-Create a private Lab 2 submission using the [shared template](../../submissions/template.md).
-Leave the repository template unchanged. Include:
+Predict whether it will remain, then run:
 
-1. **Command and baseline evidence:** `.venv/bin/python scripts/course.py lab 2`
-   and the three PASS lines from your own run. Do not submit your full terminal
-   history, personal shell prompt or private configuration.
-2. **Prediction:** your recorded expectation before the baseline run. If you already
-   ran it without recording one, say so honestly; do not invent a prior prediction.
-   Before the preservation experiment, predict whether your new row will survive.
-3. **Observed register evidence:** include the guided example row you actually
-   observed and explain whether it was inserted or already present. Then include
-   the inspection command and JSON excerpt for your independent field before and
-   after rerunning Lab 2. Describe the comparison.
-4. **Your classifications:** the two independent written field classifications (not
-   the guided example) and your edited
-   INSERT statement for one of them. This reasoning is your work, not runner output.
-5. **Interpretation and transfer:** the alternative classification and the distinction
-   between recording a policy and enforcing it. State one limitation of these checks.
-6. **Assistance disclosure:** complete the common template's assistance section.
+```bash
+.venv/bin/python scripts/course.py lab 2
+.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+```
 
-Readable text evidence is sufficient; screenshots are optional. Submit privately
-through the course system, or retain the work locally for independent study.
-A successful baseline run alone does not complete this lab.
+Compare your independent row with B4: the same table/column pair and all its values
+should remain. Save the after-rerun excerpt. A baseline PASS alone cannot prove
+this: the evidence is your actual row before and after the rerun.
 
-### Final evidence checkpoint
+> **Part B complete:** your own field is present before and after B5, and you have
+> written both classifications from B1. Now assemble Part C. The runner does not
+> grade your reasoning or print your written answers.
 
-| Item | Required evidence | Not sufficient on its own |
-| --- | --- | --- |
-| Baseline | Three PASS lines from your run | A completion banner |
-| Guided practice | Actual `customers.created_at` observation and explanation | Copied expected output from this page |
-| Independent insertion | Your finished SQL, plus your chosen field's actual JSON row before and after the preservation rerun | `[]`, an error, or only the three teaching examples |
-| Reasoning | Two original written classifications, alternative interpretation, enforcement limit and assistance disclosure | Screenshots without explanation |
+## Part C: Submit evidence and reasoning
 
-If an error occurred, include its SQLSTATE, your correction and the successful
-recovery evidence. If unresolved, report the blocker honestly and seek support;
-do not label the independent task complete. Do not submit a full terminal transcript.
+Create one private Lab 2 submission using the [shared template](../../submissions/template.md).
+Do not edit or commit the shared template. Label your evidence Part A and Part B.
 
-**Instructor check:** assess the learner's chosen field and reasoning separately
-from baseline execution. Do not infer independent success from `LAB 2 COMPLETE`
-or require a total of exactly four when earlier student entries already exist.
+| Submission item | What to include |
+| --- | --- |
+| Part A baseline | Command and three PASS lines from A1 |
+| Part A guided observation | Commands and actual guided row excerpts from A4/A5; explain preservation and what `[]` means |
+| Part B independent work | The two written field classifications from B1 and your completed SQL from B2 for one of them |
+| Part B insertion/preservation | Commands and your independent row excerpts from B4/B5; compare the values |
+| Predictions and recovery | Recorded predictions; honestly identify any not recorded beforehand. If an error occurred, describe its code, correction and recovery; report unresolved blockers rather than claiming success |
+| Interpretation and transfer | Defend one alternative classification for a chosen field; explain why a recorded rule is not enforcement and identify one limit of these checks |
+| Assistance | State any AI assistance and verification, or None, following course rules |
 
-Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
-tradeoff reasoning 30%; clarity and evidence limitations 10%.
+Compare an alternative classification with a peer if available; independent learners
+can write the competing perspective themselves. The initial A2 output and editor
+screenshots are reference checkpoints, not extra required submissions. Readable
+text evidence is sufficient. Do not submit full installation logs, personal shell
+prompts, `.env`, passwords or connection strings. Use the private course system;
+independent learners retain work locally.
+
+Rubric: evidence 25%; interpretation 35%; transfer/tradeoffs 30%; clarity/limits 10%.
+These are activity-level weights; institutional course weights remain in the LMS.
+
+**Instructor checkpoint:** three teaching entries establish guided completion, not
+independent completion. Assess the student's new pair, original reasoning and actual
+preservation evidence. Do not require exactly four entries on a reused database,
+and do not infer assignment completion from the runner's banner.
 
 ## Recovery
 
-| Symptom | Safe next action |
+| Symptom | Next action |
 | --- | --- |
-| Still inside Nano | Save with Ctrl+O, Enter, then exit with Ctrl+X before running shell commands. |
-| Syntax error (`42601`) | Reopen your private draft. Check quotes, seven comma-separated values, balanced parentheses and no comma before ON CONFLICT. |
-| Check constraint failure (`23514`) | Replace the classification placeholder with one of the four exact allowed labels. |
-| No new entry after a successful INSERT | Check whether your table/column pair already exists. ON CONFLICT skips it; repeated INSERTs do not update an existing entry. |
-| Need to revise an existing entry | Preserve the current row and ask your instructor about a targeted UPDATE. Do not delete the register or change the baseline examples. |
-| Row appears under a misspelled field | The register stores your text; it does not validate source field names. Identify the mistake and arrange a targeted correction with your instructor. |
+| `[]` after INSERT | Normal without RETURNING. Inspect the register to determine whether a new row exists. |
+| `23514` | Check constraint failure. Use an exact allowed classification and replace every placeholder. Older helpers mention 42501 for unrelated errors; read the actual SQLSTATE. |
+| `42601` | Check straight single quotes, commas, parentheses and the final semicolon. |
+| `42501` | Permission denied. Check the selected role and configuration; do not grant broad privileges to bypass it. |
+| No new row | Confirm your selected pair is new, the correct file was saved/executed, and no earlier error occurred. |
+| Need to revise a stored entry | ON CONFLICT does not update it. Preserve the row and ask for guidance on a targeted UPDATE; do not delete the register to force an expected count. |
+| Still in Nano | Save with Ctrl+O, Enter; exit with Ctrl+X before running shell commands. |
 
-Use the [setup troubleshooting table](../../docs/setup.md). Read errors before retrying;
-never delete tests or change authentication to make a result pass. There is no
-automatic destructive reset. For an isolated new start use a new DB/user pair.
+See [setup recovery](../../docs/setup.md) and the [query helper guide](../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
-[Back to all labs](../../labs/README.md)
+[Back to all labs](../README.md)
 
 ---
 
