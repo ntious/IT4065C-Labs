@@ -1,5 +1,15 @@
 # Changes
 
+## Independent review corrections
+
+- Align AI outcome attribution with the institutional notice and date public-source limits.
+- Add student/instructor entry pages, core/optional indexes and canonical lab investigations.
+- Add read-only installation preflight, port recovery and managed-device guidance.
+- Clarify licensing scope and contributor attribution; add a provenance inventory.
+- Add a fictional capstone example, delivery plan and human pilot record.
+- Pin the reviewed baseline to its actual successful workflow; new changes require their own CI run.
+
+
 ## AI outcome attribution
 
 - Clarified that the AI governance course-level outcome was added by the University after the repository’s initial development.

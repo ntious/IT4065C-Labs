@@ -3,7 +3,7 @@
 ## Prerequisites
 
 Start with [the local Windows/Ubuntu run guide](local_run.md) if you use Windows.
-Ubuntu 22.04 and 24.04 passed the published workflow at commit `f7b01ce`;
+Ubuntu 22.04 and 24.04 passed the published workflow at commit `71653bf`;
 see [validation](validation.md) for exact scope and evidence.
 
 Use Ubuntu 22.04 or 24.04 in an individual VM or WSL2, with Python 3.10–3.12,
@@ -102,6 +102,68 @@ http://127.0.0.1:8080 in the same machine. Stop with Ctrl+C. A remote Ubuntu VM
 needs an instructor-approved SSH tunnel; do not expose port 8080 publicly.
 The local profile deliberately supports loopback only. A cloud/remote deployment
 requires a separate reviewed profile, firewall/access design and verified TLS.
+
+## Read-only installation preflight
+
+Before installation, run `python3 scripts/preflight.py` in Ubuntu. It checks the
+supported OS/Python, required commands, checkout access, disk space, an IPv4
+loopback port and bounded HTTPS connectivity. It installs nothing, reads no secret
+configuration and never requests sudo. FAIL means a prerequisite needs attention;
+WARN requires review, not necessarily a broken setup. Existing PostgreSQL commonly
+produces a port warning. The non-interactive sudo policy query does not authenticate or run a privileged
+command; even a successful query does not guarantee every setup command is allowed.
+Use `--offline` to omit network probes, or `--port 55432` to inspect a custom port.
+The optional argument does not update `.env` or reserve that port.
+
+## Managed computers
+
+Ask the instructor for an individual Ubuntu VM when your device blocks WSL,
+installation or sudo. The VM administrator runs the same setup, and the student
+uses its non-administrator database identities. Each learner needs a private
+checkout, private generated credentials and an isolated lab server; do not share
+the example account or a production database. The instructor must confirm the
+connection instructions and a private submission route before assigning work.
+An offline machine cannot perform the first installation without prepared packages.
+This repository does not provision a hosted VM service. A container path is not
+part of the tested setup.
+
+## PostgreSQL port and existing installations
+
+On your disposable Ubuntu machine, inspect before changing anything:
+
+```bash
+pg_lsclusters
+ss -ltn
+```
+
+If `pg_lsclusters` is unavailable, PostgreSQL's Ubuntu management packages may not
+yet be installed. A TCP listener does not prove that the service is PostgreSQL or
+that it belongs to this course. Never kill an unfamiliar process, remove its data,
+or weaken authentication to resolve a conflict. Use a fresh individual VM if the
+existing installation serves other work.
+
+For an already provisioned, dedicated local PostgreSQL cluster on another port,
+set `IT4065C_DB_PORT` in private `.env` to the port shown by `pg_lsclusters`, then
+run bootstrap and Lab 1. The value selects an existing server; it does not change
+the server's listening port.
+
+An instructor can create a separate cluster on an unused port in a disposable VM:
+
+```bash
+pg_lsclusters
+sudo pg_createcluster <installed-major-version> it4065c --port=55432 --start
+```
+
+Replace `<installed-major-version>` with the installed PostgreSQL major version
+(for example, the version displayed by `pg_lsclusters`); do not paste the placeholder.
+Confirm port 55432 is unused first. Generate `.env` with
+`python3 scripts/course.py configure` only if absent, edit its port to `55432`,
+then run `bash scripts/setup.sh`. If Python dependencies are already installed,
+run `.venv/bin/python scripts/course.py bootstrap` and then `lab 1` instead.
+Do not rerun cluster creation if the named cluster already exists; inspect its
+status and consult its administrator. Existing course DB/role ownership markers
+still apply. Keep server changes under instructor supervision.
+
 
 ---
 

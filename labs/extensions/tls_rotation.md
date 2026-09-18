@@ -1,5 +1,8 @@
 # Optional Lab 14: Verified TLS and credential rotation
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Connection:** SLO 5; Module 5. **Time:** 60–90 minutes.
 Complete Lab 5 and [optional setup](infrastructure_setup.md), including openssl.
 

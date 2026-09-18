@@ -4,10 +4,11 @@ The runnable local course requires Ubuntu, PostgreSQL, Python and dbt. External
 platforms support selected demonstrations and assigned exploration; students
 do not need an external account for the local lab sequence.
 
-The course uses **Alation University's Data Intelligence Project** to supplement
-local labs. The course also introduces Snowflake
-through an optional Data Warehousing Workshop in Module 4. Apache Airflow may
-support selected activities; external platforms are not required for every local lab.
+An adopting instructor may assign **Alation University's Data Intelligence Project**
+to supplement local labs, following the access and alternative-evidence guidance
+below. Snowflake offers optional Module 4 exploration. Apache Airflow may support
+selected instructor-assigned activities. Availability depends on the offering;
+these services are not requirements for the local core sequence.
 
 ## Alation University supplement
 

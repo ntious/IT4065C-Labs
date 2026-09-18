@@ -95,6 +95,14 @@ this public capstone. Keep dates, institutional policies, private solutions and
 student records in the course system.
 
 
+## Example of evidence and reasoning
+
+Read the [fictional community equipment-lending example](fictional_example.md)
+for a miniature requirement-to-control matrix, evidence labels, a revised claim
+and a bounded recommendation. It illustrates expected reasoning without providing
+a solution to the retail case. Its observations are simulated, not executed lab evidence.
+
+
 ---
 
 Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

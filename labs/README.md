@@ -4,7 +4,13 @@ Complete Labs 1–7 in order for the revised course. Lab 7 addresses the added A
 ethics/governance outcome and is part of that core sequence. Labs 8–11 provide
 additional lifecycle, infrastructure, ingestion and publication experiments. Optional
 Labs 12–14 add isolated server experiments; Optional Lab 15 is a governance case.
-None require paid services.
+None require paid services. Folder names are retained for compatibility with
+existing links. Module 4 uses a discussion/comparison route rather than a folder;
+Lab 7 remains core despite its historical `extensions` location.
+
+## Core labs
+
+Labs 1–7 form the required sequence.
 
 | Lab | Outcome | Time estimate |
 |---|---|---|
@@ -15,6 +21,11 @@ None require paid services.
 | [5. Access control and masking](module_5/lab5/README.md) | SLO 5 | 60–90 minutes |
 | [6. Monitoring and evidence](module_6/lab6/README.md) | SLO 5 | 60–90 minutes |
 | [7. AI ethics and governance](extensions/ai_governance.md) | SLO 6 | 60–90 minutes |
+
+## Optional labs 8–11
+
+| Optional lab | Outcome | Time estimate |
+|---|---|---|
 | [8. Retention and deletion](extensions/retention.md) | SLOs 2,5 | 45–60 minutes |
 | [9. Infrastructure snapshot experiment](extensions/infrastructure.md) | SLO 3 | 45–60 minutes |
 | [10. Mixed-format catalog and ingestion](extensions/catalog_ingestion.md) | SLOs 1,2,4 | 60–90 minutes; optional |

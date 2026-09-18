@@ -5,8 +5,21 @@ assessments to the IT4065C course-level learning outcomes. It is not an official
 University of Cincinnati syllabus or policy document.
 
 The crosswalk was developed for the Spring 2026 course offering and includes an
-additional instructor-developed AI ethics and governance outcome, identified as
-SLO 6 for internal traceability.
+additional AI ethics and governance course-level outcome, identified as SLO 6
+for internal traceability.
+
+The AI ethics and governance course-level outcome, identified here as SLO 6,
+was added by the University of Cincinnati after the repository's initial development.
+Isaac K. Nti developed the repository activities addressing it, not the outcome.
+As checked on 2026-09-18, the public UC course-description page lists the earlier
+five outcomes and does not yet display this addition. Consult the current official
+course materials for the authoritative outcome wording and applicable offering.
+
+SLO 1–6 refer to course-level outcomes. Module-level outcomes, the crosswalk,
+labs and assessment designs are instructor-developed repository materials.
+The Spring 2026 offering informed this instructional design; its private syllabus
+is not a publicly verifiable source. Adopting instructors must reconcile this map
+with their current authorized syllabus and LMS requirements.
 
 For the current official course description and course-level learning outcomes,
 see the
@@ -55,11 +68,12 @@ support the new optional server, transfer, TLS and governance activities below.
 
 Labs 1–7 form the core; Labs 8–15 provide optional enrichment. Instructors adopting
 a syllabus with additional required practical outcomes must specify an assessed
-activity for each outcome or obtain approval for a substitution. Optional availability
+activity for each outcome and follow their institution’s approval process for
+substitutions. Optional availability
 alone does not establish that every student completed a practical outcome.
 
 The AI governance outcome is assessed through discussion, a decision memo and defense.
-Another required machine-learning lab is unnecessary. Use this cross-lab evidence chain:
+The repository uses this cross-lab evidence chain:
 classification and permitted AI use (Lab 2); proxy/audit-field separation (Lab 3);
 training/evaluation/retirement copies (Lab 4); restricted audit access (Lab 5);
 drift and incident ownership (Lab 6); accountable deployment decision (Lab 7).

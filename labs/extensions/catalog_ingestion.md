@@ -1,5 +1,8 @@
 # Optional Lab 10: Catalog and curate mixed-format sources
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Author:** Isaac K. Nti. **Outcomes:** SLOs 1, 2, 4. **Time:** 60–90 minutes.
 Optional enrichment; does not add a required assessment to the core course.
 

@@ -1,5 +1,8 @@
 # Optional Lab 12: Server-side audit investigation
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Connection:** SLO 5; Modules 5–6. **Time:** 60–90 minutes.
 Complete Labs 5–6 and the [optional setup](infrastructure_setup.md).
 

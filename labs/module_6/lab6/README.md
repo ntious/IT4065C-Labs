@@ -3,7 +3,31 @@
 **Outcomes:** SLO 5. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
-Read the short [concept notes](../../../docs/lab_context_notes/lab6.md) before running the lab.
+## Concept
+
+The access runner records what its client observed during live queries. Those records
+are useful for demonstrating tested allow/deny outcomes, but a client can alter or
+omit them. They are not an independent, tamper-resistant PostgreSQL audit trail.
+
+The incident table is a separate, deterministic simulation. It deliberately includes
+repeated denials, a role-switch event and an after-hours export. The SQL rules return
+one row per rule/actor so one incident classification does not hide another.
+
+An alert is a hypothesis requiring investigation. A legitimate shift worker may export
+after hours; a single authorized query can still misuse data without triggering these
+rules. UTC timestamps make this exercise reproducible but do not define every team’s
+business hours. Distinguish event time, observation time and the clock/time-zone assumption.
+
+An operational design also needs coverage, retention, access restrictions, integrity,
+review ownership and an incident response process. A server audit extension or managed
+platform log is a candidate evidence source, not something this client fixture has enabled.
+
+**Check your understanding:** For each finding, label its source, what it supports,
+what it cannot establish and a follow-up investigation. Include one false positive
+and one missed-incident scenario in your memo.
+
+> **Completion:** Automation passing means the environment checks worked. Complete
+> the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
 
@@ -25,8 +49,13 @@ Do not confuse a printed expectation with a passed assertion: the runner stops o
 
 ## Hands-on investigation
 
-Complete your lab’s numbered activity in the [practice guide](../../practice/README.md).
-Inspect the source, run an experiment, and record your prediction before observing the result.
+Read `.local/audit-report.json` locally. For each flag, trace the rule in
+`labs/module_6/lab6/01_generate_audit_report.sql` and the corresponding synthetic
+fixture. Write one false-positive explanation and one possible missed incident.
+Distinguish what the live client observed from what the fixture merely simulates.
+Propose a server-side evidence source and who should control access to it.
+
+For custom SQL, use the [query helper instructions](../../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 

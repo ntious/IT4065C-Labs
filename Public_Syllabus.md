@@ -39,14 +39,14 @@ referenced rather than reproduced here.
 
 ## University-added AI governance outcome
 
-The University of Cincinnati added an AI ethics and governance course-level outcome
-after this repository's initial development. It is a University-issued outcome,
-not an instructor-developed addition. The repository identifies it as SLO 6 for
-internal mapping and addresses it through Lab 7 and the capstone.
+The AI ethics and governance course-level outcome, identified here as SLO 6,
+was added by the University of Cincinnati after the repository's initial development.
+Isaac K. Nti developed the repository activities addressing it, not the outcome.
+As checked on 2026-09-18, the public UC course-description page lists the earlier
+five outcomes and does not yet display this addition. Consult the current official
+course materials for the authoritative outcome wording and applicable offering.
 
-Refer to the official University course materials for its authoritative wording.
-As with the other University-issued outcomes, its full text is referenced rather
-than reproduced here.
+The repository addresses this outcome through Lab 7 and the capstone.
 
 The module descriptions and module-level outcomes are instructor-developed;
 see [institutional context and instructional authorship](AUTHORS.md#institutional-context-and-instructional-authorship).

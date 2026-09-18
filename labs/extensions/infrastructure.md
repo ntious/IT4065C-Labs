@@ -3,6 +3,9 @@
 **Outcomes:** SLO 3. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+> **Completion:** Automation passing means the environment checks worked. Complete
+> the independent investigation, interpretation and evidence below before submitting.
+
 ## Before you begin
 
 Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
@@ -23,8 +26,14 @@ Do not confuse a printed expectation with a passed assertion: the runner stops o
 
 ## Hands-on investigation
 
-Complete your lab’s numbered activity in the [practice guide](../practice/README.md).
-Inspect the source, run an experiment, and record your prediction before observing the result.
+Read `labs/extensions/infrastructure.sql`; identify the exact point when the
+snapshot becomes stale. Copy it locally and insert a third operational record;
+update your predicted count and total assertions, then execute. Compare on-premises,
+cloud and hybrid options for freshness, failure domains, identity, connectivity,
+cost and operational ownership. This experiment tests snapshot logic; it does not
+measure network replication, availability, RPO or RTO.
+
+For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 

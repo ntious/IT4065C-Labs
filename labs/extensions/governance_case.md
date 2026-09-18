@@ -1,5 +1,8 @@
 # Optional Lab 15: Governance applicability and stewardship case
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Connection:** SLOs 1, 2, 5 and 6; Modules 1, 6–7. **Time:** 60–90 minutes.
 This reading and reasoning activity needs no installation or external account.
 It extends the required short discussion in the module map; it does not replace it.

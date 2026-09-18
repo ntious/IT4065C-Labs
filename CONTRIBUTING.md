@@ -171,7 +171,10 @@ See the [institutional context and authorship notice](AUTHORS.md) for the full s
 - **Code** (SQL, shell scripts, dbt models) is licensed under the **MIT License**
 - **Curriculum text and documentation** are licensed under **CC BY 4.0**
 
-By contributing, you agree your contributions may be distributed under the repository’s license terms.
+By contributing, confirm that you created the contribution or have authority to
+license it under the applicable repository terms. Identify adapted sources and
+any separate notices. Contributor work remains attributed to its contributor;
+acceptance does not transfer its authorship to the repository maintainer.
 
 If you adapt content from elsewhere:
 - Ensure it is compatible with these licenses
@@ -181,7 +184,8 @@ If you adapt content from elsewhere:
 
 ## How Decisions Are Made
 
-As the maintainer and course author, I prioritize changes that:
+As repository maintainer and author of the original materials identified in
+[AUTHORS.md](AUTHORS.md), I prioritize changes that:
 - improve student success and clarity
 - strengthen governance traceability
 - increase reproducibility across environments

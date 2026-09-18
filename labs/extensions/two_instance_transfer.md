@@ -1,5 +1,8 @@
 # Optional Lab 13: Two-instance transfer and recovery
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Connection:** SLOs 2–3; Modules 3 and 4. **Time:** 60–90 minutes.
 Complete Lab 4 and the infrastructure comparison. Read [optional setup](infrastructure_setup.md).
 
