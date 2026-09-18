@@ -330,6 +330,16 @@ Use different fields below. Keep the worked file separate from your own draft.
    ON CONFLICT (table_name,column_name) DO NOTHING;
    ```
 
+   ![Unfinished SQL template: replace all seven REPLACE values with your table, field, classification, rationale, owner role, retention rule and AI-use decision. Keep schema and SQL structure unchanged.](images/lab2-placeholder-guide.png)
+
+   **Read the numbered image with the seven-value table above.** It shows an
+   unfinished template, not a successful insertion. Replace the text inside each
+   quoted placeholder with your own value. For example, `REPLACE_TABLE` becomes
+   `customers` when you choose a customer field; the matching column must actually
+   belong to that table. Keep `{{schema}}` unchanged. The other values are your
+   governance decisions, using the complete guided example as a syntax reference.
+   No `REPLACE_...` text should remain when you save and execute the file.
+
    Keep single quotes around each value and commas between values. There is no
    comma after the seventh value or after `)`. If your text contains an apostrophe,
    double it inside the SQL string: `customer''s`. Use straight quotes, not curly

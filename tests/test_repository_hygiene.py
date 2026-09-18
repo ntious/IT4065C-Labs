@@ -22,7 +22,8 @@ class RepositoryHygieneTests(unittest.TestCase):
             with self.subTest(path=name):
                 self.assertFalse(name == ".env" or name.startswith((".local/", ".venv/")))
                 self.assertNotIn(path.suffix, {".pdf", ".xlsx", ".log"}, "Review binary/runtime assets before publishing")
-                if name == "labs/module_2/images/lab2-nano-guide.png":
+                if name in {"labs/module_2/images/lab2-nano-guide.png",
+                            "labs/module_2/images/lab2-placeholder-guide.png"}:
                     self.assertTrue(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
                     continue  # Reviewed instructional screenshot; text checks apply below.
                 text = path.read_text(encoding="utf-8")
