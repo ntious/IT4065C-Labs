@@ -10,3 +10,7 @@
 
 Keep personal details and submitted work in your private course system. Do not
 commit filled submissions to this public repository. Text evidence is acceptable.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

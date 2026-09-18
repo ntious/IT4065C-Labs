@@ -187,3 +187,7 @@ This is your final professional exercise.
 ```
 
 ---
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

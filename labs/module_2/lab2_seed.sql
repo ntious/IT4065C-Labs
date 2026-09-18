@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Synthetic fixtures. Only called for an empty four-table raw dataset.
 -- No DROP/CASCADE; failure rolls the whole seed transaction back.
 BEGIN;

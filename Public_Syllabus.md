@@ -20,8 +20,8 @@ account is required. Begin with the [setup guide](docs/setup.md).
 Governance/classification → modeling → lifecycle → infrastructure comparison →
 access security → monitoring → integrated governance/AI → capstone defense.
 See the [lab map](labs/README.md) and [assessment map](docs/Assessment_Framework.md).
-Lab 7 is required evidence for the added AI governance outcome. Labs 8–9 extend
-retention and infrastructure reasoning.
+Lab 7 is required evidence for the added AI governance outcome. Labs 8–11 extend
+retention, infrastructure, heterogeneous ingestion and quality-gated publication.
 
 The local toolchain substitutes open exercises for vendor demonstrations. It does
 not claim to assess product-specific Alation/Snowflake proficiency. Single-instance
@@ -36,3 +36,10 @@ does not replace the official current institutional syllabus.
 Disclose AI assistance and independently verify results. Never upload secrets or
 personal records to an AI service. Assessment emphasizes reasoning and demonstrated
 understanding rather than an unverifiable percentage of AI-generated writing.
+
+See the [detailed syllabus crosswalk](docs/syllabus_alignment.md) for module-level
+coverage, optional extensions and requirements that remain unimplemented.
+
+---
+
+Author: [Isaac K. Nti](AUTHORS.md). [Citation and reuse terms](CITATION.md).

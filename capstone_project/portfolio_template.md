@@ -17,3 +17,7 @@ The historical sheet identifiers below are retained so phase instructions still 
 
 For each claim label it **implemented and tested**, **simulated**, or **proposed**.
 Do not use generic lab screenshots as proof of unimplemented capstone controls.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

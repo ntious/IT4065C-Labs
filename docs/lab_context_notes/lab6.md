@@ -22,3 +22,7 @@ what it cannot establish and a follow-up investigation. Include one false positi
 and one missed-incident scenario in your memo.
 
 [Run Lab 6](../../labs/module_6/lab6/README.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

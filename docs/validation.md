@@ -1,5 +1,20 @@
 # Reproducibility and security verification
 
+## Published Ubuntu result
+
+At commit `1f69e9090791a7a4895dbd03d5f83acb3bd67280`,
+[workflow run 35343609278](https://github.com/ntious/IT4065C-Labs/actions/runs/35343609278)
+passed every step on **Ubuntu 24.04**: fresh setup, configuration tests, nine labs
+twice with failure recovery, and a non-default database/user/schema rehearsal.
+Ubuntu 22.04 failed during hash-checked installation because its older pip resolver
+did not bind a transitive `mashumaro[msgpack]` request to the base-package pin.
+
+The correction explicitly pins the extra as `mashumaro[msgpack]==3.14` without
+changing the package version or removing hashes. A Python 3.10/pip 22.0.2 local
+download and installation passed with this lock. The corrected Ubuntu 22.04 job
+must still be rerun after publication. Optional Labs 10–11 are newly added and
+have their own CI step; a previous green job does not validate those new changes.
+
 ## Reproduce the checks
 
 Use a disposable individual Ubuntu machine and the unmodified synthetic fixture:
@@ -8,6 +23,8 @@ Use a disposable individual Ubuntu machine and the unmodified synthetic fixture:
 bash scripts/setup.sh
 .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python scripts/verify.py
+.venv/bin/python scripts/optional_labs.py catalog
+.venv/bin/python scripts/optional_labs.py promotion
 ```
 
 The verifier runs all nine labs twice, checks reader write denials and connection
@@ -60,7 +77,12 @@ fixture cannot establish real-world fairness or regulatory compliance.
 ## Maintaining dependencies
 
 Edit `requirements.in`, regenerate `requirements.lock` with a reviewed version of
-uv (`uv pip compile requirements.in --generate-hashes --universal --python-version
+uv (`uv pip compile requirements.in --generate-hashes --no-strip-extras --universal --python-version
 3.10 --output-file requirements.lock`), and rerun both Ubuntu jobs before adopting
-the update. Review advisories and dependency changes; pinning is reproducibility,
+the update. Keep extras in the generated lock so older supported installers retain
+the tested pin. Review advisories and dependency changes; pinning is reproducibility,
 not a claim that a dependency has no vulnerabilities.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

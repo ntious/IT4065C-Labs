@@ -1,0 +1,4 @@
+Synthetic teaching policy: aggregate sales by day for operational reporting.
+Customer contact fields and free-text support notes are excluded from this pipeline.
+This text is cataloged as unstructured documentation, not parsed into sales facts.
+No use for individual AI eligibility or profiling has been approved in this scenario.

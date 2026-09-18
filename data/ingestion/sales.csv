@@ -1,0 +1,4 @@
+record_id,event_date,amount,customer_email
+csv-1,2026-01-10,12.50,first@example.com
+csv-2,2026-01-10,7.50,second@example.com
+csv-3,2026-01-11,invalid,third@example.com

@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- SINGLE-INSTANCE simulation: snapshot staleness, not replication/failover.
 BEGIN;
 CREATE TEMP TABLE operational (id integer PRIMARY KEY,amount integer);

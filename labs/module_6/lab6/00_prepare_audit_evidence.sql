@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- FIXTURE ONLY: intentionally fabricated events for incident interpretation.
 CREATE TABLE IF NOT EXISTS {{schema}}.audit_access_events (
  event_id integer PRIMARY KEY,event_ts timestamptz NOT NULL,actor_user text NOT NULL,

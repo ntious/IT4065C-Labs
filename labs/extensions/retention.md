@@ -49,3 +49,7 @@ never delete tests or change authentication to make a result pass. There is no
 automatic destructive reset. For an isolated new start use a new DB/user pair.
 
 [Back to all labs](../../labs/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

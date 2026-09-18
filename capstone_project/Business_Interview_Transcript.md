@@ -43,7 +43,7 @@ Products in our catalog include:
 
 ---
 
-### 📌 Architect’s Sidebar (Structural Hint)
+### Architect’s note: structural hint
 
 The stakeholder emphasizes “one or many products.”
 
@@ -93,7 +93,7 @@ We need visibility into:
 
 ---
 
-## 📂 Internal Compliance Requirements
+## Internal Compliance Requirements
 
 **Retention Policy**
 
@@ -123,7 +123,7 @@ We require full **auditability**:
 
 ---
 
-# 🛡 Risk & Sensitivity Memo (Governance Input)
+# Risk & Sensitivity Memo (Governance Input)
 
 ### Classification – HIGH (Red)
 **Customer Profiles (Email / Phone)**  
@@ -151,3 +151,7 @@ This transcript serves as the authoritative source for:
 - Phase 6 – Executive Defense  
 
 All architectural and governance decisions must be traceable to this interview.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

@@ -19,3 +19,7 @@ contains a derived identifier. What is your evidence of propagation, and what re
 unknown? Lab 8 extends this reasoning to a simulated restore and deletion ledger.
 
 [Run Lab 4](../../labs/module_3/lab4/README.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

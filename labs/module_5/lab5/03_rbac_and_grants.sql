@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Roles are provisioned by local administrator, never dropped by a lab.
 BEGIN;
 REVOKE ALL ON SCHEMA raw FROM PUBLIC,{{analyst}},{{steward}};

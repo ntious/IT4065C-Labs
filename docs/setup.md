@@ -2,10 +2,15 @@
 
 ## Prerequisites
 
+Start with [the local Windows/Ubuntu run guide](local_run.md) if you use Windows.
+Ubuntu 24.04 passed the full published CI workflow. Ubuntu 22.04's installer
+compatibility correction is included locally and awaits its next CI run.
+
 Use Ubuntu 22.04 or 24.04 in an individual VM or WSL2, with Python 3.10–3.12,
 sudo access, internet access for the initial installation, and about 4 GB of
 available RAM and 4 GB of free disk for this small local stack. These are planning
-guidelines, not measured minimums. Windows users run the commands inside Ubuntu,
+guidelines, not measured minimums. In WSL, clone into your Linux home directory
+so private-file permissions behave as expected. Windows users run the commands inside Ubuntu,
 not PowerShell. macOS users can use an Ubuntu VM. No institutional account is
 required. Do not run setup on a shared or production PostgreSQL server.
 
@@ -97,3 +102,7 @@ http://127.0.0.1:8080 in the same machine. Stop with Ctrl+C. A remote Ubuntu VM
 needs an instructor-approved SSH tunnel; do not expose port 8080 publicly.
 The local profile deliberately supports loopback only. A cloud/remote deployment
 requires a separate reviewed profile, firewall/access design and verified TLS.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

@@ -102,3 +102,7 @@ update your predicted count and total assertions, then execute. Compare on-premi
 cloud and hybrid options for freshness, failure domains, identity, connectivity,
 cost and operational ownership. This experiment tests snapshot logic; it does not
 measure network replication, availability, RPO or RTO.
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

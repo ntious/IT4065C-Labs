@@ -4,3 +4,7 @@ Use the [lab index](../../labs/README.md). The Markdown lab guides replace the o
 PDF instructions, screenshots and embedded environment-specific details. They are
 searchable, accessible, versioned beside the runnable code and easier to keep current.
 The private institutional syllabus is not published here.
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

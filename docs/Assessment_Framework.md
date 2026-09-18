@@ -15,3 +15,11 @@ Public rubrics are intentionally visible. Keep live answer keys and student grad
 Core lab rubric: evidence 25%, interpretation 35%, transfer 30%, clarity/limits 10%.
 Lab 7 has its own [rubric](../labs/extensions/ai_decision_template.md).
 Actual due dates, institutional rules and grade weights belong in the current LMS.
+
+Optional Labs 10–11 add curation contracts, an editable ERD, transactional failure
+evidence and a reconciled KPI. Their rubrics appear in their guides; they do not
+automatically change the official course weights. Consult the [syllabus crosswalk](syllabus_alignment.md).
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

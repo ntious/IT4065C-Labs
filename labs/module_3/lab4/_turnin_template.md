@@ -8,3 +8,7 @@
 | Marts | | | | | |
 
 Trace one full source-to-mart chain. Explain a bypass that a DAG alone cannot prevent.
+
+---
+
+Author: [Isaac K. Nti](../../../AUTHORS.md). [Citation and reuse terms](../../../CITATION.md).

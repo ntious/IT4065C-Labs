@@ -96,9 +96,9 @@ Translate its architectural implication.
 
 Example:
 
-❌ “This shows a DAG.”
+**Insufficient evidence:** “This shows a DAG.”
 
-✅ “This DAG documents the implemented dependencies. Preventing bypass additionally requires access controls and tested promotion gates; the diagram alone does not prove enforcement.”
+**Stronger explanation:** “This DAG documents the implemented dependencies. Preventing bypass additionally requires access controls and tested promotion gates; the diagram alone does not prove enforcement.”
 
 Strong answers connect evidence to business protection.
 
@@ -250,3 +250,7 @@ Evidence transforms design into credibility.
 ```
 
 ---
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

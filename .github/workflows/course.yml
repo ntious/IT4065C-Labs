@@ -21,6 +21,11 @@ jobs:
         run: .venv/bin/python -m unittest discover -s tests -v
       - name: Execute all labs twice and test failure recovery
         run: .venv/bin/python scripts/verify.py
+      - name: Verify optional ingestion and safe publication
+        run: |
+          .venv/bin/python scripts/optional_labs.py catalog
+          .venv/bin/python scripts/optional_labs.py promotion
+          .venv/bin/python scripts/optional_labs.py promotion
       - name: Rehearse a non-default configuration
         env:
           IT4065C_DB_NAME: alternate_course

@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 """One safe entry point for the local, synthetic IT4065C teaching platform.
 
 Configuration is parsed as data, never sourced/evaluated. SQL identifiers and

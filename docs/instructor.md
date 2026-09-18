@@ -39,3 +39,7 @@ repository. A folder name does not make public content private. Use the public
 rubric and assess evidence limitations explicitly. Rehearse recovery without
 destroying student databases. Keep administrator-only server logging and real
 multi-instance deployment as supervised extensions until independently verified.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

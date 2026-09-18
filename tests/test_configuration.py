@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 """Configuration boundary tests; no database or administrator required."""
 import importlib.util
 import os

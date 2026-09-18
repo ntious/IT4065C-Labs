@@ -253,3 +253,7 @@ Strong architecture is invisible when working correctly.
 Weak architecture reveals itself in crisis.
 
 You are building structural durability.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).
