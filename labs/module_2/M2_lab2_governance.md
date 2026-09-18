@@ -95,14 +95,88 @@ Use the inspection command below to see those rows. No extra installation is nee
 
 ## Hands-on investigation
 
-1. Inspect the register from the repository root:
+### Initial inspection: understand the existing register
 
-   ```bash
-   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
-   ```
+**Purpose:** read the two example governance decisions already stored by the
+baseline run. This command reads the register; it does not insert or change rows.
+From the repository root, run:
 
-   This prints register rows as JSON, including classification, rationale, owner,
-   retention rule and AI use. Read the two worked examples before choosing new fields.
+```bash
+.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+```
+
+**What you should see:** first, the environment-check PASS line; then the register
+rows printed in JSON format. On a fresh baseline, the output is:
+
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+[
+  [
+    "customers",
+    "email",
+    "Sensitive",
+    "Contact identifier; exclude from public analytics.",
+    "Customer Data",
+    "Delete when purpose ends, subject to approved holds.",
+    "Not permitted as a model feature."
+  ],
+  [
+    "orders",
+    "total_amount",
+    "Sensitive",
+    "Reveals commercial activity.",
+    "Sales Operations",
+    "Scenario retention policy; verify applicable requirements.",
+    "Aggregate analysis only."
+  ]
+]
+```
+
+**How to read it:** the outer square brackets contain all returned entries. Each
+inner bracketed group is one register row describing a field, not a customer or
+an order record. The values have no printed labels; read them in the order selected
+by `labs/practice/inspect_register.sql`:
+
+| Position in each row | Meaning | First row example |
+| --- | --- | --- |
+| 1 | Source table | `customers` |
+| 2 | Field in that table | `email` |
+| 3 | Sensitivity classification | `Sensitive` |
+| 4 | Reason for that decision | Contact identifier; exclude from public analytics |
+| 5 | Accountable business role | `Customer Data` is a fictional owner role, not a database login |
+| 6 | Proposed retention rule | Delete when purpose ends, subject to approved holds |
+| 7 | Permitted or restricted AI use | Not permitted as a model feature |
+
+The second row describes `orders.total_amount` using the same seven positions.
+These are instructional policy examples. The text does not itself restrict queries,
+delete data or block AI use. The PASS line confirms environment checks; it does not
+approve these policy decisions.
+
+**What to do with this output now:**
+
+1. Locate `customers.email` and `orders.total_amount`. If you already added entries
+   during an earlier attempt, those can appear too; do not delete them to match
+   the example or expect the total to return to two.
+2. In your private notes, record the table/field pairs you see. Choose one example
+   row and identify its rationale, owner and AI-use rule using the key above.
+   This is preparation for your own decision, not a new graded essay.
+3. Keep this initial observation available for comparison after insertion. Do not
+   paste the JSON into Nano, execute it as SQL or edit the displayed output.
+   The next step creates a separate SQL file to add a new register entry.
+
+**Submission boundary:** this initial output is a reference checkpoint; no separate
+screenshot or full JSON transcript is required for it. The Submit section specifies
+which later guided and independent observations to include in your private submission.
+
+**If your result differs:** additional rows can be normal after previous practice.
+If the command fails, displays an empty list, or either baseline pair is missing,
+check that Lab 2 completed successfully and that you are using the same checkout
+and configuration. Follow Recovery before inserting new work. Do not reset the
+register or change credentials merely to match this illustration.
+
+**Next:** complete the guided INSERT below. It adds `customers.created_at`, which
+is different from the two baseline fields you just inspected.
+
 ### Guided example: insert a complete entry
 
 Assume the retailer needs account-age reporting for internal account administration.
