@@ -1,14 +1,22 @@
 # Syllabus alignment and teaching scope
 
-Aligned to the Spring 2026 updated syllabus, with the instructor-supplied AI
-ethics/governance outcome added as SLO 6. The PDF lists SLOs 1–5; SLO 6 comes from
-the instructor's subsequent course update. This public crosswalk covers academic
-content and does not reproduce institutional administration or private course links.
-Lab numbers identify activities; they are not module numbers.
+This is an **internal instructional mapping** developed by Isaac K. Nti for this
+repository. It is not an official University of Cincinnati document, syllabus or
+statement of University policy. Module descriptions and module-level outcomes are
+instructor-developed, not University-issued course-level outcomes.
+
+The mapping uses the Spring 2026 syllabus as a course reference and identifies the
+instructor-supplied AI governance addition as SLO 6. SLO identifiers are used for
+internal traceability; they do not establish University approval of this mapping or
+the additional outcome. Consult the
+[official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
+for the official course description and course-level outcomes, and the
+[institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
+for ownership and licensing boundaries. Lab numbers identify activities, not modules.
 
 ## Evidence by module and outcome
 
-| Spring 2026 module | Primary course evidence | Scope and assessment |
+| Instructor-developed module | Primary course evidence | Scope and assessment |
 | --- | --- | --- |
 | 1. Foundations of Data Governance and Data Classification | Lab 2 register, metadata notebook, Alation University supplement; Optional Lab 10 | SLOs 1,5: classify structure, sensitivity, ownership and use; product-specific catalog activity follows LMS access instructions |
 | 2. Data Modeling for Operational and Analytical Systems | Lab 3 models/tests; capstone ERD and workload strategy | SLOs 2,4: assess grain, keys, relationships and OLTP/OLAP rationale; evaluate the student's own design separately from the baseline |

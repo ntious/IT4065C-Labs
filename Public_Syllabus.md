@@ -29,19 +29,25 @@ formal prerequisite or an additional graded requirement for IT4065C. Use the loc
 [foundations bridge](docs/foundations.md) for this course's terminal, SQL and database
 identity self-checks.
 
-The academic sequence follows the Spring 2026 updated syllabus. SLOs 1–5 are
-listed in that syllabus; SLO 6 incorporates the instructor’s subsequent AI governance
-update. The official institutional syllabus and LMS govern course administration.
+## Official course description and learning outcomes
 
-## Learning outcomes
+For the current official course description and University-issued course-level
+learning outcomes, see the
+[University of Cincinnati School of Information Technology course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
+and search for **IT4065C — Data Technologies Administration**. Those outcomes are
+referenced rather than reproduced here.
 
-1. Identify the types of data and data sources that fall under data governance.
-2. Diagram the most common life cycle of data, from raw to production.
-3. Discuss multiple-cluster infrastructure implementations and administration such
-   as cloud, on premises, and hybrid.
-4. Use a data lifecycle and a data modeling tool.
-5. Implement data access security and monitoring.
-6. Discuss the ethical implications and governance frameworks of AI development focusing on the challenges of bias mitigation transparency and accountability throughout the data lifecycle.
+## Additional instructional outcome: AI governance
+
+The repository includes the following instructor-supplied instructional addition,
+identified as SLO 6 in its internal mappings. This label does not designate it as a
+University-issued outcome:
+
+Discuss the ethical implications and governance frameworks of AI development focusing on the challenges of bias mitigation transparency and accountability throughout the data lifecycle.
+
+The module descriptions and module-level outcomes are instructor-developed;
+see [institutional context and instructional authorship](AUTHORS.md#institutional-context-and-instructional-authorship).
+The official institutional syllabus and LMS govern course administration.
 
 ## Sequence and scope
 

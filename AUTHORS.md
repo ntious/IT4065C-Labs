@@ -2,13 +2,24 @@
 
 ## Institutional context and instructional authorship
 
-IT4065C: Data Technologies Administration is a course offered by the University of Cincinnati School of Information Technology. The course title, official catalog description, University-issued learning outcomes, and other University materials remain subject to University ownership and policies.
+IT4065C: Data Technologies Administration is offered by the University of
+Cincinnati School of Information Technology. For the current official course
+description and course-level learning outcomes, see the
+[University of Cincinnati School of Information Technology course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
+and search for **IT4065C — Data Technologies Administration**.
 
-Isaac K. Nti developed the original instructional content and repository implementation while teaching IT4065C as an Assistant Professor in the School of Information Technology. His contributions include the repository’s module organization, original module descriptions and learning activities, laboratory activities, capstone framework, supporting documentation, and original code, except where otherwise identified.
+This repository contains independently maintained instructional materials
+developed by Isaac K. Nti while teaching the course. It is not an official
+University syllabus or website, does not represent University policy, and does
+not imply University endorsement.
 
-This is an independently maintained instructional repository. It is not an official University website or syllabus, and it does not represent University policy or imply University endorsement of this repository or subsequent adaptations. The University’s official syllabus, catalog, policies, and course systems control in the event of any inconsistency.
+The module descriptions and module-level outcomes in this repository were
+developed by Isaac K. Nti and are not the University’s official course-level
+learning outcomes.
 
-Copyright ownership and licensing are governed by applicable law, University policy, employment or sponsorship agreements, and any notices included with particular materials. University and third-party materials are excluded from the repository license unless expressly stated otherwise.
+The repository license applies only to material for which Isaac K. Nti owns or
+is authorized to license the copyright. University of Cincinnati and
+third-party materials are excluded unless expressly stated otherwise.
 
 ## Citation and material-specific notices
 
