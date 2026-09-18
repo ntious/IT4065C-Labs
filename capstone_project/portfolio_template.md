@@ -1,7 +1,7 @@
 # Governed architecture portfolio
 
 Use one private copy. Submit no personal/student information to the public repository.
-The historical sheet identifiers below are retained so phase instructions still map.
+Use the section identifiers below to connect your portfolio to the phase instructions.
 
 | Section | Required content |
 |---|---|
@@ -13,6 +13,7 @@ The historical sheet identifiers below are retained so phase instructions still 
 | Phase_6_Evidence | Evidence appendix used by capstone Phase 5 (not the presentation phase) |
 | Architecture defense | Presentation and responses to stakeholder questions (capstone Phase 6) |
 | Individual reflection | Contribution, learning, uncertainty and next improvement (capstone Phase 7) |
+| Governance operations | Observation, policy, accountable role, review decision, action, verification and next review trigger |
 | AI governance | Dataset card, bias/mitigation analysis, transparency, accountability and deploy/reject decision |
 
 For each claim label it **demonstrated**, **simulated**, **proposed**, or **untested**.

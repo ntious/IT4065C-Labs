@@ -33,7 +33,7 @@
      * masking/obfuscation of PII in downstream layers
      * restricted access to PII fields (RBAC)
      * audit logging and monitoring for sensitive attribute queries
- - You should treat columns like email/phone as potentially sensitive.
+ - Treat email and phone fields as potentially sensitive.
 
  Student Expectations:
  ---------------------

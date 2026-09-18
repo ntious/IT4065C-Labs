@@ -1,9 +1,9 @@
-# Phase 3 – Workload Strategy  
+# Phase 3: Workload Strategy
 
 ## Lifecycle and infrastructure checkpoint
 
 Compare cloud, on-premises and hybrid choices for identity, ownership, freshness,
-cost, connectivity and failure domains. Justify one choice and name measurements
+cost, data residency, sovereignty, connectivity and failure domains. Justify one choice and name measurements
 needed before asserting scalability or recovery performance. Lab 9 execution is
 optional; this comparison is required.
 
@@ -18,13 +18,14 @@ rollback and retirement responsibilities as proposals unless tested.
 
 ## Overview
 
-In Phase 2, you designed a Logical Data Model that enforces business structure.
+In Phase 2, you designed a Logical Data Model that represents business structure.
+Implementation and constraint tests establish enforcement.
 
 In Phase 3, you decide how that structure behaves under real workloads.
 
-Professional data architects do not allow operational and analytical workloads to collide.
+Assess interference between operational and analytical workloads.
 
-If they do:
+Under competing load, risks include:
 
 - Performance degrades  
 - Concurrency conflicts increase  
@@ -75,7 +76,8 @@ Production tables are optimized for transactions.
 
 Analytical tables are optimized for insight.
 
-They should not be the same physical design.
+Select physical designs based on workload, isolation and freshness requirements;
+justify shared or separate structures for the proposed system.
 
 ---
 
@@ -87,7 +89,7 @@ You must define how each entity behaves under operational and analytical workloa
 
 ---
 
-## Part A – Entity Workload Classification
+## Part A: Entity Workload Classification
 
 For each entity from Phase 2, determine:
 
@@ -111,7 +113,7 @@ Architecture requires explicit transformation logic.
 
 ---
 
-## Part B – Facts vs Dimensions
+## Part B: Facts vs Dimensions
 
 Your OLAP layer must include:
 
@@ -164,11 +166,12 @@ always correct.
 
 ---
 
-## Part C – Workload Defense Memo
+## Part C: Workload Defense Memo
 
 Write a concise (100–150 words) architectural memo explaining:
 
-Why is a Star Schema superior to reporting directly from production tables for this system?
+Why do you recommend a star schema for this system? Compare its benefits and costs
+with reporting from operational tables, using the stated workload assumptions.
 
 Your memo must include at least two technical arguments such as:
 
@@ -187,7 +190,7 @@ This is an architectural defense, not an opinion.
 
 ## Evaluation Criteria
 
-Your Phase 3 work should demonstrate:
+Demonstrate the following in your Phase 3 work:
 
 ### Classification Accuracy
 Do OLTP vs OLAP decisions reflect realistic system behavior?
@@ -201,7 +204,7 @@ Can the analytical layer operate independently from production tables?
 ### Technical Precision
 Does the defense memo include clear, technically grounded arguments?
 
-Strong architecture prevents collisions before they happen.
+A sound workload strategy identifies interference risks and specifies how to test them.
 
 ---
 
@@ -214,7 +217,7 @@ Many organizations fail at scale because:
 - Schema changes break executive dashboards
 - Performance tuning becomes reactive
 
-Separating OLTP from OLAP:
+Potential benefits of separating OLTP from OLAP, to evaluate against costs:
 
 - Improves scalability
 - Protects revenue operations
@@ -238,9 +241,8 @@ Phase 3 asks:
 
 Architectural maturity means anticipating workload stress.
 
-A well-designed system does not just work.
-
-It scales.
+A defensible design states its expected workload and the measurements needed to
+validate performance as that workload changes.
 
 ---
 

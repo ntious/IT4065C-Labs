@@ -1,4 +1,4 @@
-# Phase 4 – Governance Overlay  
+# Phase 4: Governance Overlay
 
 ## AI lifecycle checkpoint
 
@@ -30,7 +30,7 @@ Every table in your system carries:
 - Ethical responsibility  
 - Reputational impact  
 
-Architecture without governance is incomplete.
+Integrate governance decisions into the architecture.
 
 This phase converts structure into accountability.
 
@@ -149,7 +149,7 @@ Use the following mapping logic:
 | Confidential               | Customer or competitive harm | High |
 | Restricted                 | Regulated / legally protected data | High |
 
-Sensitivity should be evaluated based on:
+Evaluate sensitivity based on:
 
 - Customer harm  
 - Competitive exposure  
@@ -220,7 +220,7 @@ For example:
 - Long-term retention of regulated data must be justified.
 - Ownership assignments must reflect operational responsibility.
 
-Inconsistent governance signals architectural immaturity.
+Resolve inconsistencies by reviewing the source requirement and documenting the decision.
 
 ---
 
@@ -268,7 +268,7 @@ Governance protects:
 - Legal compliance  
 - Executive credibility  
 
-This phase trains you to design systems that survive regulatory scrutiny.
+This phase develops traceable governance decisions for review.
 
 ---
 

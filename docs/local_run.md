@@ -5,7 +5,7 @@ commit `f7b01ce777f6ee94743e139b48aaf2cad555afdd`, including optional Labs 10–
 This verifies Ubuntu CI; it is not a separate interactive WSL usability test.
 See [validation](validation.md) for the distinction between published and local checks.
 
-## 1. Check or install Ubuntu — PowerShell
+## 1. Check or install Ubuntu: PowerShell
 
 Run in PowerShell:
 
@@ -29,7 +29,7 @@ Do not type or publish either password in a command example or issue.
 Microsoft references: [WSL installation](https://learn.microsoft.com/en-us/windows/wsl/install),
 [file placement](https://learn.microsoft.com/en-us/windows/wsl/filesystems).
 
-## 2. Clone inside Linux — Ubuntu terminal
+## 2. Clone inside Linux: Ubuntu terminal
 
 Use a new clone in your Linux home directory. Keep the Windows checkout for your
 normal editing/publishing workflow. The Linux clone avoids cross-filesystem permission

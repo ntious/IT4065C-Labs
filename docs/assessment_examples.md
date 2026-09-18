@@ -10,7 +10,7 @@ specialized weights. These are activity rubrics, not official course grade weigh
 | Transfer, 30% | Repeats the example unchanged | Applies the concept to the changed scenario with rationale | Evaluates a plausible competing choice and its consequences |
 | Clarity and limits, 10% | Ambiguous claim or unqualified assurance | Organized evidence, attribution and explicit limits | Concise trace from claim to evidence to remaining verification |
 
-Missing evidence should be recorded as missing, not inferred from polished writing.
+Record absent evidence explicitly. Do not infer it from polished writing.
 These levels guide judgment rather than imposing an automatic numeric conversion.
 Instructors calibrate numeric scoring privately before marking. Self-learners use
 Competent as their initial target and revise after peer feedback.

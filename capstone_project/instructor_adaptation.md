@@ -34,9 +34,11 @@ Keep official weights, dates, assignment links, solutions and grading records in
 The core supplies local permission checks, client observations and labeled simulations.
 Optional Labs 12–14 add server CSV logging, verified transport encryption and two
 separate local instances with batch transfer. They do not demonstrate production
-scalability, independent audit storage, automatic failover or storage encryption. If these are required by
-the approved syllabus, assign tested supervised extensions or obtain an approved
-substitution. The capstone cannot erase missing hands-on coverage through discussion.
+scalability, independent audit storage, automatic failover or storage encryption.
+For the Spring 2026 syllabus, assess Module 4 through administrative comparison;
+use Optional Lab 13 for enrichment. Specify hands-on encryption evidence for Module 5
+and identify the catalog/workflow activities assigned in Modules 1 and 3. Discussion
+and executed controls provide different assessment evidence.
 
 Do not require platform badges or public student repositories merely to adopt this
 project. External workshop expectations must be specified separately in the LMS.

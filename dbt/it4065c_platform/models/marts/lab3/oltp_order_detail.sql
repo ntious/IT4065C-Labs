@@ -34,7 +34,7 @@
  That means:
    - A single order_id can appear multiple times (one per product line)
    - This is expected and correct for order-detail inspection
-   - Aggregations should be done carefully to avoid double counting
+   - Check aggregation grain to avoid double counting
 
  IMPORTANT SAFETY / GOVERNANCE NOTES:
  -----------------------------------

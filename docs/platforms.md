@@ -1,11 +1,11 @@
 # Course platforms and equivalent evidence
 
 The runnable local course requires Ubuntu, PostgreSQL, Python and dbt. External
-platforms may support instructor demonstrations or assigned exploration; students
+platforms support selected demonstrations and assigned exploration; students
 do not need an external account for the local lab sequence.
 
 The course uses **Alation University's Data Intelligence Project** to supplement
-local labs, as confirmed by the instructor. The course also introduces Snowflake
+local labs. The course also introduces Snowflake
 through an optional Data Warehousing Workshop in Module 4. Apache Airflow may
 support selected activities; external platforms are not required for every local lab.
 
@@ -18,10 +18,9 @@ on your account; the public course repository does not grant either. The instruc
 provides course-specific enrollment directions privately when needed.
 
 The project complements local classification, metadata, lineage and stewardship
-work. This mapping reflects the instructor's stated use of the resource; the
-account-restricted project contents have not been independently reviewed here.
-Do not assume a particular interface, exercise or completion requirement from
-this page. The LMS identifies which activities are assigned.
+work. Use the LMS for the selected exercises, enrollment directions and assessment
+requirements. This public guide maps concepts to local labs; it does not reproduce
+or verify the account-restricted training content.
 
 After an assigned activity, record the concept, a permitted observation, its local
 lab counterpart and one limitation. Submit that reflection privately; do not copy
@@ -33,7 +32,7 @@ requirement. Local work supports the concepts but does not certify Alation profi
 ## Snowflake University supplement: Module 4
 
 The optional [Data Warehousing Workshop (Badge 1)](https://learn.snowflake.com/en/courses/OD-ESS-DWW/)
-introduces Snowflake and cloud data warehousing. The instructor uses it to complement
+introduces Snowflake and cloud data warehousing. It complements
 Module 4's discussion of cloud, on-premises and hybrid infrastructure. Follow the
 workshop page's enrollment and account-setup instructions; the course repository
 does not provide a Snowflake account. Wait for the workshop's directions before
@@ -57,7 +56,7 @@ current LMS. Keep learning transcripts, account details and submissions private.
 The linked public page was reviewed on 2026-09-18; its enrolled exercises have not
 been independently executed for this repository. Consult that page for current
 content and duration. Its time estimates differ between sections, so the instructor
-should set an explicit workload allowance for any assigned portion.
+must set an explicit workload allowance for any assigned portion.
 
 ## Connections to local labs
 

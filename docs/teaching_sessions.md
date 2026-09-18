@@ -2,7 +2,7 @@
 
 Use alongside the module learning map and each lab's own guide. Plan approximately
 10 minutes for prediction, 25 for a guided run, 20 for independent work and 10 for
-review. These are planning estimates; the first pilot should record actual times.
+review. These are planning estimates; record actual times during the first pilot.
 Longer setup and capstone workshops need separate sessions.
 
 Before each class, rehearse on the tested course revision and identify the expected

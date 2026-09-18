@@ -1,6 +1,6 @@
 # Lab 6: Monitoring and evidence
 
-**Outcomes:** SLO 5. **Estimated time:** 60–90 minutes; installation/support may take longer.
+**Outcomes:** SLO 5. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 Read the short [concept notes](../../../docs/lab_context_notes/lab6.md) before running the lab.

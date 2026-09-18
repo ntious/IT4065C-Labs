@@ -2,14 +2,14 @@
 
 Thank you for your interest in contributing to **Data Technologies Administration**.
 
-This repository is an open educational framework built to teach **enterprise data governance and architecture** through a progressive lab sequence and a structured capstone simulation. Contributions are welcome—but they should preserve the instructional design goals of the course:
+This repository is an open educational framework built to teach **enterprise data governance and architecture** through a progressive lab sequence and a structured capstone simulation. Contributions must preserve the instructional design goals of the course:
 
 - **Architecture before tools**
 - **Governance as an operational discipline**
 - **Evidence-based reasoning**
 - **Traceability from requirements → design → controls → monitoring**
 
-My long-term vision is for this repository to remain a high-quality, reusable curriculum artifact that is academically credible, professionally aligned, and easy for educators to adopt.
+This curriculum supports evidence-based instruction, professional practice and adoption by other educators.
 
 ---
 
@@ -25,7 +25,7 @@ My long-term vision is for this repository to remain a high-quality, reusable cu
 - A “tool of the week” sandbox
 - A production SaaS or a framework optimized for broad software feature velocity
 
-Contributions should *increase clarity, reproducibility, and architectural integrity*—not expand scope without purpose.
+Contributions must improve clarity, reproducibility or architectural integrity and remain aligned with the course outcomes.
 
 ---
 
@@ -48,7 +48,7 @@ Please open an Issue before starting work on:
 - New datasets or significant changes to the case study
 - Adding new “modules” that change course scope
 
-### Contributions we do not accept
+### Excluded contributions
 - Uploading **student work** (even anonymized unless explicitly approved and scrubbed)
 - Any **credentials**, keys, or private endpoints
 - Material that violates copyright or includes proprietary content
@@ -56,11 +56,11 @@ Please open an Issue before starting work on:
 
 ---
 
-## Repository Standards (What We Optimize For)
+## Repository standards
 
 ### 1) Traceability
 - Capstone decisions must remain grounded in stakeholder requirements
-- Governance claims should remain evidence-based and defensible
+- Support governance claims with evidence and state their scope
 
 ### 2) Minimal extraneous cognitive load
 - Keep instructions clear and stepwise
@@ -68,7 +68,7 @@ Please open an Issue before starting work on:
 - Add verification gates when possible
 
 ### 3) Tool-agnostic principles (with tool-specific implementation)
-- The repo uses a specific stack, but the learning objectives should remain portable:
+- The repo uses a specific stack, but the learning objectives remain transferable:
   - governance → lifecycle → enforcement → monitoring → evaluation
 
 ### 4) Professional tone
@@ -79,13 +79,13 @@ Please open an Issue before starting work on:
 
 ## How to Contribute
 
-### Step 1 — Open an Issue (recommended)
+### Step 1: Open an Issue (recommended)
 Before a pull request, open an Issue describing:
 - What you observed
 - Why it matters (student confusion, reproducibility, alignment, etc.)
 - Proposed fix and affected files
 
-**Issue labels** we encourage:
+Use these **issue labels**:
 - `bug` (broken steps / scripts)
 - `clarity` (confusing or ambiguous instructions)
 - `reproducibility` (environment-specific fixes)
@@ -93,13 +93,13 @@ Before a pull request, open an Issue describing:
 - `docs` (documentation)
 - `security` (RBAC/masking/monitoring improvements)
 
-### Step 2 — Make a Focused Pull Request
+### Step 2: Make a Focused Pull Request
 Keep PRs scoped. Prefer:
 - One improvement theme per PR
 - Clear commit messages
 - Short explanations of why the change improves learning or reliability
 
-### Step 3 — Verification Expectations
+### Step 3: Verification Expectations
 If your change touches execution:
 - Include the command(s) used to validate
 - Include expected outputs or verification checks
@@ -123,6 +123,19 @@ To keep the curriculum consistent:
 - If adding diagrams, prefer **Mermaid** for GitHub-native rendering
 
 ---
+
+## Editorial voice
+
+Write in a clear instructor voice. State the purpose, required action, expected
+evidence and assessment criterion directly. Use a colon to separate a heading's
+number or topic from its description. Explain unfamiliar terms and offer a concrete
+next step when a learner encounters an error.
+
+Use accurate scope statements: name what was tested, where and at which revision.
+Keep release administration in the maintainer guides. Replace obsolete status notes
+when verification changes. Preserve uncertainty when it is part of a scenario,
+privacy risk or evidence limitation; do not turn it into an unsupported assurance.
+Distinguish hypothetical student proposals from implemented course features.
 
 ## File/Directory Conventions
 

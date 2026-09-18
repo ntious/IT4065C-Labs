@@ -14,7 +14,7 @@ simulated, proposed and untested claims throughout; confidence is not evidence.
 | 6. Access | Tested role boundaries, masking limits, and proposed transport/storage protections |
 | 7. Monitoring | Actual observations, simulated alerts, gaps in server evidence and response ownership |
 | 8. AI and risk | Bias mitigation tradeoff, transparency, appeal, accountability and one harm scenario; state facts needed before making legal claims |
-| 9. Infrastructure | Compare cloud, on-premises and hybrid; justify choice and acknowledge untested availability/recovery claims |
+| 9. Infrastructure | Compare cloud, on-premises and hybrid, including residency, sovereignty and cost; justify choice and acknowledge untested availability/recovery claims |
 | 10. Decision | Recommend proceed, conditional proceed or defer; name conditions, next checks and unresolved risks |
 
 Submit the presentation and portfolio privately. Text equivalents for visual diagrams
@@ -25,7 +25,7 @@ Include the peer review response and individual reflection.
 
 Be prepared to explain one alternative you rejected, one control not yet tested,
 one stakeholder who bears risk, and one result that would change your recommendation.
-A design decision should be connected to its requirement, implementation status,
+Connect each design decision to its requirement, implementation status,
 evidence and limitations. Do not infer legal consequences or production readiness
 from the synthetic exercise alone.
 

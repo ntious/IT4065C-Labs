@@ -1,4 +1,4 @@
-# Phase 7 – Individual Reflection  
+# Phase 7: Individual Reflection
 
 ## AI governance reflection
 
@@ -34,7 +34,7 @@ Professional growth requires deliberate reflection.
 
 Write a professional reflection (maximum one page) addressing the sections below.
 
-Your writing should read like an architectural self-assessment — not a diary entry.
+Evaluate your architectural decisions using specific evidence and reflection.
 
 Use complete sentences and structured paragraphs.
 

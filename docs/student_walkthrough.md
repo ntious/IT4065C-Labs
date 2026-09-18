@@ -1,8 +1,8 @@
-# Student walkthrough and remaining challenges
+# Student navigation and learning support
 
-Reviewed on 2026-09-18 from a new learner's perspective. This is an instructor-led
-walkthrough of the files, links and commands, not evidence from an actual novice
-participant or a replacement instructor. Human usability pilots remain necessary.
+Reviewed on 2026-09-18 from a new learner's perspective. This editorial walkthrough
+covers files, links and commands. It records navigation checks and support needs;
+no novice-learner or replacement-instructor pilot results are recorded.
 
 ## Route checked
 
@@ -12,10 +12,10 @@ Optional routes: lab index → extension guide → isolated setup → command �
 and reflection → recovery. External resources: platform guide → Alation/Snowflake,
 with access limitations and a local route clearly stated.
 
-The new infrastructure commands were executed on local PostgreSQL 17.11, including
-negative controls and alternate identities. The existing published revision passed
-Ubuntu CI; the added infrastructure workflow must pass after these changes are pushed.
-A Windows development run does not replace an interactive Ubuntu/WSL setup pilot.
+Infrastructure commands passed local PostgreSQL checks with negative controls and
+alternate identities, and the complete Ubuntu 22.04/24.04 workflow passed at commit
+`2f15cc9`. See [validation](validation.md). Automated checks and this walkthrough
+serve different purposes from an interactive Ubuntu/WSL learner pilot.
 
 ## Challenges found and addressed
 
@@ -31,9 +31,9 @@ A Windows development run does not replace an interactive Ubuntu/WSL setup pilot
 | What if I close the terminal or the run fails? | Exact per-instance status/stop guidance and fresh-run recovery, with no automatic recursive deletion. |
 | Do I need external badges/accounts? | Optional Snowflake and assigned Alation supplements are separate from the self-contained local labs. |
 
-## Challenges that remain for real students
+## Learning support priorities
 
-- Installing Ubuntu/WSL and using sudo can still need support. Provide a setup session;
+- Provide a setup session for Ubuntu/WSL installation and sudo use;
   an institution-managed device may require its IT team.
 - SQL grain and identity boundaries require reasoning practice even when installation
   works. Use the foundations self-check and scaffolded practice before independent tasks.

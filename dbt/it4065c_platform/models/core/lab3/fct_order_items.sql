@@ -48,7 +48,7 @@
  Student Expectations:
  ---------------------
  - You are NOT required to edit this file.
- - You should understand why the grain of this table differs from `fct_orders`.
+ - Explain why the grain of this table differs from `fct_orders`.
 
  Data Lineage (Conceptual):
  --------------------------

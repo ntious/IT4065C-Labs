@@ -1,14 +1,23 @@
 # Changes
 
-## Optional infrastructure and teaching completion (development)
+## Editorial consistency and Spring 2026 alignment
+
+- Aligned academic mappings to the updated Spring 2026 syllabus and separately identified added SLO 6.
+- Updated full Ubuntu verification evidence, including Optional Labs 12–14.
+- Replaced obsolete progress labels with course scope and release-management guidance.
+- Standardized direct instructions, evidence boundaries and heading punctuation.
+- Added explicit residency/sovereignty analysis and integrated governance operations evidence.
+
+
+## Optional infrastructure and teaching completion
 
 - Added Optional Labs 12–15: server logging, two-instance recovery, TLS/rotation and governance case.
 - Added isolated runner, credential boundary tests and expanded Ubuntu CI.
-- Added scaffolded core practice, student walkthrough and release-candidate notes.
+- Added scaffolded core practice, student walkthrough and release guidance.
 - Preserved seven required labs and explicit production/validation limitations.
 
 
-## Teaching guidance and assessment consistency (development)
+## Teaching guidance and assessment consistency
 
 - Added foundations support, module map, glossary and external-platform boundaries.
 - Added rubric descriptors, fictional reasoning example, peer review and instructor sessions.
@@ -17,16 +26,16 @@
 - Updated published validation evidence for both Ubuntu versions.
 - Added adoption, pilot and release gates; practical deployment gaps remain explicit.
 
-## Syllabus alignment and optional enrichment (development)
+## Syllabus alignment and optional enrichment
 
 - Confirmed the pushed Ubuntu 24.04 workflow passes all original nine labs.
 - Corrected the Ubuntu 22.04 hash-installation extras pin; both Ubuntu jobs passed at f7b01ce, including optional labs.
 - Added optional mixed-format curation and transactional publication/KPI labs.
-- Added a module-level syllabus crosswalk and explicit remaining practical gaps.
+- Added a module-level syllabus crosswalk and explicit demonstration boundaries.
 - Added a Windows/Ubuntu run guide and strengthened lifecycle links for AI governance.
 - Updated valid citation metadata and made Isaac K. Nti's author credit visible.
 
-## Reproducible local edition (development)
+## Reproducible local edition
 
 - One private literal .env and one runner; unique generated credentials.
 - Dedicated non-superuser builder and separate reader logins; no shared passwords.

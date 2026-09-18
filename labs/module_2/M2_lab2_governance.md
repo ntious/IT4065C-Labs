@@ -1,6 +1,6 @@
 # Lab 2: Classification and stewardship
 
-**Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; installation/support may take longer.
+**Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 Read the short [concept notes](../../docs/lab_context_notes/lab2.md) before running the lab.

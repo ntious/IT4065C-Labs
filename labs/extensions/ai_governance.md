@@ -1,6 +1,6 @@
 # Lab 7: AI ethics and governance
 
-**Outcomes:** SLO 6. **Estimated time:** 60–90 minutes; installation/support may take longer.
+**Outcomes:** SLO 6. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 ## Before you begin
