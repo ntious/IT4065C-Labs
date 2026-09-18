@@ -1,20 +1,23 @@
 # Syllabus alignment and teaching scope
 
-This is an **internal instructional mapping** developed by Isaac K. Nti for this
-repository. It is not an official University of Cincinnati document, syllabus or
-statement of University policy. Module descriptions and module-level outcomes are
-instructor-developed, not University-issued course-level outcomes.
+This instructor-developed crosswalk maps the repository’s modules, labs, and
+assessments to the IT4065C course-level learning outcomes. It is not an official
+University of Cincinnati syllabus or policy document.
 
-The mapping uses the Spring 2026 syllabus as a course reference and incorporates
-the University-issued AI ethics and governance outcome added after the repository’s
-initial development. That outcome is identified here as SLO 6. The supplied PDF
-predates its inclusion; the course instructor confirmed its University provenance.
-SLO identifiers support internal traceability and do not make this mapping an
-official University document. Consult the
-[official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
-for the official course description and course-level outcomes, and the
-[institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
-for ownership and licensing boundaries. Lab numbers identify activities, not modules.
+The crosswalk was developed for the Spring 2026 course offering and includes an
+additional instructor-developed AI ethics and governance outcome, identified as
+SLO 6 for internal traceability.
+
+For the current official course description and course-level learning outcomes,
+see the
+[University of Cincinnati School of Information Technology course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
+and search for **IT4065C — Data Technologies Administration**.
+
+See the
+[institutional context and instructional authorship notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
+for authorship, ownership, licensing, and non-endorsement information.
+
+Lab numbers identify repository activities, not official course modules.
 
 ## Evidence by module and outcome
 
