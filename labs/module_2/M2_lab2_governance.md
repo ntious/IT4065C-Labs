@@ -74,31 +74,91 @@ Use the inspection command below to see those rows. No extra installation is nee
 
    This prints register rows as JSON, including classification, rationale, owner,
    retention rule and AI use. Read the two worked examples before choosing new fields.
-2. Choose one additional customer field and one additional order field from the
-   synthetic source definitions in `labs/module_2/lab2_seed.sql`. Do not reuse the
-   two worked fields. Classify both in your written submission; include sensitivity,
-   purpose, rationale, owner, retention assumptions and permitted AI use.
-3. Insert **one of your two chosen fields** into the register. Create a private draft:
+2. Choose one additional customer field and one additional order field. In
+   `labs/module_2/lab2_seed.sql`, the names immediately after `CREATE TABLE
+   raw.customers (` and `CREATE TABLE raw.orders (` define the available columns.
+   Choose from these fields (the two worked examples are excluded):
+
+   | Table | Available fields for your task |
+   | --- | --- |
+   | `customers` | `customer_id`, `first_name`, `last_name`, `phone_number`, `created_at` |
+   | `orders` | `order_id`, `customer_id`, `order_date`, `order_status`, `payment_method` |
+
+   Classify both in writing. Select one of them to insert below. You choose and
+   justify the classification; there is no single classification supplied for you.
+3. Create and edit a private draft. Run the copy command only the first time; copying
+   again would overwrite your draft. To resume work, use only the `nano` command.
 
    ```bash
    cp labs/module_2/lab2_insert_templates.sql .local/my-classification.sql
    nano .local/my-classification.sql
    ```
 
-   Replace the two example value tuples with one tuple for your selected field.
-   Keep the seven-column order and `{{schema}}` placeholder, remove the comma that
-   separated the original tuples, and retain `ON CONFLICT ... DO NOTHING;`.
-   Use your own rationale and fictional owner role, not personal details.
-   Execute the saved file and inspect the result:
+   **Inside Nano:** keep the comments, `INSERT INTO ... VALUES` line and final
+   `ON CONFLICT ... DO NOTHING;` line. Replace BOTH example entries with ONE entry
+   of your own. Use the arrow keys to move to the first example line. `Ctrl+K`
+   removes the current line; remove the four example-value lines, stopping before
+   `ON CONFLICT`. Type or paste your new entry between `VALUES` and `ON CONFLICT`.
+   Your editor may wrap long lines; check that both original examples are gone.
+
+   ![Annotated Nano screenshot: keep the INSERT and ON CONFLICT lines, replace both example entries with one seven-value entry, then save with Ctrl+O and Enter and exit with Ctrl+X.](images/lab2-nano-guide.png)
+
+   The image is an annotated editing aid. Follow the text and SQL structure below;
+   do not transcribe small screenshot text. The same steps are provided in text.
+
+   **Seven values, in order:**
+
+   | Position | Value | What to enter |
+   | --- | --- | --- |
+   | 1 | Table | `customers` or `orders`, without `raw.` |
+   | 2 | Column | An actual field from that table's list above |
+   | 3 | Classification | Exactly `Public`, `Internal`, `Sensitive` or `Restricted`; justify your choice |
+   | 4 | Rationale | Your intended purpose, plausible harm and reason for the classification |
+   | 5 | Owner role | A fictional business role accountable for the data, not your name |
+   | 6 | Retention rule | A purpose-based proposal, with assumptions or unresolved requirements stated |
+   | 7 | AI use | An allowed use or restriction consistent with your purpose and rationale |
+
+   **Editing skeleton, not a completed answer:** replace EVERY `REPLACE_...` value
+   before running. The classification placeholder is deliberately not an allowed
+   classification. Keep `{{schema}}` exactly as written; the runner supplies it.
+
+   ```sql
+   INSERT INTO {{schema}}.data_classification_register VALUES
+   (
+     'REPLACE_TABLE',
+     'REPLACE_COLUMN',
+     'REPLACE_CLASSIFICATION',
+     'REPLACE_RATIONALE',
+     'REPLACE_OWNER_ROLE',
+     'REPLACE_RETENTION_RULE',
+     'REPLACE_AI_USE'
+   )
+   ON CONFLICT (table_name,column_name) DO NOTHING;
+   ```
+
+   Keep single quotes around each value and commas between values. There is no
+   comma after the seventh value or after `)`. If your text contains an apostrophe,
+   double it inside the SQL string: `customer''s`. Use straight quotes, not curly
+   word-processor quotes. The register does not automatically check that a field
+   name exists in the source; verify it against the list above yourself.
+
+   **Save and exit:** press `Ctrl+O` (letter O), then `Enter` to confirm the filename,
+   then `Ctrl+X`. Nano's `^` notation means Ctrl. You should return to the shell
+   prompt. Saving edits a file; it does not update the database.
+
+   Run these commands at the shell prompt, not inside Nano:
 
    ```bash
    .venv/bin/python scripts/query.py .local/my-classification.sql
    .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
    ```
 
-   An INSERT need not print the inserted row; the inspection query supplies the
-   evidence. The conflict clause skips an existing table/column pair, so repeating
-   an insert does not revise that entry. Choose a genuinely new field for this task.
+   The first command executes your INSERT; it need not print the new row. The
+   second displays register rows as JSON arrays in the seven-value order above.
+   Expect three entries if you started with only the two worked examples. If you
+   already added other fields, expect those too. Find your table/column pair and
+   check that all seven values match your draft.
+
 4. Test preservation by rerunning the baseline and inspecting again:
 
    ```bash
@@ -147,6 +207,15 @@ Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer an
 tradeoff reasoning 30%; clarity and evidence limitations 10%.
 
 ## Recovery
+
+| Symptom | Safe next action |
+| --- | --- |
+| Still inside Nano | Save with Ctrl+O, Enter, then exit with Ctrl+X before running shell commands. |
+| Syntax error (`42601`) | Reopen your private draft. Check quotes, seven comma-separated values, balanced parentheses and no comma before ON CONFLICT. |
+| Check constraint failure (`23514`) | Replace the classification placeholder with one of the four exact allowed labels. |
+| No new entry after a successful INSERT | Check whether your table/column pair already exists. ON CONFLICT skips it; repeated INSERTs do not update an existing entry. |
+| Need to revise an existing entry | Preserve the current row and ask your instructor about a targeted UPDATE. Do not delete the register or change the baseline examples. |
+| Row appears under a misspelled field | The register stores your text; it does not validate source field names. Identify the mistake and arrange a targeted correction with your instructor. |
 
 Use the [setup troubleshooting table](../../docs/setup.md). Read errors before retrying;
 never delete tests or change authentication to make a result pass. There is no
