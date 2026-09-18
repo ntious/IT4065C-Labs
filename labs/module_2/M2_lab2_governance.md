@@ -185,16 +185,22 @@ and limits AI use to aggregate reporting. These are scenario decisions, not a
 universal policy or a legal retention rule. Another context could justify a different
 classification. Review the assumptions rather than treating the example as an answer key.
 
-Create a separate private example file so you do not overwrite your independent work:
+The complete, commented example is provided in
+[lab2_guided_insert.sql](lab2_guided_insert.sql). Copy it into your private workspace
+and open it to read the column/value mapping:
 
 ```bash
+cp -i labs/module_2/lab2_guided_insert.sql .local/worked-classification.sql
 nano .local/worked-classification.sql
 ```
 
-If the file is new, Nano opens a blank editing area. Paste the complete SQL below.
-If you previously saved different work under this filename, preserve it and choose
-another private filename instead. Run SQL through `scripts/query.py`, not directly
-at the shell prompt: the helper replaces `{{schema}}` with your configured schema.
+If the copy asks whether to overwrite an existing file, answer `n` to preserve your
+work. Inspect that file before running it; use a different private filename if it
+contains another exercise. For a new copy, no replacements or edits are needed:
+this is a complete runnable example, not the independent placeholder skeleton.
+You can also copy and paste the SQL below into a new private SQL file.
+Run SQL through `scripts/query.py`, not directly at the shell prompt: the helper
+replaces `{{schema}}` with your configured schema.
 
 ```sql
 INSERT INTO {{schema}}.data_classification_register
@@ -229,8 +235,9 @@ This INSERT adds metadata to the register. It does not add a customer, change th
 customer timestamp, delete expired data or enforce the stated AI-use restriction.
 `ON CONFLICT` skips a table/column pair that already exists; it does not update it.
 
-Save with **Ctrl+O**, press **Enter** to confirm the filename, then **Ctrl+X** to
-return to the shell. Before running, predict how many entries you will see.
+If you only read the copied file, press **Ctrl+X** to return to the shell. If you
+pasted the example into a new file, save with **Ctrl+O**, **Enter**, then **Ctrl+X**.
+Before running, predict how many entries you will see.
 
 ```bash
 .venv/bin/python scripts/query.py .local/worked-classification.sql
