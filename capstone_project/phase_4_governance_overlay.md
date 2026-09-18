@@ -72,7 +72,7 @@ This phase measures your ability to translate messy business language into struc
 
 ## Your Task
 
-Complete the **Phase_4_Governance** section of your portfolio workbook.
+Complete the **Phase_4_Governance** section of your portfolio portfolio.
 
 Governance must be applied to the entities already defined in Phases 1–3.
 
@@ -126,7 +126,7 @@ You must reason using professional classification language:
 - Confidential
 - Restricted
 
-The workbook records sensitivity as:
+The portfolio records sensitivity as:
 
 - Low
 - Medium
@@ -134,7 +134,7 @@ The workbook records sensitivity as:
 
 Use the following mapping logic:
 
-| Governance Classification | Retail Meaning | Workbook Value |
+| Governance Classification | Retail Meaning | Portfolio Value |
 |----------------------------|---------------|----------------|
 | Public                     | Safe to disclose publicly | Low |
 | Internal                   | Operationally sensitive | Medium |
@@ -277,6 +277,3 @@ Architecture without governance is fragile.
 Governance transforms structure into accountability.
 
 This is where technical design becomes institutional responsibility.
-```
-
-

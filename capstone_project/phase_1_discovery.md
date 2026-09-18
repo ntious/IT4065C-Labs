@@ -28,7 +28,7 @@ Discovery is clarity.
 
 ---
 
-## The Living Workbook Principle
+## The Living Portfolio Principle
 
 Professional architecture work is iterative.
 
@@ -36,9 +36,9 @@ Discovery artifacts are not disposable.
 
 They are promoted into formal models.
 
-All Phase 1 work must be documented in the **Governed Data Architecture Portfolio Workbook (V2)**.
+All Phase 1 work must be documented in the **[portfolio template](portfolio_template.md)**.
 
-This workbook serves as:
+This portfolio serves as:
 
 - Your architectural record  
 - Your governance reasoning log  
@@ -78,7 +78,7 @@ Your responsibility is to convert narrative language into structured architectur
 
 Working in small architecture teams:
 
-Complete the **Phase_1_Requirements** sheet in the portfolio workbook.
+Complete the **Phase_1_Requirements** sheet in the portfolio portfolio.
 
 You must:
 
@@ -156,7 +156,7 @@ Strong architects document uncertainty explicitly.
 
 ## Deliverable
 
-Submit the completed **Phase_1_Requirements** workbook.
+Submit the completed **Phase_1_Requirements** portfolio.
 
 Requirements:
 

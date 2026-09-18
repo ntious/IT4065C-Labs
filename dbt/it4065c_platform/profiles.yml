@@ -3,11 +3,12 @@ it4065c_platform:
   outputs:
     dev:
       type: postgres
-      user: postgres
-      password: "REMOVED_HISTORICAL_PASSWORD"
-      host: localhost
-      port: 5432
-      dbname: it4065c
-      schema: student_kofi
-      threads: 2
-      sslmode: prefer
+      host: "{{ env_var('IT4065C_DB_HOST') }}"
+      port: "{{ env_var('IT4065C_DB_PORT') | int }}"
+      dbname: "{{ env_var('IT4065C_DB_NAME') }}"
+      user: "{{ env_var('IT4065C_DB_USER') }}"
+      password: "{{ env_var('DBT_ENV_SECRET_DB_PASSWORD') }}"
+      schema: "{{ env_var('IT4065C_DB_SCHEMA') }}"
+      sslmode: "{{ env_var('IT4065C_DB_SSLMODE') }}"
+      threads: 1
+      connect_timeout: 5

@@ -56,7 +56,7 @@ Create a **10-slide architecture defense presentation** explaining why your Reta
 
 You will present this to a simulated executive board (the class).
 
-Your workbook is your evidence.
+Your portfolio is your evidence.
 
 Your slides are your argument.
 
@@ -227,7 +227,7 @@ This is a defense — not a script.
 Submit:
 
 - Final presentation (PDF or PPT format)
-- Completed Master Portfolio Workbook (all phases)
+- Completed portfolio template (all phases)
 
 All architectural phases must be coherent and internally consistent.
 

@@ -1,4 +1,3 @@
-```md
 # Contributing Guide (CONTRIBUTING.md)
 
 Thank you for your interest in contributing to **Data Technologies Administration**.
@@ -130,7 +129,7 @@ To keep the curriculum consistent:
 Please do not rename or relocate files without discussion, especially inside:
 
 - `labs/`
-- `capstone/`
+- `capstone_project/`
 - `dbt/`
 
 The directory structure is part of the learning design and is referenced in instructional materials.
@@ -186,10 +185,7 @@ If you find:
 
 Please do **not** open a public issue with the full details.
 
-Instead, open an Issue with a minimal description such as:
-> “Potential security-sensitive issue found. Please advise preferred disclosure method.”
-
-(If you provide a contact email elsewhere in the repo, you may also use that.)
+Follow the private reporting route in [SECURITY.md](SECURITY.md). Never post credentials in an issue.
 
 ---
 
@@ -203,4 +199,3 @@ If you are an educator adapting this course, I’d love to hear:
 - and what students struggled with.
 
 That feedback improves the framework and advances open, rigorous, professional data administration education.
-```

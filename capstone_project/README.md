@@ -143,7 +143,7 @@ By completing this capstone, you develop experience in:
 - Professional decision justification  
 - Collaborative system design  
 
-These are production-level architectural skills.
+These are proposed architectural skills.
 
 ---
 
@@ -201,6 +201,7 @@ Every architectural decision must originate from stakeholder requirements and
 flow through modeling, governance, and enforcement layers.
 
 
+```mermaid
 flowchart TD
 
 A[Business Interview Transcript] --> B[Phase 1: Requirements Extraction]
@@ -220,6 +221,7 @@ style A fill:#f9f9f9,stroke:#333,stroke-width:1px
 style E fill:#ffe6e6,stroke:#cc0000,stroke-width:1px
 style F fill:#e6f2ff,stroke:#0066cc,stroke-width:1px
 style G fill:#f2f2f2,stroke:#444,stroke-width:1px
+```
 
 
 ---
@@ -292,7 +294,8 @@ You are not simply designing tables.
 You are designing accountability.
 
 Welcome to enterprise data architecture.
-```
+
 
 ---
 
+Start your submission with the [portfolio template](portfolio_template.md).

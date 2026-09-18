@@ -77,8 +77,6 @@ select
     c.last_name,
     c.email_masked,
     c.phone_masked,
-    c.email_hash,
-    c.phone_hash,
 
     /* Line items */
     oi.order_item_id,
