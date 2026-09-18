@@ -39,40 +39,109 @@ From the repository root in your Ubuntu terminal:
 .venv/bin/python scripts/course.py lab 2
 ```
 
-Expected: **Four synthetic tables and two worked governance entries. Reruns preserve existing data.** The final line is `LAB 2 COMPLETE`.
-Rerunning is supported; existing raw and governance data are preserved.
-Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
+### Expected terminal output
+
+A successful run prints these summary checks:
+
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: synthetic seed present (existing data preserved).
+PASS: governance register. Add your own rationale in the submission template.
+```
+
+A completion message follows. Older checkouts may show a garbled separator after
+`LAB 2 COMPLETE`; that does not change the check results. Use the three PASS lines
+as evidence, not the exact punctuation of the completion message.
+
+| Check | What it establishes | What you still need to investigate |
+| --- | --- | --- |
+| Connection and builder | The same environment checks used in Lab 1 pass. | This is not a new test of all analyst/steward permissions. |
+| Synthetic seed | The runner creates the four source tables on first use and checks the expected table presence and that customers are present. Existing data are preserved. | This is not a complete data-quality check; later modeling tests examine additional rules. |
+| Governance register | The register setup and worked-example inserts succeed, and the register contains at least two entries. | The runner does not grade your rationale, validate every classification, or enforce retention and AI-use rules. |
+
+On a fresh course database there are two worked register entries: `customers.email`
+and `orders.total_amount`. Reruns can show more entries because your additions are
+preserved. **The lab command does not print the table contents or register rows.**
+Use the inspection command below to see those rows. No extra installation is needed.
 
 ## Hands-on investigation
 
-Inspect the register:
+1. Inspect the register from the repository root:
 
-```bash
-.venv/bin/python scripts/query.py labs/practice/inspect_register.sql
-```
+   ```bash
+   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+   ```
 
-Copy the insert example in
-`labs/module_2/lab2_insert_templates.sql` to `.local/my-classification.sql`. Replace
-the two worked entries with one new field from the synthetic raw dataset; provide
-your own classification, rationale, owner, retention rule and AI-use restriction.
-Execute `.venv/bin/python scripts/query.py .local/my-classification.sql`,
-then inspect the register again. Rerun
-Lab 2 and verify your row is preserved. Defend one plausible alternative classification.
+   This prints register rows as JSON, including classification, rationale, owner,
+   retention rule and AI use. Read the two worked examples before choosing new fields.
+2. Choose one additional customer field and one additional order field from the
+   synthetic source definitions in `labs/module_2/lab2_seed.sql`. Do not reuse the
+   two worked fields. Classify both in your written submission; include sensitivity,
+   purpose, rationale, owner, retention assumptions and permitted AI use.
+3. Insert **one of your two chosen fields** into the register. Create a private draft:
+
+   ```bash
+   cp labs/module_2/lab2_insert_templates.sql .local/my-classification.sql
+   nano .local/my-classification.sql
+   ```
+
+   Replace the two example value tuples with one tuple for your selected field.
+   Keep the seven-column order and `{{schema}}` placeholder, remove the comma that
+   separated the original tuples, and retain `ON CONFLICT ... DO NOTHING;`.
+   Use your own rationale and fictional owner role, not personal details.
+   Execute the saved file and inspect the result:
+
+   ```bash
+   .venv/bin/python scripts/query.py .local/my-classification.sql
+   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+   ```
+
+   An INSERT need not print the inserted row; the inspection query supplies the
+   evidence. The conflict clause skips an existing table/column pair, so repeating
+   an insert does not revise that entry. Choose a genuinely new field for this task.
+4. Test preservation by rerunning the baseline and inspecting again:
+
+   ```bash
+   .venv/bin/python scripts/course.py lab 2
+   .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
+   ```
+
+   Confirm your selected row and its rationale remain. This repeat has a specific
+   purpose: testing preservation after your edit. Do not claim preservation from
+   the baseline PASS message alone; compare the observed row before and after.
 
 For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 
-Classify one additional customer field and one order field in your submission: sensitivity, owner, rationale, retention and permitted AI use. Compare one ambiguous classification with a peer.
+Use the two fields you selected above; no third field is required. Defend one
+plausible alternative classification and explain which business context would change
+your decision. Compare with a peer if available; independent learners can write the
+alternative perspective themselves. Explain why a register label alone does not
+prevent an unauthorized query.
 
 ## Submit
 
-Use the [submission template](../../submissions/template.md). Include the command,
-relevant PASS lines or accessible text evidence, your interpretation, one limitation,
-and your transfer-task response. A screenshot is optional; crop/redact identities
-and never include configuration secrets. Submit privately through your course system;
-independent learners keep their work locally. Execution success alone does not
-complete the reasoning task.
+Create a private Lab 2 submission using the [shared template](../../submissions/template.md).
+Leave the repository template unchanged. Include:
+
+1. **Command and baseline evidence:** `.venv/bin/python scripts/course.py lab 2`
+   and the three PASS lines from your own run. Do not submit your full terminal
+   history, personal shell prompt or private configuration.
+2. **Prediction:** your recorded expectation before the baseline run. If you already
+   ran it without recording one, say so honestly; do not invent a prior prediction.
+   Before the preservation experiment, predict whether your new row will survive.
+3. **Observed register evidence:** the inspection command and the JSON excerpt for
+   your inserted field before and after rerunning Lab 2. Describe the comparison.
+4. **Your classifications:** the two written field classifications and your edited
+   INSERT statement for one of them. This reasoning is your work, not runner output.
+5. **Interpretation and transfer:** the alternative classification and the distinction
+   between recording a policy and enforcing it. State one limitation of these checks.
+6. **Assistance disclosure:** complete the common template's assistance section.
+
+Readable text evidence is sufficient; screenshots are optional. Submit privately
+through the course system, or retain the work locally for independent study.
+A successful baseline run alone does not complete this lab.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.
