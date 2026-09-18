@@ -37,13 +37,16 @@ learning outcomes, see the
 and search for **IT4065C — Data Technologies Administration**. Those outcomes are
 referenced rather than reproduced here.
 
-## Additional instructional outcome: AI governance
+## University-added AI governance outcome
 
-The repository includes the following instructor-supplied instructional addition,
-identified as SLO 6 in its internal mappings. This label does not designate it as a
-University-issued outcome:
+The University of Cincinnati added an AI ethics and governance course-level outcome
+after this repository's initial development. It is a University-issued outcome,
+not an instructor-developed addition. The repository identifies it as SLO 6 for
+internal mapping and addresses it through Lab 7 and the capstone.
 
-Discuss the ethical implications and governance frameworks of AI development focusing on the challenges of bias mitigation transparency and accountability throughout the data lifecycle.
+Refer to the official University course materials for its authoritative wording.
+As with the other University-issued outcomes, its full text is referenced rather
+than reproduced here.
 
 The module descriptions and module-level outcomes are instructor-developed;
 see [institutional context and instructional authorship](AUTHORS.md#institutional-context-and-instructional-authorship).

@@ -3,7 +3,9 @@
 The module descriptions, module-level outcomes and learning activities in this map
 were developed by Isaac K. Nti. They are instructional guidance, not the University
 of Cincinnati’s official course-level learning outcomes. The map supports the Spring
-2026 course sequence and the additional instructor-supplied AI governance outcome.
+2026 course sequence and the University-issued AI governance outcome added after
+the repository’s initial development. That course-level outcome is identified as
+SLO 6 in this repository; its authorship belongs to the University.
 See the [institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
 and [official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html).
 
