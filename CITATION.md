@@ -1,6 +1,11 @@
 # Citation and attribution
 
-**Original repository and course framework author: Isaac K. Nti.**
+**Original instructional content and repository implementation: Isaac K. Nti.**
+
+The institutional course and University-issued materials are distinguished from
+repository authorship in [AUTHORS.md](AUTHORS.md#institutional-context-and-instructional-authorship).
+University and third-party materials are excluded from repository licensing unless
+expressly stated otherwise. Cite and retain their applicable notices separately.
 
 Please cite this repository when using its labs, code, instructional design or
 capstone framework in teaching, publications, research or curriculum development.
@@ -26,7 +31,7 @@ matters. No DOI or release version is claimed until one has actually been issued
 
 ## Reusing teaching materials
 
-Curriculum text is licensed under [CC BY 4.0](LICENSE-CONTENT.md). Reusers must give
+Original curriculum text covered by the repository content license is licensed under [CC BY 4.0](LICENSE-CONTENT.md). Reusers must give
 appropriate credit to Isaac K. Nti, link to the license and identify modifications,
 as the license requires. Suggested attribution:
 
@@ -34,7 +39,7 @@ as the license requires. Suggested attribution:
 > https://github.com/ntious/IT4065C-Labs, licensed under CC BY 4.0
 > (https://creativecommons.org/licenses/by/4.0/). Changes: describe your modifications.
 
-Code is under [MIT](LICENSE): retain its copyright and permission notice when
+Original code covered by the repository code license is under [MIT](LICENSE): retain its copyright and permission notice when
 redistributing covered copies. The scholarly citation above is requested; this
 page does not add a new mandatory citation condition to the MIT license.
 

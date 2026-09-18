@@ -63,7 +63,17 @@ The supported setup is disposable and local. It is not a production deployment
 or a shared university database. Do not import real student/customer data.
 Submissions and generated logs stay private; do not open public issues with them.
 
-Code: [MIT](LICENSE). Curriculum: [CC BY 4.0](LICENSE-CONTENT.md).
+Original code: [MIT](LICENSE). Original curriculum: [CC BY 4.0](LICENSE-CONTENT.md).
+These licenses exclude University and third-party materials unless expressly stated
+otherwise; see the [ownership and licensing notice](AUTHORS.md).
+
+## Institutional context
+
+IT4065C is offered by the University of Cincinnati School of Information Technology.
+Isaac K. Nti developed this independently maintained instructional repository while
+teaching the course. It is not an official University website or syllabus.
+See [institutional context and instructional authorship](AUTHORS.md#institutional-context-and-instructional-authorship)
+for ownership, policy precedence, licensing exclusions and the non-endorsement notice.
 
 ## Author and citation
 
