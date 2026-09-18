@@ -24,6 +24,9 @@ Optional Labs 10–11 add curation contracts, an editable ERD, transactional fai
 evidence and a reconciled KPI. Their rubrics appear in their guides; they do not
 automatically change the official course weights. Consult the [syllabus crosswalk](syllabus_alignment.md).
 
+Optional Labs 12–15 have their own evidence/reflection rubrics in their guides.
+They do not change required outcomes or official grade weights.
+
 ---
 
 Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

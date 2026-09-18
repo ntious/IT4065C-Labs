@@ -50,8 +50,9 @@ their temporary-table experiments, leaving the course records unchanged.
 Reference solutions and private grading calibration can live in a separate private
 repository. A folder name does not make public content private. Use the public
 rubric and assess evidence limitations explicitly. Rehearse recovery without
-destroying student databases. Keep administrator-only server logging and real
-multi-instance deployment as supervised extensions until independently verified.
+destroying student databases. Use Optional Labs 12–14 for isolated server logging, two-instance batch transfer
+and TLS/rotation. Review their documented execution scope before teaching; they
+remain optional and do not demonstrate production failover or storage encryption.
 
 ---
 

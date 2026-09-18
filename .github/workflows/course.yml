@@ -12,7 +12,7 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-24.04]
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install as a new student
@@ -26,6 +26,14 @@ jobs:
           .venv/bin/python scripts/optional_labs.py catalog
           .venv/bin/python scripts/optional_labs.py promotion
           .venv/bin/python scripts/optional_labs.py promotion
+      - name: Verify optional isolated infrastructure experiments twice
+        run: |
+          sudo apt-get install -y openssl
+          for pass in 1 2; do
+            for experiment in audit transfer tls; do
+              .venv/bin/python scripts/infrastructure_labs.py "$experiment"
+            done
+          done
       - name: Rehearse a non-default configuration
         env:
           IT4065C_DB_NAME: alternate_course

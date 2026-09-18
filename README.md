@@ -28,15 +28,17 @@ Then run one lab at a time:
 ```
 
 Use numbers **1–7** for the revised core course, including AI governance, and
-**8–9** for additional lifecycle/infrastructure experiments. Optional Labs **10–11**
-use the separate commands in the [lab index](labs/README.md). A `PASS` message
+**8–9** for additional lifecycle/infrastructure experiments. Optional Labs **10–15**
+use the separate commands or reading activities in the [lab index](labs/README.md). A `PASS` message
 means an actual check passed. No manual password exports or dbt profile edits are
-needed. Use `.venv/bin/python scripts/course.py all` to rehearse the full sequence.
+needed. Instructors can use `.venv/bin/python scripts/course.py all` to rehearse Labs 1–9;
+this includes optional 8–9 and does not run the newer optional activities.
 
 | Where to go | Purpose |
 |---|---|
 | [Foundations bridge](docs/foundations.md) | Supportive terminal, SQL and identity self-check |
 | [Module learning map](docs/module_learning_map.md) | Preparation, required evidence and optional enrichment |
+| [Learning progression](docs/learning_progression.md) | Worked examples, supported practice and independent tasks |
 | [Glossary and system overview](docs/glossary.md) | Plain-language terms and the path through the platform |
 | [Course platforms](docs/platforms.md) | Local requirements and occasional external exploration |
 | [Lab sequence](labs/README.md) | Commands, expected results, estimated time and deliverables |

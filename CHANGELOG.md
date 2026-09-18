@@ -1,5 +1,13 @@
 # Changes
 
+## Optional infrastructure and teaching completion (development)
+
+- Added Optional Labs 12–15: server logging, two-instance recovery, TLS/rotation and governance case.
+- Added isolated runner, credential boundary tests and expanded Ubuntu CI.
+- Added scaffolded core practice, student walkthrough and release-candidate notes.
+- Preserved seven required labs and explicit production/validation limitations.
+
+
 ## Teaching guidance and assessment consistency (development)
 
 - Added foundations support, module map, glossary and external-platform boundaries.

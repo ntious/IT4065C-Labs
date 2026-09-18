@@ -4,6 +4,9 @@ Run each lab's verified baseline first. Then use the activity below to build you
 own explanation and artifact. The runner proves a baseline works; your investigation
 shows whether you can apply the concept to a changed situation.
 
+Before independent work, use the [guided-to-independent progression](../../docs/learning_progression.md)
+for your lab. It provides a worked starting point and a supported intermediate task.
+
 ## Execute your own SQL without managing passwords
 
 From the repository root:
