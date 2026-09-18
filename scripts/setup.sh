@@ -17,4 +17,5 @@ if [ ! -f .env ]; then .venv/bin/python scripts/course.py configure; fi
 .venv/bin/python scripts/course.py bootstrap
 .venv/bin/python scripts/course.py lab 1
 echo 'Setup complete. Next: open labs/module1_preflight/README.md.'
-echo 'Rerun the Lab 1 check and complete its investigation and written evidence before Lab 2.'
+echo 'Lab 1 technical checks passed. Use the output above; no rerun is needed.'
+echo 'Complete the Lab 1 investigation and written evidence before starting Lab 2.'

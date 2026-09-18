@@ -19,12 +19,12 @@ dates, assigned activities, official weights and the private submission route.
    Resolve FAIL results using [setup](docs/setup.md); review WARN results before
    continuing. The preflight installs nothing and does not read passwords.
 3. Run `bash scripts/setup.sh`. It asks for your Linux sudo password, creates private
-   configuration and runs Lab 1. Allow time for downloads. Do not share `.env`.
-4. Open [Lab 1](labs/module1_preflight/README.md), predict the result and rerun its
-   technical check, then complete its investigation and written evidence. Setup's
-   automatic check confirms installation; it does not complete the lab activity.
-   Then complete Labs 2–7 in
-   order. The lab page contains the task, expected result and submission checklist.
+   configuration and completes Lab 1's technical checks. Allow time for downloads.
+   Keep the final PASS lines for your evidence; do not share `.env`.
+4. Open [Lab 1](labs/module1_preflight/README.md), review the setup result, and
+   complete its hands-on investigation and written evidence. **Do not rerun the
+   technical check after successful setup.** Then complete Labs 2–7 in order.
+   Each lab page contains its task and submission requirements.
 5. Submit privately through the LMS; independent learners retain their evidence
    locally. A PASS or COMPLETE message confirms technical checks, not assignment
    completion. Include your independent work and explanation.

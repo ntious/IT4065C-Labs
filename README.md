@@ -27,7 +27,8 @@ passwords, provisions a dedicated database, and checks Lab 1. It asks for your
 Linux sudo password; it never asks for university credentials. Read the
 [setup guide](docs/setup.md) for prerequisites, custom settings and recovery.
 
-Then run one lab at a time:
+Next, complete the [Lab 1 investigation and written evidence](labs/module1_preflight/README.md)
+using the setup output; no repeat check is needed. Then proceed to Lab 2:
 
 ```bash
 .venv/bin/python scripts/course.py lab 2

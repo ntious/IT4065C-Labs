@@ -328,7 +328,8 @@ class Course:
             self.dbt("debug")
         else:
             getattr(self, f"lab{number}")()
-        print(f"LAB {number} COMPLETE â€” review the interpretation and deliverables in labs/README.md.")
+        print("LAB 1 CHECKS PASSED: complete the investigation in labs/module1_preflight/README.md." if number == 1
+              else f"LAB {number} COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.")
 
 
 def main():
