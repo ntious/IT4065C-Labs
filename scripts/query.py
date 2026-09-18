@@ -18,7 +18,13 @@ def main():
     try:
         rows = course.execute(course.template(args.file.resolve()), role=args.role)
     except course.pg.Error as error:
-        print(f"SQL stopped: SQLSTATE {error.pgcode}. 42501 means permission denied; inspect your SQL locally.", file=sys.stderr)
+        hints = {
+            "23514": "Check constraint failed. For Lab 2, use Public, Internal, Sensitive or Restricted; replace all template placeholders.",
+            "42501": "Permission denied. Check the role and the lab's expected allow/deny behavior.",
+            "42601": "SQL syntax error. Check quotes, commas and parentheses in your local file.",
+        }
+        hint = hints.get(error.pgcode, "Inspect your SQL locally; see the lab recovery guidance.")
+        print(f"SQL stopped: SQLSTATE {error.pgcode}. {hint}", file=sys.stderr)
         return 1
     print(json.dumps(rows, indent=2, default=str))
     return 0
