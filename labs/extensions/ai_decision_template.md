@@ -31,6 +31,19 @@ proposed. A data file being available does not establish permission for a new AI
 An analysis of group rates does not determine whether collecting a sensitive audit
 attribute is ethically justified; explain the purpose, necessity and access boundary.
 
+## Required change review
+
+After your initial decision, assume the retailer proposes using support-priority
+predictions to restrict refunds, and the incoming population differs from the
+small evaluation fixture. No new performance or harm measurements are available.
+
+Write a short amendment: identify the changed purpose and affected stakeholders;
+state which previous evidence no longer supports the decision; request specific
+new evidence; revise the user notice and appeal route; assign review and response
+roles; and decide whether to pause, restrict or continue use. Explain what happens
+to old predictions and retained copies. Do not invent new measurements. This is
+part of the same AI rubric, not an additional lab or new grade category.
+
 Resources: [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework),
 [Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook).
 Rubric: lifecycle 20%; bias analysis/limitations 25%; mitigation tradeoffs 20%;

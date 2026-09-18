@@ -6,14 +6,18 @@ Public rubrics are intentionally visible. Keep live answer keys and student grad
 | Outcome | Evidence |
 |---|---|
 | SLO 1 | Classification register and unfamiliar-field rationale (Lab 2) |
-| SLO 2 | Lifecycle decision log and deletion-ledger explanation (Labs 4,8) |
-| SLO 3 | Infrastructure comparison and limits of snapshot simulation (Lab 9/capstone) |
+| SLO 2 | Lifecycle decision log and required retention discussion (Lab 4/module map); Lab 8 optional |
+| SLO 3 | Required infrastructure comparison (module map/capstone); Lab 9 execution optional |
 | SLO 4 | Model/test output, ERD and independent test design (Lab 3/capstone) |
 | SLO 5 | Separate-login access checks and qualified audit memo (Labs 5,6) |
 | SLO 6 | AI governance decision and oral defense (Lab 7/capstone) |
 
-Core lab rubric: evidence 25%, interpretation 35%, transfer 30%, clarity/limits 10%.
+Labs 1–6 rubric: evidence 25%, interpretation 35%, transfer 30%, clarity/limits 10%.
 Lab 7 has its own [rubric](../labs/extensions/ai_decision_template.md).
+Use the [performance descriptors and example](assessment_examples.md) for consistent
+feedback. Required lifecycle and infrastructure discussion evidence is specified in
+the [module learning map](module_learning_map.md); optional Labs 8–9 deepen that
+evidence but are not prerequisites for assessing those discussion outcomes.
 Actual due dates, institutional rules and grade weights belong in the current LMS.
 
 Optional Labs 10–11 add curation contracts, an editable ERD, transactional failure

@@ -18,6 +18,10 @@ additional lifecycle, infrastructure, ingestion and publication experiments. Non
 | [10. Mixed-format catalog and ingestion](extensions/catalog_ingestion.md) | SLOs 1,2,4 | 60–90 minutes; optional |
 | [11. Quality-gated publication and KPI](extensions/quality_promotion.md) | SLOs 2,4 | 60–90 minutes; optional |
 
+Use the [module learning map](../docs/module_learning_map.md) for required discussion
+and capstone evidence. Start with the [foundations bridge](../docs/foundations.md)
+when SQL or terminal use is new.
+
 ## Run the technical rehearsal
 
 ```bash

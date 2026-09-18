@@ -23,7 +23,9 @@ See the [lab map](labs/README.md) and [assessment map](docs/Assessment_Framework
 Lab 7 is required evidence for the added AI governance outcome. Labs 8–11 extend
 retention, infrastructure, heterogeneous ingestion and quality-gated publication.
 
-The local toolchain substitutes open exercises for vendor demonstrations. It does
+The local toolchain provides open exercises alongside selected external learning.
+The instructor uses Alation University’s Data Intelligence Project as a supplement;
+see the [platform and access guide](docs/platforms.md). The local sequence does
 not claim to assess product-specific Alation/Snowflake proficiency. Single-instance
 snapshot and client-observed monitoring exercises have explicit limits. Instructors
 whose approved syllabus requires hands-on multi-cluster administration or server

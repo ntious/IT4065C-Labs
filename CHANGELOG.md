@@ -1,9 +1,18 @@
 # Changes
 
+## Teaching guidance and assessment consistency (development)
+
+- Added foundations support, module map, glossary and external-platform boundaries.
+- Added rubric descriptors, fictional reasoning example, peer review and instructor sessions.
+- Unified the AI rubric and added a required lifecycle change-review discussion.
+- Corrected Lab 1 prerequisites and capstone evidence/accessibility requirements.
+- Updated published validation evidence for both Ubuntu versions.
+- Added adoption, pilot and release gates; practical deployment gaps remain explicit.
+
 ## Syllabus alignment and optional enrichment (development)
 
 - Confirmed the pushed Ubuntu 24.04 workflow passes all original nine labs.
-- Corrected the Ubuntu 22.04 hash-installation extras pin; full CI rerun pending.
+- Corrected the Ubuntu 22.04 hash-installation extras pin; both Ubuntu jobs passed at f7b01ce, including optional labs.
 - Added optional mixed-format curation and transactional publication/KPI labs.
 - Added a module-level syllabus crosswalk and explicit remaining practical gaps.
 - Added a Windows/Ubuntu run guide and strengthened lifecycle links for AI governance.

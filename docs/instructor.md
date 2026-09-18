@@ -1,5 +1,8 @@
 # Instructor adoption runbook
 
+Use the [session guide](teaching_sessions.md), [module map](module_learning_map.md),
+[assessment examples](assessment_examples.md) and [adoption checklist](adoption_checklist.md).
+
 ## Before teaching
 
 Use a fresh individual Ubuntu environment. Run setup, all labs twice, and the
@@ -15,6 +18,14 @@ copying the old syllabus's overlapping 18 weeks. Keep the official schedule in L
 For each session: 10-minute concept/prediction, 25-minute guided run, 20-minute
 interpretation/transfer, 10-minute pair review and questions. Times are adaptable.
 Diagnose shell/SQL basics early. Allow accessible text evidence instead of screenshots.
+
+## External learning supplement
+
+Use the [Alation University platform guide](platforms.md) when assigning the Data
+Intelligence Project. Specify the selected activity, access route, reflection and
+local alternative in the LMS. Keep enrollment details and training records private.
+Snowflake and Airflow activities may be selected when useful; no external account
+is required for the local lab sequence.
 
 ## Expected technical results
 

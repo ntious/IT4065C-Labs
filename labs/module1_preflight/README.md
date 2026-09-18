@@ -7,7 +7,8 @@ Read the short [concept notes](../../docs/lab_context_notes/lab1.md) before runn
 
 ## Before you begin
 
-Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
+Start with the [foundations bridge](../../docs/foundations.md) if needed, then complete
+[setup](../../docs/setup.md), which runs this first lab. No earlier lab is required.
 The runner checks its required state and reports missing prerequisites.
 
 ## Predict and run

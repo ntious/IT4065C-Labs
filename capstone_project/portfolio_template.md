@@ -15,7 +15,10 @@ The historical sheet identifiers below are retained so phase instructions still 
 | Individual reflection | Contribution, learning, uncertainty and next improvement (capstone Phase 7) |
 | AI governance | Dataset card, bias/mitigation analysis, transparency, accountability and deploy/reject decision |
 
-For each claim label it **implemented and tested**, **simulated**, or **proposed**.
+For each claim label it **demonstrated**, **simulated**, **proposed**, or **untested**.
+Demonstrated means implemented and tested in the named environment; untested means
+implemented or asserted without sufficient verification. Include environment,
+command or artifact, result and limitation. Attach the [peer review and response](../docs/peer_review.md).
 Do not use generic lab screenshots as proof of unimplemented capstone controls.
 
 ---

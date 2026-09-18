@@ -1,256 +1,46 @@
-# Phase 5 – Integration & Evidence  
-## Proving Governance Through Technical Validation
+# Phase 5: Integration and evidence
+
+Evaluate which parts of your proposed architecture have supporting evidence.
+A successful course lab demonstrates behavior in its own environment; it does not
+validate a different capstone deployment automatically.
+
+## Required deliverables
+
+Complete Phase_5_Evaluation and Phase_6_Evidence in the
+[portfolio](portfolio_template.md). These are portfolio section identifiers;
+Phase_6_Evidence is an appendix, not the architecture defense presentation.
+
+For each claim record: requirement, design decision, evidence source, environment,
+command or observation, result, limitation and next verification step. Label it:
+
+- **Demonstrated:** implemented and tested within the stated environment.
+- **Simulated:** behavior illustrated with a model or fabricated scenario.
+- **Proposed:** design or control not yet implemented.
+- **Untested:** implementation or claim lacks sufficient verification.
+
+Use accessible text output, SQL, a small table, a textual lineage path or an annotated
+diagram. Screenshots are optional. Redact identities and secrets; submit privately.
+
+## Evidence categories
+
+| Category | Relevant baseline | What to explain |
+| --- | --- | --- |
+| Lifecycle | Labs 3–4 models and lineage | Dependencies and transformation behavior; a DAG alone does not prevent bypass. Identify additional enforcement needed. |
+| Access | Lab 5 authenticated allow/deny checks | Actor, action, object and result; masking limits and untested roles. Generic lab results do not prove your own deployment. |
+| Monitoring | Lab 6 client observations and simulated incidents | Label each source; discuss false positives, missed events and the absence of independent server audit collection. |
+| AI governance | Lab 7 decision and lifecycle artifacts | Harm tradeoffs, transparency, accountable owner, review trigger and retirement implications. |
+
+Example: "This DAG records dependencies. A separate permission check is needed to
+show that a reporting identity cannot bypass the intended access boundary."
+
+## Review and assessment
+
+Complete [peer review and revision](../docs/peer_review.md) before the defense.
+Assessment considers accurate evidence classification, reasoning, traceability,
+clarity and recognition of limits using the [assessment descriptors](../docs/assessment_examples.md).
+An honest proposed control with a sound verification plan is preferable to claiming
+that an untested control already works. Keep reference solutions and grading private.
 
 ---
 
-## Overview
-
-Throughout this course, you operated in two environments:
-
-- Labs (controlled test environment)
-- Capstone Project (proposed architecture)
-
-Professional data architects must prove that their design is technically enforceable before deploying it to production.
-
-Phase 5 is where you use lab artifacts as architectural proof.
-
-You are translating:
-
-Lab Result → Architectural Validation
-
-This phase demonstrates that your Retail data governance architecture is not theoretical.
-
-It is enforceable.
-
----
-
-## The Architectural Mindset: Proof, Not Description
-
-Operators describe what happened in a lab.
-
-Architects explain what the lab proves about system design.
-
-Your evaluation depends on how well you connect:
-
-- Technical evidence
-- Governance principles
-- Architectural decisions
-- Risk mitigation strategies
-
-Screenshots alone do not earn credit.
-
-Translation earns credit.
-
----
-
-## Your Task
-
-Complete two sections of your portfolio portfolio:
-
-- **Phase_5_Evaluation** (Architectural reasoning)
-- **Phase_6_Evidence** (Visual proof documentation)
-
-You must provide three categories of architectural proof:
-
-1. Lifecycle governance proof  
-2. Security enforcement proof  
-3. Monitoring & audit proof  
-
-Each proof must include:
-
-- Screenshot evidence  
-- Governance connection  
-- Written explanation of what the evidence proves  
-
----
-
-# Part 1 – Architectural Evaluation (Phase_5_Evaluation)
-
-This section is your explanation layer.
-
-For each governance pillar, you must document:
-
-- What you are proving  
-- Whether your architecture satisfies it  
-- What the lab evidence demonstrates  
-
-### Required Proof Categories
-
-You must include at minimum:
-
-- Lifecycle governance proof  
-- Security enforcement proof  
-- Monitoring & audit proof  
-
----
-
-### Explanation Requirement
-
-Your explanation must answer:
-
-> What does this lab evidence prove about my governance architecture?
-
-Do not describe the screenshot.
-
-Translate its architectural implication.
-
-Example:
-
-**Insufficient evidence:** “This shows a DAG.”
-
-**Stronger explanation:** “This DAG documents the implemented dependencies. Preventing bypass additionally requires access controls and tested promotion gates; the diagram alone does not prove enforcement.”
-
-Strong answers connect evidence to business protection.
-
----
-
-# Part 2 – Visual Evidence (Phase_6_Evidence)
-
-This section contains screenshot documentation.
-
-Each entry must include:
-
-1. Clear label of the screenshot  
-2. Explanation of what capability is proven  
-3. Governance principle it supports  
-
-Your explanation should focus on:
-
-- Enforceability
-- Risk reduction
-- Structural protection
-- Accountability
-
-Not tool mechanics.
-
----
-
-## Required Proof Types
-
-You must include the following three categories:
-
----
-
-### 1. Lifecycle Governance Proof
-
-Source: dbt DAG or lifecycle execution (Lab 3 / Module 3)
-
-This evidence must demonstrate:
-
-- Controlled data flow
-- Structured transformation boundaries
-- Prevention of raw-to-report shortcuts
-
-Connection to Capstone:
-
-Supports Phase 2 structural integrity and Phase 3 workload strategy.
-
-It demonstrates modeled flow; provide a separate enforcement test for each claimed restriction.
-
----
-
-### 2. Security Enforcement Proof
-
-Source: Role-Based Access Control & masking validation (Lab 5)
-
-This evidence must demonstrate:
-
-- Privilege isolation
-- Role-based access boundaries
-- Masking enforcement
-- Least privilege behavior
-
-Connection to Capstone:
-
-Supports Phase 4 sensitivity and protection model.
-
-It proves governance policies can be technically enforced.
-
----
-
-### 3. Monitoring & Audit Proof
-
-Source: Audit logs and monitoring outputs (Lab 6)
-
-This evidence must demonstrate:
-
-- Visibility into user behavior
-- Detection of denied access attempts
-- Traceability of system actions
-- Accountability via metadata
-
-Connection to Capstone:
-
-Supports Phase 4 risk and accountability strategy.
-
-Distinguish live client observations from the simulated incident fixture. Neither establishes independent server audit collection.
-
----
-
-## Evaluation Criteria
-
-Your work will be evaluated based on:
-
-### Lab-to-Architecture Translation
-Do you explain what the lab proves about your design?
-
-### Governance Reasoning
-Are connections aligned with Phase 4 governance decisions?
-
-### Evidence Clarity
-Are screenshots readable and clearly labeled?
-
-### Architectural Consistency
-Does your proof align with your structural and governance claims?
-
-### Professional Explanation
-Does your reasoning reflect architectural maturity?
-
-Weak submissions describe tools.
-
-Strong submissions explain enforceability.
-
----
-
-## Why This Phase Matters
-
-Many architectural proposals fail because they lack proof of feasibility.
-
-Executives and compliance officers ask:
-
-- Can this actually be enforced?
-- Is lifecycle control real?
-- Are access controls technically validated?
-- Is monitoring operational?
-
-Phase 5 answers those questions with evidence.
-
-You are demonstrating that your governance architecture:
-
-- Is enforceable  
-- Is measurable  
-- Is auditable  
-- Is technically grounded  
-
-Evidence builds institutional trust.
-
----
-
-## Final Perspective
-
-Phases 1–4 built your architecture.
-
-Phase 5 explains which parts were demonstrated and which remain design proposals.
-
-Architects do not just design systems.
-
-They validate them.
-
-Evidence transforms design into credibility.
-```
-
----
-
----
-
-Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).
+Author: [Isaac K. Nti](../AUTHORS.md).

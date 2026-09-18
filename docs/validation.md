@@ -2,18 +2,15 @@
 
 ## Published Ubuntu result
 
-At commit `1f69e9090791a7a4895dbd03d5f83acb3bd67280`,
-[workflow run 35343609278](https://github.com/ntious/IT4065C-Labs/actions/runs/35343609278)
-passed every step on **Ubuntu 24.04**: fresh setup, configuration tests, nine labs
-twice with failure recovery, and a non-default database/user/schema rehearsal.
-Ubuntu 22.04 failed during hash-checked installation because its older pip resolver
-did not bind a transitive `mashumaro[msgpack]` request to the base-package pin.
+At commit `f7b01ce777f6ee94743e139b48aaf2cad555afdd`,
+[workflow run 35348054840](https://github.com/ntious/IT4065C-Labs/actions/runs/35348054840)
+passed every step on **Ubuntu 22.04 and 24.04**: fresh setup, configuration tests,
+nine labs twice with failure recovery, optional ingestion and publication checks,
+and a non-default database/user/schema rehearsal. The earlier Ubuntu 22.04
+hash-installation issue is resolved by the explicit `mashumaro[msgpack]==3.14` pin.
 
-The correction explicitly pins the extra as `mashumaro[msgpack]==3.14` without
-changing the package version or removing hashes. A Python 3.10/pip 22.0.2 local
-download and installation passed with this lock. The corrected Ubuntu 22.04 job
-must still be rerun after publication. Optional Labs 10–11 are newly added and
-have their own CI step; a previous green job does not validate those new changes.
+This result applies to that commit's executable checks, not subsequent modifications,
+interactive student usability, independent capstone implementations or WSL itself.
 
 ## Reproduce the checks
 
