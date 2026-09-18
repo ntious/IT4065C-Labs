@@ -29,8 +29,14 @@ reviews would need a separate deployment design. This local lab does not configu
 ## Before you begin
 
 Start with the [foundations bridge](../../docs/foundations.md) if needed, then complete
-[setup](../../docs/setup.md), which runs this first lab. No earlier lab is required.
+[setup](../../docs/setup.md). No earlier lab is required.
 The runner checks its required state and reports missing prerequisites.
+
+Setup automatically runs Lab 1's technical checks to confirm installation. Seeing
+`LAB 1 COMPLETE` during setup means those checks passed; it does not complete the
+investigation or written work. Continue below: predict the result, rerun the check,
+then complete the investigation, interpretation and submission evidence.
+You do not need to reinstall packages or regenerate credentials.
 
 ## Predict and run
 
@@ -77,6 +83,11 @@ never delete tests or change authentication to make a result pass. There is no
 automatic destructive reset. For an isolated new start use a new DB/user pair.
 
 [Back to all labs](../../labs/README.md)
+
+## Next lab
+
+After completing this lab's technical check and written evidence, continue to
+[Lab 2: Classification and stewardship](../module_2/M2_lab2_governance.md).
 
 ---
 
