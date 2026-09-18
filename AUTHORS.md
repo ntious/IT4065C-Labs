@@ -21,10 +21,14 @@ The repository license applies only to material for which Isaac K. Nti owns or
 is authorized to license the copyright. University of Cincinnati and
 third-party materials are excluded unless expressly stated otherwise.
 
-The AI ethics and governance course-level outcome, identified as SLO 6 in this
-repository, was added by the University after the repository’s initial development.
-It is University-issued. Isaac K. Nti developed the instructional activities that
-address it, including the repository’s AI governance lab and capstone integration.
+## AI course-level outcome
+
+The AI ethics and governance course-level outcome, identified here as SLO 6,
+was added by the University of Cincinnati after the repository's initial development.
+Isaac K. Nti developed the repository activities addressing it, not the outcome.
+As checked on 2026-09-18, the public UC course-description page lists the earlier
+five outcomes and does not yet display this addition. Consult the current official
+course materials for the authoritative outcome wording and applicable offering.
 
 ## Citation and material-specific notices
 

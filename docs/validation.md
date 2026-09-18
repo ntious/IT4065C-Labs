@@ -2,8 +2,8 @@
 
 ## Published Ubuntu result
 
-Commit `2f15cc96bf869107e764611be20e17263e137bed` passed
-[workflow run 35354824424](https://github.com/ntious/IT4065C-Labs/actions/runs/35354824424)
+Commit `71653bf77f881a62cda029f5ebc344e6702adb4a` passed on 2026-09-18
+[workflow run 35360533985](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985)
 on **Ubuntu 22.04 and 24.04**. Both jobs passed fresh setup, configuration checks,
 nine labs twice with failure recovery, optional ingestion/publication, each isolated
 infrastructure experiment twice, and a non-default database/user/schema rehearsal.

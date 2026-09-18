@@ -3,12 +3,18 @@
 **Author:** [Isaac K. Nti](AUTHORS.md). [Cite this repository](CITATION.md).
 
 Learn to classify, model, protect and evaluate a synthetic retail data platform.
-This public edition includes everything needed for the local labs; no university
-sandbox account, Canvas download, paid service or shared password is required.
+All required repository materials for the local labs are included. Installation
+requires internet access, Ubuntu/WSL, sudo permission and the packages described
+in the setup guide. No institutional account or paid service is required.
+
+[![Course checks](https://github.com/ntious/IT4065C-Labs/actions/workflows/course.yml/badge.svg?branch=main)](https://github.com/ntious/IT4065C-Labs/actions/workflows/course.yml)
 
 ## Start here
 
-Use an **individual Ubuntu 24.04 VM or Ubuntu 24.04 in WSL2**. This version passed the full CI workflow. Open its Ubuntu terminal:
+- **Students:** [Student start here](STUDENT_START_HERE.md).
+- **Instructors:** [Instructor start here](INSTRUCTOR_START_HERE.md).
+
+Use an **individual Ubuntu 24.04 VM or Ubuntu 24.04 in WSL2**. See the [dated validation record](docs/validation.md) for the exact tested commit. Open its Ubuntu terminal:
 
 ```bash
 git clone https://github.com/ntious/IT4065C-Labs.git
@@ -43,7 +49,7 @@ this includes optional 8–9 and does not run the newer optional activities.
 | [Course platforms](docs/platforms.md) | Local requirements and occasional external exploration |
 | [Lab sequence](labs/README.md) | Commands, expected results, estimated time and deliverables |
 | [Configuration and setup](docs/setup.md) | One private .env, restart and troubleshooting |
-| [Public syllabus](Public_Syllabus.md) | Outcomes, module map and public/private boundary |
+| [Instructor-developed public course framework](Public_Syllabus.md) | Outcomes, module map and public/private boundary |
 | [Capstone](capstone_project/README.md) | Stakeholder case, architecture and evidence portfolio |
 | [Student project showcase](docs/student_projects.md) | Student-created final projects and questions for exploring their work |
 | [Instructor runbook](docs/instructor.md) | Preparation, pacing, assessments and verification |
@@ -69,30 +75,9 @@ otherwise; see the [ownership and licensing notice](AUTHORS.md).
 
 ## Institutional context and instructional authorship
 
-IT4065C: Data Technologies Administration is offered by the University of
-Cincinnati School of Information Technology. For the current official course
-description and course-level learning outcomes, see the
-[University of Cincinnati School of Information Technology course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
-and search for **IT4065C — Data Technologies Administration**.
-
-This repository contains independently maintained instructional materials
-developed by Isaac K. Nti while teaching the course. It is not an official
-University syllabus or website, does not represent University policy, and does
-not imply University endorsement.
-
-The module descriptions and module-level outcomes in this repository were
-developed by Isaac K. Nti and are not the University’s official course-level
-learning outcomes.
-
-The repository license applies only to material for which Isaac K. Nti owns or
-is authorized to license the copyright. University of Cincinnati and
-third-party materials are excluded unless expressly stated otherwise.
-
-## Author and citation
-
-**Isaac K. Nti** is the original author and maintainer. Please [cite this repository](CITATION.md)
-when using or adapting it. Curriculum reuse requires attribution under CC BY 4.0;
-code redistribution must retain the MIT copyright and permission notice.
-
-See the [syllabus alignment and teaching scope](docs/syllabus_alignment.md) and
-[Windows/Ubuntu local run guide](docs/local_run.md).
+IT4065C is offered by the University of Cincinnati School of Information Technology;
+consult its [official course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
+for public institutional information. This independently maintained teaching
+repository contains instructional materials developed by Isaac K. Nti; see
+[AUTHORS.md](AUTHORS.md#institutional-context-and-instructional-authorship) for the
+full institutional, authorship and licensing notice.

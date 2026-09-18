@@ -2,12 +2,16 @@
 
 © 2026 Isaac K. Nti
 
-The original curriculum materials made available under this notice, including original lab descriptions, capstone documentation, architectural framework text, and pedagogical structure, are licensed under the Creative Commons Attribution 4.0 International License, subject to the scope and exclusions below.
+The CC BY 4.0 license applies to original textual expression, diagrams, laboratory
+activities and documentation identified as authored by Isaac K. Nti, where he owns
+or is authorized to license the copyright. It does not apply to University of
+Cincinnati materials, third-party materials, trademarks, student work, or
+contributions whose licensing is separately stated. See the scope below.
 
 You are free to:
 
-- Share — copy and redistribute the material in any medium or format  
-- Adapt — remix, transform, and build upon the material for any purpose, even commercially  
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially
 
 Under the following terms:
 
@@ -26,10 +30,10 @@ the applicable law, policies, agreements and material-specific notices identifie
 
 Subject to those exclusions, this Creative Commons license applies to original:
 
-- `/labs/` instructional documentation  
-- `/capstone_project/` framework and phase documentation  
-- Curriculum descriptions in `README.md`  
-- Pedagogical structure and written materials  
+- `/labs/` instructional documentation
+- `/capstone_project/` framework and phase documentation
+- Curriculum descriptions in `README.md`
+- Original instructional text and diagrams identified as authored by Isaac K. Nti
 
 ---
 

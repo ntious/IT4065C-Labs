@@ -43,6 +43,19 @@ synthetic fixtures and assessment consistency. Run the workflow after dependency
 execution changes. Preserve prior teaching releases so cohorts do not receive
 unannounced changes mid-course. Record curriculum changes in the changelog.
 
+## Offering administration to publish privately
+
+- Authorized official syllabus, current outcomes and effective term.
+- LMS calendar, assignment selection, institutional grade weights and revision dates.
+- Accessibility/accommodation route, equivalent text evidence and accessible tooling.
+- Instructor/TA support contacts, response expectations and managed-device VM access.
+- External platform access, costs, alternatives and required local policy approvals.
+- Applicable integrity, data handling and student-work consent rules.
+
+Use the [delivery plan](delivery_plan.md), [fictional calibration example](../capstone_project/fictional_example.md)
+and [pilot record](pilot_record.md) to prepare and document the offering.
+
+
 ---
 
 Author: [Isaac K. Nti](../AUTHORS.md).

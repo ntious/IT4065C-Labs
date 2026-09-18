@@ -15,7 +15,7 @@ version tag is recorded as of 2026-09-18; use a verified commit when adopting it
 
 ## Verification and publication
 
-The complete Ubuntu 22.04/24.04 workflow passed at commit `2f15cc9`, including the
+The complete Ubuntu 22.04/24.04 workflow passed at commit `71653bf`, including the
 isolated infrastructure experiments. See [validation](validation.md) for the full
 commit, run link and assertion scope.
 
@@ -32,6 +32,20 @@ share a failure domain. Student-owned server logs are not independently protecte
 audit records. TLS protects transport, not files/backups. Password rotation does not
 terminate established sessions. The governance activity is educational analysis.
 Keep these boundaries visible when other instructors adapt the course.
+
+## Pin a tested baseline before adoption
+
+The review baseline is commit `71653bf77f881a62cda029f5ebc344e6702adb4a`, whose
+[workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) passed on
+2026-09-18. For a fresh clone, `git checkout --detach 71653bf77f881a62cda029f5ebc344e6702adb4a`
+selects that baseline. Do not switch an existing student checkout with unsaved work.
+This commit predates the independent-review corrections; it is a reproducibility
+reference, not a claim that the new corrections have passed Ubuntu CI.
+
+After publishing changes, select the new commit only once its own workflow passes.
+Complete and record both human pilots before describing a version as a pilot-tested
+teaching release. The maintainer chooses the tag, release notes and adoption date.
+
 
 ---
 

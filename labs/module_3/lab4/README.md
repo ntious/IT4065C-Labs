@@ -3,7 +3,28 @@
 **Outcomes:** SLOs 2,4. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
-Read the short [concept notes](../../../docs/lab_context_notes/lab4.md) before running the lab.
+## Concept
+
+Lineage records dependencies: changing a raw source can affect several downstream
+models. dbt’s manifest and local documentation expose these relationships. A dependency
+edge describes transformation structure; it does not prove authorization or retention.
+
+Views read underlying data when queried. Materialized tables hold copies until rebuilt
+or changed. Deleting a source record therefore does not imply deletion from every
+materialized downstream model, export, backup or AI training set. Trace each copy,
+its owner, refresh behavior and evidence of deletion in the lifecycle decision log.
+
+Separate acquisition, validation, transformation, permitted use, sharing, retention
+and retirement. At each transition ask who approves the change and what evidence
+would demonstrate it. Do not label a proposed control as implemented because it
+appears in a diagram.
+
+**Check your understanding:** A raw email is removed while a downstream table still
+contains a derived identifier. What is your evidence of propagation, and what remains
+unknown? Lab 8 extends this reasoning to a simulated restore and deletion ledger.
+
+> **Completion:** Automation passing means the environment checks worked. Complete
+> the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
 
@@ -25,8 +46,13 @@ Do not confuse a printed expectation with a passed assertion: the runner stops o
 
 ## Hands-on investigation
 
-Complete your lab’s numbered activity in the [practice guide](../../practice/README.md).
-Inspect the source, run an experiment, and record your prediction before observing the result.
+Open the generated local documentation using `.venv/bin/python scripts/course.py docs`. Trace
+`raw.orders` through staging and the fact table to both marts. Complete
+`labs/module_3/lab4/_turnin_template.md`. Suppose retention removes a raw record:
+which materialized downstream copies could persist, and what would you refresh?
+Document the lineage path in text as an accessible alternative to a screenshot.
+
+For custom SQL, use the [query helper instructions](../../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 

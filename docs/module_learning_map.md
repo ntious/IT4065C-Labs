@@ -3,14 +3,20 @@
 The module descriptions, module-level outcomes and learning activities in this map
 were developed by Isaac K. Nti. They are instructional guidance, not the University
 of Cincinnati’s official course-level learning outcomes. The map supports the Spring
-2026 course sequence and the University-issued AI governance outcome added after
-the repository’s initial development. That course-level outcome is identified as
-SLO 6 in this repository; its authorship belongs to the University.
+2026 course sequence.
+
+The AI ethics and governance course-level outcome, identified here as SLO 6,
+was added by the University of Cincinnati after the repository's initial development.
+Isaac K. Nti developed the repository activities addressing it, not the outcome.
+As checked on 2026-09-18, the public UC course-description page lists the earlier
+five outcomes and does not yet display this addition. Consult the current official
+course materials for the authoritative outcome wording and applicable offering.
+
 See the [institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
 and [official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html).
 
 Use the official LMS calendar for dates. Module and lab numbers differ.
-Read each linked lab's concept notes before class. The required evidence connects
+Read each lab page's concept section before class. The required evidence connects
 instructor-developed activities to the course's assessment plan.
 
 | Instructor-developed module | Preparation and guided work | Required independent evidence / discussion |

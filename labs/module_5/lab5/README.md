@@ -3,7 +3,32 @@
 **Outcomes:** SLO 5. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
-Read the short [concept notes](../../../docs/lab_context_notes/lab5.md) before running the lab.
+## Concept
+
+Authentication establishes the login. Authorization determines which operations it
+can perform. The lab opens separate connections for the analyst and steward; successful
+builder queries are not proof that those reader identities have the same access.
+
+The builder owns the raw data and controlled views. Readers receive schema usage and
+SELECT on specified views, but no raw schema access or membership in the builder role.
+The analyst sees sales aggregates; the steward can additionally use masked customer
+fields. A 42501 response confirms an authorization denial. A wrong-password error or
+missing-table error would not establish the intended access boundary.
+
+The views use their owner’s access to expose a deliberately restricted projection.
+Granting access to an owner-controlled view therefore requires reviewing its entire
+query. Adding a raw column later could expose it to every existing reader of that view.
+The owner is trusted; the design does not protect raw data from its own owner.
+
+Masking is data minimization, not proof of anonymity. Domains, suffixes, identifiers
+and joinable patterns can still reveal information. Unkeyed hashes of predictable
+identifiers are not a safe substitute for an access policy.
+
+**Check your understanding:** Predict all three commands in the practice guide before
+running them. Explain both the role grant and the view projection behind each result.
+
+> **Completion:** Automation passing means the environment checks worked. Complete
+> the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
 
@@ -25,8 +50,18 @@ Do not confuse a printed expectation with a passed assertion: the runner stops o
 
 ## Hands-on investigation
 
-Complete your lab’s numbered activity in the [practice guide](../../practice/README.md).
-Inspect the source, run an experiment, and record your prediction before observing the result.
+```bash
+.venv/bin/python scripts/query.py labs/practice/read_sales.sql --role analyst
+.venv/bin/python scripts/query.py labs/practice/read_masked.sql --role analyst
+.venv/bin/python scripts/query.py labs/practice/read_masked.sql --role steward
+```
+
+Predict each result first. The middle command must exit unsuccessfully with 42501;
+that is successful protection. These are different authenticated connections, not
+an administrator pretending to be a reader. Explain what the masked values still
+reveal. Propose a narrower view for a different legitimate business purpose.
+
+For custom SQL, use the [query helper instructions](../../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 

@@ -3,6 +3,9 @@
 **Outcomes:** SLOs 2,5. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+> **Completion:** Automation passing means the environment checks worked. Complete
+> the independent investigation, interpretation and evidence below before submitting.
+
 ## Before you begin
 
 Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
@@ -23,8 +26,13 @@ Do not confuse a printed expectation with a passed assertion: the runner stops o
 
 ## Hands-on investigation
 
-Complete your lab’s numbered activity in the [practice guide](../practice/README.md).
-Inspect the source, run an experiment, and record your prediction before observing the result.
+Read `labs/extensions/retention.sql` and predict the surviving IDs after each delete.
+Copy it to `.local/retention-experiment.sql`, add an expired record under legal hold,
+and add an assertion that the hold survives deletion and simulated restore. Keep
+the final ROLLBACK; execute using `scripts/query.py`. Explain how a separately
+protected deletion ledger and real backup policy would differ from temporary tables.
+
+For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
 
 ## Interpret and transfer
 

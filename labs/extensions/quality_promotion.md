@@ -1,5 +1,8 @@
 # Optional Lab 11: Quality-gated publication and a reconciled KPI
 
+> **Completion:** Passing automated checks, where present, confirms technical behavior.
+> Complete the independent task, explanation and evidence specified on this page.
+
 **Author:** Isaac K. Nti. **Outcomes:** SLOs 2, 4; supports advanced governance.
 **Time:** 60–90 minutes. Optional enrichment.
 

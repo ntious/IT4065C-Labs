@@ -1,7 +1,10 @@
 # Assessment framework
 
 Assess each outcome through an observable artifact, not completion screenshots alone.
-Public rubrics are intentionally visible. Keep live answer keys and student grades private.
+Public rubrics are intentionally visible. These percentages are suggested
+activity-level rubrics for adoption, not institutional course grade weights.
+The published lab rubric is the default for independent learners; instructors
+announce any adaptation in the LMS before students start. Keep answer keys and grades private.
 
 | Outcome | Evidence |
 |---|---|

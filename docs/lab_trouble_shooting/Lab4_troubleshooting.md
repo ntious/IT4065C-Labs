@@ -1,9 +1,5 @@
-# Course guidance
+# Lab 4: Troubleshooting link
 
-The current [lab sequence](../../labs/README.md) contains canonical commands and learning tasks.
-Use [setup and troubleshooting](../setup.md) for environment recovery. Older commands
-and screenshots have been retired to prevent conflicting instructions.
-
----
-
-Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).
+This compatibility link is retained for older course references. Use the
+[central troubleshooting guide](../troubleshooting.md) and the recovery section
+on the [Lab 4 page](../../labs/module_3/lab4/README.md).
