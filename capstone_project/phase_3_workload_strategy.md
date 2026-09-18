@@ -1,4 +1,17 @@
 # Phase 3 – Workload Strategy  
+
+## Lifecycle and infrastructure checkpoint
+
+Compare cloud, on-premises and hybrid choices for identity, ownership, freshness,
+cost, connectivity and failure domains. Justify one choice and name measurements
+needed before asserting scalability or recovery performance. Lab 9 execution is
+optional; this comparison is required.
+
+Extend the lifecycle through collection, preparation, reporting and retirement.
+For the AI scenario, identify evaluation data and derived predictions, who may read
+them, and which copies could survive source deletion. Specify refresh, retention,
+rollback and retirement responsibilities as proposals unless tested.
+
 ## Designing the Boundary Between OLTP and OLAP
 
 ---
@@ -68,7 +81,7 @@ They should not be the same physical design.
 
 ## Your Task
 
-Complete the **Phase_3_OLTP_vs_OLAP** section of your portfolio portfolio.
+Complete the **Phase_3_OLTP_vs_OLAP** section of your portfolio.
 
 You must define how each entity behaves under operational and analytical workloads.
 
@@ -145,7 +158,9 @@ Dimensions must:
 - Support slicing and filtering
 - Remain independent from transactional volatility
 
-If executives must query production tables to generate reports, your OLAP layer is incomplete.
+Explain whether reporting requires a separate analytical layer for this workload.
+Justify isolation and freshness tradeoffs rather than assuming one topology is
+always correct.
 
 ---
 

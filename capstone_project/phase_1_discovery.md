@@ -1,4 +1,12 @@
 # Phase 1 – Discovery  
+
+## AI lifecycle checkpoint
+
+Treat Lab 7's support-prioritization scenario as a teaching extension, not an
+interview fact. Record intended and prohibited uses, affected stakeholders, necessary
+data, one uncertain assumption and a follow-up question about consent or authority.
+Carry these requirements into later phases without presuming permission for reuse.
+
 ## Requirements Extraction from Business Context
 
 ---
@@ -78,7 +86,7 @@ Your responsibility is to convert narrative language into structured architectur
 
 Working in small architecture teams:
 
-Complete the **Phase_1_Requirements** sheet in the portfolio portfolio.
+Complete the **Phase_1_Requirements** sheet in the portfolio.
 
 You must:
 
@@ -228,7 +236,6 @@ It begins with disciplined listening.
 Strong discovery leads to strong structure.
 
 This phase is the intellectual foundation of the entire capstone.
-```
 
 ---
 

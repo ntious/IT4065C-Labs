@@ -5,8 +5,9 @@ platforms may support instructor demonstrations or assigned exploration; student
 do not need an external account for the local lab sequence.
 
 The course uses **Alation University's Data Intelligence Project** to supplement
-local labs, as confirmed by the instructor. Snowflake and Apache Airflow may also
-support selected course activities; they are not required for every local lab.
+local labs, as confirmed by the instructor. The course also introduces Snowflake
+through an optional Data Warehousing Workshop in Module 4. Apache Airflow may
+support selected activities; external platforms are not required for every local lab.
 
 ## Alation University supplement
 
@@ -29,12 +30,41 @@ If you cannot access the project, complete the corresponding local activity and
 comparison prompt, then ask the instructor about any assigned product-specific
 requirement. Local work supports the concepts but does not certify Alation proficiency.
 
+## Snowflake University supplement: Module 4
+
+The optional [Data Warehousing Workshop (Badge 1)](https://learn.snowflake.com/en/courses/OD-ESS-DWW/)
+introduces Snowflake and cloud data warehousing. The instructor uses it to complement
+Module 4's discussion of cloud, on-premises and hybrid infrastructure. Follow the
+workshop page's enrollment and account-setup instructions; the course repository
+does not provide a Snowflake account. Wait for the workshop's directions before
+creating a trial account, and follow its current usage and cleanup guidance.
+
+The public workshop description includes database fundamentals, loading and querying
+data, semi-structured formats, hands-on activities and automated checks. It provides
+an external cloud example to compare with the local PostgreSQL environment.
+Consider who manages infrastructure, who controls data access, how compute is
+provisioned, and how connectivity, cost and operational responsibilities differ.
+A local single-server exercise does not represent every on-premises deployment,
+and workshop completion does not demonstrate multi-cluster administration.
+
+This is an optional learning resource, not an additional required repository lab.
+Students without access can use the required infrastructure comparison in the
+[module learning map](module_learning_map.md) and the local course materials;
+that route does not earn a Snowflake badge or establish product-specific experience.
+Any assigned completion threshold, reflection, evidence or grading belongs in the
+current LMS. Keep learning transcripts, account details and submissions private.
+
+The linked public page was reviewed on 2026-09-18; its enrolled exercises have not
+been independently executed for this repository. Consult that page for current
+content and duration. Its time estimates differ between sections, so the instructor
+should set an explicit workload allowance for any assigned portion.
+
 ## Connections to local labs
 
 | Course platform | Conceptual bridge from local work | What local work does not establish |
 | --- | --- | --- |
 | Alation | Lab 2 classification register, Lab 4 lineage and stewardship decisions | Product navigation, catalog administration, policy workflows or dashboard proficiency |
-| Snowflake | SQL models, access boundaries and monitoring questions | Warehouse configuration, product query history or cloud administration |
+| Snowflake | Optional Module 4 workshop; cloud/on-premises comparison, SQL and data loading | Local checks do not verify workshop completion, warehouse administration or cloud operations |
 | Apache Airflow | Ordered ingestion/transformation steps and dependency reasoning | Scheduling, retries, orchestration operations or Airflow access administration |
 
 External activities supplement the self-contained local sequence. Students cloning

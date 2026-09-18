@@ -1,304 +1,99 @@
-# Capstone Project  
-# Governed Retail Data Architecture  
-## Designing a Secure, Scalable, Auditable Data System
+# Capstone: Governed Retail Data Architecture
+
+Design, evaluate and defend a retail data system with explicit security,
+lifecycle, governance and accountability decisions.
+
+## Purpose and scope
+
+You are an architecture team advising a fictional retailer with online and store
+operations. Start with the [stakeholder interview](Business_Interview_Transcript.md).
+Translate business needs into a model, workload strategy, governance controls and
+an evidence-backed recommendation to a review board.
+
+This professional simulation combines design with tested local lab behavior.
+It does not require a production deployment, paid cloud account or real personal
+data. Scalability, auditability and compliance are properties to investigate;
+completion of the project does not certify them. Identify assumptions and missing
+facts before drawing regulatory conclusions.
+
+## Start here
+
+1. Read the interview and record questions rather than inventing stakeholder facts.
+2. Make a private copy of the [portfolio template](portfolio_template.md).
+3. Complete the seven phases below, revising earlier decisions when evidence changes.
+4. Use the course labs as a baseline and distinguish their results from your own implementation.
+
+The default format is a small team for Phases 1–6 and individual reflection for
+Phase 7. Independent learners can complete the same artifacts alone. Your instructor
+sets team size, checkpoints, due dates and official grading in the LMS.
+
+## Seven-phase journey
+
+| Phase | Focus and required artifact | Course connection |
+| --- | --- | --- |
+| [1. Discovery](phase_1_discovery.md) | Requirements register: source, entity, relationship, uncertainty and follow-up question | SLO 1; Labs 1–2 |
+| [2. Structural foundation](phase_2_structural_foundation.md) | Editable ERD with grain, keys, cardinality and justified revisions | SLO 4; Lab 3 |
+| [3. Workload strategy](phase_3_workload_strategy.md) | OLTP/OLAP placement, lifecycle diagram and infrastructure comparison | SLOs 2–4; Labs 3–4; Lab 9 optional |
+| [4. Governance overlay](phase_4_governance_overlay.md) | Owner, sensitivity, permitted use, retention, risk and control register | SLOs 1, 5–6; Labs 2, 5, 7 |
+| [5. Integration and evidence](phase_5_integration_evidence.md) | Claim-to-evidence matrix, limitations, peer review and revision | SLOs 2, 4–6; Labs 3–7 |
+| [6. Architecture defense](phase_6_architecture_defense.md) | Ten-slide recommendation and responses to review-board questions | SLOs 1–6 |
+| [7. Individual reflection](phase_7_reflection.md) | One-page account of contribution, changed reasoning and next improvement | SLO 6 plus another selected outcome |
+
+## AI governance across the lifecycle
+
+Use the retailer support-prioritization scenario from [Lab 7](../labs/extensions/ai_governance.md)
+as an explicit teaching extension to the interview, not a statement made by the
+original stakeholder. A model-training project is not required.
+
+Carry one decision through the phases: establish intended and prohibited use;
+identify necessary data and proxy risks; separate evaluation access from operational
+access; evaluate bias and mitigation tradeoffs; design transparency and appeal;
+assign accountable reviewers; and define monitoring, rollback and retirement.
+Use the [AI decision template](../labs/extensions/ai_decision_template.md), including
+its purpose-change review. Rejecting or deferring deployment is a valid conclusion.
+
+## Evidence and learning expectations
+
+For every important claim record its requirement, decision, artifact, environment,
+result and limitation. Use four labels consistently:
+
+- **Demonstrated:** implemented and tested in the named environment.
+- **Simulated:** illustrated through a model or fabricated scenario.
+- **Proposed:** designed but not implemented.
+- **Untested:** implemented or asserted without sufficient verification.
+
+For example, a lab reader's denied UPDATE establishes that specific permission
+boundary. It does not prove all capstone roles are secure. A dependency diagram
+does not establish enforcement; a local snapshot does not establish multiple clusters.
+
+The project assesses classification and curation, lifecycle reasoning, infrastructure
+tradeoffs, modeling, access/monitoring and ethical AI governance. Assessment values
+traceable evidence, reasoned alternatives, consistency and honest limits. Consult
+[public performance descriptors](../docs/assessment_examples.md). Activity rubrics
+support feedback; official capstone grade weights remain in the LMS.
+
+## Final submission checklist
+
+- Portfolio covering the seven phases and linked AI decision.
+- Editable ERD plus a readable export or text description of relationships.
+- Lifecycle diagram or equivalent structured text, including derived copies and retirement.
+- Claim-to-evidence appendix with reproducible commands where applicable.
+- [Peer review and response](../docs/peer_review.md), with accepted or deferred changes explained.
+- Architecture defense and each student's individual reflection.
+
+Submit privately using the instructor's approved route. Text evidence is accepted;
+screenshots are optional and must be redacted. Do not publish credentials, student
+identities, submissions or restricted platform materials. Cite external sources and
+disclose assistance with an explanation of how results were independently checked.
+
+## For instructors
+
+Use the [adaptation guide](instructor_adaptation.md) to adjust industry context,
+pace and tools while preserving outcomes. Alation University and the optional
+Snowflake workshop are [supplements](../docs/platforms.md), not prerequisites for
+this public capstone. Keep dates, institutional policies, private solutions and
+student records in the course system.
 
----
-
-## Overview
-
-In modern organizations, failure rarely occurs because data is missing.
-
-Failure occurs because data is not governed.
-
-Enterprise data systems must balance:
-
-- Operational speed  
-- Analytical accuracy  
-- Regulatory compliance  
-- Security enforcement  
-- Auditability  
-- Executive trust  
-
-This capstone simulates the work of a professional data architect responsible for designing a governed retail data platform operating under real-world constraints.
-
-This is not a theoretical exercise.
-
-It is a professional architecture simulation.
-
----
-
-## Why This Project Matters
-
-Today’s data environments face increasing pressure from:
-
-- Data privacy regulations (GDPR, CCPA, consumer protection laws)  
-- Cybersecurity risk and breach exposure  
-- Cloud and hybrid infrastructure complexity  
-- Executive demand for reliable analytics  
-- Regulatory audit requirements  
-
-Organizations need professionals who can:
-
-- Design scalable systems  
-- Protect sensitive data  
-- Prove compliance  
-- Explain risk in business terms  
-- Integrate governance into architecture  
-
-This project develops those capabilities directly.
-
-You are practicing modern data technology administration.
-
----
-
-## How This Capstone Connects to the Course
-
-The capstone integrates the full lab lifecycle:
-
-- **Labs 1–2** → Environment + Data Classification  
-- **Lab 3** → Layered Modeling Architecture  
-- **Lab 4** → Lifecycle & Lineage Validation  
-- **Lab 5** → Access Control Enforcement  
-- **Lab 6** → Monitoring & Audit Evaluation  
-
-The capstone requires you to synthesize all of these into one coherent enterprise system.
-
----
-
-## Capstone Architecture Journey
-
-The project unfolds as a structured sequence of architectural phases.
-
-Each phase builds on the previous one.
-
----
-
-### Phase 1 – Discovery  
-**Focus:** Requirements extraction & ambiguity management  
-→ Translate business language into structured system components.
-
-See: `phase_1_discovery.md`
-
----
-
-### Phase 2 – Structural Foundation (Logical Data Model)  
-**Focus:** Integrity, primary keys, and referential discipline  
-→ Formalize structure and defend architectural decisions.
-
-See: `phase_2_structural_foundation.md`
-
----
-
-### Phase 3 – Workload Strategy (OLTP vs. OLAP)  
-**Focus:** Scalability & performance boundaries  
-→ Separate transactional systems from analytical systems.
-
-See: `phase_3_workload_strategy.md`
-
----
-
-### Phase 4 – Governance Overlay  
-**Focus:** Risk, ownership, retention, accountability  
-→ Translate architecture into defensible governance policy.
-
-See: `phase_4_governance_overlay.md`
-
----
-
-### Phase 5 – Integration & Evidence  
-**Focus:** Enforceability & technical validation  
-→ Prove governance through lifecycle, security, and monitoring evidence.
-
-See: `phase_5_integration_evidence.md`
-
----
-
-### Phase 6 – Architecture Defense  
-**Focus:** Executive communication  
-→ Defend design decisions before a simulated review board.
-
-See: `phase_6_architecture_defense.md`
-
----
-
-### Phase 7 – Individual Reflection  
-**Focus:** Professional maturity  
-→ Evaluate how your architectural thinking evolved.
-
-See: `phase_7_reflection.md`
-
----
-
-## Skills Developed
-
-By completing this capstone, you develop experience in:
-
-- Enterprise data modeling  
-- Lifecycle-aware architecture  
-- Governance strategy integration  
-- Security enforcement reasoning  
-- Risk analysis & compliance thinking  
-- Executive-level communication  
-- Evidence-based architectural validation  
-- Professional decision justification  
-- Collaborative system design  
-
-These are proposed architectural skills.
-
----
-
-## Project Learning Outcomes
-
-By the end of this capstone, you will be able to:
-
-- Design a governed enterprise data architecture  
-- Integrate lifecycle and workload strategies  
-- Implement and justify security controls  
-- Interpret compliance requirements  
-- Defend architectural decisions professionally  
-- Connect technical validation to production design  
-- Reason about enterprise risk  
-- Communicate architecture to non-technical leaders  
-
-This is synthesis-level learning.
-
-You are practicing the work of a professional data architect.
-
----
-
-## Expectations
-
-This project is intentionally rigorous.
-
-You are expected to:
-
-- Justify decisions  
-- Reference evidence  
-- Think critically  
-- Tolerate uncertainty  
-- Revise assumptions  
-- Communicate clearly  
-
-There is rarely one “correct” answer.
-
-There are strong and weak architectural arguments.
-
-Evaluation reflects the strength of your reasoning.
-
----
----
-
-## Capstone Lifecycle Overview
-
-The capstone follows a complete enterprise architecture lifecycle:
-
-
-## Requirements → Architecture → Governance Flow
-
-The capstone follows a structured traceability model.
-
-Every architectural decision must originate from stakeholder requirements and
-flow through modeling, governance, and enforcement layers.
-
-
-```mermaid
-flowchart TD
-
-A[Business Interview Transcript] --> B[Phase 1: Requirements Extraction]
-B --> C[Phase 2: Logical Data Model]
-
-C --> D[Phase 3: Workload Strategy<br>OLTP vs OLAP]
-
-D --> E[Phase 4: Governance Overlay<br>Ownership • Sensitivity • Retention • Risk]
-
-E --> F[Phase 5: Evidence Validation<br>Lifecycle • RBAC • Monitoring]
-
-F --> G[Phase 6: Executive Defense]
-
-G --> H[Phase 7: Individual Reflection]
-
-style A fill:#f9f9f9,stroke:#333,stroke-width:1px
-style E fill:#ffe6e6,stroke:#cc0000,stroke-width:1px
-style F fill:#e6f2ff,stroke:#0066cc,stroke-width:1px
-style G fill:#f2f2f2,stroke:#444,stroke-width:1px
-```
-
-
----
-
-## For Educators
-
-This capstone is designed as a full-lifecycle enterprise architecture simulation, not a traditional database project.
-
-It intentionally integrates:
-
-- Requirements discovery  
-- Logical data modeling  
-- Workload separation (OLTP vs OLAP)  
-- Governance overlay (ownership, sensitivity, retention, risk)  
-- Technical enforceability (RBAC, masking, lifecycle validation)  
-- Monitoring and audit reasoning  
-- Executive-level architectural defense  
-- Individual professional reflection  
-
-### Pedagogical Design Principles
-
-This project is structured around five core principles:
-
-1. **Architecture Before Tools**  
-   Students defend decisions, not syntax.
-
-2. **Governance as Structural Discipline**  
-   Risk, ownership, and accountability are embedded into modeling decisions.
-
-3. **Lifecycle Thinking**  
-   Raw → staging → analytics boundaries are enforced conceptually and technically.
-
-4. **Evidence-Based Design**  
-   Students must prove feasibility using lab artifacts before claiming governance maturity.
-
-5. **Executive Communication**  
-   Technical systems are translated into business confidence.
-
-### Intended Learning Level
-
-This capstone operates at the synthesis and evaluation levels of Bloom’s taxonomy.  
-Students must integrate modeling, governance, security, and communication into one coherent system.
-
-### Adaptation Notes
-
-Educators may adapt this capstone by:
-
-- Modifying the business transcript to reflect a different industry  
-- Adjusting governance constraints to match local regulatory environments  
-- Replacing lab tooling (e.g., dbt/PostgreSQL) while preserving lifecycle logic  
-- Scaling the project across shorter or longer academic terms  
-
-The framework is tool-agnostic but governance-centered.
-
----
-
-This capstone is intended to prepare students not just to build systems, but to defend them.
-
-Architecture is not complete until it is explainable, enforceable, and auditable.
-
-
-## Final Perspective
-
-Modern organizations trust architects with their most valuable asset: data.
-
-This capstone trains you to earn that trust.
-
-You are not simply designing tables.
-
-You are designing accountability.
-
-Welcome to enterprise data architecture.
-
-
----
-
-Start your submission with the [portfolio template](portfolio_template.md).
 
 ---
 

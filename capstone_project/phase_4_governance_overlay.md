@@ -1,4 +1,14 @@
 # Phase 4 – Governance Overlay  
+
+## AI lifecycle checkpoint
+
+Use the AI decision template to assign data stewardship, approval, evaluation,
+monitoring, appeal and retirement roles. Define permitted/prohibited uses,
+transparency to affected people, a harm-review trigger and a response owner.
+Explain one mitigation tradeoff; mark these controls proposed unless tested.
+Stakeholder statements are inputs to investigation, not legal authority. State
+missing applicability facts and cite primary sources before asserting obligations.
+
 ## Translating Architecture into Accountability
 
 ---
@@ -72,15 +82,13 @@ This phase measures your ability to translate messy business language into struc
 
 ## Your Task
 
-Complete the **Phase_4_Governance** section of your portfolio portfolio.
+Complete the **Phase_4_Governance** section of your portfolio.
 
 Governance must be applied to the entities already defined in Phases 1–3.
 
-You may not:
-
-- Rename tables  
-- Invent new entities  
-- Apply governance to non-existent structures  
+If governance review requires a model change, revise the earlier artifacts and
+record its reason. Apply controls to identified entities; label new structures as
+proposed until implemented.
 
 Governance overlays architecture.
 
@@ -183,7 +191,9 @@ Weak example:
 
 Strong example:
 
-“Exposure of customer emails enables phishing campaigns and violates consumer privacy regulations, exposing the company to regulatory fines and class-action lawsuits.”
+“Exposure of customer emails could enable targeted phishing and create privacy harm.
+Legal obligations and consequences depend on jurisdiction, applicable rules and the
+facts of the incident; these require further assessment.”
 
 Executives act on consequences, not abstractions.
 
