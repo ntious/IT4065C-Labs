@@ -1,4 +1,4 @@
-# Phase 1 – Discovery  
+# Phase 1: Discovery
 
 ## AI lifecycle checkpoint
 
@@ -138,7 +138,7 @@ Examples:
 
 Attributes must be mapped to the correct entity.
 
-Misplaced attributes signal modeling immaturity.
+Check misplaced attributes against entity meaning and relationship structure.
 
 ---
 
@@ -185,16 +185,16 @@ Weak discovery produces weak architecture.
 
 Your work will be assessed based on:
 
-### Completion  
+### Completion
 Are all major entities and relationships represented?
 
-### Precision  
+### Precision
 Are attributes mapped correctly to their entities?
 
-### Professional Reasoning  
+### Professional Reasoning
 Do Low Confidence items include thoughtful stakeholder follow-up questions?
 
-### Structural Readiness  
+### Structural Readiness
 Is the discovery work usable as input for a Logical Data Model?
 
 Discovery is not about guessing correctly.

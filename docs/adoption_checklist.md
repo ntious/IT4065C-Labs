@@ -5,9 +5,9 @@
 - Select a tested commit and record it in the private course plan.
 - Reconcile the module map with the official syllabus and actual teaching calendar.
 - Confirm external platform names, access arrangements, activities and alternatives.
-- Review Optional Labs 12–14 against stronger practical syllabus promises for
-  multi-instance operation, server monitoring and encryption before claiming full
-  coverage; optional availability does not establish every student completed them.
+- Map the Spring 2026 practical outcomes to assessed catalog, workflow, encryption
+  and monitoring evidence. Optional Labs 12–14 provide extension routes; optional
+  availability does not establish that every student completed an outcome.
 - Rehearse setup, core labs, selected optional labs and recovery on disposable Ubuntu.
 - Prepare private grading calibration and the approved submission route.
 

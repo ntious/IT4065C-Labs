@@ -48,7 +48,7 @@ this includes optional 8–9 and does not run the newer optional activities.
 | [Student project showcase](docs/student_projects.md) | Student-created final projects and questions for exploring their work |
 | [Instructor runbook](docs/instructor.md) | Preparation, pacing, assessments and verification |
 | [Security](SECURITY.md) | Safe use and private reporting |
-| [Validation](docs/validation.md) | What has actually been tested and remaining limits |
+| [Validation](docs/validation.md) | Verified environments, checks and demonstration boundaries |
 | [Changes](CHANGELOG.md) | Migration from the older course edition |
 
 ## What this environment demonstrates
@@ -71,5 +71,5 @@ Code: [MIT](LICENSE). Curriculum: [CC BY 4.0](LICENSE-CONTENT.md).
 when using or adapting it. Curriculum reuse requires attribution under CC BY 4.0;
 code redistribution must retain the MIT copyright and permission notice.
 
-See the [syllabus crosswalk and remaining work](docs/syllabus_alignment.md) and
+See the [syllabus alignment and teaching scope](docs/syllabus_alignment.md) and
 [Windows/Ubuntu local run guide](docs/local_run.md).

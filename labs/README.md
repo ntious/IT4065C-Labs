@@ -43,7 +43,7 @@ core, official grade weights or the required short governance discussion.
 .venv/bin/python scripts/course.py all
 ```
 
-This runs the executable parts; written reasoning, ERDs and defenses still need human assessment.
+This runs the executable parts; instructors assess written reasoning, ERDs and defenses separately.
 
 `all` is an instructor rehearsal of Labs 1–9, including optional 8–9; it does not
 mean that all nine are required student work. For the core, run labs 1 through 7

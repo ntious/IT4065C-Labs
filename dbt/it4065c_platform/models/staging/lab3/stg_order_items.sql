@@ -41,7 +41,7 @@
  Student Expectations:
  ---------------------
  - You are NOT required to edit this file.
- - You should understand why line-item data is staged separately from orders.
+ - Explain why line-item data is staged separately from orders.
 
  Data Lineage (Conceptual):
  --------------------------

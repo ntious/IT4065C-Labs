@@ -1,6 +1,6 @@
 # Lab 1: Environment readiness
 
-**Outcomes:** SLOs 3,4. **Estimated time:** 30–60 minutes first setup; installation/support may take longer.
+**Outcomes:** SLOs 3,4. **Estimated time:** 30–60 minutes first setup; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 Read the short [concept notes](../../docs/lab_context_notes/lab1.md) before running the lab.

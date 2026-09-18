@@ -1,5 +1,5 @@
-# Business Interview Transcript  
-## Retail Order & Sales System Modernization  
+# Business Interview Transcript
+## Retail Order & Sales System Modernization
 
 **Stakeholders:**  
 - Interviewer (Data Team)  
@@ -125,15 +125,15 @@ We require full **auditability**:
 
 # Risk & Sensitivity Memo (Governance Input)
 
-### Classification – HIGH (Red)
+### Classification: HIGH (Red)
 **Customer Profiles (Email / Phone)**  
 A leak results in GDPR/privacy violations and legal fines.
 
-### Classification – MEDIUM (Yellow)
+### Classification: MEDIUM (Yellow)
 **Order History & Financial Totals**  
 A leak exposes revenue trends and competitive intelligence.
 
-### Classification – LOW (Green)
+### Classification: LOW (Green)
 **Product Catalog & Category Lists**  
 Public-facing information. No legal risk if exposed.
 

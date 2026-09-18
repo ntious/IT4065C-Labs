@@ -7,5 +7,5 @@ Copyright © 2026 Isaac K. Nti. See [citation and attribution](CITATION.md), the
 [code license](LICENSE) and [content license](LICENSE-CONTENT.md).
 
 External tools and referenced frameworks retain their own authorship and licenses.
-Future contributions should be credited accurately without replacing the original
+Credit future contributions accurately without replacing the original
 author attribution or implying that third-party work was authored here.

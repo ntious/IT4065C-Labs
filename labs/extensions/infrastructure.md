@@ -1,6 +1,6 @@
 # Lab 9: Infrastructure snapshot experiment
 
-**Outcomes:** SLO 3. **Estimated time:** 45–60 minutes; installation/support may take longer.
+**Outcomes:** SLO 3. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 ## Before you begin

@@ -61,7 +61,7 @@ Provide a repository or demo link, the student team's preferred credit, and a
 short explanation of the problem and relevant course concepts. Public links are
 preferred. Clearly label private links and provide a summary suitable for public
 sharing so readers can understand the example without requesting access.
-Entries should distinguish documented features from behavior independently tested
+Entries must distinguish documented features from behavior independently tested
 by the course maintainer. See the [showcase contribution guidance](../CONTRIBUTING.md#student-project-showcase).
 
 ---

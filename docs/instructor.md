@@ -12,8 +12,10 @@ No live university credentials or Canvas source ZIP is required.
 
 Suggested pacing: setup/prerequisite bridge; classification; modeling/quality;
 lineage; infrastructure discussion; security; monitoring; retention; AI governance;
-capstone workshops and defense. Fit this into your actual calendar rather than
-copying the old syllabus's overlapping 18 weeks. Keep the official schedule in LMS.
+capstone workshops and defense. Follow the Spring 2026 module order: classification, modeling, lifecycle,
+infrastructure, security, monitoring, integrated operations and capstone synthesis.
+Place the added AI outcome within integrated governance and the capstone. Keep dates
+and workload allocation in the LMS.
 
 For each session: 10-minute concept/prediction, 25-minute guided run, 20-minute
 interpretation/transfer, 10-minute pair review and questions. Times are adaptable.

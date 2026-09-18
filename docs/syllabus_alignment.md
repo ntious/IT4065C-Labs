@@ -1,52 +1,58 @@
-# Syllabus alignment and remaining work
+# Syllabus alignment and teaching scope
 
-Reviewed against the supplied Spring 2025 syllabus and the subsequently added AI
-outcome. This is a public academic crosswalk, not a replacement institutional syllabus.
-Lab numbering is a teaching sequence; it does not equal the syllabus's module numbering.
+Aligned to the Spring 2026 updated syllabus, with the instructor-supplied AI
+ethics/governance outcome added as SLO 6. The PDF lists SLOs 1–5; SLO 6 comes from
+the instructor's subsequent course update. This public crosswalk covers academic
+content and does not reproduce institutional administration or private course links.
+Lab numbers identify activities; they are not module numbers.
 
-## Evidence by outcome and module
+## Evidence by module and outcome
 
-| Syllabus area | Current evidence | Remaining limitation |
-|---|---|---|
-| SLO 1 / Module 1: types, sources, curation and metadata | Lab 2 register, metadata notebook, optional Lab 10 CSV/JSON/text catalog and curation | Alation University Data Intelligence Project supplements local work; assigned product activities require authorized access |
-| SLO 2 / Module 2: creation-to-deletion lifecycle and ETL | Lab 4 lineage/lifecycle decisions, optional Lab 8 deletion-ledger simulation, optional Labs 10–11 ingestion/publication | Real backup restore and scheduled enterprise orchestration remain extensions |
-| SLO 3 / Module 4: cloud/on-premises/hybrid and multiple clusters | Lab 9 snapshot experiment and required infrastructure comparison; optional Snowflake University workshop; capstone architecture decision | Optional Lab 13 adds distinct local instances, source outage and measured batch recovery; no automatic failover or independent hardware failure domains |
-| SLO 4 / Module 3: lifecycle/modeling tools and ERDs | dbt models/tests, capstone editable ERD, Lab 3 student-authored test, optional Lab 11 model/KPI | Independent student model implementation needs instructor assessment; optional ERD is not auto-graded |
-| SLO 5 / Modules 5–6: security and monitoring | Separate-login allow/deny tests, masking, live client observations and simulated incident rules | Optional Labs 12/14 add actual server CSV records and verified local TLS/rotation; no independently protected log collector or storage encryption demonstration |
-| Module 7: integrated governance | Register, controls, quality tests and capstone evidence classifications | Alation University supplements the concepts; Optional Lab 15 adds primary-source applicability analysis; product-specific evidence follows LMS assignments |
-| Module 8 / project: integration, analytics, visualization and peer review | Seven-phase capstone, defense/reflection; optional Lab 11 executable pipeline and reconciled report | A team's own architecture still needs its own implementation evidence and peer review |
-| Added SLO 6: AI ethics and governance across the lifecycle | Required Lab 7: bias rates, mitigation tradeoff, dataset card, transparency, appeal, accountable owners, NIST AI RMF decision | Small supplied predictions illustrate governance reasoning, not production fairness or model-training proficiency |
+| Spring 2026 module | Primary course evidence | Scope and assessment |
+| --- | --- | --- |
+| 1. Foundations of Data Governance and Data Classification | Lab 2 register, metadata notebook, Alation University supplement; Optional Lab 10 | SLOs 1,5: classify structure, sensitivity, ownership and use; product-specific catalog activity follows LMS access instructions |
+| 2. Data Modeling for Operational and Analytical Systems | Lab 3 models/tests; capstone ERD and workload strategy | SLOs 2,4: assess grain, keys, relationships and OLTP/OLAP rationale; evaluate the student's own design separately from the baseline |
+| 3. Data Lifecycle Design and Management | Lab 4 lineage; dbt workflow; optional retention, ingestion and publication Labs 8,10,11 | SLOs 2,4: diagram collection through retirement and explain controlled transitions; dbt dependency execution does not demonstrate a continuously scheduled orchestration service |
+| 4. Infrastructure Models for Data Administration | Required deployment comparison; optional Snowflake workshop and Labs 9,13 | SLO 3 with support for 2,5: compare administrative responsibilities, residency, sovereignty, cost and monitoring; two-instance engineering is enrichment |
+| 5. Data Access Control and Security Implementation | Lab 5 authenticated permissions/masking; Optional Lab 14 TLS and rotation | SLO 5: test access controls; TLS is executed in the optional route, while storage encryption is discussed as a proposed control |
+| 6. Data Access Monitoring and Compliance Enforcement | Lab 6 observations/incident analysis; Optional Lab 12 server records and Lab 15 applicability case | SLOs 2,5 with support for 3: identify evidence sources, detect policy violations and report qualified conclusions; logs are not independently protected audit storage |
+| 7. Integrated Data Governance Operations | Review/action/documentation record connecting Labs 2,4,5,6 and capstone; Lab 7 AI decision | SLOs 1,2,3,5 plus added SLO 6: assess ownership, remediation, verification and review responsibility across environments |
+| 8. Capstone Project and Course Synthesis | Seven-phase portfolio, technical evidence, peer review, defense and reflection | Integrate SLOs 1–6; demonstrate feasibility within the named test environment and distinguish proposed deployment controls |
 
-The course-level SLO 3 says **discuss**, but Module 4 also promises hands-on
-multi-cluster administration. The comparison activity supports the discussion outcome;
-it does not alone fulfill that stronger practical module claim. Optional Lab 13
-adds two-instance administration; Optional Lab 12 adds server observations. Because
-these remain optional, they cannot establish that every student met a required
-practical outcome unless the instructor assigns an appropriate assessed route.
+Module 4 emphasizes administrative decision-making and discussion of multi-cluster
+implications. Its 2026 outcomes do not require students to engineer a production
+cluster. Optional Lab 13 strengthens the comparison with actual local instances.
 
-## Teaching support added
+For Module 5's encryption application outcome, instructors must specify assessed
+hands-on encryption evidence through their course delivery. Optional Lab 14 supplies
+a local transport-encryption activity, but its availability alone does not prove
+that every student completed that outcome. Storage encryption is not executed here.
+Likewise, identify the assigned catalog and orchestration evidence when assessing
+product-specific or continuously scheduled workflows.
+
+## Teaching resources
 
 The foundations bridge, module learning map, assessment descriptors, peer review,
 session guide and adoption checklist support independent learning and instructor
-handoff. Required lifecycle/infrastructure discussions no longer depend on taking
-optional labs. Lab 7 includes a purpose-change review. These curriculum additions
+handoff. Required lifecycle and infrastructure discussions have assessment routes independent
+of optional lab execution. Lab 7 includes a purpose-change review. These curriculum additions
 support the new optional server, transfer, TLS and governance activities below.
 
-## Keep the revised core manageable
+## Core and optional scope
 
-Labs 1–7 are the revised core. Labs 8–15 are optional enrichment. If an instructor
-uses the unchanged official syllabus's stronger practical promises, the corresponding
-missing activities must become required or the substitution must be approved through
-the appropriate course process. Calling them optional does not erase the gap.
+Labs 1–7 form the core; Labs 8–15 provide optional enrichment. Instructors adopting
+a syllabus with additional required practical outcomes must specify an assessed
+activity for each outcome or obtain approval for a substitution. Optional availability
+alone does not establish that every student completed a practical outcome.
 
-The new AI outcome is assessed through discussion, a decision memo and defense.
+The AI governance outcome is assessed through discussion, a decision memo and defense.
 Another required machine-learning lab is unnecessary. Use this cross-lab evidence chain:
 classification and permitted AI use (Lab 2); proxy/audit-field separation (Lab 3);
 training/evaluation/retirement copies (Lab 4); restricted audit access (Lab 5);
 drift and incident ownership (Lab 6); accountable deployment decision (Lab 7).
 Where a link is a proposed design rather than an executed control, label it that way.
 
-## Added optional activities and limits
+## Optional activities and evidence boundaries
 
 | Activity | Implemented evidence | Limit |
 | --- | --- | --- |
@@ -56,20 +62,24 @@ Where a link is a proposed design rather than an executed control, label it that
 | [15. Governance case](../labs/extensions/governance_case.md) | Primary-source scope analysis, control/evidence matrix and stewardship decision | Human assessment; not legal certification |
 | [External platforms](platforms.md) | Alation University and optional Snowflake workshop mappings with local alternatives | Restricted activities and student completion are not independently verified here |
 
-New server experiments have local execution evidence; their expanded Ubuntu CI runs
-are pending publication of these changes. See [validation](validation.md). All newly
-added labs are optional. Required short discussions and Lab 7 remain in the core.
+The server experiments passed the Ubuntu 22.04 and 24.04 workflow at commit
+`2f15cc9`, including two runs of each experiment. See [validation](validation.md)
+for the exact evidence. Labs 12–15 are optional; required discussions and Lab 7
+remain part of the core.
 
-## Earlier review: what remains
+## Adoption and maintenance responsibilities
 
-Implemented: canonical setup, environment variables, unique logins, fail-fast checks,
-correct models/selection/grain, deterministic fixtures, actual denial assertions,
-safe reruns, templates, instructor notes, AI outcome and current-tree asset cleanup.
+The course provides canonical setup, private environment configuration, unique
+logins, deterministic fixtures, negative checks, repeatable experiments and public
+assessment guidance. Use the [adoption checklist](adoption_checklist.md) to prepare
+a specific offering and the [release guide](release_management.md) to select its version.
 
-Still open: historical credential revocation and history review; novice and replacement-
-instructor pilots; an immutable release/tag after all CI checks pass; dependency advisory
-review and comprehensive secret/history scanning beyond the new baseline hygiene checks; expanded Ubuntu validation, independent audit storage, production failover and storage-encryption demonstrations.
-Hash-pinning dependencies does not prove they have no known vulnerabilities.
+Human learner and instructor pilots, historical credential remediation, dependency
+advisory review and comprehensive Git-history scanning have no recorded completion
+in this repository. Track these explicitly during adoption; automated lab checks do
+not establish their completion. Hash-pinning establishes dependency identity, not
+freedom from known vulnerabilities. Independent audit storage, production failover
+and storage encryption are outside the implemented demonstrations.
 
 Private syllabus matters remain private: current dates, contact details, attendance,
 accommodations, grades, credentials and resolution of conflicting administrative policies.

@@ -2,17 +2,16 @@
 
 ## Published Ubuntu result
 
-The published base commit `527559b6502dbdd12eca6e2d3b3bee7e63baf04c` passed
-[workflow run 35352357594](https://github.com/ntious/IT4065C-Labs/actions/runs/35352357594)
-on **Ubuntu 22.04 and 24.04**: setup, configuration tests, nine labs twice with
-failure recovery, optional ingestion/publication, and a non-default configuration.
+Commit `2f15cc96bf869107e764611be20e17263e137bed` passed
+[workflow run 35354824424](https://github.com/ntious/IT4065C-Labs/actions/runs/35354824424)
+on **Ubuntu 22.04 and 24.04**. Both jobs passed fresh setup, configuration checks,
+nine labs twice with failure recovery, optional ingestion/publication, each isolated
+infrastructure experiment twice, and a non-default database/user/schema rehearsal.
 
-New Optional Labs 12–14 passed local PostgreSQL 17.11/Python 3.12 executions with
-default and alternate role names. Checks included server CSV correlation, actual
-source shutdown/recovery, TLS negative controls and password rotation. Generated
-passwords were checked absent from saved logs/evidence. Teaching servers stopped.
-The expanded Ubuntu workflow executes these experiments twice after publication;
-that new workflow has not yet run. Local tests do not establish Ubuntu/WSL behavior.
+Local PostgreSQL 17.11/Python 3.12 checks also covered alternate experiment role names,
+server shutdown and absence of generated passwords from saved evidence/logs. These
+results establish the named assertions at the recorded revision. They do not certify
+production deployment or replace an interactive learner pilot.
 
 Optional Lab 15 is a human-assessed case, not an executable check. An instructor
 walkthrough is documented separately and does not substitute for real student pilots.
@@ -54,9 +53,9 @@ Follow the [optional prerequisites](../labs/extensions/infrastructure_setup.md),
 Each uses fresh private instances and stops them. The same commands can be repeated
 without resetting the core dataset. Save only redacted evidence excerpts privately.
 
-## Development evidence
+## Local verification record
 
-The local development rehearsal used PostgreSQL 17.11, Python 3.12.14, dbt-core
+The local verification rehearsal used PostgreSQL 17.11, Python 3.12.14, dbt-core
 1.11.2 and dbt-postgres 1.10.0 on a disposable Windows-hosted database bound to
 loopback. All nine labs ran successfully, then the verifier completed both passes,
 negative controls and restoration. Each modeling run executed ten models and
@@ -80,7 +79,7 @@ accessible Markdown. Current examples use synthetic records and generated privat
 credentials. Private logs and dbt artifacts remain ignored because they may contain
 local filesystem identities. The CI workflow does not upload those artifacts.
 
-Previously published credentials must still be rotated/revoked by their owner.
+Owners must rotate or revoke any previously published credentials.
 Deleting a file from a new revision cannot revoke a credential or erase prior Git
 history, forks and downloads. Historical remediation is a separate owner action.
 

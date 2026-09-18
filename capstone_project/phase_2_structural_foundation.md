@@ -1,4 +1,4 @@
-# Phase 2 – Structural Foundation  
+# Phase 2: Structural Foundation
 
 ## AI lifecycle checkpoint
 
@@ -194,7 +194,7 @@ Submit the updated portfolio template including:
 - Resolved M:N relationships
 - Completed Architect’s Defense column
 
-Your submission should demonstrate architectural coherence.
+Demonstrate architectural coherence in your submission.
 
 ---
 
@@ -254,7 +254,7 @@ Discovery asked:
 
 Phase 2 asks:
 
-> How must it be structured so it cannot break?
+> Which integrity rules does the structure represent, and how will you enforce and test them?
 
 Strong architecture is invisible when working correctly.
 

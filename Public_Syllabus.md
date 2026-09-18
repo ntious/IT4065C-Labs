@@ -20,6 +20,10 @@ formal prerequisite or an additional graded requirement for IT4065C. Use the loc
 [foundations bridge](docs/foundations.md) for this course's terminal, SQL and database
 identity self-checks.
 
+The academic sequence follows the Spring 2026 updated syllabus. SLOs 1–5 are
+listed in that syllabus; SLO 6 incorporates the instructor’s subsequent AI governance
+update. The official institutional syllabus and LMS govern course administration.
+
 ## Learning outcomes
 
 1. Identify the types of data and data sources that fall under data governance.
@@ -45,9 +49,10 @@ The instructor uses Alation University’s Data Intelligence Project and the opt
 Snowflake Data Warehousing Workshop (Module 4) as supplements;
 see the [platform and access guide](docs/platforms.md). The local sequence does
 not claim to assess product-specific Alation/Snowflake proficiency. Single-instance
-snapshot and client-observed monitoring exercises have explicit limits. Instructors
-whose approved syllabus requires hands-on multi-cluster administration or server
-audit configuration must add the corresponding supervised deployment activity.
+snapshot and client-observed monitoring exercises have explicit limits. Module 4
+emphasizes infrastructure administration, including residency, sovereignty
+and cost. Instructors specify the assessed encryption, catalog and orchestration
+activities for their offering; the public lab index identifies optional extensions.
 
 Keep credentials, student work, attendance, accommodations, current deadlines and
 institutional administration in the private course system. This public framework
@@ -58,7 +63,7 @@ personal records to an AI service. Assessment emphasizes reasoning and demonstra
 understanding rather than an unverifiable percentage of AI-generated writing.
 
 See the [detailed syllabus crosswalk](docs/syllabus_alignment.md) for module-level
-coverage, optional extensions and requirements that remain unimplemented.
+coverage, optional extensions and assessment responsibilities.
 
 ---
 

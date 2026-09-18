@@ -22,14 +22,14 @@ It prints the final statement's rows as JSON. SQL errors show SQLSTATE codes wit
 printing connection details. Put personal drafts under ignored `.local/`.
 For temporary experiments use `BEGIN; ... ROLLBACK;` in the same file.
 
-## Lab 1 — Explain the boundary
+## Lab 1: Explain the boundary
 
 Read `.env.example`, `profiles.yml` in the dbt project, and the `connect` method in
 `scripts/course.py`. Draw how configuration reaches the client and server without
 hardcoding a password. Explain why an Ubuntu sudo password and a database password
 have different purposes. Do not put either password in your submission.
 
-## Lab 2 — Classify an additional field
+## Lab 2: Classify an additional field
 
 Inspect the register with the command above. Copy the insert example in
 `labs/module_2/lab2_insert_templates.sql` to `.local/my-classification.sql`. Replace
@@ -38,7 +38,7 @@ your own classification, rationale, owner, retention rule and AI-use restriction
 Execute your file with `scripts/query.py`, then inspect the register again. Rerun
 Lab 2 and verify your row is preserved. Defend one plausible alternative classification.
 
-## Lab 3 — Trace grain and test a hypothesis
+## Lab 3: Trace grain and test a hypothesis
 
 ```bash
 .venv/bin/python scripts/query.py labs/practice/inspect_sales.sql
@@ -52,7 +52,7 @@ returns rows that violate its rule. Submit your rule and reasoning, not copied
 dbt debug logs. Instructors can use `scripts/verify.py` for a controlled bad-data
 injection and restoration rehearsal on the unmodified fixture.
 
-## Lab 4 — Use lineage to make a decision
+## Lab 4: Use lineage to make a decision
 
 Open the generated local documentation using `scripts/course.py docs`. Trace
 `raw.orders` through staging and the fact table to both marts. Complete
@@ -60,7 +60,7 @@ Open the generated local documentation using `scripts/course.py docs`. Trace
 which materialized downstream copies could persist, and what would you refresh?
 Document the lineage path in text as an accessible alternative to a screenshot.
 
-## Lab 5 — Predict, authenticate, compare
+## Lab 5: Predict, authenticate, compare
 
 ```bash
 .venv/bin/python scripts/query.py labs/practice/read_sales.sql --role analyst
@@ -73,7 +73,7 @@ that is successful protection. These are different authenticated connections, no
 an administrator pretending to be a reader. Explain what the masked values still
 reveal. Propose a narrower view for a different legitimate business purpose.
 
-## Lab 6 — Investigate evidence, not just alerts
+## Lab 6: Investigate evidence, not just alerts
 
 Read `.local/audit-report.json` locally. For each flag, trace the rule in
 `labs/module_6/lab6/01_generate_audit_report.sql` and the corresponding synthetic
@@ -81,7 +81,7 @@ fixture. Write one false-positive explanation and one possible missed incident.
 Distinguish what the live client observed from what the fixture merely simulates.
 Propose a server-side evidence source and who should control access to it.
 
-## Lab 7 — Make an accountable AI decision
+## Lab 7: Make an accountable AI decision
 
 Open `.local/ai-evaluation.json` and `data/ai_predictions.csv`. Recalculate one
 group's false-negative rate by hand; compare both policies. Complete
@@ -89,7 +89,7 @@ group's false-negative rate by hand; compare both policies. Complete
 trigger and appeal route. Explain whose interests a metric can fail to capture.
 Use NIST AI RMF 1.0 as the named framework version for this exercise.
 
-## Lab 8 — Challenge retention behavior
+## Lab 8: Challenge retention behavior
 
 Read `labs/extensions/retention.sql` and predict the surviving IDs after each delete.
 Copy it to `.local/retention-experiment.sql`, add an expired record under legal hold,
@@ -97,7 +97,7 @@ and add an assertion that the hold survives deletion and simulated restore. Keep
 the final ROLLBACK; execute using `scripts/query.py`. Explain how a separately
 protected deletion ledger and real backup policy would differ from temporary tables.
 
-## Lab 9 — Discuss deployment implications
+## Lab 9: Discuss deployment implications
 
 Read `labs/extensions/infrastructure.sql`; identify the exact point when the
 snapshot becomes stale. Copy it locally and insert a third operational record;

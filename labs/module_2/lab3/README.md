@@ -1,6 +1,6 @@
 # Lab 3: Modeling and data quality
 
-**Outcomes:** SLO 4. **Estimated time:** 60–90 minutes; installation/support may take longer.
+**Outcomes:** SLO 4. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 Read the short [concept notes](../../../docs/lab_context_notes/lab3.md) before running the lab.

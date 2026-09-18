@@ -2,7 +2,7 @@
 
 - [Foundations bridge](foundations.md)
 - [Learning progression](learning_progression.md)
-- [Student walkthrough and remaining challenges](student_walkthrough.md)
+- [Student navigation and learning support](student_walkthrough.md)
 - [Module learning map](module_learning_map.md)
 - [Glossary and system overview](glossary.md)
 - [External platform bridge](platforms.md)
@@ -10,7 +10,7 @@
 - [Peer review](peer_review.md)
 - [Instructor session guide](teaching_sessions.md)
 - [Adoption and release checklist](adoption_checklist.md)
-- [Release candidate and verification gates](release_candidate.md)
+- [Release management and verification gates](release_management.md)
 - [Setup](setup.md)
 - [Instructor runbook](instructor.md)
 - [Assessment](Assessment_Framework.md)
