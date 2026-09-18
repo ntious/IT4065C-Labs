@@ -23,3 +23,7 @@ which additional measurements would be needed for those claims.
 average order value? Derive both denominators and design a test that catches the error.
 
 [Run Lab 3](../../labs/module_2/lab3/README.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

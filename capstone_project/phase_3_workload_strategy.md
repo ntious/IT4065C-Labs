@@ -226,3 +226,7 @@ Architectural maturity means anticipating workload stress.
 A well-designed system does not just work.
 
 It scales.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

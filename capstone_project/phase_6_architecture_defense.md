@@ -285,3 +285,7 @@ Welcome to executive-level architecture.
 ```
 
 ---
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 """Rehearse every lab twice and challenge failure behavior on a disposable course DB.
 
 Run after setup. Requires the unmodified synthetic fixture, never real data.

@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 BEGIN;
 CREATE OR REPLACE VIEW {{schema}}.v_sales_by_day AS
  SELECT o.order_date::date AS sales_date,count(DISTINCT o.order_id) AS orders,

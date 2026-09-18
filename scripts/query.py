@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 """Execute a learner's local SQL file using course configuration, never admin credentials."""
 import argparse
 import json

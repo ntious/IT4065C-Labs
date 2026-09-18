@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Each rule has a separate row so one incident cannot hide another.
 SELECT 'REPEATED_DENIAL' AS flag,actor_user,count(*) AS events
  FROM {{schema}}.audit_access_events WHERE action='DENIED'

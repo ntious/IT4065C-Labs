@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Grain: one row per day, completed orders only.
 -- Average order value uses one row per order, avoiding join multiplication.
 with order_totals as (

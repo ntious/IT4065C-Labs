@@ -77,7 +77,7 @@ Each phase builds on the previous one.
 **Focus:** Requirements extraction & ambiguity management  
 → Translate business language into structured system components.
 
-📄 See: `phase_1_discovery.md`
+See: `phase_1_discovery.md`
 
 ---
 
@@ -85,7 +85,7 @@ Each phase builds on the previous one.
 **Focus:** Integrity, primary keys, and referential discipline  
 → Formalize structure and defend architectural decisions.
 
-📄 See: `phase_2_structural_foundation.md`
+See: `phase_2_structural_foundation.md`
 
 ---
 
@@ -93,7 +93,7 @@ Each phase builds on the previous one.
 **Focus:** Scalability & performance boundaries  
 → Separate transactional systems from analytical systems.
 
-📄 See: `phase_3_workload_strategy.md`
+See: `phase_3_workload_strategy.md`
 
 ---
 
@@ -101,7 +101,7 @@ Each phase builds on the previous one.
 **Focus:** Risk, ownership, retention, accountability  
 → Translate architecture into defensible governance policy.
 
-📄 See: `phase_4_governance_overlay.md`
+See: `phase_4_governance_overlay.md`
 
 ---
 
@@ -109,7 +109,7 @@ Each phase builds on the previous one.
 **Focus:** Enforceability & technical validation  
 → Prove governance through lifecycle, security, and monitoring evidence.
 
-📄 See: `phase_5_integration_evidence.md`
+See: `phase_5_integration_evidence.md`
 
 ---
 
@@ -117,7 +117,7 @@ Each phase builds on the previous one.
 **Focus:** Executive communication  
 → Defend design decisions before a simulated review board.
 
-📄 See: `phase_6_architecture_defense.md`
+See: `phase_6_architecture_defense.md`
 
 ---
 
@@ -125,7 +125,7 @@ Each phase builds on the previous one.
 **Focus:** Professional maturity  
 → Evaluate how your architectural thinking evolved.
 
-📄 See: `phase_7_reflection.md`
+See: `phase_7_reflection.md`
 
 ---
 
@@ -193,7 +193,7 @@ Evaluation reflects the strength of your reasoning.
 The capstone follows a complete enterprise architecture lifecycle:
 
 
-## 📊 Requirements → Architecture → Governance Flow
+## Requirements → Architecture → Governance Flow
 
 The capstone follows a structured traceability model.
 
@@ -299,3 +299,7 @@ Welcome to enterprise data architecture.
 ---
 
 Start your submission with the [portfolio template](portfolio_template.md).
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

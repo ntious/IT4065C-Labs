@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 CREATE TABLE IF NOT EXISTS {{schema}}.data_classification_register (
  table_name text NOT NULL,column_name text NOT NULL,classification text NOT NULL
  CHECK (classification IN ('Public','Internal','Sensitive','Restricted')),

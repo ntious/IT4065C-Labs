@@ -31,7 +31,7 @@ Contributions should *increase clarity, reproducibility, and architectural integ
 
 ## Types of Contributions Welcome
 
-### ✅ High-value contributions
+### High-value contributions
 - **Clarity improvements**: wording, reorganization, diagrams, and student-friendly explanations
 - **Error fixes**: typos, broken paths, inaccurate instructions, inconsistent terminology
 - **Reproducibility enhancements**: verification steps, troubleshooting, environment compatibility notes
@@ -41,14 +41,14 @@ Contributions should *increase clarity, reproducibility, and architectural integ
 - **Architecture diagrams**: Mermaid diagrams that clarify lifecycle, lineage, and control boundaries
 - **Instructor support**: educator notes, adaptation guidance, implementation tips
 
-### ⚠️ Contributions that require discussion first
+### Contributions that require discussion first
 Please open an Issue before starting work on:
 - Major restructuring of labs or capstone phases
 - Toolchain swaps (e.g., replacing dbt/PostgreSQL)
 - New datasets or significant changes to the case study
 - Adding new “modules” that change course scope
 
-### 🚫 Contributions we do not accept
+### Contributions we do not accept
 - Uploading **student work** (even anonymized unless explicitly approved and scrubbed)
 - Any **credentials**, keys, or private endpoints
 - Material that violates copyright or includes proprietary content
@@ -199,3 +199,30 @@ If you are an educator adapting this course, I’d love to hear:
 - and what students struggled with.
 
 That feedback improves the framework and advances open, rigorous, professional data administration education.
+
+## Preserve authorship and attribution
+
+Retain Isaac K. Nti’s original author credit and copyright notices. Follow
+[CITATION.md](CITATION.md) when reusing curriculum or code. Credit third-party
+material accurately and describe adaptations without implying endorsement.
+
+## Student project showcase
+
+To propose an entry for [the showcase](docs/student_projects.md), supply:
+
+- A project URL and the team's preferred attribution. Public links are preferred;
+  private links must carry a prominent restricted-access notice and a summary
+  suitable for public sharing. Private project access must not be required for labs.
+- A concise problem statement and the course concepts demonstrated.
+- Links to specific implementation, documentation or evidence supporting the description.
+- The course term only when confirmed, and a commit or release for a stable example.
+
+Confirm the team's agreement to the featured description and credit. Link to its
+repository rather than copying student work into this one. Preserve the students'
+authorship and their project's license terms; the course's license does not apply
+automatically to external projects. Do not publish grades or private submission records.
+Record whether claims come from project documentation or independent execution.
+
+---
+
+Author: [Isaac K. Nti](AUTHORS.md). [Citation and reuse terms](CITATION.md).

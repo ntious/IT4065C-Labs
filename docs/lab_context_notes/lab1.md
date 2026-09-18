@@ -19,3 +19,7 @@ verified transport, centrally managed credentials, scoped provisioning and acces
 reviews would need a separate deployment design. This local lab does not configure them.
 
 [Run Lab 1](../../labs/module1_preflight/README.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

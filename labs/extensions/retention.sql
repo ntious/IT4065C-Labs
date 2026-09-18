@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Transaction-scoped experiment leaves the course dataset unchanged.
 BEGIN;
 CREATE TEMP TABLE retention_records (id integer PRIMARY KEY,expired boolean,legal_hold boolean);

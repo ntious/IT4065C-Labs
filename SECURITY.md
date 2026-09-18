@@ -65,3 +65,7 @@ database are not security findings.
 Course exercises simplify enterprise deployment. PostgreSQL, dbt, operating
 system, and hosting controls remain external dependencies and require secure
 local configuration.
+
+---
+
+Author: [Isaac K. Nti](AUTHORS.md). [Citation and reuse terms](CITATION.md).

@@ -15,7 +15,27 @@ Scenario: a retailer proposes AI-assisted support prioritization using synthetic
 7. Approve / conditionally approve / reject, with evidence, monitoring thresholds,
    review date and rollback trigger. Not deploying is a valid conclusion.
 
+## Connect the decision to the data lifecycle
+
+| Stage | Evidence to attach or explicitly propose |
+|---|---|
+| Collection and curation | Source/purpose, label origin, inclusion/exclusion decisions, group-data audit justification |
+| Storage and access | Data steward, retention/hold rule, who may read audit attributes versus ordinary features |
+| Preparation and evaluation | Proxy/label-bias concern, separate evaluation use, metric denominator and sample-size limitations |
+| Use and disclosure | Intended/prohibited use, affected-person notice, explanation and human appeal route |
+| Monitoring and change | Drift or harm signal, trigger, reviewer, version/change record and rollback decision |
+| Retirement | Which derived copies remain, deletion/retention evidence, unresolved backup or model-retraining implications |
+
+Link your Lab 2/4/5/6 artifacts where relevant. Mark unimplemented controls as
+proposed. A data file being available does not establish permission for a new AI use.
+An analysis of group rates does not determine whether collecting a sensitive audit
+attribute is ethically justified; explain the purpose, necessity and access boundary.
+
 Resources: [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework),
 [Playbook](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook).
 Rubric: lifecycle 20%; bias analysis/limitations 25%; mitigation tradeoffs 20%;
 transparency 15%; accountability/framework application 20%.
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

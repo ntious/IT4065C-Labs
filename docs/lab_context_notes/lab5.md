@@ -23,3 +23,7 @@ identifiers are not a safe substitute for an access policy.
 running them. Explain both the role grant and the view projection behind each result.
 
 [Run Lab 5](../../labs/module_5/lab5/README.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

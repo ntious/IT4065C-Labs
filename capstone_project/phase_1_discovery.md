@@ -231,3 +231,7 @@ This phase is the intellectual foundation of the entire capstone.
 ```
 
 ---
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

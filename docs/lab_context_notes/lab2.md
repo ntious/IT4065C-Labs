@@ -18,3 +18,7 @@ context would resolve the disagreement? What evidence would show that their chos
 control actually operates? Add a field with your own rationale using the practice guide.
 
 [Run Lab 2](../../labs/module_2/M2_lab2_governance.md) · [Hands-on practice](../../labs/practice/README.md)
+
+---
+
+Author: [Isaac K. Nti](../../AUTHORS.md). [Citation and reuse terms](../../CITATION.md).

@@ -1,3 +1,4 @@
+-- Copyright (c) 2026 Isaac K. Nti. SPDX-License-Identifier: MIT
 -- Worked examples, not answers to the independent classification task.
 INSERT INTO {{schema}}.data_classification_register VALUES
  ('customers','email','Sensitive','Contact identifier; exclude from public analytics.',

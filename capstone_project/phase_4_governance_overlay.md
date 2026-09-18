@@ -277,3 +277,7 @@ Architecture without governance is fragile.
 Governance transforms structure into accountability.
 
 This is where technical design becomes institutional responsibility.
+
+---
+
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).
