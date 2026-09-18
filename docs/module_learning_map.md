@@ -1,11 +1,17 @@
 # Module learning map
 
-This sequence follows the Spring 2026 updated syllabus, with the added AI outcome.
-Use the official LMS calendar for dates. Module and lab numbers differ.
-Read each linked lab's concept notes before class. Required evidence below ensures
-that optional lab selection does not remove a course learning outcome.
+The module descriptions, module-level outcomes and learning activities in this map
+were developed by Isaac K. Nti. They are instructional guidance, not the University
+of Cincinnati’s official course-level learning outcomes. The map supports the Spring
+2026 course sequence and the additional instructor-supplied AI governance outcome.
+See the [institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
+and [official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html).
 
-| Syllabus module | Preparation and guided work | Required independent evidence / discussion |
+Use the official LMS calendar for dates. Module and lab numbers differ.
+Read each linked lab's concept notes before class. The required evidence connects
+instructor-developed activities to the course's assessment plan.
+
+| Instructor-developed module | Preparation and guided work | Required independent evidence / discussion |
 | --- | --- | --- |
 | 1. Foundations of Data Governance and Data Classification | Foundations bridge; Labs 1–2; glossary | Classify a new field; explain owner, permitted use and metadata. Identify a structured, semi-structured and unstructured source and a curation risk for each. |
 | 2. Data Modeling for Operational and Analytical Systems | Lab 3 and its concept notes | Create an editable ERD, state grain/cardinality, author a data test and explain a failed-test scenario. |
