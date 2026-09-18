@@ -5,6 +5,15 @@ PostgreSQL and dbt environment to teach governance, lifecycle, modeling, access
 control and evidence-based decisions. SQL/Python foundations help; no institutional
 account is required. Begin with the [setup guide](docs/setup.md).
 
+## Institutional context
+
+IT4065C is a University of Cincinnati School of Information Technology course.
+This independently maintained repository supports instruction and is not an official
+University syllabus or policy statement. University documents and course systems
+control in the event of inconsistency. Read the full
+[institutional context and instructional authorship notice](AUTHORS.md#institutional-context-and-instructional-authorship)
+for attribution, ownership and licensing boundaries.
+
 ## Optional Python preparation
 
 If you are new to Python or would like a refresher, start with Isaac K. Nti's

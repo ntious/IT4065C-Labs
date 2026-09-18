@@ -2,7 +2,7 @@
 
 © 2026 Isaac K. Nti
 
-The curriculum materials in this repository — including lab descriptions, capstone documentation, architectural framework text, and pedagogical structure — are licensed under the Creative Commons Attribution 4.0 International License.
+The original curriculum materials made available under this notice, including original lab descriptions, capstone documentation, architectural framework text, and pedagogical structure, are licensed under the Creative Commons Attribution 4.0 International License, subject to the scope and exclusions below.
 
 You are free to:
 
@@ -19,7 +19,12 @@ Full license text: https://creativecommons.org/licenses/by/4.0/
 
 ## Scope of This License
 
-This Creative Commons license applies to:
+Read the [institutional context and instructional authorship notice](AUTHORS.md#institutional-context-and-instructional-authorship).
+University and third-party materials are excluded from the repository license unless
+expressly stated otherwise. Copyright ownership and licensing remain governed by
+the applicable law, policies, agreements and material-specific notices identified there.
+
+Subject to those exclusions, this Creative Commons license applies to original:
 
 - `/labs/` instructional documentation  
 - `/capstone_project/` framework and phase documentation  
@@ -30,7 +35,9 @@ This Creative Commons license applies to:
 
 ## Code License
 
-All source code, SQL scripts, dbt models, and shell scripts in this repository remain licensed under the MIT License (see `LICENSE` file).
+Original source code, SQL scripts, dbt models, and shell scripts made available under
+the repository code license use the [MIT License](LICENSE), subject to the ownership
+and material-specific exclusions above.
 
 This dual-license structure distinguishes between:
 

@@ -164,7 +164,9 @@ If you discover a security-sensitive issue (e.g., accidental credential exposure
 
 ## Licensing and Attribution
 
-This repository uses a dual-license structure:
+This repository uses a dual-license structure for covered original materials.
+University and third-party materials are excluded unless expressly stated otherwise.
+See the [institutional context and authorship notice](AUTHORS.md) for the full scope:
 
 - **Code** (SQL, shell scripts, dbt models) is licensed under the **MIT License**
 - **Curriculum text and documentation** are licensed under **CC BY 4.0**
