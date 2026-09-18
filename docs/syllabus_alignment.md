@@ -5,10 +5,12 @@ repository. It is not an official University of Cincinnati document, syllabus or
 statement of University policy. Module descriptions and module-level outcomes are
 instructor-developed, not University-issued course-level outcomes.
 
-The mapping uses the Spring 2026 syllabus as a course reference and identifies the
-instructor-supplied AI governance addition as SLO 6. SLO identifiers are used for
-internal traceability; they do not establish University approval of this mapping or
-the additional outcome. Consult the
+The mapping uses the Spring 2026 syllabus as a course reference and incorporates
+the University-issued AI ethics and governance outcome added after the repository’s
+initial development. That outcome is identified here as SLO 6. The supplied PDF
+predates its inclusion; the course instructor confirmed its University provenance.
+SLO identifiers support internal traceability and do not make this mapping an
+official University document. Consult the
 [official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html)
 for the official course description and course-level outcomes, and the
 [institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)

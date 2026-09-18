@@ -1,5 +1,12 @@
 # Changes
 
+## AI outcome attribution
+
+- Clarified that the AI governance course-level outcome was added by the University after the repository’s initial development.
+- Distinguished University outcome authorship from the instructor-developed learning activities.
+- Referenced its official wording instead of reproducing it in the public syllabus.
+
+
 ## Editorial consistency and Spring 2026 alignment
 
 - Aligned academic mappings to the updated Spring 2026 syllabus and separately identified added SLO 6.
