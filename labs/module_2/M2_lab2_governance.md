@@ -236,6 +236,17 @@ inspection excerpts privately and explain what remained unchanged.
 > You have finished following the supplied example. Continue to Part B to create
 > your own entry; Part B is a separate required learning task.
 
+### Part A visual reference
+
+![Part A walkthrough: run the baseline, inspect two initial rows, copy and read the guided SQL, execute it, inspect the three teaching entries, then rerun and confirm preservation.](../../sample_screenshots/lab2-part-a-walkthrough.png)
+
+[Open the full-size annotated guide](../../sample_screenshots/lab2-part-a-walkthrough.png).
+This illustration summarizes A1–A5; it is not a captured execution or submission
+artifact. PASS labels and register displays are abbreviated; actual inspection
+prints the JSON shown above. Copy commands from the text instructions, not the
+image, and omit any illustrated `$` prompt. Extra rows from prior practice are
+normal. Use your own actual output as evidence.
+
 ## Part B: Apply the method independently
 
 **Goal:** make and justify your own governance decision. Part B deliberately differs
