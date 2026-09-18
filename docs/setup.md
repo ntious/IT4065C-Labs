@@ -3,8 +3,8 @@
 ## Prerequisites
 
 Start with [the local Windows/Ubuntu run guide](local_run.md) if you use Windows.
-Ubuntu 24.04 passed the full published CI workflow. Ubuntu 22.04's installer
-compatibility correction is included locally and awaits its next CI run.
+Ubuntu 22.04 and 24.04 passed the published workflow at commit `f7b01ce`;
+see [validation](validation.md) for exact scope and evidence.
 
 Use Ubuntu 22.04 or 24.04 in an individual VM or WSL2, with Python 3.10–3.12,
 sudo access, internet access for the initial installation, and about 4 GB of

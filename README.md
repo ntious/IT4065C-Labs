@@ -35,6 +35,10 @@ needed. Use `.venv/bin/python scripts/course.py all` to rehearse the full sequen
 
 | Where to go | Purpose |
 |---|---|
+| [Foundations bridge](docs/foundations.md) | Supportive terminal, SQL and identity self-check |
+| [Module learning map](docs/module_learning_map.md) | Preparation, required evidence and optional enrichment |
+| [Glossary and system overview](docs/glossary.md) | Plain-language terms and the path through the platform |
+| [Course platforms](docs/platforms.md) | Local requirements and occasional external exploration |
 | [Lab sequence](labs/README.md) | Commands, expected results, estimated time and deliverables |
 | [Configuration and setup](docs/setup.md) | One private .env, restart and troubleshooting |
 | [Public syllabus](Public_Syllabus.md) | Outcomes, module map and public/private boundary |

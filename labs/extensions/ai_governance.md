@@ -39,8 +39,9 @@ and never include configuration secrets. Submit privately through your course sy
 independent learners keep their work locally. Execution success alone does not
 complete the reasoning task.
 
-Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
-tradeoff reasoning 30%; clarity and evidence limitations 10%.
+Assessment uses only the [AI decision rubric](ai_decision_template.md): lifecycle 20%,
+bias analysis/limitations 25%, mitigation tradeoffs 20%, transparency 15%, and
+accountability/framework application 20%. The general core-lab rubric does not apply.
 
 ## Recovery
 

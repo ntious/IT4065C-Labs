@@ -1,8 +1,8 @@
 # Run the course on your Windows computer using Ubuntu
 
-Use **Ubuntu 24.04 in WSL2** or a dedicated Ubuntu 24.04 VM. That Ubuntu CI job
-passed the published core course at commit `1f69e9090791a7a4895dbd03d5f83acb3bd67280`.
-The Ubuntu 22.04 dependency correction and newer optional labs need their next CI run.
+Use **Ubuntu 24.04 in WSL2** or a dedicated Ubuntu 24.04 VM. Both Ubuntu 22.04 and 24.04 passed the complete published workflow at
+commit `f7b01ce777f6ee94743e139b48aaf2cad555afdd`, including optional Labs 10–11.
+This verifies Ubuntu CI; it is not a separate interactive WSL usability test.
 See [validation](validation.md) for the distinction between published and local checks.
 
 ## 1. Check or install Ubuntu — PowerShell

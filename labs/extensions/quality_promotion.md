@@ -56,7 +56,7 @@ independent data in that table. Core raw, dbt and governance-register data are p
 Rerun with the original fixture after investigating an error; do not remove quality gates.
 
 This is a synchronous local batch with PostgreSQL transaction guarantees. It does not
-deploy Airflow/Talend, schedule jobs, replicate data or prove regulatory compliance.
+deploy Airflow, schedule jobs, replicate data or prove regulatory compliance.
 
 [All labs](../README.md) · [Attribution](../../CITATION.md)
 
