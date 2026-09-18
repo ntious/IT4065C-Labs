@@ -1,17 +1,5 @@
--- ============================================================
--- Lab 2: Governance Classification Register
--- Purpose: Store data classification and ownership decisions
--- Schema: student workspace
--- ============================================================
-
-CREATE TABLE IF NOT EXISTS student_kofi.data_classification_register (
-  schema_name     TEXT NOT NULL,
-  table_name      TEXT NOT NULL,
-  column_name     TEXT NOT NULL,
-  data_type       TEXT NOT NULL,
-  classification  TEXT NOT NULL,
-  rationale       TEXT NOT NULL,
-  owner_role      TEXT NOT NULL,
-  retention_type  TEXT NOT NULL,
-  created_at      TIMESTAMP DEFAULT NOW()
-);
+CREATE TABLE IF NOT EXISTS {{schema}}.data_classification_register (
+ table_name text NOT NULL,column_name text NOT NULL,classification text NOT NULL
+ CHECK (classification IN ('Public','Internal','Sensitive','Restricted')),
+ rationale text NOT NULL,owner_role text NOT NULL,retention_rule text NOT NULL,
+ ai_use text NOT NULL,PRIMARY KEY(table_name,column_name));

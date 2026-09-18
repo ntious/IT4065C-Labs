@@ -1,22 +1,17 @@
-python
-# dbt profiles (never commit credentials)
-profiles.yml
-# Python cache files
-__pycache__/    
-*.py[cod]
-*.pyo
-# Virtual environment   
+.env
+.env.*
+!.env.example
+.venv/
+dbt-venv/
 venv/
-.env/
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
-# OS generated files
+.local/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+dbt/**/target/
+dbt/**/logs/
+dbt/**/dbt_packages/
+*.log
 .DS_Store
 Thumbs.db
-# Log files
-*.log
-# Temporary files
-*.tmp
-*.swp
-*.bak
-# Compiled files
+desktop.ini

@@ -1,249 +1,53 @@
-# Lab 2 — Raw Data Exploration & Data Classification
-* **Estimated Time:** 45–75 minutes
-* **Risk Level:** Low
-* **Environment Stress:** Minimal (Postgres + SQL only)
+# Lab 2: Classification and stewardship
 
----
+**Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; installation/support may take longer.
+**Environment:** your dedicated local course database. Synthetic data only.
 
-## What You Will Learn After This Lab
+Read the short [concept notes](../../docs/lab_context_notes/lab2.md) before running the lab.
 
-By the end of this lab, you will be able to:
+## Before you begin
 
-* Navigate a real database schema and inspect tables and columns
-* Identify **PII, financial, and operational data** using SQL
-* Classify data fields using governance categories (Public, Internal, Sensitive, Restricted)
-* Document governance decisions in a structured, auditable format
-* Explain *why* certain data requires stricter controls than others
+Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
+The runner checks its required state and reports missing prerequisites.
 
-> This lab focuses on **seeing and thinking**, not transforming data.
+## Predict and run
 
----
-
-## Important Scope Reminder (Please Read)
-
-* ❌ **No dbt in this lab**
-* ❌ **No data transformations**
-* ❌ **No performance tuning**
-* ✅ **Yes to exploration, classification, and documentation**
-
-If you feel unsure at any point, that is **normal**.
-You are learning how professionals reason about data—not memorizing steps.
-
----
-
-## What You Are Given
-
-When you cloned the course repository in Lab 1, you already received:
-
-* A working Postgres database (`it4065c`)
-* A `raw` schema containing retail data
-* A seed file located at:
-
-```text
-IT4065C-Labs/labs/module_2/lab2_seed.sql
-```
-
-You will use this file **only if the raw tables are not already present**.
-
----
-
-## Part 0 — Resume Your Environment (Low Stress Check)
-
-If you restarted your VM:
+Read the expected result below and predict what would fail with the wrong identity or missing input.
+From the repository root in your Ubuntu terminal:
 
 ```bash
-cd ~/IT4065C-Labs
+.venv/bin/python scripts/course.py lab 2
 ```
 
-Then connect to Postgres:
+Expected: **Four synthetic tables and two worked governance entries. Reruns preserve existing data.** The final line is `LAB 2 COMPLETE`.
+Rerunning is supported; existing raw and governance data are preserved.
+Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
 
-```bash
-psql -h localhost -U postgres -d it4065c
-```
+## Hands-on investigation
 
-✔ Success looks like:
+Complete your lab’s numbered activity in the [practice guide](../practice/README.md).
+Inspect the source, run an experiment, and record your prediction before observing the result.
 
-```text
-it4065c=#
-```
+## Interpret and transfer
 
-If you cannot connect, **stop here** and resolve before continuing.
+Classify one additional customer field and one order field in your submission: sensitivity, owner, rationale, retention and permitted AI use. Compare one ambiguous classification with a peer.
 
----
+## Submit
 
-## Part 1 — Ensure Raw Data Exists
+Use the [submission template](../../submissions/template.md). Include the command,
+relevant PASS lines or accessible text evidence, your interpretation, one limitation,
+and your transfer-task response. A screenshot is optional; crop/redact identities
+and never include configuration secrets. Submit privately through your course system;
+independent learners keep their work locally. Execution success alone does not
+complete the reasoning task.
 
-### Step 1.1: Check for raw tables
+Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
+tradeoff reasoning 30%; clarity and evidence limitations 10%.
 
-Inside `psql`, run:
+## Recovery
 
-```sql
-\dt raw.*
-```
+Use the [setup troubleshooting table](../../docs/setup.md). Read errors before retrying;
+never delete tests or change authentication to make a result pass. There is no
+automatic destructive reset. For an isolated new start use a new DB/user pair.
 
-### If you see tables (customers, orders, products, order_items):
-
-✅ **Proceed to Part 2**
-
-### If you do NOT see any tables:
-
-Run the provided seed file **once**:
-
-```bash
-psql -h localhost -U postgres -d it4065c -f labs/module_2/lab2_seed.sql
-```
-
-Then reconnect to `psql` and re-run:
-
-```sql
-\dt raw.*
-```
-
-> This step ensures everyone works with the **same clean dataset**, reducing confusion.
-
----
-
-## Part 2 — Explore Raw Tables (Think Like a Data Steward)
-
-You will explore **at least two raw tables**.
-
-### Step 2.1: Inspect table structure
-
-Example:
-
-```sql
-\d raw.customers
-```
-
-This tells you:
-
-* Column names
-* Data types
-* Which fields *might* be sensitive
-
-### Step 2.2: Preview sample data (safe amount)
-
-```sql
-SELECT * FROM raw.customers LIMIT 10;
-```
-
-⚠️ Do **not** dump entire tables.
-
----
-
-## Part 3 — Identify Sensitive Data
-
-As you explore tables, ask:
-
-* Does this identify a person?
-* Does this involve money or payment?
-* Would misuse of this data cause harm?
-
-### Classification Levels You Will Use
-
-| Level      | Meaning                              |
-| ---------- | ------------------------------------ |
-| Public     | Safe to share broadly                |
-| Internal   | Business-use only                    |
-| Sensitive  | PII or financial data                |
-| Restricted | High-risk personal or financial data |
-
-There is **no single “correct” answer**—your **reasoning** matters.
-
----
-
-## Part 4 — Create a Governance Register (Your Workspace)
-
-You will document your decisions in your own schema.
-
-### Step 4.1: Initialize the Governance Register
-A governance register template has been provided for you.
-You will execute it once to create your own classification workspace.
-```sql
-psql -h localhost -U postgres -d it4065c \
-  -f labs/module_2/lab2_governance_register.sql
-```
-
-This table represents how governance is **actually tracked** in practice.
-
----
-
-## Part 5 — Populate the Register (Main Task)
-* You must classify: At least one column from raw.customers and one column from raw.orders
-* Use the provided file (template)
-* One INSERT block per column and replace placeholder values only
-```sql
-labs/module_2/lab2_insert_templates.sql
-```
-✔ Your rationale must be specific
-❌ Avoid vague reasons like “because it is PII”
----
-
-## Part 6 — Verify Your Work
-* A verification script has been provided for you.
-* Run the following command from the course repository:
-Run:
-
-```sql
-psql -h localhost -U postgres -d it4065c \
-  -f labs/module_2/lab2_verify_register.sql
-```
-### Review the output carefully:
-* Do you see entries for both customers and orders?
-* Does the number of classified columns match your expectations?
-* Do the classifications make sense when viewed together?
-
-## Part 7 — Reflection (Short, Important)
-
-In **4–6 sentences**, answer:
-
-1. Which columns were easiest to classify, and why?
-2. Which columns were uncertain?
-3. What additional business context would help you decide?
-4. How does separating `raw` data from governed data help with accountability?
-
----
-
-## What You Should *Not* Worry About
-
-* Perfect classifications
-* Advanced security controls
-* Performance
-* dbt, pipelines, or transformations
-
-Those come later.
-
----
-
-## Deliverables
-
-Submit:
-
-* Screenshots showing:
-
-  * Raw table exploration
-  * Governance register populated
-* Short reflection (4–6 sentences)
-
----
-
-## How This Prepares You for Module 2
-
-In Module 2, you will:
-
-* Use these same tables
-* Build logical models from them
-* Implement governed models using dbt
-
-This lab ensures you understand **what data exists before modeling it**.
-
----
-
-## If Something Feels Confusing
-
-That is expected.
-
-Data governance is **judgment-based**, not formula-based.
-Your goal is to **explain your reasoning**, not guess the instructor’s answer.
-
----
+[Back to all labs](../../labs/README.md)

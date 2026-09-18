@@ -68,7 +68,7 @@ They should not be the same physical design.
 
 ## Your Task
 
-Complete the **Phase_3_OLTP_vs_OLAP** section of your portfolio workbook.
+Complete the **Phase_3_OLTP_vs_OLAP** section of your portfolio portfolio.
 
 You must define how each entity behaves under operational and analytical workloads.
 
@@ -226,4 +226,3 @@ Architectural maturity means anticipating workload stress.
 A well-designed system does not just work.
 
 It scales.
-```

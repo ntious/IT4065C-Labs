@@ -1,0 +1,32 @@
+name: Reproduce the course
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ubuntu:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install as a new student
+        run: bash scripts/setup.sh
+      - name: Test configuration boundaries
+        run: .venv/bin/python -m unittest discover -s tests -v
+      - name: Execute all labs twice and test failure recovery
+        run: .venv/bin/python scripts/verify.py
+      - name: Rehearse a non-default configuration
+        env:
+          IT4065C_DB_NAME: alternate_course
+          IT4065C_DB_USER: alternate_builder
+          IT4065C_DB_SCHEMA: learner_one
+        run: |
+          .venv/bin/python scripts/course.py bootstrap
+          .venv/bin/python scripts/course.py all
+      # Never upload .env, logs, dbt target/manifest or learner submissions.

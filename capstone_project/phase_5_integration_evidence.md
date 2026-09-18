@@ -8,7 +8,7 @@
 Throughout this course, you operated in two environments:
 
 - Labs (controlled test environment)
-- Capstone Project (production-level architecture)
+- Capstone Project (proposed architecture)
 
 Professional data architects must prove that their design is technically enforceable before deploying it to production.
 
@@ -45,7 +45,7 @@ Translation earns credit.
 
 ## Your Task
 
-Complete two sections of your portfolio workbook:
+Complete two sections of your portfolio portfolio:
 
 - **Phase_5_Evaluation** (Architectural reasoning)
 - **Phase_6_Evidence** (Visual proof documentation)
@@ -98,7 +98,7 @@ Example:
 
 ❌ “This shows a DAG.”
 
-✅ “This proves my lifecycle governance strategy. All data must pass through staging before reaching analytics, preventing unvalidated data from entering executive reporting.”
+✅ “This DAG documents the implemented dependencies. Preventing bypass additionally requires access controls and tested promotion gates; the diagram alone does not prove enforcement.”
 
 Strong answers connect evidence to business protection.
 
@@ -145,7 +145,7 @@ Connection to Capstone:
 
 Supports Phase 2 structural integrity and Phase 3 workload strategy.
 
-It proves lifecycle governance is enforceable.
+It demonstrates modeled flow; provide a separate enforcement test for each claimed restriction.
 
 ---
 
@@ -183,7 +183,7 @@ Connection to Capstone:
 
 Supports Phase 4 risk and accountability strategy.
 
-It proves governance does not end at prevention — it includes monitoring.
+Distinguish live client observations from the simulated incident fixture. Neither establishes independent server audit collection.
 
 ---
 
@@ -240,7 +240,7 @@ Evidence builds institutional trust.
 
 Phases 1–4 built your architecture.
 
-Phase 5 proves it works.
+Phase 5 explains which parts were demonstrated and which remain design proposals.
 
 Architects do not just design systems.
 

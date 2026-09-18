@@ -1,0 +1,6 @@
+selectors:
+  - name: course
+    description: All ten course models and their attached tests.
+    definition:
+      method: package
+      value: it4065c_platform

@@ -1,92 +1,26 @@
--- ============================================================
--- Lab 2 Seed Script
--- Module 1: Data Governance & Classification
--- Scenario: Retail Order & Sales System
--- Schema: raw
--- ============================================================
-
+-- Synthetic fixtures. Only called for an empty four-table raw dataset.
+-- No DROP/CASCADE; failure rolls the whole seed transaction back.
 BEGIN;
-
--- Ensure raw schema exists
-CREATE SCHEMA IF NOT EXISTS raw;
-
--- ------------------------------------------------------------
--- CUSTOMERS
--- ------------------------------------------------------------
-DROP TABLE IF EXISTS raw.customers CASCADE;
-
-CREATE TABLE raw.customers (
-    customer_id     SERIAL PRIMARY KEY,
-    first_name      TEXT NOT NULL,
-    last_name       TEXT NOT NULL,
-    email           TEXT NOT NULL,
-    phone_number    TEXT,
-    created_at      TIMESTAMP DEFAULT NOW()
-);
-
-INSERT INTO raw.customers (first_name, last_name, email, phone_number) VALUES
-('Alice', 'Johnson', 'alice.johnson@email.com', '513-555-1023'),
-('Brian', 'Smith', 'brian.smith@email.com', NULL),
-('Carla', 'Nguyen', 'carla.nguyen@email.com', '513-555-7781'),
-('David', 'Brown', 'david.brown@email.com', NULL);
-
--- ------------------------------------------------------------
--- PRODUCTS
--- ------------------------------------------------------------
-DROP TABLE IF EXISTS raw.products CASCADE;
-
-CREATE TABLE raw.products (
-    product_id      SERIAL PRIMARY KEY,
-    product_name    TEXT NOT NULL,
-    category        TEXT NOT NULL,
-    standard_price  NUMERIC(10,2) NOT NULL,
-    created_at      TIMESTAMP DEFAULT NOW()
-);
-
-INSERT INTO raw.products (product_name, category, standard_price) VALUES
-('Wireless Mouse', 'Electronics', 29.99),
-('Laptop Stand', 'Electronics', 49.99),
-('Water Bottle', 'Home Goods', 19.95),
-('Notebook', 'Office Supplies', 4.99);
-
--- ------------------------------------------------------------
--- ORDERS
--- ------------------------------------------------------------
-DROP TABLE IF EXISTS raw.orders CASCADE;
-
-CREATE TABLE raw.orders (
-    order_id        SERIAL PRIMARY KEY,
-    customer_id     INT NOT NULL,
-    order_date      TIMESTAMP DEFAULT NOW(),
-    order_status    TEXT NOT NULL,
-    total_amount    NUMERIC(10,2) NOT NULL,
-    payment_method  TEXT NOT NULL
-);
-
-INSERT INTO raw.orders (customer_id, order_status, total_amount, payment_method) VALUES
-(1, 'Completed', 79.98, 'Credit Card'),
-(2, 'Completed', 49.99, 'Gift Card'),
-(3, 'Cancelled', 19.95, 'Store Credit'),
-(1, 'Completed', 34.98, 'Credit Card');
-
--- ------------------------------------------------------------
--- ORDER ITEMS (LINE ITEMS)
--- ------------------------------------------------------------
-DROP TABLE IF EXISTS raw.order_items CASCADE;
-
-CREATE TABLE raw.order_items (
-    order_item_id       SERIAL PRIMARY KEY,
-    order_id            INT NOT NULL,
-    product_id          INT NOT NULL,
-    quantity            INT NOT NULL,
-    price_at_purchase   NUMERIC(10,2) NOT NULL
-);
-
-INSERT INTO raw.order_items (order_id, product_id, quantity, price_at_purchase) VALUES
-(1, 1, 1, 29.99),
-(1, 2, 1, 49.99),
-(2, 2, 1, 49.99),
-(3, 3, 1, 19.95),
-(4, 4, 2, 4.99);
-
+CREATE TABLE raw.customers (customer_id integer PRIMARY KEY, first_name text NOT NULL,
+ last_name text NOT NULL, email text NOT NULL, phone_number text, created_at timestamp NOT NULL);
+INSERT INTO raw.customers VALUES
+ (1,'Alice','Example','alice@example.com','202-555-0101','2026-01-01'),
+ (2,'Brian','Example','brian@example.com',NULL,'2026-01-01'),
+ (3,'Carla','Example','carla@example.com','202-555-0103','2026-01-01'),
+ (4,'David','Example','david@example.com',NULL,'2026-01-01');
+CREATE TABLE raw.products (product_id integer PRIMARY KEY,product_name text NOT NULL,
+ category text NOT NULL,standard_price numeric(10,2) NOT NULL);
+INSERT INTO raw.products VALUES (1,'Wireless Mouse','Electronics',29.99),
+ (2,'Laptop Stand','Electronics',49.99),(3,'Water Bottle','Home Goods',19.95),
+ (4,'Notebook','Office Supplies',4.99);
+CREATE TABLE raw.orders (order_id integer PRIMARY KEY,customer_id integer NOT NULL,
+ order_date timestamp NOT NULL,order_status text NOT NULL,total_amount numeric(10,2) NOT NULL,payment_method text NOT NULL);
+INSERT INTO raw.orders VALUES (1,1,'2026-01-10','Completed',79.98,'Card'),
+ (2,2,'2026-01-10','Completed',49.99,'Gift Card'),
+ (3,3,'2026-01-11','Cancelled',19.95,'Store Credit'),
+ (4,1,'2026-01-11','Completed',9.98,'Card');
+CREATE TABLE raw.order_items (order_item_id integer PRIMARY KEY,order_id integer NOT NULL,
+ product_id integer NOT NULL,quantity integer NOT NULL,price_at_purchase numeric(10,2) NOT NULL);
+INSERT INTO raw.order_items VALUES (1,1,1,1,29.99),(2,1,2,1,49.99),
+ (3,2,2,1,49.99),(4,3,3,1,19.95),(5,4,4,2,4.99);
 COMMIT;

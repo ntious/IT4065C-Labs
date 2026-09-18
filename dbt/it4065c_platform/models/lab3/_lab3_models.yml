@@ -1,198 +1,87 @@
 version: 2
-
-# -----------------------------------------------------------------------------
-# SOURCES
-# -----------------------------------------------------------------------------
-# dbt lineage (DAG) begins at sources. If staging models reference raw tables
-# directly (e.g., from raw.orders), dbt cannot draw source-to-model edges.
-# These source definitions enable RAW → STG lineage in dbt Docs.
-# -----------------------------------------------------------------------------
-
 sources:
   - name: raw
-    description: "Raw source tables seeded for Module 2 Lab 3."
     schema: raw
+    description: Fixed synthetic retail data, never real customer records.
     tables:
       - name: customers
-        description: "Raw customers table (contains PII)."
       - name: orders
-        description: "Raw orders table (order headers)."
       - name: products
-        description: "Raw products catalog."
       - name: order_items
-        description: "Raw order line items."
-
 models:
-
-  # ---------------------------------------------------------------------------
-  # STAGING MODELS
-  # ---------------------------------------------------------------------------
-
   - name: stg_customers
-    description: >
-      Staging model for raw customer data. Standardizes naming, casing,
-      and data types. Includes PII fields for learning (treat as sensitive).
     columns:
       - name: customer_id
-        description: "Primary identifier for a customer."
-        tests: [not_null, unique]
-
-      - name: first_name
-        description: "Customer first name (normalized)."
-
-      - name: last_name
-        description: "Customer last name (normalized)."
-
-      - name: email
-        description: >
-          Customer email address (PII). Included for educational purposes.
-          In production, restrict access and avoid propagating raw PII.
-      - name: phone_number
-        description: >
-          Customer phone number (PII). Normalized to digits only.
-
-      - name: created_at
-        description: "Customer record creation timestamp."
-
-  - name: stg_orders
-    description: >
-      Staging model for raw orders. Casts date and amounts, normalizes
-      status and payment method text.
-    columns:
-      - name: order_id
-        description: "Primary identifier for the order."
-        tests: [not_null, unique]
-
-      - name: customer_id
-        description: "Foreign key to customer."
-        tests: [not_null]
-
-      - name: order_date
-        description: "Order date (cast to DATE)."
-
-      - name: order_status
-        description: "Order status (lowercased)."
-
-      - name: total_amount
-        description: "Order total amount (numeric)."
-
-      - name: payment_method
-        description: "Payment method (sensitive metadata)."
-
-  - name: stg_order_items
-    description: >
-      Staging model for raw order items (line items). Casts quantity and
-      unit_price for reliable calculations downstream.
-    columns:
-      - name: order_item_id
-        description: "Primary identifier for an order item row."
-        tests: [not_null, unique]
-
-      - name: order_id
-        description: "Foreign key to order."
-        tests: [not_null]
-
-      - name: product_id
-        description: "Foreign key to product."
-        tests: [not_null]
-
-      - name: quantity
-        description: "Quantity purchased."
-
-      - name: unit_price
-        description: "Unit price at purchase time."
-
+        data_tests: [not_null, unique]
   - name: stg_products
-    description: >
-      Staging model for raw products. Standardizes product attributes and
-      casts price to numeric.
     columns:
       - name: product_id
-        description: "Primary identifier for product."
-        tests: [not_null, unique]
-
-      - name: product_name
-        description: "Product name."
-
-      - name: category
-        description: "Product category."
-
-      - name: price
-        description: "Product price (numeric)."
-
-  # ---------------------------------------------------------------------------
-  # CORE MODELS
-  # ---------------------------------------------------------------------------
-
-  - name: dim_customers
-    description: >
-      Core customer dimension derived from stg_customers.
-      Includes masked + hashed fields to model secure analytics practices.
-    columns:
-      - name: customer_id
-        description: "Primary key for the customer dimension."
-        tests: [not_null, unique]
-
-      - name: email
-        description: "Raw email (PII) retained for educational compatibility."
-
-      - name: phone_number
-        description: "Raw phone number (PII) retained for educational compatibility."
-
-      - name: email_hash
-        description: "MD5 hash of email for privacy-preserving linkage."
-
-      - name: phone_hash
-        description: "MD5 hash of phone number for privacy-preserving linkage."
-
-      - name: email_masked
-        description: "Masked email (display-safe default for marts)."
-
-      - name: phone_masked
-        description: "Masked phone number (display-safe default for marts)."
-
-  - name: dim_products
-    description: "Core product dimension derived from stg_products."
-    columns:
-      - name: product_id
-        tests: [not_null, unique]
-
-  - name: fct_orders
-    description: "Orders fact table (1 row per order) derived from stg_orders."
+        data_tests: [not_null, unique]
+  - name: stg_orders
     columns:
       - name: order_id
-        tests: [not_null, unique]
+        data_tests: [not_null, unique]
       - name: customer_id
-        tests: [not_null]
-
-  - name: fct_order_items
-    description: >
-      Order items fact table (1 row per order-item). Includes line_total
-      metric calculated as quantity * unit_price.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('stg_customers')", field: customer_id}
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              arguments: {values: [completed, cancelled]}
+  - name: stg_order_items
     columns:
       - name: order_item_id
-        tests: [not_null, unique]
+        data_tests: [not_null, unique]
       - name: order_id
-        tests: [not_null]
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('stg_orders')", field: order_id}
       - name: product_id
-        tests: [not_null]
-      - name: line_total
-        description: "Calculated revenue per line item."
-
-  # ---------------------------------------------------------------------------
-  # MART MODELS
-  # ---------------------------------------------------------------------------
-
-  - name: oltp_order_detail
-    description: >
-      OLTP-style order detail view for operational investigation.
-      Uses masked PII fields from dim_customers by default.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('stg_products')", field: product_id}
+  - name: dim_customers
+    columns:
+      - name: customer_id
+        data_tests: [not_null, unique]
+  - name: dim_products
+    columns:
+      - name: product_id
+        data_tests: [not_null, unique]
+  - name: fct_orders
     columns:
       - name: order_id
-        tests: [not_null]
-
+        data_tests: [not_null, unique]
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('dim_customers')", field: customer_id}
+  - name: fct_order_items
+    columns:
+      - name: order_item_id
+        data_tests: [not_null, unique]
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('fct_orders')", field: order_id}
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: "ref('dim_products')", field: product_id}
+      - name: line_total
+        data_tests: [not_null]
+  - name: oltp_order_detail
+    columns:
+      - name: order_item_id
+        data_tests: [not_null, unique]
   - name: olap_sales_by_day
-    description: "OLAP-style daily sales rollup for analytics and dashboards."
     columns:
       - name: order_date
-        tests: [not_null]
+        data_tests: [not_null, unique]

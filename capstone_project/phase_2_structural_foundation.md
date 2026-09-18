@@ -36,7 +36,7 @@ You are not re-listing entities.
 
 You are hardening them into architecture.
 
-Return to your Phase 1 workbook and apply two principles:
+Return to your Phase 1 portfolio and apply two principles:
 
 ### 1. Refine
 Any entity marked as “Low Confidence” must now be:
@@ -64,7 +64,7 @@ Phase 2 is decisive.
 
 ## Your Task
 
-Complete the **Phase_2_LDM** sheet in your Master Portfolio Workbook (V2).
+Complete the **Phase_2_LDM** sheet in your portfolio template.
 
 You must satisfy the following architectural requirements.
 
@@ -178,7 +178,7 @@ You are defending business continuity.
 
 ## Deliverable
 
-Submit the updated Master Portfolio Workbook including:
+Submit the updated portfolio template including:
 
 - Completed Phase_2_LDM sheet
 - Updated Phase_1_Requirements (if refined)
@@ -253,6 +253,3 @@ Strong architecture is invisible when working correctly.
 Weak architecture reveals itself in crisis.
 
 You are building structural durability.
-```
-
-
