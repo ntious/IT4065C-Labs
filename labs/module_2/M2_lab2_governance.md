@@ -237,7 +237,10 @@ return to the shell. Before running, predict how many entries you will see.
 .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
 ```
 
-The INSERT may print no result rows. The inspection command should include the
+The INSERT prints the environment PASS line followed by `[]` because this
+statement has no `RETURNING` clause. `[]` means no result rows were returned;
+it does NOT mean the register is empty or prove a new row was inserted. An insert
+skipped by `ON CONFLICT` can produce the same output. The inspection command should include the
 following JSON row inside its outer list, alongside the original examples:
 
 ```json
@@ -337,20 +340,37 @@ Use different fields below. Keep the worked file separate from your own draft.
    then `Ctrl+X`. Nano's `^` notation means Ctrl. You should return to the shell
    prompt. Saving edits a file; it does not update the database.
 
-   Run these commands at the shell prompt, not inside Nano:
+   **Stop and check before execution:** replace all seven `REPLACE_...` values,
+   not just the classification. Keep only `{{schema}}` unchanged. Confirm the real
+   table/field pair differs from the three teaching examples. Nano's `*` beside
+   the filename means unsaved edits; save before exiting.
+
+   Run the INSERT at the shell prompt, not inside Nano. Run commands one at a time.
+   If it reports `SQL stopped`, fix the draft before continuing to inspection:
 
    ```bash
    .venv/bin/python scripts/query.py .local/my-classification.sql
    .venv/bin/python scripts/query.py labs/practice/inspect_register.sql
    ```
 
-   The first command executes your INSERT; it need not print the new row. The
+   A successful INSERT without RETURNING prints `[]`; this is not proof of a new
+   entry. If you see `SQLSTATE 23514`, the check constraint rejected a value. In this
+   lab, verify the classification is exactly one of the four allowed labels and
+   replace every remaining placeholder. Reopen `.local/my-classification.sql`,
+   edit, save and rerun that file. Do not recopy the original template over your work.
+   Older helpers append advice about `42501` to every error; `23514` is a constraint
+   failure, not a permission denial. The failed INSERT did not add your new row.
+
+   After the INSERT succeeds, the
    second displays register rows as JSON arrays in the seven-value order above.
    Expect **four entries** after the two baseline examples, guided example and
    your one new independent entry. If you already added other fields, expect those too. Find your table/column pair and
    check that all seven values match your draft.
 
-3. Test preservation by rerunning the baseline and inspecting again:
+3. **Proceed only when inspection shows your independent row.** Three teaching
+   entries alone mean the independent insertion is still incomplete. A later
+   baseline PASS does not repair a failed INSERT or validate your independent work.
+   Test preservation by rerunning the baseline and inspecting again:
 
    ```bash
    .venv/bin/python scripts/course.py lab 2
@@ -396,6 +416,23 @@ Leave the repository template unchanged. Include:
 Readable text evidence is sufficient; screenshots are optional. Submit privately
 through the course system, or retain the work locally for independent study.
 A successful baseline run alone does not complete this lab.
+
+### Final evidence checkpoint
+
+| Item | Required evidence | Not sufficient on its own |
+| --- | --- | --- |
+| Baseline | Three PASS lines from your run | A completion banner |
+| Guided practice | Actual `customers.created_at` observation and explanation | Copied expected output from this page |
+| Independent insertion | Your finished SQL, plus your chosen field's actual JSON row before and after the preservation rerun | `[]`, an error, or only the three teaching examples |
+| Reasoning | Two original written classifications, alternative interpretation, enforcement limit and assistance disclosure | Screenshots without explanation |
+
+If an error occurred, include its SQLSTATE, your correction and the successful
+recovery evidence. If unresolved, report the blocker honestly and seek support;
+do not label the independent task complete. Do not submit a full terminal transcript.
+
+**Instructor check:** assess the learner's chosen field and reasoning separately
+from baseline execution. Do not infer independent success from `LAB 2 COMPLETE`
+or require a total of exactly four when earlier student entries already exist.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.
