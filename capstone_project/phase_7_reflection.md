@@ -1,4 +1,12 @@
 # Phase 7 – Individual Reflection  
+
+## AI governance reflection
+
+Among your two selected outcomes, include SLO 6. Explain one bias, transparency or
+accountability decision that changed, what evidence caused the change, and how it
+affects a lifecycle stage. Include your own contribution and one remaining uncertainty
+within the existing one-page reflection; no additional essay is required.
+
 ## Architectural Self-Assessment
 
 ---
@@ -184,7 +192,6 @@ It is about disciplined reasoning.
 The strongest architects are those who evaluate their own thinking.
 
 This is your final professional exercise.
-```
 
 ---
 

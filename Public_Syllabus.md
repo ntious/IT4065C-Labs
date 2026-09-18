@@ -24,7 +24,8 @@ Lab 7 is required evidence for the added AI governance outcome. Labs 8–11 exte
 retention, infrastructure, heterogeneous ingestion and quality-gated publication.
 
 The local toolchain provides open exercises alongside selected external learning.
-The instructor uses Alation University’s Data Intelligence Project as a supplement;
+The instructor uses Alation University’s Data Intelligence Project and the optional
+Snowflake Data Warehousing Workshop (Module 4) as supplements;
 see the [platform and access guide](docs/platforms.md). The local sequence does
 not claim to assess product-specific Alation/Snowflake proficiency. Single-instance
 snapshot and client-observed monitoring exercises have explicit limits. Instructors

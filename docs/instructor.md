@@ -24,8 +24,10 @@ Diagnose shell/SQL basics early. Allow accessible text evidence instead of scree
 Use the [Alation University platform guide](platforms.md) when assigning the Data
 Intelligence Project. Specify the selected activity, access route, reflection and
 local alternative in the LMS. Keep enrollment details and training records private.
-Snowflake and Airflow activities may be selected when useful; no external account
-is required for the local lab sequence.
+Use the optional [Snowflake workshop supplement](platforms.md#snowflake-university-supplement-module-4)
+for the Module 4 cloud/on-premises comparison. Set workload and any submission
+requirements in the LMS. Airflow activities may be selected when useful; no
+external account is required for the local lab sequence.
 
 ## Expected technical results
 

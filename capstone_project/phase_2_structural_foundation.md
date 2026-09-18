@@ -1,4 +1,12 @@
 # Phase 2 – Structural Foundation  
+
+## AI lifecycle checkpoint
+
+Identify which proposed attributes serve operational use, evaluation or auditing.
+Explain proxy risks and whether each attribute is necessary. Document proposed
+access separation for sensitive audit attributes; a diagram does not enforce it.
+Trace modeling changes to Phase 1 and record unresolved data-quality assumptions.
+
 ## Logical Data Model (LDM)
 
 ---
