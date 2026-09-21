@@ -77,8 +77,20 @@ average order value? Derive both denominators and design a test that catches the
 
 ## Before you begin
 
-Complete [setup](../../../docs/setup.md) and Lab 1. Complete the previous core labs for context.
-The runner checks its required state and reports missing prerequisites.
+We strongly recommend completing these earlier labs before starting Lab 3:
+
+- [Lab 1: Environment readiness](../../module1_preflight/README.md): understand
+  configuration, database identities and the limits of a successful connection check.
+  Setup runs its technical checks automatically; its investigation and written work
+  are separate learning activities.
+- [Lab 2: Classification and stewardship](../M2_lab2_governance.md): become familiar
+  with the synthetic retail data, query helper and governance decisions used here.
+
+Use the same working environment and repository checkout from those labs. **Do not
+repeat setup or Lab 1's technical checks just to start Lab 3.** A configured local
+environment is required; if you are joining here without one, follow
+[Student start here](../../../STUDENT_START_HERE.md) first. The runner checks its
+required technical state, but it does not assess completion of earlier written work.
 
 ## Predict and run
 
