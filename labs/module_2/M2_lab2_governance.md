@@ -364,12 +364,23 @@ Do not edit or commit the shared template. Label your evidence Part A and Part B
 | Submission item | What to include |
 | --- | --- |
 | Part A baseline | Command and three PASS lines from A1 |
-| Part A guided observation | Commands and actual guided row excerpts from A4/A5; explain preservation and what `[]` means |
+| Part A guided-entry evidence | Inspection command and only the actual `customers.created_at` row from A4 and again after A5; label the excerpts before and after the baseline rerun |
+| Part A comparison and explanation | State whether all seven values remained unchanged. Explain why the INSERT prints `[]` and why repeating it does not create another entry |
 | Part B independent work | The two written field classifications from B1 and your completed SQL from B2 for one of them |
 | Part B insertion/preservation | Commands and your independent row excerpts from B4/B5; compare the values |
 | Predictions and recovery | Recorded predictions; honestly identify any not recorded beforehand. If an error occurred, describe its code, correction and recovery; report unresolved blockers rather than claiming success |
 | Interpretation and transfer | Defend one alternative classification for a chosen field; explain why a recorded rule is not enforcement and identify one limit of these checks |
 | Assistance | State any AI assistance and verification, or None, following course rules |
+
+**Part A on a repeat walkthrough:** if `customers.created_at` was already present
+before A4, report that it already existed and remained unchanged after A5. This is
+expected; do not claim a new insertion or delete the entry to recreate a first run.
+Use your actual row excerpts, not the expected-output example from this guide.
+
+For Part A, you do not need to submit the full register, overwrite prompt, Nano
+screenshots, copied guided SQL or full terminal history. The A4/A5 excerpts and
+brief explanation above are sufficient alongside A1's command and three PASS lines.
+The completed independent SQL is still required for Part B.
 
 Compare an alternative classification with a peer if available; independent learners
 can write the competing perspective themselves. The initial A2 output and editor
