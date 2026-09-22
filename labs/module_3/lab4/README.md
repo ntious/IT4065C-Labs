@@ -3,6 +3,57 @@
 **Outcomes:** SLOs 2,4. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## Why this lab matters
+
+When a source record changes or is removed, the reports built from it may also
+need to change. A data administrator must know where data goes, which copies
+could remain and what evidence would confirm that a change reached its destination.
+
+In Lab 3 you built and checked sales models. In this lab you follow the connections
+between those models and explain a retention scenario. These connections are
+called **lineage**. You will use supplied documentation to make a lifecycle
+decision, rather than assume that changing a source automatically changes every copy.
+
+## Learning objectives
+
+These instructor-developed lab objectives support SLOs 2 and 4. By the end of this
+lab, you should be able to:
+
+- Trace the supplied order data from its raw source through staging and core models
+  to the reporting marts using generated documentation or a written path.
+- Explain why a view and a stored table can respond differently to a source-data
+  change, and identify downstream copies to investigate in a retention scenario.
+- Complete a lifecycle decision log connecting each stage to its transformation,
+  quality check, permitted role and supporting evidence.
+- Distinguish a documented dependency from evidence that access restrictions or
+  deletion requirements have actually been enforced.
+
+## Skills you will practice
+
+- Generate and navigate local dbt documentation using the supplied commands.
+- Read model dependencies and describe what one row represents at each stage.
+- Reason about refresh and retention responsibilities without deleting course data.
+- Record a proposed action, its evidence needs and its limitations clearly.
+
+No prior experience with lineage tools is assumed. A **dependency** means that
+one model uses another source or model. A **DAG** is a diagram of these directed
+connections without circular paths. You may describe the same connections in text;
+you do not need to draw a diagram or write a new pipeline for this lab.
+
+## What you will produce
+
+- The relevant execution results from the Lab 4 runner.
+- A source-to-report lineage path, shown in text or an optional screenshot.
+- A completed [lifecycle decision log](_turnin_template.md), including your
+  explanation of which downstream copies might remain after a source record is
+  removed and what you would investigate or refresh.
+- An explanation of one action the lineage diagram cannot prevent and one limit
+  of your evidence. The retention scenario is a reasoning task, not an instruction
+  to delete records.
+
+Use the shared submission template to organize this evidence and include the
+completed decision log. You do not need to repeat the same explanation in both.
+
 ## Concept
 
 Lineage records dependencies: changing a raw source can affect several downstream
@@ -23,13 +74,22 @@ appears in a diagram.
 contains a derived identifier. What is your evidence of propagation, and what remains
 unknown? Lab 8 extends this reasoning to a simulated restore and deletion ledger.
 
-> **Completion:** Automation passing means the environment checks worked. Complete
+> **Completion:** Automation passing means the selected technical checks passed. Complete
 > the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
 
-Complete [setup](../../../docs/setup.md) and Lab 1. Complete the previous core labs for context.
-The runner checks its required state and reports missing prerequisites.
+We recommend completing [Lab 1](../../module1_preflight/README.md),
+[Lab 2](../../module_2/M2_lab2_governance.md) and
+[Lab 3](../../module_2/lab3/README.md) first. They introduce the environment,
+governance decisions and sales models used here. These are earlier course
+activities, not assumed prior programming qualifications.
+
+Use the same configured environment. You do not need to repeat setup or Lab 1's
+technical checks. If you are joining without an environment, follow
+[Student start here](../../../STUDENT_START_HERE.md). The Lab 4 runner rebuilds
+and tests the Lab 3 models before generating documentation; this is expected,
+including any saved tests you added during Lab 3.
 
 ## Predict and run
 
@@ -40,7 +100,7 @@ From the repository root in your Ubuntu terminal:
 .venv/bin/python scripts/course.py lab 4
 ```
 
-Expected: **Models/tests rebuilt, dbt docs generated and raw.orders lineage edge verified.** The final line is `LAB 4 COMPLETE`.
+Expected: **Models/tests rebuilt, dbt docs generated and raw.orders lineage edge verified.** The final line begins with `LAB 4 COMPLETE:`.
 Rerunning is supported; existing raw and governance data are preserved.
 Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
 
