@@ -100,9 +100,42 @@ From the repository root in your Ubuntu terminal:
 .venv/bin/python scripts/course.py lab 4
 ```
 
-Expected: **Models/tests rebuilt, dbt docs generated and raw.orders lineage edge verified.** The final line begins with `LAB 4 COMPLETE:`.
-Rerunning is supported; existing raw and governance data are preserved.
-Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
+**Expected output after completing Lab 3 with both added test files:**
+
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: synthetic seed present (existing data preserved).
+PASS: dbt build --selector course
+PASS: 10 models and 39 data tests actually executed.
+PASS: dbt docs generate
+PASS: raw.orders -> stg_orders lineage present; documentation generated.
+LAB 4 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+```
+
+**What these results mean:**
+
+| Result | What it confirms |
+| --- | --- |
+| Connection PASS | The connection, dedicated database, schemas and non-superuser builder checks passed. |
+| Synthetic seed PASS | The existing course source data was preserved. |
+| dbt build and model/test count | Lab 4 rebuilt the Lab 3 project and its selected tests passed. It is normal to see these checks again. |
+| dbt docs generate PASS | dbt generated local documentation artifacts. This does not open them in your browser. |
+| Lineage PASS | The generated manifest records that `stg_orders` depends on `raw.orders`. This specific check does not verify every downstream relationship, access restriction or deletion action. |
+| LAB 4 COMPLETE | The automated checks finished. The investigation and written decision log remain to be completed. |
+
+**Your test count can differ:** the unchanged supplied project has 37 tests.
+Adding the B1 guided test and the B2 test file in Lab 3 brings it to 39. Other
+saved tests can increase it further. Rerunning does not duplicate tests; do not
+delete your work to match a sample count.
+
+**Checkpoint:** save the command and relevant PASS lines privately for your
+submission. If you already ran the command before recording a prediction, state
+that honestly. If a check fails, use Recovery before continuing; a partial set
+of PASS lines does not establish completion.
+
+Rerunning is supported; existing raw and governance data are preserved. Once the
+checks pass, continue to **Hands-on investigation** to open the documentation
+and trace the downstream path yourself. No setup rerun is needed.
 
 ## Hands-on investigation
 
