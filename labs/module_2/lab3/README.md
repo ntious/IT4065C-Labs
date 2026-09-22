@@ -293,47 +293,131 @@ Copy the complete example into the dbt test directory:
 cp -i labs/module_2/lab3/lab3_guided_test.sql dbt/it4065c_platform/tests/lab3_guided_daily_orders.sql
 ```
 
+**Expected after copying:** on the first successful copy, the terminal returns to
+its prompt without printing a message. This is normal; copying does not run the test.
 If prompted to overwrite existing work, answer `n` and inspect that file first.
-Predict its result on the two observed daily rows, then run:
+If you see `cannot stat` or `No such file or directory`, stop: the copy failed.
+Check that you are at the repository root and have pulled the published lab files
+with `git pull --ff-only` before retrying. If Git reports a conflict or the file is
+still missing, seek help rather than continuing with an older destination file.
+
+Predict the test's result on the two observed daily rows, then run:
 
 ```bash
 .venv/bin/python scripts/course.py lab 3
 ```
 
-With exactly the original tests plus this example, expect **10 models and 38 tests**.
+**Expected output with the original tests plus this one guided test:**
+
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: synthetic seed present (existing data preserved).
+PASS: dbt build --selector course
+PASS: 10 models and 38 data tests actually executed.
+LAB 3 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+```
+
+**How to read this result:**
+
+- The connection check passed and the existing synthetic data was preserved.
+- dbt built the selected project and its checks passed. The model count remains
+  **10**; the test count increases from **37 to 38** because you added one SQL test.
+- The guided rule passes because the observed daily order counts, 2 and 1, are
+  both present and greater than zero. The runner prints a summary, not the test's
+  individual SQL results.
+
 The project selector includes tests in this package, so no YAML edits are needed.
-The named result in B3 is stronger evidence than the count alone.
+If you already added other tests, the total may exceed 38. Rerunning the same test
+file does not add another test. B3 will show how to confirm the guided test by name;
+a count alone does not identify which tests ran.
 
-### B2. Write a different rule in your own test file
+**B1 checkpoint:** keep your prediction and this build output in your private
+notes. A successful run completes the guided execution, not the whole lab.
+Continue to B2 to create your own rule, then use B3 to collect the named results
+required for submission.
 
-Choose one additional rule and state its assumption in your private notes. Possible
-starting questions include whether a reported daily sales amount can be negative,
-whether a daily order value can be missing, or whether two related reported measures
-can contradict each other under this fixture's assumptions. Inspect the three
-existing SQL tests and model YAML before selecting a rule; explain any overlap.
-Do not simply rename the guided test and submit its unchanged rule as your own.
+### B2. Create your test using a starter
 
-Create or reopen this exact file:
+#### B2.1. Open the file and paste the starter
+
+Run this command from the repository root:
 
 ```bash
 nano dbt/it4065c_platform/tests/lab3_my_sales_rule.sql
 ```
 
-Write one SELECT against `{{ ref('olap_sales_by_day') }}` using the B1 pattern.
-Select `order_date` and the field(s) that would help investigate a violation.
-Change the WHERE condition to return rows that **break your rule**, not rows that
-satisfy it. Use the five actual column names in A2. Do not add INSERT, UPDATE,
-DELETE, CREATE TABLE or copied terminal output to this file.
+**A blank editor is expected the first time.** This command opens a new file for
+you to write; nothing is missing. The file is created when you save it. If you
+have saved it before, Nano shows your existing contents. `nano` is the editor
+command, not part of the filename.
 
-In your notes, state: the rule, why it matters, the expected result on the current
-data and a hypothetical row that should violate it. You do not need to insert that
-hypothetical row into the course database. Treat the hypothetical as reasoning,
-not evidence of a failure you actually executed.
+Paste these three lines into the editor. If the same starter is already there,
+do not paste a second copy. Keep any existing work you want to retain.
 
-Save with Ctrl+O, Enter, then Ctrl+X. Editing this file does not run the test.
-These student-authored tests live under the dbt project so dbt can discover them;
-they are not ignored private files. Keep the work locally and submit through the LMS,
-not through a public repository push. Never put personal data or credentials in it.
+```sql
+select order_date, gross_sales
+from {{ ref('olap_sales_by_day') }}
+where gross_sales is null or gross_sales < 0
+```
+
+| Line | Meaning |
+| --- | --- |
+| `select order_date, gross_sales` | Show the date and sales amount of a problem row |
+| `from {{ ref('olap_sales_by_day') }}` | Read the daily sales model; keep this line unchanged |
+| `where gross_sales is null or gross_sales < 0` | Return rows with a missing amount or a negative amount |
+
+`is null` means missing, `< 0` means negative, and `or` means either condition
+is enough. This rule assumes reported sales should be present and non-negative.
+With the supplied daily amounts, 129.97 and 9.98, it should find no violations.
+
+![Annotated Nano starter: paste the SQL in the editing area, check the violation condition, recognize the unsaved-change asterisk, and save with Ctrl+O, Enter, then exit with Ctrl+X.](../../../sample_screenshots/lab3-b2-nano-guide.png)
+
+*Annotated teaching illustration based on the instructor's screenshot, shown
+**after pasting**, not the initial blank screen. Copy SQL from the text block,
+not the image. The screenshot does not demonstrate execution or a passing test.*
+
+Save by holding **Ctrl** and pressing **O** (the letter O), then press **Enter**
+to confirm the filename. Press **Ctrl+X** to exit. The title's `*` indicates unsaved
+changes. Saving does not run the test. If Nano reports a save error, resolve it
+before proceeding.
+
+#### B2.2. Adapt the same file for your independent rule
+
+The starter above is supported practice. For the independent submission, adapt it
+rather than submitting the unchanged example as your own design. Reopen the same
+file with the command in B2.1; you do not need a second file.
+
+Choose **one** direction:
+
+- Check `avg_order_value` instead of `gross_sales`: change that column in both
+  SELECT and WHERE. Decide whether missing values, negative values or both violate
+  your rule, and explain your assumption.
+- Check `items_sold`: change the selected column and the WHERE condition to identify
+  a violation of a rule you can justify about units sold on a reported day.
+
+Keep `order_date` and the `from` line. Keep one SELECT query in the file. A test's
+WHERE condition must find **bad rows**, not valid rows. Use `is null` for missing
+values, `<` for less than or `<=` for less than or equal to. Do not add INSERT,
+UPDATE, DELETE, CREATE TABLE or terminal output. Save and exit as in B2.1.
+
+In your private notes, write the rule and assumption, why it matters, your predicted
+result, and one hypothetical row it should reject. For example, a negative sales
+amount illustrates the starter's rule; choose a value relevant to your adapted
+rule. Do not insert that hypothetical row. It is reasoning, not an executed failure.
+
+For comparison, the existing [line-value test](../../../dbt/it4065c_platform/tests/positive_line_values.sql)
+checks item-level quantities, prices and calculations. State one overlap or
+difference between that check and your daily-level rule. You do not need to review
+every SQL test or YAML file to complete this step.
+
+**B2 checkpoint:** your saved file contains one adapted query, and your notes
+explain it. Continue to B3 to execute it and verify the named result. If you run
+the unchanged starter for practice, label it as the supplied example; it does not
+complete the independent task.
+
+These test files live inside the dbt project so dbt can discover them; they are
+not ignored private files. Keep your work locally and submit through the LMS,
+not a public repository push. Never put personal data or credentials in them.
 
 ### B3. Execute and verify your named test
 
