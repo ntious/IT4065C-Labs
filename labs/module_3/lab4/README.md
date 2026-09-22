@@ -70,9 +70,9 @@ and retirement. At each transition ask who approves the change and what evidence
 would demonstrate it. Do not label a proposed control as implemented because it
 appears in a diagram.
 
-**Check your understanding:** A raw email is removed while a downstream table still
-contains a derived identifier. What is your evidence of propagation, and what remains
-unknown? Lab 8 extends this reasoning to a simulated restore and deletion ledger.
+**Check your understanding:** the retention scenario in investigation step 4
+asks you to distinguish a source change from verified downstream removal.
+Optional Lab 8 extends this reasoning to a simulated restore and deletion ledger.
 
 > **Completion:** Automation passing means the selected technical checks passed. Complete
 > the independent investigation, interpretation and evidence below before submitting.
@@ -112,6 +112,12 @@ PASS: raw.orders -> stg_orders lineage present; documentation generated.
 LAB 4 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
 ```
 
+![Annotated Lab 4 output: connection and seed checks, model and test counts, documentation and lineage checks, and the remaining investigation.](../../../sample_screenshots/lab4-technical-output-guide.png)
+
+*Annotated teaching illustration based on the instructor's output, with personal
+identifiers removed. Use the command above for copying. Numbers and labels explain
+the highlights; the same information appears in the table below.*
+
 **What these results mean:**
 
 | Result | What it confirms |
@@ -139,23 +145,124 @@ and trace the downstream path yourself. No setup rerun is needed.
 
 ## Hands-on investigation
 
-Open the generated local documentation using `.venv/bin/python scripts/course.py docs`. Trace
-`raw.orders` through staging and the fact table to both marts. Complete
-`labs/module_3/lab4/_turnin_template.md`. Suppose retention removes a raw record:
-which materialized downstream copies could persist, and what would you refresh?
-Document the lineage path in text as an accessible alternative to a screenshot.
+### 1. Open the local documentation
 
-For custom SQL, use the [query helper instructions](../../practice/README.md#execute-your-own-sql-without-managing-passwords).
+After the Lab 4 checks pass, run this command from the repository root:
 
-## Interpret and transfer
+```bash
+.venv/bin/python scripts/course.py docs
+```
 
-Trace raw.orders → stg_orders → fct_orders → olap_sales_by_day. Explain what the DAG proves and what requires an access-control or promotion test. Complete the lifecycle decision template.
+**Expected:** the connection PASS line appears and the terminal remains busy while
+serving the documentation. The runner captures dbt's server output, so you may
+not see a server-start message. It does not automatically open a browser.
+
+Leave that terminal running. On the same computer, open your browser and enter:
+
+```text
+http://127.0.0.1:8080
+```
+
+Expect the local dbt documentation site with a project/model catalog. In WSL, try
+this address in your Windows browser. If the page does not load, confirm the
+terminal is still running and Lab 4 generated the docs. If the command exits with
+an error, inspect `.local/dbt-last.log` privately; do not change the server to a
+public address to work around the error. Report a connection problem if it persists.
+
+### 2. Follow the order-data path
+
+Use the documentation's model search or project catalog to find `stg_orders`,
+then `fct_orders`, then each of these two reporting models:
+`olap_sales_by_day` and `oltp_order_detail`. Inspect their SQL references or lineage
+view to follow the dependencies. The layout may vary; a diagram is not required.
+
+Use these paths as a guide, and check them against the model references:
+
+```text
+raw.orders -> stg_orders -> fct_orders -> olap_sales_by_day
+raw.orders -> stg_orders -> fct_orders -> oltp_order_detail
+```
+
+The arrows mean “used by.” These are order-data paths, not a complete graph: the
+marts also use other models, including item data. For a text-based route, read
+[order staging](../../../dbt/it4065c_platform/models/staging/lab3/stg_orders.sql),
+[the order model](../../../dbt/it4065c_platform/models/core/lab3/fct_orders.sql),
+[the daily mart](../../../dbt/it4065c_platform/models/marts/lab3/olap_sales_by_day.sql)
+and [the detail mart](../../../dbt/it4065c_platform/models/marts/lab3/oltp_order_detail.sql).
+`source` identifies raw input and `ref` identifies another model used by the query.
+
+**Keep for submission:** the two paths in text and one sentence explaining a
+reference you inspected. A cropped lineage screenshot is an optional alternative
+to the text paths; keep the explanatory sentence either way. If the browser route
+failed, state that you used the supplied SQL files instead.
+
+### 3. Complete your private decision log
+
+When finished browsing, return to the server terminal and press **Ctrl+C** to stop
+it and regain the shell prompt. Then run these commands one at a time:
+
+```bash
+mkdir -p .local
+```
+
+```bash
+cp -i labs/module_3/lab4/_turnin_template.md .local/lab4-decision-log.md
+```
+
+```bash
+nano .local/lab4-decision-log.md
+```
+
+A successful copy is normally silent. If prompted to overwrite existing work,
+answer `n` to keep it, then review your existing log. Edit only the private copy.
+Complete its four stage rows for the path ending at `olap_sales_by_day`:
+
+| Column | What to write |
+| --- | --- |
+| Input and grain | Model/source name and what one row represents |
+| Transformation | What changes at that stage; raw input can say “stored source records” |
+| Quality check | A relevant observed test, or a proposed check clearly labeled as proposed |
+| Permitted role | The role you propose should use the data; label it proposed unless access was actually tested |
+| Evidence and limitation | The file, output or observation supporting the entry, and what it cannot establish |
+
+For example, a raw-stage entry can identify `raw.orders`, “one row per order,”
+and the source records in `lab2_seed.sql`. That source file describes the fixture;
+it does not prove who can read it. Apply this distinction to the remaining rows.
+You may complete the same table in a word processor instead of Nano.
+
+Save with **Ctrl+O**, **Enter**, then exit with **Ctrl+X**. This saves your notes;
+it does not execute SQL. No screenshot of the editor is required.
+
+### 4. Explain the retention scenario
+
+This is a written scenario: **do not delete data or run a refresh for this task.**
+Suppose an approved retention decision removes an order from `raw.orders`.
+Add three short answers below your private decision-log table:
+
+1. Which downstream stored tables could still contain the order or its contribution
+   to a total? Name the affected models along the paths you traced.
+2. What would you propose refreshing, in what dependency order, and what query or
+   comparison would you use to check the result?
+3. What remains unproven? Include one action a lineage diagram cannot prevent,
+   such as an authorized reader exporting a copy, and the separate evidence needed.
+
+The supplied [project configuration](../../../dbt/it4065c_platform/dbt_project.yml)
+sets staging models to views and core/mart models to stored tables. A view reads
+its underlying data when queried; a stored table does not automatically rebuild
+when an upstream record changes. Exports and backups need separate investigation.
+Describe your refresh and checks as **proposed**, not demonstrated deletion.
+
+**Investigation complete:** retain the checked paths, the four-row decision log
+and these three scenario answers. They are the interpretation and transfer work
+for this lab; no separate repeated essay is required.
 
 ## Submit
 
 Use the [submission template](../../../submissions/template.md). Include the command,
-relevant PASS lines or accessible text evidence, your interpretation, one limitation,
-and your transfer-task response. A screenshot is optional; crop/redact identities
+relevant PASS lines, your prediction (or note that you already ran it), the checked
+paths and explanatory sentence from step 2, and the decision log with the three
+scenario answers from steps 3–4. These include your interpretation and limitations;
+do not repeat them in a second essay. A screenshot is optional; crop/redact identities
 and never include configuration secrets. Submit privately through your course system;
 independent learners keep their work locally. Execution success alone does not
 complete the reasoning task.
