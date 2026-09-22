@@ -18,8 +18,8 @@ explain the completed-order revenue before designing a test of your own.
 These instructor-developed lab objectives support SLO 4. By the end of the lab,
 you should be able to:
 
-- Trace data from raw tables through staging and core models to reporting marts.
-- Identify each model's grain (what one row represents) and explain how a join
+- Follow a worked example from order items to daily sales totals.
+- Identify what one daily sales row represents and explain how a join
   can repeat order-level values.
 - Reconcile completed-order revenue with source records and explain the treatment
   of cancelled orders.
@@ -40,8 +40,8 @@ you do not need to build a complete pipeline from scratch.
 ## What you will produce
 
 - Relevant baseline execution results and your interpretation.
-- A source-to-report explanation of the completed-order total of 139.95 for the
-  supplied, unmodified fixture, including grain and cancellation assumptions.
+- Three short A3 responses explaining repeated totals, the completed-order
+  revenue of 139.95 and the cancellation rule for the supplied dataset.
 - One original dbt SQL test, your prediction, its observed result after rerunning
   Lab 3, and an explanation of the rule it checks.
 - A short explanation of a join-related calculation risk and one evidence limitation.
@@ -67,12 +67,12 @@ constraints that prevent every future invalid write. This fixture deliberately l
 some relationships to dbt tests so learners can observe the distinction.
 
 The detailed and aggregate marts illustrate workload differences. They do not establish
-transaction throughput, dimensional completeness or production performance. Explain
-which additional measurements would be needed for those claims.
+transaction throughput, dimensional completeness or production performance. A
+passing local build provides no measurements of those production properties.
 
-**Check your understanding:** A3 guides you through the difference between counting
-orders and counting item rows, and between daily and overall averages. Complete its
-four response sections; you do not need to design an additional test for this prompt.
+**Check your understanding:** complete the three short responses in A3. They cover
+repeated order totals, daily sales and the completed-order rule; no separate response
+is required here.
 
 > **Completion:** Automation passing means the environment checks worked. Complete
 > the independent investigation, interpretation and evidence below before submitting.
@@ -164,110 +164,105 @@ Do not paste this JSON into SQL. Each inner list is one day, with these annotati
 containing two units, so units sold and order count differ. The date-level rows
 are already aggregated; they are not individual orders.
 
-### A3. Explain how the sales results were calculated
+### A3. Explain the results in three short responses
 
-**Your task:** read the supplied files and write four short response sections using
-A2's output. This is a reading-and-explanation activity. No new terminal commands,
-SQL edits, database changes or screenshots are required for A3.
+**Your task:** follow the worked example below, then answer the three numbered
+prompts. Write your answers under **Part A: Interpretation** in your private
+submission using a text editor or word processor. Two or three sentences per
+response, plus the requested calculation, are enough.
 
-Copy the response outline below into your private Lab 3 submission under
-**Part A: Interpretation**. You may use a text editor or word processor. Do not
-paste the outline into a SQL file or the terminal. A few clear sentences per
-section, with calculations where requested, are sufficient.
+Everything needed is shown here. No SQL editing, new commands or screenshots are
+required. The source links are available for exploration; opening every file is
+not part of the task.
 
-#### A3.1. Read with this guide
+#### A3.1. Follow one order: why totals can be counted twice
 
-Click these links to read the files on GitHub, or open the corresponding files in
-your editor. Read the indicated portions; you do not need to understand every line.
-A **model** here is a saved SQL query that produces a table or view. **Grain** means
-what one row represents. A **mart** is a model prepared for a particular reporting use.
+Order 1 is a completed purchase on January 10. Its total is **79.98** and it
+contains these two items. Matching an order to its items is called a **join**:
 
-| Read | Look for | What it helps you explain |
-| --- | --- | --- |
-| [Synthetic records](../lab2_seed.sql) | The rows following `INSERT INTO raw.orders` and `INSERT INTO raw.order_items`; the preceding column lists identify each value | Which orders and item amounts contribute to the report |
-| [Order staging](../../../dbt/it4065c_platform/models/staging/lab3/stg_orders.sql) | `lower(nullif(trim(order_status), ''))` | Why source status `Completed` becomes `completed` before filtering |
-| [Order model](../../../dbt/it4065c_platform/models/core/lab3/fct_orders.sql) and [item model](../../../dbt/it4065c_platform/models/core/lab3/fct_order_items.sql) | The final SELECT and their `ref` expressions | Where the daily model gets orders, quantities and item amounts |
-| [Daily sales model](../../../dbt/it4065c_platform/models/marts/lab3/olap_sales_by_day.sql) | `where`, both `group by` clauses, `sum`, `count` and `avg` | How completed orders become daily totals |
-| [Detailed order mart](../../../dbt/it4065c_platform/models/marts/lab3/oltp_order_detail.sql) | Its grain comment and the selected `order_item_id` | How an item-level report differs from a daily report |
+| Order | Item | Quantity | Item amount | Order total repeated by the join |
+| --- | --- | --- | --- | --- |
+| 1 | Wireless Mouse | 1 | 29.99 | 79.98 |
+| 1 | Laptop Stand | 1 | 49.99 | 79.98 |
 
-Use this SQL reading key alongside the daily model:
+The item amounts add to **29.99 + 49.99 = 79.98**. Adding the repeated order totals
+would give **159.96**, even though the customer placed only one order worth 79.98.
+The daily sales model first combines the items into one row per order, then
+combines orders into one row per day. What one row represents is called its **grain**.
 
-| SQL expression | Plain-language meaning in this model |
-| --- | --- |
-| `ref('fct_orders')` | Read the model named `fct_orders`; dbt resolves its database location |
-| `o` and `i` | Short names for the order and item sources; `o.order_id` means the order source's ID |
-| `join ... on o.order_id=i.order_id` | Match each order to its item rows using the order ID |
-| `where o.order_status='completed'` | Keep completed orders |
-| `group by o.order_id,o.order_date,o.total_amount` | Collect each order's item rows into one order-level group |
-| `sum(i.quantity)` and `sum(i.line_total)` | Add the quantities and item amounts within each order |
-| `order_totals` | The intermediate result with one row per included order |
-| `from order_totals group by order_date` | Collect those order-level rows by day |
-| `count(*)`, `sum(line_sales)`, `avg(total_amount)` | Count orders, add their item amounts, and average their order totals for each day |
+**Response 1:** In your own words, why would adding the repeated order totals give
+the wrong revenue? Finish with: “One row in the daily sales output represents …”
 
-#### A3.2. Follow the worked calculation
+#### A3.2. Use the example to explain January 11
 
-For the supplied fixture (the small synthetic dataset), completed orders 1 and 2
-contribute 79.98 and 49.99 on January 10. Completed order 4 contributes
-2 × 4.99 = 9.98 on January 11. Order 3 is cancelled, so its 19.95 is excluded.
-Thus 79.98 + 49.99 + 9.98 = **139.95**.
+Here is the order-level information from the supplied synthetic dataset:
 
-Example of linking a result to an explanation:
+| Date | Order | Status | Units | Amount |
+| --- | --- | --- | --- | --- |
+| January 10 | 1 | Completed | 2 | 79.98 |
+| January 10 | 2 | Completed | 1 | 49.99 |
+| January 11 | 3 | Cancelled | 1 | 19.95 |
+| January 11 | 4 | Completed | 2 | 9.98 |
 
-> January 11 shows one completed order and two units sold. Order 4 contains two
-> units priced at 4.99 each, giving revenue of 9.98. The order count is one because
-> the model counts order-level rows after combining their items.
+**Worked example for January 10:** both orders are completed. Together they give
+2 orders, 3 units and revenue of 79.98 + 49.99 = **129.97**, matching A2.
 
-You may refer to this worked example. In your response, explain how the SQL and
-your observed output support the calculation; copying the total alone is insufficient.
+**Response 2:** Using the same approach, explain why your January 11 output shows
+**1 order, 2 units and revenue of 9.98**. Say why order 3 is excluded, then show the
+addition of the two daily revenues to obtain the overall completed-order revenue.
+Use your A2 output; if it differs, record the difference and use Recovery.
 
-For the two calculation-risk questions, use these starting points:
+#### A3.3. Connect the decision to one SQL line
 
-- **Repeated order total:** order 1 has two item rows. A direct join repeats its
-  order total of 79.98 on both rows. Compare adding those repeated totals with
-  adding the actual item amounts, 29.99 and 49.99. Explain which calculation
-  represents that order's revenue and why.
-- **Average of daily averages:** compare `(64.985 + 9.98) / 2` with
-  `139.95 / 3`. A calculator is sufficient. Explain what each divisor counts
-  (days or orders), and which calculation answers “average completed-order value.”
-  The days contain different numbers of orders.
+The [daily sales model](../../../dbt/it4065c_platform/models/marts/lab3/olap_sales_by_day.sql)
+contains this line. It is an excerpt to read, not a command to run:
 
-#### A3.3. Write your four response sections
-
-Copy and complete this outline in your private submission. Replace the prompts
-with your explanations; use model names when referring to the supplied SQL.
-
-```text
-A3: Explain the sales results
-
-1. Source and calculation
-   The daily sales model reads from:
-   The completed-order filter is:
-   The first grouping combines:
-   The second grouping combines:
-
-2. Reconcile my observed output
-   January 10: explain the order count and revenue calculation.
-   January 11: explain the order count, units sold and revenue calculation.
-   Cancelled order: explain why it is excluded.
-   Total completed-order revenue: show the addition.
-
-3. Compare the grain
-   One row in oltp_order_detail represents:
-   One row in olap_sales_by_day represents:
-
-4. Explain calculation risks
-   Repeated order total: show the two calculations for order 1 and explain the risk.
-   Daily averages: show both averages and explain which answers the order-level question.
+```sql
+where o.order_status='completed'
 ```
 
-**A3 completion check:** all four sections are answered, your calculations refer
-to the A2 results, and your explanations name the relevant models. No additional
-test is required in A3. Test-writing starts in Part B.
+`where` keeps rows meeting a condition. Here, `o` is a short name for the order
+source, and the condition keeps orders whose status is `completed`. An earlier
+preparation step converts source text such as `Completed` to lowercase.
+
+**Response 3:** What reporting rule does this line implement? If cancelled orders
+were included instead, would the reported revenue increase, decrease or stay the
+same for this dataset? Explain using order 3; no code change is needed.
+
+**A3 completion check:** your submission contains just these three labeled answers:
+
+```text
+1. Repeated totals and what one daily row represents:
+2. January 11 explanation and total revenue calculation:
+3. Completed-order rule and the effect of including order 3:
+```
+
+These responses are the required A3 interpretation. You do not need a separate
+file-by-file explanation, a daily-average comparison or an additional test.
+Test-writing starts in Part B.
+
+<details>
+<summary>Optional: explore how the supplied files connect</summary>
+
+The [synthetic records](../lab2_seed.sql) provide the source data.
+[Order staging](../../../dbt/it4065c_platform/models/staging/lab3/stg_orders.sql)
+standardizes fields such as status. The
+[order model](../../../dbt/it4065c_platform/models/core/lab3/fct_orders.sql) and
+[item model](../../../dbt/it4065c_platform/models/core/lab3/fct_order_items.sql)
+feed the daily sales model. A model is a saved SQL query that produces a table or
+view; `ref` names another model to read. The
+[detailed order mart](../../../dbt/it4065c_platform/models/marts/lab3/oltp_order_detail.sql)
+provides one row per order item, while the daily sales model provides one row per
+day. A mart is a model prepared for a particular reporting use.
+
+This reading is optional and requires no additional submission.
+
+</details>
 
 > **Part A complete:** retain the successful baseline output from A1, the daily
-> rows from A2 and your four written sections from A3. For the unchanged fixture,
-> the daily revenue totals 139.95. If your results differ, record the difference
-> and use Recovery before claiming that the baseline matches.
+> rows from A2 and your three short responses from A3. For the unchanged fixture,
+> daily revenue totals 139.95. Record and investigate differences before claiming
+> that your baseline matches.
 
 ## Part B: Learn the test pattern, then write your own
 
@@ -396,7 +391,7 @@ Label Part A and Part B. Readable text is sufficient; screenshots are optional.
 | Item | Required evidence |
 | --- | --- |
 | Part A execution | Lab 3 command, relevant PASS lines and the two inspected daily rows |
-| Part A interpretation | The four completed response sections from A3.3: calculation, reconciliation, grain and calculation risks |
+| Part A interpretation | The three short responses from A3: repeated totals, January 11 and total revenue, and the completed-order rule |
 | Part B guided practice | Your prediction and the named guided-test result from B3 |
 | Part B independent work | File name, complete SQL, rule/assumption, prediction and named actual result |
 | Test reasoning | A hypothetical violating row, why your predicate catches it, one overlap or difference from existing checks, and one limitation |
@@ -409,7 +404,8 @@ above. Keep written work private. Independent learners retain their evidence loc
 Rubric: evidence 25%; interpretation 35%; transfer/tradeoffs 30%; clarity/limits 10%.
 These are activity-level weights, not institutional course grade weights.
 
-**Instructor handoff:** Part A is a reproducible supplied example. Part B uses one
+**Instructor handoff:** assess Part A using the three A3 responses; the optional
+source-file tour adds no submission requirement. Part B uses one
 guided test followed by one original rule. Assess the predicate, assumption and named
 execution evidence, not just a larger test count or copied revenue explanation.
 A hypothetical bad row is not an executed negative test. Controlled failure injection
