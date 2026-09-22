@@ -35,3 +35,12 @@ models. Both are annotated teaching illustrations derived from instructor-provid
 screenshots; browser chrome and personal bookmarks are omitted. They are not
 execution evidence. Equivalent navigation, paths and submission instructions are
 in [Lab 4](../labs/module_3/lab4/README.md).
+
+## Lab 4: Focused graph alternative
+
+`lab4-focused-lineage-guide.png` is an annotated teaching illustration derived
+from the instructor's filtered graph screenshot. It identifies the `--select`
+field, `+stg_orders+` filter, Update Graph control and order-data paths. No personal
+browser information is included. Hidden dependencies remain part of the project;
+test nodes do not indicate passing results. Text instructions in
+[Lab 4](../labs/module_3/lab4/README.md) provide the equivalent accessible route.

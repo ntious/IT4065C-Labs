@@ -182,6 +182,39 @@ Keep the Ubuntu server terminal running while you use the page.
 toolbars and personal bookmarks have been removed. Button placement can vary with
 window size or version; the model search offers an alternative route.*
 
+**Choose one viewing route:** use the focused view below to reduce clutter, or
+follow the same paths in the full graph. Both satisfy this step; no extra
+submission is required for trying both.
+
+**Focused view (alternative navigation):**
+
+1. In the open Lineage Graph, locate the **`--select`** field along the bottom.
+   If the filter bar is not visible, use the graph's expand control at the top-right.
+2. Replace the selection text with the following value, keeping both plus signs.
+   This is a graph filter, **not a terminal command**:
+
+   ```text
+   +stg_orders+
+   ```
+
+3. Leave **`--exclude`** empty and click **Update Graph**. Keep the resource and
+   package filters at their defaults, as shown below.
+
+![Focused graph navigation: enter +stg_orders+ in the bottom select field, click Update Graph, then trace raw.orders through stg_orders and fct_orders to both reporting models.](../../../sample_screenshots/lab4-focused-lineage-guide.png)
+
+*Annotated teaching illustration based on the instructor's focused graph. It
+highlights the controls and paths; actual styling may vary. Equivalent instructions
+and paths are provided in text.*
+
+The leading `+` includes upstream dependencies and the trailing `+` includes
+downstream dependents of `stg_orders`. You should see `raw.orders`, `stg_orders`,
+`fct_orders`, both reporting models and dependent tests. Other inputs, such as
+customer and item data, are **hidden by this filter, not removed from the project**.
+To return to the full view, clear the `--select` field and click **Update Graph**.
+
+<details>
+<summary>Optional reference: the full graph with the same paths highlighted</summary>
+
 In the graph, find `raw.orders` on the left. Follow its arrows to `stg_orders`,
 then `fct_orders`. From there, follow the two branches to `olap_sales_by_day` and
 `oltp_order_detail`. The highlighted paths below show where to look; inspect the
@@ -191,6 +224,8 @@ same connections in your own graph.
 
 *Annotated teaching illustration, not evidence of a new execution. Numbered
 callouts and the text paths below provide the same guidance as the colors.*
+
+</details>
 
 The `lab3_guided_daily_orders` and `lab3_my_sales_rule` nodes are tests, not
 reporting tables. Their presence documents dependencies; it does not show whether
