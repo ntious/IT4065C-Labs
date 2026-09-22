@@ -44,10 +44,10 @@ you do not need to build a complete pipeline from scratch.
   revenue of 139.95 and the cancellation rule for the supplied dataset.
 - One original dbt SQL test, your prediction, its observed result after rerunning
   Lab 3, and an explanation of the rule it checks.
-- A short explanation of a join-related calculation risk and one evidence limitation.
+- One limitation of your test; the join-related explanation is already covered in A3.
 
 The runner produces technical results. You write the reconciliation, test reasoning
-and limitations in your private submission; follow the Submit section below.
+and limitations in your private submission; follow Part C below.
 
 ## Concept
 
@@ -74,7 +74,7 @@ passing local build provides no measurements of those production properties.
 repeated order totals, daily sales and the completed-order rule; no separate response
 is required here.
 
-> **Completion:** Automation passing means the environment checks worked. Complete
+> **Completion:** Automation passing means the selected technical checks passed. Complete
 > the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
@@ -401,7 +401,8 @@ values, `<` for less than or `<=` for less than or equal to. Do not add INSERT,
 UPDATE, DELETE, CREATE TABLE or terminal output. Save and exit as in B2.1.
 
 In your private notes, write the rule and assumption, why it matters, your predicted
-result, and one hypothetical row it should reject. For example, a negative sales
+result, one hypothetical row it should reject, and one limitation (something it
+does not check). For example, a negative sales
 amount illustrates the starter's rule; choose a value relevant to your adapted
 rule. Do not insert that hypothetical row. It is reasoning, not an executed failure.
 
@@ -425,40 +426,43 @@ not a public repository push. Never put personal data or credentials in them.
 .venv/bin/python scripts/course.py lab 3
 ```
 
-With one guided and one independent test added to the original project, expect
-**10 models and 39 tests**, provided all pass. Counts may be higher after earlier
-practice. Now inspect only your two named results using this read-only command:
+With one guided and one independent test added to the original project, expect:
 
-```bash
-.venv/bin/python - <<'PY'
-import json
-from pathlib import Path
-wanted = {'lab3_guided_daily_orders', 'lab3_my_sales_rule'}
-p = Path('dbt/it4065c_platform/target/run_results.json')
-results = json.loads(p.read_text())['results']
-found = set()
-for result in results:
-    name = result['unique_id'].split('.')[-1]
-    if name in wanted:
-        found.add(name)
-        print(name, 'status=' + str(result['status']),
-              'failures=' + str(result.get('failures')))
-missing = wanted - found
-if missing:
-    raise SystemExit('Missing test results: ' + ', '.join(sorted(missing)))
-PY
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: synthetic seed present (existing data preserved).
+PASS: dbt build --selector course
+PASS: 10 models and 39 data tests actually executed.
+LAB 3 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
 ```
 
-Copy the whole block, including the final `PY`, at the shell prompt. Expected for
-passing tests:
+Counts may be higher after earlier practice. Next, run the supplied
+[result-check script](check_test_results.py) from the repository root:
+
+```bash
+.venv/bin/python labs/module_2/lab3/check_test_results.py
+```
+
+You do not need to write or edit Python. This script reads the saved dbt results;
+it does not run tests, connect to the database or change files. Expected output:
 
 ```text
 lab3_guided_daily_orders status=pass failures=0
 lab3_my_sales_rule status=pass failures=0
 ```
 
-The order can differ. Inspect results immediately after this Lab 3 run; another dbt
-command can replace the artifact. A file existing on disk is not evidence it ran.
+Each line identifies a test that executed. `status=pass` and `failures=0` mean
+that test found no violating rows in that execution. Keep these two lines with
+your prediction and adapted SQL for Part C. They do not establish that your rule
+is original, complete or appropriate; your explanation addresses those questions.
+
+Run this check immediately after Lab 3 and after every change to your test SQL.
+Saved results describe the last dbt execution, not unsaved or subsequently edited
+SQL. Another dbt command can replace them. The helper cannot prove that saved
+results correspond to your current SQL: rerun Lab 3 first whenever unsure.
+
+If results are missing, unreadable, or either named test is absent, the script
+prints recovery guidance. A failed or skipped test is not reported as success.
 If the independent test fails, investigate whether your predicate is wrong, the
 assumption is inappropriate or the data violates a justified rule. Record the result
 honestly. Never weaken an assertion or delete existing tests merely to obtain PASS.
@@ -471,10 +475,13 @@ honestly. Never weaken an assertion or delete existing tests merely to obtain PA
 
 Use a private copy of the [shared template](../../../submissions/template.md).
 Label Part A and Part B. Readable text is sufficient; screenshots are optional.
+Use the checklist below inside the template; do not write duplicate answers to
+the same question. If you already ran a test before recording a prediction, state
+that honestly rather than inventing a prior prediction.
 
 | Item | Required evidence |
 | --- | --- |
-| Part A execution | Lab 3 command, relevant PASS lines and the two inspected daily rows |
+| Part A execution | Lab 3 command, relevant PASS lines, the two inspected daily rows, and your A1 prediction/limitation (or a note that you already ran it) |
 | Part A interpretation | The three short responses from A3: repeated totals, January 11 and total revenue, and the completed-order rule |
 | Part B guided practice | Your prediction and the named guided-test result from B3 |
 | Part B independent work | File name, complete SQL, rule/assumption, prediction and named actual result |
@@ -504,7 +511,8 @@ in `scripts/verify.py` is an instructor rehearsal, not an extra student requirem
 | SQL syntax error | Check selected column names, WHERE syntax and the ref expression. Do not run this dbt test through query.py. |
 | Test returns failures | Inspect the rule and violating condition; distinguish data failure from an unjustified assumption. |
 | Revenue differs | Check source/model changes and cancellation policy; do not reset or delete data to match the fixture. |
-| Named result absent or old | Rerun Lab 3 and inspect run_results immediately afterward. |
+| Named result absent or old | Save both test files, rerun Lab 3, then run `check_test_results.py` immediately afterward. |
+| Result-check script missing | Confirm the repository root and update your checkout with `git pull --ff-only`; stop and seek help if Git reports a conflict. |
 
 Use [setup recovery](../../../docs/setup.md) for environment issues.
 
