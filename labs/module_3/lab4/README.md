@@ -153,9 +153,17 @@ After the Lab 4 checks pass, run this command from the repository root:
 .venv/bin/python scripts/course.py docs
 ```
 
-**Expected:** the connection PASS line appears and the terminal remains busy while
-serving the documentation. The runner captures dbt's server output, so you may
-not see a server-start message. It does not automatically open a browser.
+**Expected:** the connection PASS line is followed by:
+
+```text
+Starting local documentation server. Open http://127.0.0.1:8080 in your browser.
+Keep this terminal open. Press Ctrl+C when finished to stop the server.
+Startup may take a moment; these instructions do not confirm the page is ready.
+```
+
+The terminal remains busy while serving documentation. The runner captures dbt's
+server output, so no further message may appear. It does not automatically open
+a browser. Opening the page successfully confirms that it is responding.
 
 Leave that terminal running. On the same computer, open your browser and enter:
 
@@ -261,7 +269,18 @@ your private lifecycle decision log.
 ### 3. Complete your private decision log
 
 When finished browsing, return to the server terminal and press **Ctrl+C** to stop
-it and regain the shell prompt. Then run these commands one at a time:
+it and regain the shell prompt. Expected:
+
+```text
+Documentation server stopped. You can continue with the lab.
+```
+
+A terminal may also display `^C`, meaning you pressed Ctrl+C. Older checkouts may
+show a traceback ending in `KeyboardInterrupt` instead; when the shell prompt
+returns after your intentional interruption, this is not a failed data test.
+Update the checkout for the clearer shutdown message; no setup rerun is needed.
+
+Then run these commands one at a time:
 
 ```bash
 mkdir -p .local

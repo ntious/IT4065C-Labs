@@ -353,7 +353,14 @@ def main():
             course.run(number)
     else:
         course.preflight()
-        course.dbt("docs", "serve", "--host", "127.0.0.1", "--port", "8080", "--no-browser")
+        print("Starting local documentation server. Open http://127.0.0.1:8080 in your browser.", flush=True)
+        print("Keep this terminal open. Press Ctrl+C when finished to stop the server.", flush=True)
+        print("Startup may take a moment; these instructions do not confirm the page is ready.", flush=True)
+        try:
+            course.dbt("docs", "serve", "--host", "127.0.0.1", "--port", "8080", "--no-browser")
+        except KeyboardInterrupt:
+            # subprocess.run cleans up its child before propagating interruption.
+            print("\nDocumentation server stopped. You can continue with the lab.", flush=True)
 
 
 if __name__ == "__main__":
