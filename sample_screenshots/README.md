@@ -25,3 +25,13 @@ the instructor-provided terminal output. The personal shell prompt was removed.
 It explains connection/seed checks, test counts, docs generation, the checked
 lineage edge and remaining written work. It is not new execution evidence.
 Equivalent text and copyable commands appear in [Lab 4](../labs/module_3/lab4/README.md).
+
+## Lab 4: Documentation navigation
+
+`lab4-open-lineage-guide.png` identifies the graph button and alternative model
+search on the documentation landing page. `lab4-order-lineage-guide.png`
+highlights the two order-data paths and distinguishes Lab 3 tests from reporting
+models. Both are annotated teaching illustrations derived from instructor-provided
+screenshots; browser chrome and personal bookmarks are omitted. They are not
+execution evidence. Equivalent navigation, paths and submission instructions are
+in [Lab 4](../labs/module_3/lab4/README.md).

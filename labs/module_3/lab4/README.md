@@ -171,10 +171,36 @@ public address to work around the error. Report a connection problem if it persi
 
 ### 2. Follow the order-data path
 
-Use the documentation's model search or project catalog to find `stg_orders`,
-then `fct_orders`, then each of these two reporting models:
-`olap_sales_by_day` and `oltp_order_detail`. Inspect their SQL references or lineage
-view to follow the dependencies. The layout may vary; a diagram is not required.
+The landing page has a welcome message, a model search box at the top and a
+project catalog on the left. **Click the circular graph button at the bottom-right
+of the documentation page** (callout 1 below). It opens the **Lineage Graph**.
+Keep the Ubuntu server terminal running while you use the page.
+
+![Documentation landing page: callout 1 points to the bottom-right graph button; callout 2 identifies the alternative model search box.](../../../sample_screenshots/lab4-open-lineage-guide.png)
+
+*Annotated teaching illustration based on the instructor's screenshot. Browser
+toolbars and personal bookmarks have been removed. Button placement can vary with
+window size or version; the model search offers an alternative route.*
+
+In the graph, find `raw.orders` on the left. Follow its arrows to `stg_orders`,
+then `fct_orders`. From there, follow the two branches to `olap_sales_by_day` and
+`oltp_order_detail`. The highlighted paths below show where to look; inspect the
+same connections in your own graph.
+
+![Order lineage: raw.orders leads to stg_orders, then fct_orders, which feeds both oltp_order_detail and olap_sales_by_day. The two named Lab 3 test nodes are labeled separately from reporting models.](../../../sample_screenshots/lab4-order-lineage-guide.png)
+
+*Annotated teaching illustration, not evidence of a new execution. Numbered
+callouts and the text paths below provide the same guidance as the colors.*
+
+The `lab3_guided_daily_orders` and `lab3_my_sales_rule` nodes are tests, not
+reporting tables. Their presence documents dependencies; it does not show whether
+they passed. Your saved Lab 3 test results provide that execution evidence.
+Other test nodes may also be visible. You do not need to describe every node or
+recreate the graph.
+
+If you prefer the catalog route, close the graph using the bottom-right **X**,
+then use model search to find `stg_orders`, `fct_orders` and both reporting models.
+Inspect their SQL references. The text-based route below is also acceptable.
 
 Use these paths as a guide, and check them against the model references:
 
@@ -191,10 +217,11 @@ marts also use other models, including item data. For a text-based route, read
 and [the detail mart](../../../dbt/it4065c_platform/models/marts/lab3/oltp_order_detail.sql).
 `source` identifies raw input and `ref` identifies another model used by the query.
 
-**Keep for submission:** the two paths in text and one sentence explaining a
+**Keep for submission:** record the two paths in text and one sentence explaining a
 reference you inspected. A cropped lineage screenshot is an optional alternative
 to the text paths; keep the explanatory sentence either way. If the browser route
-failed, state that you used the supplied SQL files instead.
+failed, state that you used the supplied SQL files instead. Then continue to step 3 to complete
+your private lifecycle decision log.
 
 ### 3. Complete your private decision log
 
