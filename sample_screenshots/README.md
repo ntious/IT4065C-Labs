@@ -17,3 +17,11 @@ violation condition, the unsaved-change marker, and save/exit controls. It is no
 execution evidence. Equivalent instructions and copyable SQL appear in
 [Lab 3 B2](../labs/module_2/lab3/README.md#b2-create-your-test-using-a-starter).
 No personal account, host name or credentials are displayed.
+
+## Lab 4: Technical output guide
+
+`lab4-technical-output-guide.png` is an annotated teaching illustration based on
+the instructor-provided terminal output. The personal shell prompt was removed.
+It explains connection/seed checks, test counts, docs generation, the checked
+lineage edge and remaining written work. It is not new execution evidence.
+Equivalent text and copyable commands appear in [Lab 4](../labs/module_3/lab4/README.md).
