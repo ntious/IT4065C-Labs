@@ -296,7 +296,15 @@ nano .local/lab4-decision-log.md
 
 A successful copy is normally silent. If prompted to overwrite existing work,
 answer `n` to keep it, then review your existing log. Edit only the private copy.
-Complete its four stage rows for the path ending at `olap_sales_by_day`:
+**Expected in the editor:** a worksheet with a completed Raw example, the model
+names and grains already filled in, prompts for three student rows, and three
+retention questions. This is written work, not SQL to execute.
+
+Keep the Raw row labeled as the supplied example. Complete the Staging, Core and
+Marts rows for the path ending at `olap_sales_by_day`, replacing each `[Write: ...]`
+prompt with your explanation. Record your checked paths and explanatory sentence
+in section 1 of the same worksheet so the evidence stays together:
+
 
 | Column | What to write |
 | --- | --- |
@@ -306,10 +314,16 @@ Complete its four stage rows for the path ending at `olap_sales_by_day`:
 | Permitted role | The role you propose should use the data; label it proposed unless access was actually tested |
 | Evidence and limitation | The file, output or observation supporting the entry, and what it cannot establish |
 
-For example, a raw-stage entry can identify `raw.orders`, “one row per order,”
-and the source records in `lab2_seed.sql`. That source file describes the fixture;
-it does not prove who can read it. Apply this distinction to the remaining rows.
-You may complete the same table in a word processor instead of Nano.
+The Raw example uses `lab2_seed.sql` as evidence of the source fixture and explicitly
+says that it does not prove access restrictions. Apply the same distinction to
+your three rows. Keep the `|` separators when editing the table; spacing need not
+align. You may instead write one labeled paragraph per stage using the column
+names, or complete the worksheet in a word processor.
+
+**Already have the older blank template?** Updating the repository does not update
+your private `.local` copy. Keep any work you have written. Open the revised
+[worksheet](_turnin_template.md) and transfer its prompts into your private notes,
+or copy it to a new private filename; do not overwrite completed work.
 
 Save with **Ctrl+O**, **Enter**, then exit with **Ctrl+X**. This saves your notes;
 it does not execute SQL. No screenshot of the editor is required.
@@ -318,7 +332,7 @@ it does not execute SQL. No screenshot of the editor is required.
 
 This is a written scenario: **do not delete data or run a refresh for this task.**
 Suppose an approved retention decision removes an order from `raw.orders`.
-Add three short answers below your private decision-log table:
+Complete the three labeled answer spaces in section 3 of your private worksheet:
 
 1. Which downstream stored tables could still contain the order or its contribution
    to a total? Name the affected models along the paths you traced.
