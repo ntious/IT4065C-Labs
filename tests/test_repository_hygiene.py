@@ -28,7 +28,8 @@ class RepositoryHygieneTests(unittest.TestCase):
                             "sample_screenshots/lab3-b2-nano-guide.png",
                             "sample_screenshots/lab4-technical-output-guide.png",
                             "sample_screenshots/lab4-open-lineage-guide.png",
-                            "sample_screenshots/lab4-order-lineage-guide.png"}:
+                            "sample_screenshots/lab4-order-lineage-guide.png",
+                            "sample_screenshots/lab4-focused-lineage-guide.png"}:
                     self.assertTrue(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
                     continue  # Reviewed instructional screenshot; text checks apply below.
                 text = path.read_text(encoding="utf-8")
