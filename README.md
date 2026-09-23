@@ -56,7 +56,7 @@ this includes optional 8–9 and does not run the newer optional activities.
 | [Instructor runbook](docs/instructor.md) | Preparation, pacing, assessments and verification |
 | [Security](SECURITY.md) | Safe use and private reporting |
 | [Validation](docs/validation.md) | Verified environments, checks and demonstration boundaries |
-| [Changes](CHANGELOG.md) | Migration from the older course edition |
+| [Changes](CHANGELOG.md) | Release history |
 
 ## What this environment demonstrates
 

@@ -1,12 +1,11 @@
 # Lab sequence
 
-Complete Labs 1–7 in order for the revised course. Lab 7 addresses the added AI
+Complete Labs 1–7 in order. Lab 7 addresses the added AI
 ethics/governance outcome and is part of that core sequence. Labs 8–11 provide
 additional lifecycle, infrastructure, ingestion and publication experiments. Optional
 Labs 12–14 add isolated server experiments; Optional Lab 15 is a governance case.
-None require paid services. Folder names are retained for compatibility with
-existing links. Module 4 uses a discussion/comparison route rather than a folder;
-Lab 7 remains core despite its historical `extensions` location.
+None require paid services. Use this index to navigate the activities. Module 4 uses a discussion/comparison route rather than a folder;
+Lab 7 remains core despite its `extensions` folder location.
 
 ## Core labs
 

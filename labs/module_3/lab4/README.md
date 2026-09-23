@@ -275,10 +275,8 @@ it and regain the shell prompt. Expected:
 Documentation server stopped. You can continue with the lab.
 ```
 
-A terminal may also display `^C`, meaning you pressed Ctrl+C. Older checkouts may
-show a traceback ending in `KeyboardInterrupt` instead; when the shell prompt
-returns after your intentional interruption, this is not a failed data test.
-Update the checkout for the clearer shutdown message; no setup rerun is needed.
+A terminal may also display `^C`, meaning you pressed Ctrl+C. Wait for the shell
+prompt before entering the next command.
 
 Then run these commands one at a time:
 
@@ -319,11 +317,6 @@ says that it does not prove access restrictions. Apply the same distinction to
 your three rows. Keep the `|` separators when editing the table; spacing need not
 align. You may instead write one labeled paragraph per stage using the column
 names, or complete the worksheet in a word processor.
-
-**Already have the older blank template?** Updating the repository does not update
-your private `.local` copy. Keep any work you have written. Open the revised
-[worksheet](_turnin_template.md) and transfer its prompts into your private notes,
-or copy it to a new private filename; do not overwrite completed work.
 
 Save with **Ctrl+O**, **Enter**, then exit with **Ctrl+X**. This saves your notes;
 it does not execute SQL. No screenshot of the editor is required.
