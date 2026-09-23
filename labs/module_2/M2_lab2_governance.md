@@ -38,7 +38,7 @@ Complete [setup](../../docs/setup.md) and Lab 1. Run all shell commands from the
 repository root in your Ubuntu terminal, one command at a time. If a command reports
 an error, stop and use Recovery before continuing. No external account is needed.
 
-| Part | What you do | Success checkpoint on a fresh walkthrough |
+| Part | What you do | Success checkpoint on a first run |
 | --- | --- | --- |
 | A: Follow the worked example | Run the supplied SQL unchanged; no placeholders to replace | Two baseline entries become three, and all three survive a rerun |
 | B: Apply the method independently | Edit your own SQL file for a different field and justify your decisions | Your new row appears and survives a rerun; normally four entries total |
@@ -83,7 +83,7 @@ PASS: governance register. Add your own rationale in the submission template.
 The runner checks the environment, prepares the synthetic tables and seeds two
 worked register entries. The register check requires at least two entries; it does
 not grade their reasoning. The completion banner confirms technical checks only.
-Older versions may have a garbled separator in that banner; compare the PASS lines.
+
 If you ran this before recording a prediction, say so rather than inventing one.
 
 ### A2. Inspect the two baseline entries
@@ -214,7 +214,7 @@ duplicate produces the same result. Now inspect:
 ]
 ```
 
-There are **three entries** on a fresh walkthrough. Rows are sorted by table and
+There are **three entries** on a first run. Rows are sorted by table and
 column, so `customers.created_at` appears before `customers.email`, not at the end.
 If this pair already existed, its prior values remain; record what you actually see.
 
@@ -301,18 +301,12 @@ An apostrophe inside text is doubled, for example `customer''s`. Keep `{{schema}
 unchanged. The register does not validate whether your source field actually exists;
 check your spelling against B1.
 
-**If your earlier draft contains REPLACE placeholders:** replace every placeholder
-with the corresponding decision above. The image below explains that older draft
-format; it is not a second file to create or a runnable example to paste.
-
-![Older placeholder draft: replace all seven REPLACE values with real decisions; keep schema and SQL structure unchanged.](images/lab2-placeholder-guide.png)
-
 Save with **Ctrl+O** (letter O), **Enter**, then exit with **Ctrl+X**. Nano's `*`
 indicates unsaved edits. Saving changes the file, not the database.
 
 ### B3. Execute your independent INSERT
 
-Check that no `REPLACE_...` text remains, then run:
+Check that all seven values reflect your decision, then run:
 
 ```bash
 .venv/bin/python scripts/query.py .local/my-classification.sql
@@ -372,7 +366,7 @@ Do not edit or commit the shared template. Label your evidence Part A and Part B
 | Interpretation and transfer | Defend one alternative classification for a chosen field; explain why a recorded rule is not enforcement and identify one limit of these checks |
 | Assistance | State any AI assistance and verification, or None, following course rules |
 
-**Part A on a repeat walkthrough:** if `customers.created_at` was already present
+**Part A on a repeat run:** if `customers.created_at` was already present
 before A4, report that it already existed and remained unchanged after A5. This is
 expected; do not claim a new insertion or delete the entry to recreate a first run.
 Use your actual row excerpts, not the expected-output example from this guide.
@@ -402,7 +396,7 @@ and do not infer assignment completion from the runner's banner.
 | Symptom | Next action |
 | --- | --- |
 | `[]` after INSERT | Normal without RETURNING. Inspect the register to determine whether a new row exists. |
-| `23514` | Check constraint failure. Use an exact allowed classification and replace every placeholder. Older helpers mention 42501 for unrelated errors; read the actual SQLSTATE. |
+| `23514` | Check constraint failure. Use an exact allowed classification: Public, Internal, Sensitive or Restricted. |
 | `42601` | Check straight single quotes, commas, parentheses and the final semicolon. |
 | `42501` | Permission denied. Check the selected role and configuration; do not grant broad privileges to bypass it. |
 | No new row | Confirm your selected pair is new, the correct file was saved/executed, and no earlier error occurred. |

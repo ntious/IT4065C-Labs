@@ -31,9 +31,8 @@ Microsoft references: [WSL installation](https://learn.microsoft.com/en-us/windo
 
 ## 2. Clone inside Linux: Ubuntu terminal
 
-Use a new clone in your Linux home directory. Keep the Windows checkout for your
-normal editing/publishing workflow. The Linux clone avoids cross-filesystem permission
-surprises for `.env` and the virtual environment. Do not copy a Windows `.venv` into Ubuntu.
+Clone the repository in your Linux home directory. This avoids cross-filesystem
+permission surprises for `.env` and the virtual environment. Do not copy a Windows `.venv` into Ubuntu.
 
 ```bash
 sudo apt-get update
@@ -45,9 +44,8 @@ cd IT4065C-Labs
 bash scripts/setup.sh
 ```
 
-If that Linux clone already exists, enter it and review `git status` before using
-`git pull --ff-only`; do not overwrite your own edits. Push desired Windows changes
-before pulling them into the Linux clone.
+If you already cloned the repository for this course, enter that directory to
+continue. Do not clone over existing work or delete it to repeat these steps.
 
 Setup installs PostgreSQL and the Python environment, generates `.env`, provisions
 the dedicated database and runs Lab 1. Keep `.env` private. No profile editing or

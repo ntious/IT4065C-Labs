@@ -67,9 +67,8 @@ PASS: dbt debug
 
 These are the required terminal results for Lab 1. Installation and provisioning
 messages give context but are not additional required submission evidence.
-Older checkouts then print `LAB 1 COMPLETE`; newer ones print `LAB 1 CHECKS PASSED`.
-Either wording is acceptable. The investigation and written evidence below complete
-the lab activity.
+The completion banner begins with `LAB 1 CHECKS PASSED`. The investigation and
+written evidence below complete the lab activity.
 
 If setup failed, follow the recovery guidance before continuing. You do not need
 to reinstall packages or regenerate credentials after a successful setup.

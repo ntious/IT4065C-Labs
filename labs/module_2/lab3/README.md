@@ -297,9 +297,9 @@ cp -i labs/module_2/lab3/lab3_guided_test.sql dbt/it4065c_platform/tests/lab3_gu
 its prompt without printing a message. This is normal; copying does not run the test.
 If prompted to overwrite existing work, answer `n` and inspect that file first.
 If you see `cannot stat` or `No such file or directory`, stop: the copy failed.
-Check that you are at the repository root and have pulled the published lab files
-with `git pull --ff-only` before retrying. If Git reports a conflict or the file is
-still missing, seek help rather than continuing with an older destination file.
+Check that you are at the repository root and that the source path matches the
+command exactly. If the supplied file is missing, ask your instructor for help;
+do not continue after a failed copy.
 
 Predict the test's result on the two observed daily rows, then run:
 
@@ -512,7 +512,7 @@ in `scripts/verify.py` is an instructor rehearsal, not an extra student requirem
 | Test returns failures | Inspect the rule and violating condition; distinguish data failure from an unjustified assumption. |
 | Revenue differs | Check source/model changes and cancellation policy; do not reset or delete data to match the fixture. |
 | Named result absent or old | Save both test files, rerun Lab 3, then run `check_test_results.py` immediately afterward. |
-| Result-check script missing | Confirm the repository root and update your checkout with `git pull --ff-only`; stop and seek help if Git reports a conflict. |
+| Result-check script missing | Confirm the repository root and command spelling. If the supplied script is missing, ask your instructor for help. |
 
 Use [setup recovery](../../../docs/setup.md) for environment issues.
 

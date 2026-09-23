@@ -34,7 +34,6 @@ lab's command. No environment activation or password export is needed.
 
 If terminology is new, use the [foundations bridge](docs/foundations.md) and
 [glossary](docs/glossary.md). For an error, use [troubleshooting](docs/troubleshooting.md).
-Labs 8–15 are optional enrichment. Folder names preserve older links; they do not
-define the syllabus module order. Lab 7 is core even though its path says `extensions`.
+Labs 8–15 are optional enrichment. Use the lab sequence above rather than folder names to determine activity order. Lab 7 is core even though its path says `extensions`.
 
 Author: [Isaac K. Nti](AUTHORS.md).

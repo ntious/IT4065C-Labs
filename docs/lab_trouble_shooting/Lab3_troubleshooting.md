@@ -1,5 +1,5 @@
 # Lab 3: Troubleshooting link
 
-This compatibility link is retained for older course references. Use the
+Use the
 [central troubleshooting guide](../troubleshooting.md) and the recovery section
 on the [Lab 3 page](../../labs/module_2/lab3/README.md).
