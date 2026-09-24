@@ -23,6 +23,16 @@ Read metric evidence, check arithmetic, assess tradeoffs, assign accountable rol
 > **Completion:** Automation passing means the environment checks worked. Complete
 > the independent investigation, interpretation and evidence below before submitting.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Prediction / label | The supplied selection decision / the reference eligibility outcome. This lab evaluates existing predictions; it does not train AI. |
+| Label bias / representativeness | Reference outcomes may contain systematic errors; a small fixture may not represent the intended population. |
+| Proxy / audit group | A field indirectly associated with another characteristic / a grouping used to compare results. Auditing groups does not mean using them as prediction inputs. |
+
+Use the [glossary](../../docs/glossary.md#ai-decisions) for more detail; this is reference support, not another assignment.
+
 ## Your route and deliverables
 
 - [ ] Part A: metrics and one calculation, recorded in worksheet section 1.

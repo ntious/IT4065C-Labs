@@ -58,6 +58,17 @@ If you have already practiced, additional rows are normal. Check the named field
 rather than deleting data to reproduce an exact count. Completing Part A with three
 entries is correct; the fourth entry is required only after Part B's independent insert.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Public / Internal | Approved for public release / intended for organizational use. |
+| Sensitive / Restricted | Controlled access because misuse could cause harm / especially limited access under the scenario. These are teaching categories, not official University policy. |
+| Owner / steward | The accountable business decision-maker / the role maintaining definitions and handling practices. These are not database ownership permissions. |
+| Policy / enforcement | A register records the decision. It does not enforce access or delete expired data. |
+
+Use the [glossary](../../docs/glossary.md#governance-and-access) for more detail; this is reference support, not another assignment.
+
 ## Concept: a register records decisions
 
 Classification connects a field to its purpose, sensitivity, accountable owner and

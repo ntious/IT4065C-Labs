@@ -22,6 +22,16 @@ required for this first activity.
 - [ ] Complete the three blanks and three short answers in the worksheet.
 - [ ] Save your evidence and move to Lab 2.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Client / server | The course script requests work; PostgreSQL handles it. |
+| Localhost / port | The local network endpoint and service number used to connect. |
+| Python virtual environment | The `.venv` folder holds Python packages; it is not a separate Ubuntu machine. |
+
+Use the [glossary](../../docs/glossary.md#course-and-environment) for more detail; this is reference support, not another assignment.
+
 ## Concept
 
 Lab 1 checks whether your local environment is ready for the course. Setup performs

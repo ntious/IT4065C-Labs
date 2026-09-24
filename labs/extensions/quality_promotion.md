@@ -28,7 +28,16 @@ Complete [Lab 3](../module_2/lab3/README.md) and [optional Lab 10](catalog_inges
 good publication when a new batch fails. The experiment uses the dedicated course
 database and the same private configuration; no new account is needed.
 
-Vocabulary: staging, quality gate, transaction, rollback, idempotency, KPI grain.
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Staging / quality gate | A preparation area / checks required before accepting data for use. |
+| Transaction / rollback | Operations handled as a unit / undoing uncommitted changes. |
+| Idempotency / KPI grain | Repeating a load without duplicating its effect / what one row of the reported measure represents. |
+
+Use the [glossary](../../docs/glossary.md) as needed; no separate vocabulary submission is required.
+
 
 ## Part A: Follow publication and retry
 

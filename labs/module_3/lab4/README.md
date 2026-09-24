@@ -54,6 +54,15 @@ you do not need to draw a diagram or write a new pipeline for this lab.
 Use the shared submission template to organize this evidence and include the
 completed decision log. You do not need to repeat the same explanation in both.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Materialization | How dbt creates a model in the database: here, a view or a stored table. |
+| Refresh / rebuild | Recompute stored results. Removing a raw row does not automatically update a downstream stored table. |
+
+Use the [glossary](../../../docs/glossary.md#data-and-transformations) for more detail; this is reference support, not another assignment.
+
 ## Concept
 
 Lineage records dependencies: changing a raw source can affect several downstream

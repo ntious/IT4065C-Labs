@@ -22,6 +22,15 @@ These instructor-developed objectives support the outcomes above. You will:
 
 Read recovery evidence, interpret measured durations, and diagram data copies.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Instance / PostgreSQL cluster | A running server / its managed collection of databases. A PostgreSQL cluster need not span several computers. |
+| Batch transfer / failover | Copying at selected times / switching service after failure. This exercise demonstrates manual transfer and recovery, not automatic failover. |
+
+Use the [glossary](../../docs/glossary.md#infrastructure-and-recovery) for more detail; this is reference support, not another assignment.
+
 ## Part A: Run and inspect the supplied experiment
 
 Predict whether the target should retain its last valid batch while the source is

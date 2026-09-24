@@ -22,6 +22,16 @@ These instructor-developed objectives support the outcomes above. You will:
 
 Compare connection conditions, read boolean assertions and document operational ownership.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| TLS / CA | Encryption in transit / the certificate authority used to establish certificate trust. |
+| Server identity / database authorization | Certificate trust and a matching server name help verify the server; database privileges still determine allowed queries. |
+| Rotation | Replace a password, check the new one works and the old one fails for new connections. Existing sessions are a separate concern. |
+
+Use the [glossary](../../docs/glossary.md#infrastructure-and-recovery) for more detail; this is reference support, not another assignment.
+
 ## Part A: Run and inspect the supplied experiment
 
 Predict which connections should fail: trusted CA and correct hostname; unrelated
