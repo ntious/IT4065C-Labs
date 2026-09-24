@@ -3,6 +3,16 @@
 **Outcomes:** SLO 4. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## Progress checklist
+
+- [ ] [Part A](#part-a-guided-baseline-and-annotated-results): follow the example and record the requested interpretation.
+- [ ] [Part B](#part-b-learn-the-test-pattern-then-write-your-own): make your independent change and verify its result.
+- [ ] [Part C](#part-c-submit-evidence-and-reasoning): assemble the listed evidence once.
+
+You may complete one part per session. Read the current step, run its command,
+then check its expected result before moving on. Reference images and recovery
+notes are support, not extra submissions.
+
 ## Why this lab matters
 
 A report can run successfully and still give the wrong answer. Joining orders to
@@ -264,6 +274,10 @@ This reading is optional and requires no additional submission.
 > daily revenue totals 139.95. Record and investigate differences before claiming
 > that your baseline matches.
 
+**Safe stopping point:** save your private notes and edited file. To return, open
+Ubuntu, enter your checkout folder and continue at the next part below. You do
+not need to repeat setup or completed steps; keep your database and draft files.
+
 ## Part B: Learn the test pattern, then write your own
 
 A dbt SQL data test is a SELECT that returns **violations**. Zero returned rows
@@ -387,6 +401,25 @@ The starter above is supported practice. For the independent submission, adapt i
 rather than submitting the unchanged example as your own design. Reopen the same
 file with the command in B2.1; you do not need a second file.
 
+Before editing, use this pattern from a **different inventory scenario**:
+
+| Rule | Valid example | Violating example | SQL condition selecting violations |
+| --- | --- | --- | --- |
+| Stock count must not be negative | `stock_count = 3` | `stock_count = -1` | `stock_count < 0` |
+| Stock count must be present | `stock_count = 0` | `stock_count = NULL` | `stock_count is null` |
+
+A dbt test is a query that returns violations. For the first rule, the valid row
+should be absent from the result and the negative row should appear. Zero rows
+on current data means no violations were found; it does not prove that an
+incorrect predicate would catch future bad data.
+
+**Self-check before saving:** write one valid value and one violating value for
+your chosen sales field. Read your WHERE condition against each: would it exclude
+the valid value and include the violation? Include these two examples in your
+existing rule notes, not a separate report. This is reasoning, not an executed
+failure injection. Do not use `stock_count` in the sales model; it is only the
+inventory teaching example.
+
 Choose **one** direction:
 
 - Check `avg_order_value` instead of `gross_sales`: change that column in both
@@ -471,6 +504,10 @@ honestly. Never weaken an assertion or delete existing tests merely to obtain PA
 > predicate and result, and you have documented its limitations. Resolve unintended
 > errors before submission; if blocked, report the problem rather than claiming pass.
 
+**Safe stopping point:** save your private notes and edited file. To return, open
+Ubuntu, enter your checkout folder and continue at the next part below. You do
+not need to repeat setup or completed steps; keep your database and draft files.
+
 ## Part C: Submit evidence and reasoning
 
 Use a private copy of the [shared template](../../../submissions/template.md).
@@ -504,6 +541,9 @@ in `scripts/verify.py` is an instructor rehearsal, not an extra student requirem
 
 ## Recovery
 
+<details>
+<summary>Open if a step fails or you need to retry</summary>
+
 | Symptom | What to check |
 | --- | --- |
 | Build stops | Read the first relevant error in `.local/dbt-last.log` locally; do not publish the full log. |
@@ -512,9 +552,11 @@ in `scripts/verify.py` is an instructor rehearsal, not an extra student requirem
 | Test returns failures | Inspect the rule and violating condition; distinguish data failure from an unjustified assumption. |
 | Revenue differs | Check source/model changes and cancellation policy; do not reset or delete data to match the fixture. |
 | Named result absent or old | Save both test files, rerun Lab 3, then run `check_test_results.py` immediately afterward. |
-| Result-check script missing | Confirm the repository root and command spelling. If the supplied script is missing, ask your instructor for help. |
+| Result-check script missing | Confirm the repository root and command spelling. If the supplied script is missing, use the [help route](../../../docs/self_study.md#when-you-are-stuck). |
 
 Use [setup recovery](../../../docs/setup.md) for environment issues.
+
+</details>
 
 [Back to all labs](../../README.md)
 

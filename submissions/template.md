@@ -2,7 +2,10 @@
 
 Create a separate private submission for each lab using this template. Leave this
 shared repository file unchanged. Replace the prompts in your copy with your own work;
-follow the lab page for its specific artifacts and rubric. The terminal supplies
+follow the lab page for its specific artifacts and rubric. If a lab supplies a
+completed worksheet structure, attach it and refer to its sections here rather
+than answering the same question twice. Independent learners can use the
+[self-check guide](../docs/self_study.md#check-whether-your-answer-is-sufficient). The terminal supplies
 execution evidence, not your interpretation or independent-task response.
 
 ## 1. Lab and execution evidence

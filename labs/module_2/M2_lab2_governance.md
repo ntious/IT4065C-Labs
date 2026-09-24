@@ -3,6 +3,16 @@
 **Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## Progress checklist
+
+- [ ] [Part A](#part-a-follow-the-worked-example-unchanged): follow the example and record the requested interpretation.
+- [ ] [Part B](#part-b-apply-the-method-independently): make your independent change and verify its result.
+- [ ] [Part C](#part-c-submit-evidence-and-reasoning): assemble the listed evidence once.
+
+You may complete one part per session. Read the current step, run its command,
+then check its expected result before moving on. Reference images and recovery
+notes are support, not extra submissions.
+
 ## Why this lab matters
 
 A data administrator needs to explain who owns a field, why it is used, how
@@ -247,6 +257,10 @@ prints the JSON shown above. Copy commands from the text instructions, not the
 image, and omit any illustrated `$` prompt. Extra rows from prior practice are
 normal. Use your own actual output as evidence.
 
+**Safe stopping point:** save your private notes and edited file. To return, open
+Ubuntu, enter your checkout folder and continue at the next part below. You do
+not need to repeat setup or completed steps; keep your database and draft files.
+
 ## Part B: Apply the method independently
 
 **Goal:** make and justify your own governance decision. Part B deliberately differs
@@ -350,6 +364,10 @@ this: the evidence is your actual row before and after the rerun.
 > written both classifications from B1. Now assemble Part C. The runner does not
 > grade your reasoning or print your written answers.
 
+**Safe stopping point:** save your private notes and edited file. To return, open
+Ubuntu, enter your checkout folder and continue at the next part below. You do
+not need to repeat setup or completed steps; keep your database and draft files.
+
 ## Part C: Submit evidence and reasoning
 
 Create one private Lab 2 submission using the [shared template](../../submissions/template.md).
@@ -393,6 +411,9 @@ and do not infer assignment completion from the runner's banner.
 
 ## Recovery
 
+<details>
+<summary>Open if a step fails or you need to retry</summary>
+
 | Symptom | Next action |
 | --- | --- |
 | `[]` after INSERT | Normal without RETURNING. Inspect the register to determine whether a new row exists. |
@@ -404,6 +425,8 @@ and do not infer assignment completion from the runner's banner.
 | Still in Nano | Save with Ctrl+O, Enter; exit with Ctrl+X before running shell commands. |
 
 See [setup recovery](../../docs/setup.md) and the [query helper guide](../practice/README.md#execute-your-own-sql-without-managing-passwords).
+
+</details>
 
 [Back to all labs](../README.md)
 

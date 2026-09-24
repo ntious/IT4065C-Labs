@@ -1,6 +1,6 @@
 # Lab 7: AI ethics and governance
 
-**Outcomes:** SLO 6. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
+**Outcomes:** SLO 6. **Planning time:** two sessions of 45–75 minutes for a first attempt; this is a planning estimate, not a measured novice completion time.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 
@@ -22,6 +22,17 @@ Read metric evidence, check arithmetic, assess tradeoffs, assign accountable rol
 
 > **Completion:** Automation passing means the environment checks worked. Complete
 > the independent investigation, interpretation and evidence below before submitting.
+
+## Your route and deliverables
+
+- [ ] Part A: metrics and one calculation, recorded in worksheet section 1.
+- [ ] Part B: initial decision and lifecycle record, in worksheet section 2.
+- [ ] Change review: amendment, in worksheet section 3.
+
+You submit this one worksheet plus the relevant execution evidence. You do not
+need separate essays for overlapping prompts. Read the
+[fictional library decision](../../docs/ai_decision_example.md) if you need an
+example of the expected depth; it is not a retail answer key.
 
 ## Before you begin
 
@@ -104,8 +115,9 @@ Then open the worksheet:
 nano .local/lab7-decision.md
 ```
 
-It contains prompts, not code. Add answers below the numbered prompts and complete
-the lifecycle table. You may use a word processor instead. Use the metrics from
+It contains three deliverables, not code. Put Part A evidence and interpretation
+in section 1, complete the combined lifecycle/decision record in section 2, then
+write the change-review amendment in section 3. You may use a word processor instead. Use the metrics from
 Part A to support your reasoning; do not submit the unchanged template.
 Save in Nano with **Ctrl+O**, **Enter**, then **Ctrl+X**.
 
@@ -116,6 +128,9 @@ Explain the mitigation's increased false-positive rate, small sample, possible
 label bias, whose interests are missed, transparency/appeal arrangements and
 accountable roles. Equal false-negative rates do not establish fairness.
 Label safeguards you have not implemented as **proposed**.
+
+**Safe stopping point:** after section 2, save your worksheet. Resume by reopening
+that same file; you do not need to recalculate unchanged metrics.
 
 Then complete the template's **Required change review**: the proposed use changes
 from support priority to restricting refunds, with a changed population and no

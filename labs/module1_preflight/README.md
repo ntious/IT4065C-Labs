@@ -3,6 +3,25 @@
 **Outcomes:** SLOs 3,4. **Estimated time:** 30–60 minutes first setup; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## Why this lab matters
+
+A working environment lets you concentrate on the course concepts. You will read
+setup's checks and distinguish the identities involved before editing any SQL.
+
+## Learning objectives and skills
+
+These instructor-developed objectives support SLOs 3 and 4. You will identify the
+configuration-to-database path, distinguish an Ubuntu account from a database
+login, and explain the limits of a connection check. You will practice reading
+short output and recording a supported explanation. No Python or YAML reading is
+required for this first activity.
+
+## Your route
+
+- [ ] Review the two setup PASS lines below.
+- [ ] Complete the three blanks and three short answers in the worksheet.
+- [ ] Save your evidence and move to Lab 2.
+
 ## Concept
 
 Lab 1 checks whether your local environment is ready for the course. Setup performs
@@ -31,16 +50,16 @@ The private `.env` file stores configuration that the runner reads as data. It i
 not a shell script. Use `.env.example` when discussing the settings; never submit
 `.env` or any password.
 
-**Check your understanding:** Explain why a successful connection does not guarantee
-that a later model will run or its data will be correct. Give one possible connection
-failure, one SQL/model failure and one data-quality failure, and identify the evidence
-you would inspect for each. These are hypothetical examples for your explanation;
-you do not need to cause failures in your working environment.
+A connection check, a model check and a data-quality check answer different questions:
 
-**Transfer:** Consider moving this local exercise to a shared remote server. Identify
-one change needed to protect connections and one change needed to manage credentials
-or access. Explain why each matters. This is a written proposal, not an additional
-installation task; Lab 1 does not demonstrate those remote controls.
+| Check | Example problem it could reveal |
+| --- | --- |
+| Can the client connect? | The local database service is stopped. |
+| Can the SQL run? | A query uses a column name that does not exist. |
+| Are the records suitable? | A required identifier is missing even though the query runs. |
+
+Read these as examples; do not introduce failures into your database. Later labs
+investigate SQL, data quality and access restrictions directly.
 
 > **Completion:** The PASS lines provide your technical evidence. Complete the
 > investigation and written responses below to finish Lab 1. No repeat check is
@@ -48,8 +67,9 @@ installation task; Lab 1 does not demonstrate those remote controls.
 
 ## Before you begin
 
-Start with the [foundations bridge](../../docs/foundations.md) if needed, then complete
-[setup](../../docs/setup.md). No earlier lab is required.
+Follow the [single installation route](../../docs/local_run.md). Use
+[Foundations Part B](../../docs/foundations.md#part-b-after-setup-before-the-lab-1-worksheet)
+if the identity terms below are new. No earlier lab is required.
 The runner checks its required state and reports missing prerequisites.
 
 ## Review your setup result
@@ -87,54 +107,74 @@ additional required step after successful setup.
 
 ## Hands-on investigation
 
-Read `.env.example`, `dbt/it4065c_platform/profiles.yml`, and the `connect` method in
-`scripts/course.py`. Draw how configuration reaches the client and server without
-hardcoding a password. Explain why an Ubuntu sudo password and a database password
-have different purposes. Do not put either password in your submission.
+This is a writing task. Use a private document or a copy of the
+[submission template](../../submissions/template.md); do not type answers into the terminal.
 
-For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
+### 1. Complete the configuration path
 
-## Interpret and transfer
+The Ubuntu account starts the runner. The runner reads private configuration as
+data and passes the connection settings to the database client. PostgreSQL checks
+the database login and its privileges.
 
-Explain the difference between your Linux account, builder login, analyst login and schema. Why does a schema name alone not enforce access?
+Copy this text flow and replace its three blanks using **PostgreSQL**, **Ubuntu
+account**, and **private .env configuration**. No actual names or passwords belong here.
+
+```text
+[Blank 1] starts the course runner.
+The runner reads [Blank 2] and supplies settings to the client.
+The client connects to [Blank 3], which checks the database login.
+```
+
+The supplied example is enough to complete this task. You do not need to draw a
+new diagram or inspect implementation code.
+
+### 2. Write three short explanations
+
+Use two or three sentences per answer. The concept table and
+[identity definitions](../../docs/foundations.md#part-b-after-setup-before-the-lab-1-worksheet)
+provide the information you need.
+
+1. Which account saves a file and uses sudo for authorized installation? Which
+   identity does PostgreSQL check? Explain why their passwords serve different purposes.
+2. The builder creates course objects; the analyst later reads approved views.
+   A schema is a named group of objects. Why would knowing a schema name alone
+   not give the analyst permission to read a table inside it?
+3. Why does `dbt debug` passing not guarantee that a later SQL model or its data
+   is correct? Use one example from the concept table and state one limit of the
+   setup evidence. You are explaining a hypothetical, not reporting a failure you ran.
+
+These are the complete interpretation and transfer responses for this lab. Remote
+server design is discussed after access control in Lab 5; you do not need to design
+it before learning the local identities.
+
+<details>
+<summary>Optional deeper reading: how the implementation connects</summary>
+
+Read the public [.env example](../../.env.example),
+[dbt profile](../../dbt/it4065c_platform/profiles.yml) and the `connect` method in
+[the runner](../../scripts/course.py). Trace where the settings are read.
+This is optional implementation reading, not additional submission evidence.
+Use the public example rather than publishing your private configuration.
+
+</details>
 
 ## Submit
 
-Create a private Lab 1 submission using the [shared template](../../submissions/template.md).
-Leave the repository template unchanged. Include the following required evidence
-and written work; the written work is not printed by setup:
+Keep one private record containing:
 
-1. **Execution evidence:** record `bash scripts/setup.sh` (or the standalone Lab 1
-   command if that is what you ran). Copy these two lines **from your own output**:
+- Lab number and the setup command you actually ran.
+- Your own two relevant PASS lines from setup.
+- The completed three-blank flow and three short answers above.
+- The assistance disclosure from the shared template, including `None` when applicable.
 
-   ```text
-   PASS: connection, dedicated database, schemas and non-superuser builder.
-   PASS: dbt debug
-   ```
+For the prediction field, write `Not required for this activity` unless you
+actually recorded an expectation before setup. Do not invent one afterward.
+The third answer already contains your limitation; do not repeat it in another essay.
+Text evidence is sufficient. Submit via the LMS when enrolled, or retain privately
+for self-study. Omit credentials and personal terminal details.
 
-   This is an example of the expected excerpt, not evidence to copy without running
-   setup. No package download list, full terminal transcript or screenshot is needed.
-   The completion message may differ across repository versions; the PASS checks
-   above are the relevant evidence.
-2. **Prediction field:** if you did not record a prediction before automatic setup,
-   write "Not recorded before automatic setup checks." Do not invent one afterward.
-3. **Investigation artifact:** provide a diagram or text flow showing how private
-   configuration reaches the client and database. Label roles without including
-   actual passwords or personal account names. Use the public example file and
-   source references listed above, not a copy of your private `.env`.
-4. **Your explanation:** distinguish the Linux account, builder login, analyst login
-   and schema; explain why knowing a schema name grants no privilege. Explain the
-   different purposes of the sudo and database passwords. Address the concept
-   question about connectivity, SQL correctness and data quality.
-5. **Transfer and limitation:** explain what would need to change on a shared remote
-   server, and identify one claim that the local checks do not establish. These are
-   reasoned proposals, not additional infrastructure you must install in Lab 1.
-6. **Assistance disclosure:** complete the template's assistance field, including
-   "None" when applicable.
-
-Items 3–6 are written by you; they are not generated by setup. Submit privately
-through the course system, or keep your work locally for independent study. Remove
-personal shell prompts and never include configuration secrets.
+**Safe stopping point:** save this record; installation is finished. Next time,
+follow [stop and resume](../../docs/local_run.md#stop-and-resume), then begin Lab 2.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.

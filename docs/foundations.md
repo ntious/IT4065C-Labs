@@ -1,53 +1,104 @@
 # Foundations bridge
 
-Start here before Lab 1 if terminal commands, SQL or database terminology are new.
-This is a supportive self-check, not an admission requirement or graded exam.
-Allow 30–60 minutes; ask for help whenever a step is unclear.
+Use the part you need now. This is practice, not an admission test. You may read
+the worked answers immediately, then try explaining them in your own words.
 
-## Locate your work
+| When | Start here |
+| --- | --- |
+| Terminal commands are new | Part A, before installation |
+| Lab 1 account names are confusing | Part B, after setup |
+| You are about to start Lab 3 | Part C, before modeling |
 
-In your Ubuntu terminal, run `pwd`, then `ls`. Explain which directory you are in
-and identify `README.md` after entering the cloned course directory. Use `cd ..`
-to move up one directory and `cd IT4065C-Labs` to return. Do not paste Ubuntu
-commands into PowerShell. Run the [setup guide](setup.md) when ready.
+## Part A: Before installation
 
-## Predict before calculating
+A terminal accepts text commands. A folder is also called a directory.
+In **Ubuntu Terminal**, enter one command at a time and press Enter:
 
-A fictional library has two loans: loan A has two item rows; loan B has one.
-A borrower identifier appears in both a borrower table and each loan.
+```bash
+pwd
+```
 
-1. Which field should uniquely identify one loan? What does the borrower reference do?
-2. After joining loans to items, how many rows should you expect?
-3. If loan A has a fee of 6 and loan B a fee of 3, why is summing loan fees after
-   the join incorrect? Predict the correct total and the incorrect joined total.
-4. Does successfully connecting to a database prove permission to read every table?
-5. Explain how a Linux user, database login, schema and table differ.
+This prints your current folder. Its path may include your private username.
+You do not need to publish it. Next:
 
-Self-check: a loan key identifies one loan; the borrower reference links to a
-borrower. The join has three rows. Correct fees total 9; repeating loan A's fee
-produces 15. Connection permission does not grant every table privilege. See the
-[glossary](glossary.md) for identity and namespace definitions.
+```bash
+ls
+```
 
-## Read a command and an error
+This lists files and folders. Empty output can simply mean the folder is empty.
+`cd` changes folders; `cd ~` takes you to your Ubuntu home folder, and `cd ..`
+moves one level up. These commands do not delete files.
 
-After setup, run `.venv/bin/python scripts/course.py check` from the repository
-root. Identify the interpreter, script and command argument. Copy only a short,
-redacted error excerpt into your private help request if it fails. Explain the
-expected result, observed result and what you already tried. Never include `.env`.
+The [installation guide](local_run.md) will create `~/courses/IT4065C-Labs`.
+After cloning, entering that folder and running `ls` should show `README.md`,
+`labs` and `scripts`. That is the repository root used in lab instructions.
 
-Read `labs/practice/inspect_sales.sql` after Lab 3. Locate a SELECT, its source
-relation and any grouping. Use the helper in the [practice guide](../labs/practice/README.md)
-to execute it. Change a copy only after you can explain the original query.
+**Ready to continue:** you know where to type Ubuntu commands and how to identify
+the repository folder. Continue with installation; SQL is not needed yet.
 
-## Choose your next step
+## Part B: After setup, before the Lab 1 worksheet
 
-- Ready: explain all five answers in your own words, then continue to Lab 1.
-- Need SQL practice: review the library example with a peer and draw its tables.
-- Need environment help: use setup troubleshooting before attempting later labs.
+| Term | Plain-language meaning | Example responsibility |
+| --- | --- | --- |
+| Ubuntu account | Your identity for files and terminal commands | Saves your private draft; uses sudo for authorized setup |
+| Database login | An identity PostgreSQL authenticates | Builder creates course objects; analyst reads approved views |
+| Schema | A named group of database objects | Locates a table; knowing its name does not grant permission |
+| Table | Rows and columns holding records | One order per row in the raw orders table |
 
-Instructors: use these answers to plan support, not to exclude students. Revisit
-one question after Lab 3 to check learning rather than recall.
+Connection success means a login can connect; it does not mean every table is
+readable. Lab 5 tests those permissions. You do not need to run that lab early.
+
+**Self-check:** Which identity saves a file? Which checks database privileges?
+Answer: the Ubuntu account controls file operations; PostgreSQL checks the
+connected database login's privileges. Continue to the [Lab 1 worksheet](../labs/module1_preflight/README.md#hands-on-investigation).
+
+## Part C: Before Lab 3, learn keys, joins and grain
+
+A **key** identifies a row. **Grain** means what one row represents. A **join**
+matches records between tables using related values. Read this fictional library example.
+
+Loans: one row per loan; `loan_id` is the key.
+
+| loan_id | borrower_id | loan_fee |
+| --- | --- | --- |
+| A | R1 | 6 |
+| B | R1 | 3 |
+
+Items: one row per borrowed item; `item_id` is the key and `loan_id` refers to a loan.
+
+| item_id | loan_id |
+| --- | --- |
+| I1 | A |
+| I2 | A |
+| I3 | B |
+
+Matching items to loans on `loan_id` produces:
+
+| loan_id | item_id | loan_fee |
+| --- | --- | --- |
+| A | I1 | 6 |
+| A | I2 | 6 |
+| B | I3 | 3 |
+
+The joined result has **item grain**: three rows. Loan A's fee is repeated, not
+charged twice. Adding this fee column gives 6 + 6 + 3 = 15, but the actual
+loan-level total is 6 + 3 = 9. Decide what one row represents before adding values.
+The shared borrower R1 does not make A and B the same loan.
+
+**Try:** If loan B had two items instead of one, how many joined rows would appear?
+Would the actual loan-level fee total change?
+
+<details>
+<summary>Check your reasoning</summary>
+
+Four joined rows; the actual loan-level total stays 9. Joining creates repeated
+representations of a loan's fee, not additional loan fees.
+
+</details>
+
+Now continue to [Lab 3](../labs/module_2/lab3/README.md). Use the
+[glossary](glossary.md) for unfamiliar words as they appear; memorization is not required.
 
 ---
 
-Author: [Isaac K. Nti](../AUTHORS.md).
+Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).

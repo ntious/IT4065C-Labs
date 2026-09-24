@@ -1,39 +1,30 @@
 # Student start here
 
-Follow this page once, then use the [core lab index](labs/README.md#core-labs).
-The public course materials are instructor-developed; your current LMS supplies
-dates, assigned activities, official weights and the private submission route.
+You can use this course on **Windows through Ubuntu in WSL2**, or **directly on
+Ubuntu 22.04/24.04**. WSL is a Windows option, not a requirement for Ubuntu users.
+You do not need previous SQL or Python experience to begin.
 
-1. Use an individual Ubuntu 22.04/24.04 VM or Ubuntu in WSL2. Windows users follow
-   [the Windows/Ubuntu guide](docs/local_run.md). Work in the Ubuntu home directory.
-   On a managed computer, request an instructor-managed individual Ubuntu VM with
-   the same setup; do not bypass device restrictions. See [managed access](docs/setup.md#managed-computers).
-2. Open the Ubuntu terminal and obtain the materials:
+1. [Choose your environment and install once](docs/local_run.md). Both routes join
+   the same Ubuntu instructions. Setup includes Lab 1's technical checks.
+2. [Complete Lab 1's short writing activity](labs/module1_preflight/README.md)
+   using your setup results. No repeat installation or check is needed after success.
+3. Follow the [course checklist](docs/course_checklist.md). It lists Labs 2–7,
+   the companion discussions and capstone in one place. Check off work as you go.
+4. Keep your responses private. Enrolled students use the LMS for deadlines,
+   official grading and submissions. Independent learners use the
+   [self-study guide](docs/self_study.md) and retain a local portfolio.
 
-   ```bash
-   git clone https://github.com/ntious/IT4065C-Labs.git
-   cd IT4065C-Labs
-   python3 scripts/preflight.py
-   ```
+**On returning:** open Ubuntu, run `cd ~/courses/IT4065C-Labs` (or your chosen
+checkout location), and continue at your next unfinished step. See
+[stop and resume](docs/local_run.md#stop-and-resume) if the database needs restarting.
 
-   Resolve FAIL results using [setup](docs/setup.md); review WARN results before
-   continuing. The preflight installs nothing and does not read passwords.
-3. Run `bash scripts/setup.sh`. It asks for your Linux sudo password, creates private
-   configuration and completes Lab 1's technical checks. Allow time for downloads.
-   Keep the final PASS lines for your evidence; do not share `.env`.
-4. Open [Lab 1](labs/module1_preflight/README.md), review the setup result, and
-   complete its hands-on investigation and written evidence. **Do not rerun the
-   technical check after successful setup.** Then complete Labs 2–7 in order.
-   Each lab page contains its task and submission requirements.
-5. Submit privately through the LMS; independent learners retain their evidence
-   locally. A PASS or COMPLETE message confirms technical checks, not assignment
-   completion. Include your independent work and explanation.
+A PASS or COMPLETE message confirms technical checks; each lab's submission
+checklist tells you when the learning activity is complete. Screenshots are optional
+unless a specific activity says otherwise; text evidence is accepted.
 
-On returning, open the same Ubuntu terminal, `cd IT4065C-Labs`, and run the next
-lab's command. No environment activation or password export is needed.
-
-If terminology is new, use the [foundations bridge](docs/foundations.md) and
-[glossary](docs/glossary.md). For an error, use [troubleshooting](docs/troubleshooting.md).
-Labs 8–15 are optional enrichment. Use the lab sequence above rather than folder names to determine activity order. Lab 7 is core even though its path says `extensions`.
+Use the [foundations bridge](docs/foundations.md) when a topic is new and the
+[glossary](docs/glossary.md) as a reference. You do not need to study every link first.
+Labs 8–15 are optional. Follow the checklist rather than folder names: Lab 7 is
+core even though its file lives in `extensions`.
 
 Author: [Isaac K. Nti](AUTHORS.md).

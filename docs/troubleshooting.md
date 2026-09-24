@@ -15,8 +15,9 @@
 | Lab 7 fairness conclusion unclear | Recalculate denominators and compare error costs; equal rates alone do not establish fairness. |
 | Optional server experiment fails | Follow [isolated setup and recovery](../labs/extensions/infrastructure_setup.md); do not reuse production databases. |
 
-Send the lab number, command, expected result and a short redacted error to your
-instructor's private support route. Never send `.env`, credentials, full logs or
+Enrolled students send the lab number, command, expected result and a short
+redacted error to their instructor's private support route. Independent learners
+use the [self-study help route](self_study.md#when-you-are-stuck). Never send `.env`, credentials, full logs or
 uncropped screenshots. [Setup recovery](setup.md#restart-checks-and-recovery)
 explains private evidence and fresh DB/user configuration.
 

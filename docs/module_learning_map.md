@@ -15,8 +15,9 @@ course materials for the authoritative outcome wording and applicable offering.
 See the [institutional notice](../AUTHORS.md#institutional-context-and-instructional-authorship)
 and [official UC course descriptions](https://www.cech.uc.edu/Academics/school-of-information-technology/course_descriptions.html).
 
-Use the official LMS calendar for dates. Module and lab numbers differ.
-Read each lab page's concept section before class. The required evidence connects
+Follow the [course checklist](course_checklist.md) for the ordered learner route
+and a single list of artifacts. Use the official LMS calendar for dates. Module and lab numbers differ.
+Read each lab page's introductory explanation before the activity. The required evidence connects
 instructor-developed activities to the course's assessment plan.
 
 | Instructor-developed module | Preparation and guided work | Required independent evidence / discussion |
@@ -60,10 +61,13 @@ This connects existing lab work; it is not an additional required technical lab.
 A fictional organization proposes reusing purchase records for support prioritization.
 It has not established jurisdiction, health-sector status, lawful authority or the
 source of labels. List the facts needed before selecting a regulatory framework.
-Using instructor-selected current primary sources, map one potentially applicable
+Use the [primary-source reading list](../labs/extensions/governance_case.md#read-primary-sources),
+or current sources assigned in the LMS. Reading the list does not require completing
+optional Lab 15. Map one potentially applicable
 obligation to an owner, control and evidence gap. Explain why sensitive data alone
 does not establish that every privacy law applies. This is an academic analysis,
-not a declaration of compliance. The instructor reviews source applicability.
+not a declaration of compliance. Enrolled students discuss source applicability with the instructor; independent
+learners state their scope assumptions and unresolved facts explicitly.
 
 ## Enrichment without extra required installations
 
