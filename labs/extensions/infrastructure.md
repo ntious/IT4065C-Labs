@@ -19,6 +19,15 @@ These instructor-developed objectives support the outcomes above. You will:
 
 Read a snapshot query, adapt count/total assertions, and write a deployment comparison.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| RPO / RTO | Targets for tolerable data loss measured in time / time to restore service. A target is not an observed result. |
+| Failure domain / residency | Resources that can fail together / where data is stored or processed. Two instances on one laptop share a failure domain. |
+
+Use the [glossary](../../docs/glossary.md#infrastructure-and-recovery) for more detail; this is reference support, not another assignment.
+
 ## Before you begin
 
 [Lab 3](../module_2/lab3/README.md) introduces reporting models; [Lab 4](../module_3/lab4/README.md) introduces stored copies.

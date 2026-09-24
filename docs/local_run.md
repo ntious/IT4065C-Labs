@@ -15,6 +15,17 @@ and about 4 GB free RAM and disk as planning allowances. Do not use a shared or
 production database server. A managed device may need its administrator to provide
 an individual Ubuntu VM. No paid or institutional account is needed for the local labs.
 
+## Terms used during setup
+
+| Term | Meaning here |
+| --- | --- |
+| Terminal | The window where you type commands. Use PowerShell only where labeled; run course commands in Ubuntu. |
+| WSL2 / VM | A Linux environment on Windows / a separate virtual operating-system environment. Neither is needed on native Ubuntu. |
+| `.venv` | The course's Python package environment, not a separate operating system. |
+| Repository root | The checkout folder containing `scripts`, `labs` and `docs`. Run course commands there. |
+
+The [environment glossary](glossary.md#course-and-environment) is available if you need more detail.
+
 ## A. Windows: open Ubuntu through WSL2
 
 **In PowerShell**, check:

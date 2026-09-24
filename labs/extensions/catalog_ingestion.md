@@ -28,7 +28,16 @@ Complete [Lab 2](../module_2/M2_lab2_governance.md) and use the same configured 
 plain-text purpose statement. Decide which data may enter an analytical pipeline.
 All inputs in `data/ingestion/` are synthetic. There is no download or paid service.
 
-Vocabulary: structured, semi-structured, unstructured, provenance, allowlist, quarantine.
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Structured / semi-structured / unstructured | CSV fields / flexible JSON fields / prose without fixed record columns. |
+| Provenance / allowlist | Where an input came from / an explicit list of accepted inputs. |
+| Quarantine | Record rejected input references and reasons for review; do not treat them as accepted data. |
+
+Use the [glossary](../../docs/glossary.md) as needed; no separate vocabulary submission is required.
+
 The text document is cataloged, not automatically transformed into trustworthy facts.
 
 ## Part A: Follow the supplied catalog example

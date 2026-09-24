@@ -47,6 +47,17 @@ No prior SQL or Python programming experience is assumed in this guide. The
 you need it. The supplied models and worked examples are your starting point;
 you do not need to build a complete pipeline from scratch.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| dbt model | A saved SQL transformation, not an AI prediction model. |
+| Raw → staging → core → mart | Source records → cleaned fields → reusable business records → reporting results. Follow an order through `raw.orders`, `stg_orders`, `fct_orders`, then daily sales. |
+| Fixture / baseline | Prepared example data / the initial result against which you compare changes. |
+| View / table | A regular view stores a query; a table stores rows. This course uses staging views and core/mart tables. |
+
+Use the [glossary](../../../docs/glossary.md#data-and-transformations) for more detail; this is reference support, not another assignment.
+
 ## What you will produce
 
 - Relevant baseline execution results and your interpretation.

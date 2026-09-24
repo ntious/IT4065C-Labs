@@ -20,6 +20,15 @@ These instructor-developed objectives support the outcomes listed above. You wil
 
 Open a JSON report, correlate rule and event, and write a concise incident memo.
 
+## Terms you need for this lab
+
+| Term | Meaning here |
+| --- | --- |
+| Event → alert → incident | An observed action → a signal for review → an occurrence assessed as requiring a response. Not every event becomes an alert or an incident. |
+| False positive / false negative | An unnecessary alert / a missed condition that should have triggered an alert. An alert is not proof of misconduct. |
+
+Use the [glossary](../../../docs/glossary.md#tests-and-operational-evidence) for more detail; this is reference support, not another assignment.
+
 ## Concept
 
 The access runner records what its client observed during live queries. Those records
