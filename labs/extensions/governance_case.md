@@ -41,14 +41,14 @@ These are scenario facts and gaps, not a real organization's compliance assessme
 ## Read primary sources
 
 - [European Commission: GDPR application](https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/application-gdpr_en).
-- [GDPR official text](https://eur-lex.europa.eu/eli/reg/2016/679/oj): read Articles 3
+- [GDPR official text](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679): read Articles 3
   (scope), 5 (principles), 6 (lawfulness), and 28 (processors); identify other relevant
   provisions only when justified by your scenario analysis.
 - [HHS: covered entities and business associates](https://www.hhs.gov/hipaa/for-professionals/covered-entities/index.html).
 - [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) for voluntary
   governance guidance; distinguish it from legislation.
 
-Record access dates and exact sections. Sources were selected on 2026-09-18;
+Record access dates and exact sections. Source links were reviewed on 2026-09-24;
 recheck current applicability when adapting the exercise. Do not equate health-related
 text with automatic HIPAA coverage, or assume a US headquarters excludes GDPR.
 The sources establish scope tests, not the final answer for every hypothetical fact.

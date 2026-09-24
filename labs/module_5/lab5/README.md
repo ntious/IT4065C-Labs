@@ -41,7 +41,7 @@ Masking is data minimization, not proof of anonymity. Domains, suffixes, identif
 and joinable patterns can still reveal information. Unkeyed hashes of predictable
 identifiers are not a safe substitute for an access policy.
 
-**Check your understanding:** Predict all three commands in the practice guide before
+**Check your understanding:** Predict the three queries in Part A before
 running them. Explain both the role grant and the view projection behind each result.
 
 > **Completion:** Automation passing means the environment checks worked. Complete
@@ -151,14 +151,21 @@ No new SQL file or database edits are required for this part.
    would omit, and why. Label this **proposed**, not implemented. Explain one
    remaining privacy risk and why any error is not equivalent to a 42501 denial.
 
-**Part B complete:** you have three interpreted outcomes and one justified access
-proposal. You do not need to recreate the runner's nine internal checks manually.
+4. **Remote-server discussion:** suppose this database moves to a shared remote
+   server. Propose one protection for the connection and one change to credential
+   or access management. For example, verified encrypted transport addresses the
+   connection, while managed individual credentials address identity. Explain the
+   different purpose of each. Two or three sentences are sufficient; no remote
+   server installation or optional TLS experiment is required.
+
+**Part B complete:** you have three interpreted outcomes, one justified access
+proposal and the short remote-server discussion. You do not need to recreate the runner's nine internal checks manually.
 
 ## Submit
 
 Use the [submission template](../../../submissions/template.md). Include A1's
 completion evidence, your A2–A4 table with the relevant results, and the Part B
-proposal and limitation. Text output is sufficient; screenshots are optional.
+proposal, remote-server discussion and limitation. Text output is sufficient; screenshots are optional.
 Do not submit `.env`, credentials or personal terminal prompts. Submit through the
 LMS or retain privately for independent study. Do not repeat the same explanation
 in a second essay.

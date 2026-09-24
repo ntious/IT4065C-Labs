@@ -1,12 +1,13 @@
 # From a worked example to independent reasoning
 
 For each core lab, first run its baseline and read its concept notes. Use the middle
-column with a peer or instructor, then complete the independent practice in your own
-words. Keep drafts private. You do not need to complete optional labs for this sequence.
+column as support, with a peer or independently, then complete the lab page's tasks
+in your own words. This table explains the progression; it does not add deliverables
+beyond the [course checklist](course_checklist.md). Keep drafts private. You do not need to complete optional labs for this sequence.
 
 | Lab | Guided example to inspect | Partially supported task | Independent transfer and self-check |
 | --- | --- | --- | --- |
-| 1 | Setup checks a dedicated builder connection | Draw OS user → runner → database role; fill in which boundary each identity controls | Explain why knowing a schema name grants no privilege. Name an actual permission check rather than claiming connection proves access. |
+| 1 | Setup checks a dedicated builder connection | Complete the supplied configuration flow and distinguish file versus database identities | Explain why knowing a schema name grants no privilege. Name an actual permission check rather than claiming connection proves access. |
 | 2 | Existing classification register entry | Fill in: field → purpose → sensitivity → owner → retention → allowed AI use; compare two plausible classifications | Add a different synthetic field using the practice guide. Defend classification and verify the row survives rerun. |
 | 3 | Staging/core/mart path and worked library join in the foundations bridge | Write the grain beside each relation; identify where an order total repeats after joining items | Author a new dbt test, predict its result and explain the violating rows it would return. Do not simply copy a baseline test. |
 | 4 | Generated lineage from raw orders to both marts | Trace one deletion through source → derived table → report → backup, marking proposed actions | Decide how to retire a different derived copy and identify what the DAG cannot enforce. Include an owner and evidence needed. |

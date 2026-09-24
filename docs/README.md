@@ -1,5 +1,9 @@
 # Course documentation
 
+- [Installation: Windows/WSL or native Ubuntu](local_run.md)
+- [Complete course checklist](course_checklist.md)
+- [Independent study and help](self_study.md)
+- [Fictional AI decision example](ai_decision_example.md)
 - [Foundations bridge](foundations.md)
 - [Learning progression](learning_progression.md)
 - [Student navigation and learning support](student_walkthrough.md)

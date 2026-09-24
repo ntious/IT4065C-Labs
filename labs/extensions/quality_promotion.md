@@ -63,7 +63,8 @@ Vocabulary: staging, quality gate, transaction, rollback, idempotency, KPI grain
    Open the repository's `.local` folder in your file manager, then open
    `optional-kpi.html` in a browser. In WSL, `explorer.exe .local` opens that folder
    in Windows Explorer when Windows integration is enabled. No web server is needed.
-   If browser access is unavailable, the JSON values provide equivalent evidence. The accessible table and visual comparison must reconcile to **45.00**:
+   If browser access is unavailable, the JSON values provide equivalent evidence.
+   The accessible table and visual comparison must reconcile to **45.00**:
    20.00 on January 10 and 25.00 on January 11, 2026.
 5. Repeat the command. Expect the same publication and the same negative-control result.
 
@@ -78,7 +79,9 @@ published daily summary, labeling keys and what one row represents. A two-box
 text diagram in your private Markdown submission is sufficient: list the incoming
 fields, list the daily-summary fields, and label the many-records-to-one-day
 relationship. A shared date does not automatically establish an enforced foreign key.
-No modeling application or new database table is required. Design a second KPI and state its denominator, exclusions and
+No modeling application or new database table is required.
+
+Design a second KPI and state its denominator, exclusions and
 reconciliation rule. Explain which additional checks would be needed for currency,
 late arrivals, duplicate batches with changed values and legitimate refunds.
 

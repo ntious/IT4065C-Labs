@@ -106,6 +106,11 @@ def promotion_lab():
     rows = "".join(f"<tr><td>{day.isoformat()}</td><td>{count}</td><td>{amount:.2f}</td></tr>" for day, count, amount in after)
     bars = "".join(f'<div>{day.isoformat()} <meter min="0" max="45" value="{amount}">{amount:.2f}</meter> {amount:.2f}</div>' for day, _, amount in after)
     report = ('<!doctype html><html lang="en"><meta charset="utf-8"><title>Optional sales KPI</title>'
+              '<meta name="viewport" content="width=device-width, initial-scale=1">'
+              '<style>body{font:18px/1.5 system-ui,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;color:#172b42}'
+              'table{border-collapse:collapse;margin:1rem 0}caption{text-align:left;font-weight:bold}'
+              'th,td{padding:.5rem 1.5rem .5rem .5rem;text-align:left;border-bottom:1px solid #ccd5df}'
+              'meter{width:12rem;max-width:40vw;margin:0 .5rem}</style>'
               '<h1>Governed daily sales</h1><p>Author: Isaac K. Nti. Synthetic fixture; total 45.00.</p>'
               '<table><caption>Accessible source values</caption><tr><th>Date</th><th>Records</th><th>Amount</th></tr>'
               + rows + '</table><h2>Daily comparison</h2>' + bars +

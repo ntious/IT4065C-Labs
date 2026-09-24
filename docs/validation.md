@@ -16,6 +16,43 @@ production deployment or replace an interactive learner pilot.
 Optional Lab 15 is a human-assessed case, not an executable check. An instructor
 walkthrough is documented separately and does not substitute for real student pilots.
 
+## Ubuntu WSL instructional walkthrough: 2026-09-24
+
+The walkthrough continued from the earlier Labs 1–3 rehearsal through Lab 15.
+The final execution pass also reran Labs 1–9. Environment: Ubuntu 24.04.4 on WSL,
+Python 3.12.3, PostgreSQL 16, dbt-core 1.11.2 and dbt-postgres 1.10.0. The local
+source review includes revision `6752e75` plus the accompanying report-layout,
+visual and verification-document changes. This is a local verification record,
+not a new GitHub Actions result or a fresh-install test.
+
+| Activity | Observed result |
+| --- | --- |
+| Labs 1–9, sequential final pass | All runners passed; modeling ran 10 models and 39 tests with the two saved Lab 3 student tests. |
+| Lab 4 documentation | HTTP response and browser landing page verified; graph opened; `+stg_orders+` selection applied; clean Ctrl+C shutdown verified. |
+| Lab 4 writing activity | Source/model paths, materializations, decision-log prompts and retention reasoning rehearsed without deleting source records. |
+| Lab 5 queries | Analyst sales allowed, analyst masked data denied with 42501, steward masked data allowed; output columns and nulls checked. |
+| Labs 6–7 interpretation | Five live client observations separated from three simulated incident rows; group rates and denominators reconciled; governance/change-review reasoning rehearsed. |
+| Optional Labs 8–9 supported edits | Added held record survived both deletion stages; added snapshot record produced count 3 and total 35; assertions passed and transactions rolled back. |
+| Optional Lab 10 | Catalog accepted 3 records, quarantined 2, total 45.00; supplied contract ran 2 passing tests; supported category extension ran 3 passing tests. |
+| Optional Lab 11 | Duplicate batch rejected, prior publication preserved, retry stable; browser table and meters reconciled to 20.00 + 25.00 = 45.00. |
+| Optional Labs 12–14 | Audit correlation and denied log access, distinct-instance transfer/recovery and retry, and all six TLS/rotation assertions passed; instances stopped automatically. Printed evidence-reading commands verified. |
+| Optional Lab 15 | Scenario, two-row applicability matrix, change-of-purpose memo and source-reading route reviewed. This is human reasoning, not an executable compliance test. |
+
+Final checks: all 26 repository unit/hygiene tests passed, 478 local Markdown
+links and heading targets resolved, and `git diff --check` passed. New images
+were visually inspected for readable labels and absence of personal details.
+
+The revised guides separate guided execution from interpretation and transfer,
+show commands for reading reports, and state the exact submission artifacts.
+New Lab 5 and Lab 11 visuals contain synthetic results without personal prompts,
+paths, bookmarks or credentials. Text alternatives remain in the guides.
+
+Private practice files and detailed transcripts stayed outside the public source.
+Existing student test files, local configuration and source data were preserved.
+The rehearsal did not reinstall Ubuntu, repeat privileged provisioning, validate
+paid-platform enrollment, certify production security, or constitute a novice or
+replacement-instructor pilot. Those are separate from the tested local lab route.
+
 ## Reproduce the checks
 
 Use a disposable individual Ubuntu machine and the unmodified synthetic fixture:

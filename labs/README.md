@@ -7,6 +7,10 @@ Labs 12–14 add isolated server experiments; Optional Lab 15 is a governance ca
 None require paid services. Use this index to navigate the activities. Module 4 uses a discussion/comparison route rather than a folder;
 Lab 7 remains core despite its `extensions` folder location.
 
+For the complete course, use the [course checklist](../docs/course_checklist.md),
+which includes the companion discussions and capstone. For labs alone, follow
+the core sequence below.
+
 ## Core labs
 
 Labs 1–7 form the required sequence.
@@ -19,7 +23,7 @@ Labs 1–7 form the required sequence.
 | [4. Lifecycle and lineage](module_3/lab4/README.md) | SLOs 2,4 | 45–60 minutes |
 | [5. Access control and masking](module_5/lab5/README.md) | SLO 5 | 60–90 minutes |
 | [6. Monitoring and evidence](module_6/lab6/README.md) | SLO 5 | 60–90 minutes |
-| [7. AI ethics and governance](extensions/ai_governance.md) | SLO 6 | 60–90 minutes |
+| [7. AI ethics and governance](extensions/ai_governance.md) | SLO 6 | Two 45–75-minute sessions; planning estimate |
 
 ## Optional labs 8–11
 

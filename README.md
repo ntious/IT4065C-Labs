@@ -14,32 +14,16 @@ in the setup guide. No institutional account or paid service is required.
 - **Students:** [Student start here](STUDENT_START_HERE.md).
 - **Instructors:** [Instructor start here](INSTRUCTOR_START_HERE.md).
 
-Use an **individual Ubuntu 24.04 VM or Ubuntu 24.04 in WSL2**. See the [dated validation record](docs/validation.md) for the exact tested commit. Open its Ubuntu terminal:
+Choose [Windows with WSL2 or native Ubuntu](docs/local_run.md), then follow the
+single installation route there. Ubuntu 24.04 is recommended; 22.04 is also supported.
+Other Linux distributions and macOS can use an Ubuntu VM; their native installation
+routes are not verified. The [validation record](docs/validation.md) names tested environments.
 
-```bash
-git clone https://github.com/ntious/IT4065C-Labs.git
-cd IT4065C-Labs
-bash scripts/setup.sh
-```
-
-Setup installs PostgreSQL and a private Python environment, generates unique local
-passwords, provisions a dedicated database, and checks Lab 1. It asks for your
-Linux sudo password; it never asks for university credentials. Read the
-[setup guide](docs/setup.md) for prerequisites, custom settings and recovery.
-
-Next, complete the [Lab 1 investigation and written evidence](labs/module1_preflight/README.md)
-using the setup output; no repeat check is needed. Then proceed to Lab 2:
-
-```bash
-.venv/bin/python scripts/course.py lab 2
-```
-
-Use numbers **1–7** for the revised core course, including AI governance, and
-**8–9** for additional lifecycle/infrastructure experiments. Optional Labs **10–15**
-use the separate commands or reading activities in the [lab index](labs/README.md). A `PASS` message
-means an actual check passed. No manual password exports or dbt profile edits are
-needed. Instructors can use `.venv/bin/python scripts/course.py all` to rehearse Labs 1–9;
-this includes optional 8–9 and does not run the newer optional activities.
+Setup automatically performs Lab 1's technical checks. After installation, complete
+its writing activity, then Labs 2–7 in order. Labs 8–15 are optional. Use the
+[course checklist](docs/course_checklist.md) for the complete route, including the
+short discussions and capstone, or the [self-study guide](docs/self_study.md) to
+choose a personal learning scope. You do not need to read every reference page first.
 
 | Where to go | Purpose |
 |---|---|

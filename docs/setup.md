@@ -2,7 +2,9 @@
 
 ## Prerequisites
 
-Start with [the local Windows/Ubuntu run guide](local_run.md) if you use Windows.
+For first installation on Windows/WSL or native Ubuntu, follow the
+[single installation route](local_run.md). This page is a configuration and recovery
+reference; you do not need to read it in full before starting.
 Ubuntu 22.04 and 24.04 passed the published workflow at commit `71653bf`;
 see [validation](validation.md) for exact scope and evidence.
 
@@ -71,12 +73,8 @@ access. Reader passwords are passed internally, never printed in command output.
 
 ## Restart, checks and recovery
 
-After closing the terminal, `cd` back to the checkout and run:
-
-```bash
-.venv/bin/python scripts/course.py check
-.venv/bin/python scripts/course.py lab 2
-```
+After closing the terminal, follow [stop and resume](local_run.md#stop-and-resume).
+Return to your next unfinished lab; restarting does not mean repeating Lab 2.
 
 You do not need to activate the venv because the full Python path selects it.
 Commands work from other directories when you supply the full script path.

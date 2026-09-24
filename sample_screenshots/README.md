@@ -44,3 +44,19 @@ field, `+stg_orders+` filter, Update Graph control and order-data paths. No pers
 browser information is included. Hidden dependencies remain part of the project;
 test nodes do not indicate passing results. Text instructions in
 [Lab 4](../labs/module_3/lab4/README.md) provide the equivalent accessible route.
+
+## Lab 5: Authenticated access results
+
+[Access results](lab5-access-results.png) renders actual synthetic query output
+from the Ubuntu walkthrough with numbered explanations. JSON rows are compacted
+for readability. It is a teaching rendering, not a terminal screenshot. No shell
+prompt, account path or credential is included. Equivalent commands, values and
+interpretation are in [Lab 5](../labs/module_5/lab5/README.md).
+
+## Lab 11: Local KPI report
+
+[KPI results](lab11-kpi-results.png) captures the generated local HTML report in
+a clean browser with an added explanatory banner and numbered notes. It contains
+only synthetic totals and the author's attribution. The original report remains
+unchanged. [Lab 11](../labs/extensions/quality_promotion.md) supplies equivalent
+text and explains the evidence file. Neither visual replaces students' own evidence.
