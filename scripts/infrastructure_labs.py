@@ -314,6 +314,8 @@ def main():
                 failures.append(instance.directory.name)
         require(not failures, "Could not confirm shutdown. Use the guide's pg_ctl stop command for: " + ", ".join(failures))
     print("PASS: optional " + args.lab + " assertions verified; teaching instances stopped. Read evidence.json and complete the reflection.")
+    print("Read your results with:")
+    print(".venv/bin/python -m json.tool " + (root / "evidence.json").relative_to(ROOT).as_posix())
 
 
 if __name__ == "__main__":

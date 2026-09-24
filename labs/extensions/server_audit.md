@@ -4,9 +4,25 @@
 > Complete the independent task, explanation and evidence specified on this page.
 
 **Connection:** SLO 5; Modules 5–6. **Time:** 60–90 minutes.
-Complete Labs 5–6 and the [optional setup](infrastructure_setup.md).
+Complete [Lab 5](../module_5/lab5/README.md) and [Lab 6](../module_6/lab6/README.md) and the [optional setup](infrastructure_setup.md).
 
-## Predict and run
+## Why this lab matters
+
+Server records can corroborate client observations, but they also need access protection and interpretation.
+
+## Learning objectives
+
+These instructor-developed objectives support the outcomes above. You will:
+
+- Correlate an allowed query and a denied query by session and role.
+- Distinguish server evidence from client observations and its integrity limits.
+- Propose a testable access rule and audit-record policy.
+
+## Skills you will practice
+
+Read evidence fields, identify SQLSTATE 42501 and specify audit ownership.
+
+## Part A: Run and inspect the supplied experiment
 
 Predict what a completed SELECT, denied UPDATE and denied server-file read should
 look like. Then run:
@@ -19,7 +35,36 @@ Expected: PASS for audit and automatic server shutdown. The private evidence fil
 contains a completed SELECT and an UPDATE denial with SQLSTATE 42501, correlated
 to the same server session and reader. The reader is also denied server-file access.
 
-## Guided investigation
+### Open your evidence
+
+Run from the repository root in Ubuntu. On success the runner prints:
+
+```text
+Private run directory: .local/infrastructure/audit-<unique suffix>
+PASS: optional audit assertions verified; teaching instances stopped. Read evidence.json and complete the reflection.
+Read your results with:
+.venv/bin/python -m json.tool .local/infrastructure/audit-<unique suffix>/evidence.json
+```
+
+**Copy the complete evidence command from your own terminal**, where the actual
+suffix is already filled in, and run it. The angle-bracket text above explains
+where a generated value appears; do not paste it as a command. Each run gets a
+new directory. Read the file from the run that just passed, not a previous run.
+This command displays JSON without changing it; the experiment's servers have stopped.
+
+| Field | Expected | Interpretation |
+| --- | --- | --- |
+| `allow.result` | `SELECT completed` | A completion record, not merely statement start |
+| `deny.sqlstate` | `42501` | The UPDATE was denied |
+| `allow.session` / `deny.session` | Same value | Both records correlate to one session |
+| `allow.role` / `deny.role` | Same configured reader | Both actions used the restricted identity |
+| `reader_log_access_denied` | `true` | The reader could not read the server log file |
+
+Timestamps and session identifiers vary. Read the timezone printed in the timestamp;
+do not assume it is UTC. The file-read denial is a boolean assertion here, not a
+third selected CSV record. Your table should identify that difference in source.
+
+### Read the implementation
 
 Read `audit()` in `scripts/infrastructure_labs.py`. It enables query-duration logging
 for the disposable reader only. PostgreSQL CSV logs contain the server-side evidence;
@@ -27,14 +72,17 @@ the client separately checks query results and denials. A statement-start record
 alone does not prove successful completion. Compare timestamps, role and session
 with the selected records in `evidence.json`. Inspect the private CSV only locally.
 
-## Supported practice and independent transfer
+## Part B: Explain and propose a different design
+
+Write these responses in your private submission. No runner edits, extra accounts
+or live infrastructure changes are required. Text diagrams/tables are sufficient.
 
 Build a table with actor, action, object, result and evidence source for the three
 operations. Then propose an additional access rule for a fictional library. Explain
 which allowed and denied operations would test it and what log records you need.
 Do not change global logging on the main course database.
 
-## Reflect and submit privately
+## Submit privately
 
 Submit the table, a short redacted evidence excerpt, one false-negative scenario,
 and a retention/access policy for audit records. Identify who could alter the logs.

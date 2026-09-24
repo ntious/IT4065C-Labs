@@ -7,7 +7,23 @@
 This reading and reasoning activity needs no installation or external account.
 It extends the required short discussion in the module map; it does not replace it.
 
-## Fictional scenario and supplied facts
+## Why this lab matters
+
+A policy recommendation depends on scope, purpose and missing facts. You will practice making a conditional decision with traceable sources rather than claiming compliance from a diagram.
+
+## Learning objectives
+
+These instructor-developed objectives support the outcomes above. You will:
+
+- Apply source-based scope questions to a fictional scenario.
+- Map a proposed control to an owner and evidence need.
+- Revise a governance decision when the requested data purpose changes.
+
+## Skills you will practice
+
+Read primary-source sections, separate facts from assumptions, and write an accountable decision memo.
+
+## Part A: Read the scenario and scope questions
 
 RetailBridge is a fictional US retailer proposing support-priority predictions.
 It stores order identifiers, contact details and free-text support messages for
@@ -47,7 +63,7 @@ This example illustrates a reasoning pattern; it is not a legal retention period
 
 ## Supported analysis
 
-Complete this matrix for one potential GDPR issue and one HIPAA applicability question:
+Copy this matrix into your private submission or word processor. Add **two rows**: one potential GDPR issue and one HIPAA applicability question. Replace every `Fill in` prompt. No terminal command or database change is required:
 
 | Fact or missing fact | Source and section | Applicability reasoning / uncertainty | Proposed control | Accountable role | Evidence needed | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -56,7 +72,7 @@ Complete this matrix for one potential GDPR issue and one HIPAA applicability qu
 Clearly distinguish a legal requirement, a contractual condition, voluntary guidance
 and an internal policy choice. Ask what fact would change each conclusion.
 
-## Independent transfer and stewardship decision
+## Part B: Make and revise a stewardship decision
 
 The vendor now requests permission to use the same messages to screen refund requests.
 Write a one-page approve/conditionally approve/defer/reject memo addressing purpose,

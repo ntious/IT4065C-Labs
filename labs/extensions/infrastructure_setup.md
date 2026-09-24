@@ -60,7 +60,8 @@ retains private test certificate keys in the private run directory.
 ## Evidence and safe recovery
 
 The runner prints a relative directory such as `.local/infrastructure/audit-...`.
-Open its `evidence.json` only after PASS. Server logs and data remain private and
+After PASS, copy and run the exact JSON-reading command printed by the runner.
+It includes that run's directory, so no filename substitution is needed. Server logs and data remain private and
 ignored by Git. The runner stops all its instances on normal completion or a handled
 failure. A forced terminal closure or power failure can prevent cleanup.
 

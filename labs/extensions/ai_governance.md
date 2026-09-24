@@ -3,49 +3,134 @@
 **Outcomes:** SLO 6. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+
+## Why this lab matters
+
+Improving one AI error rate can worsen another. You will calculate a small example, discuss who is affected, and make a governance decision that includes oversight and a changed purpose.
+
+## Learning objectives
+
+These instructor-developed objectives support the outcomes listed above. You will:
+
+- Calculate and interpret group error rates with the correct denominators.
+- Explain bias, transparency and accountability throughout the data lifecycle.
+- Defend and revise a deployment decision using NIST AI RMF 1.0.
+
+## Skills you will practice
+
+Read metric evidence, check arithmetic, assess tradeoffs, assign accountable roles, and write a change review.
+
 > **Completion:** Automation passing means the environment checks worked. Complete
 > the independent investigation, interpretation and evidence below before submitting.
 
 ## Before you begin
 
-Complete [setup](../../docs/setup.md) and Lab 1. No university service or hidden download is needed.
-The runner checks its required state and reports missing prerequisites.
+Complete [Labs 2–6](../README.md) for governance, lineage, access and monitoring
+context. Use your existing Ubuntu environment; setup need not be repeated.
+If needed, begin with [Student start here](../../STUDENT_START_HERE.md).
+No AI programming experience, external account or model training is required.
+All commands below run from the repository root.
 
-## Predict and run
+## Part A: Follow the metric example
 
-Read the expected result below and predict what would fail with the wrong identity or missing input.
-From the repository root in your Ubuntu terminal:
+### A1. Calculate the supplied metrics
 
 ```bash
 .venv/bin/python scripts/course.py lab 7
 ```
 
-Expected: **Baseline and mitigation group metrics in .local/ai-evaluation.json.** The final line is `LAB 7 COMPLETE`.
-Rerunning is supported; existing raw and governance data are preserved.
-Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
+Expected:
 
-## Hands-on investigation
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: AI metrics calculated. Complete the governance decision; metric parity is not proof of fairness.
+LAB 7 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+```
 
-Open `.local/ai-evaluation.json` and `data/ai_predictions.csv`. Recalculate one
-group's false-negative rate by hand; compare both policies. Complete
-`labs/extensions/ai_decision_template.md`, including a decision, owner, review
-trigger and appeal route. Explain whose interests a metric can fail to capture.
-Use NIST AI RMF 1.0 as the named framework version for this exercise.
+### A2. Read the report
 
-For custom SQL, use the [query helper instructions](../practice/README.md#execute-your-own-sql-without-managing-passwords).
+```bash
+.venv/bin/python -m json.tool .local/ai-evaluation.json
+```
 
-## Interpret and transfer
+Expected values for the unchanged synthetic fixture:
 
-Complete the [AI governance decision template](ai_decision_template.md). Explain the mitigation’s false-positive tradeoff, tiny sample size, label bias and why metric parity alone does not prove fairness.
+| Policy | Group | Records | Selection rate | False-negative rate | False-positive rate |
+| --- | --- | --- | --- | --- | --- |
+| Baseline | A | 8 | 0.500 | 0.25 | 0.25 |
+| Baseline | B | 8 | 0.125 | 0.75 | 0.00 |
+| Mitigated | A | 8 | 0.500 | 0.25 | 0.25 |
+| Mitigated | B | 8 | 0.625 | 0.25 | 0.50 |
+
+Selection rate is selected records divided by all records in the group.
+A false negative is an eligible record not selected; divide false negatives by
+**eligible records**, not all eight records. A false positive is an ineligible
+record selected; divide by **ineligible records**. Here each group has four
+eligible and four ineligible records. Rates are proportions: 0.25 means 25%.
+
+### A3. Check one calculation
+
+Open [the synthetic CSV](../../data/ai_predictions.csv) on GitHub or locally:
+
+```bash
+nano data/ai_predictions.csv
+```
+
+Read only; leave with **Ctrl+X** without saving changes. For baseline group A,
+one of four eligible records was not selected, so FNR = 1 / 4 = 0.25.
+Now calculate **baseline group B's FNR** yourself. Write the numerator,
+denominator and result in your private response, and compare it with A2.
+Explain the cost of the error in a support-priority decision. You do not need
+to change the data or write Python.
+
+## Part B: Make and revise a governance decision
+
+### B1. Create your private writing worksheet
+
+Run these commands one at a time:
+
+```bash
+mkdir -p .local
+```
+
+```bash
+cp -i labs/extensions/ai_decision_template.md .local/lab7-decision.md
+```
+
+If asked to overwrite on a repeat attempt, answer **n** to preserve your answers.
+Then open the worksheet:
+
+```bash
+nano .local/lab7-decision.md
+```
+
+It contains prompts, not code. Add answers below the numbered prompts and complete
+the lifecycle table. You may use a word processor instead. Use the metrics from
+Part A to support your reasoning; do not submit the unchanged template.
+Save in Nano with **Ctrl+O**, **Enter**, then **Ctrl+X**.
+
+### B2. Complete the initial decision and change review
+
+Use the [NIST AI RMF resources](ai_decision_template.md) for **version 1.0**.
+Explain the mitigation's increased false-positive rate, small sample, possible
+label bias, whose interests are missed, transparency/appeal arrangements and
+accountable roles. Equal false-negative rates do not establish fairness.
+Label safeguards you have not implemented as **proposed**.
+
+Then complete the template's **Required change review**: the proposed use changes
+from support priority to restricting refunds, with a changed population and no
+new measurements. Write a short amendment explaining what evidence is missing,
+who must review the change, and whether to pause, restrict or continue the use.
+Do not invent performance results. Both the initial decision and amendment are
+required; this is a writing task, not another script to execute.
 
 ## Submit
 
-Use the [submission template](../../submissions/template.md). Include the command,
-relevant PASS lines or accessible text evidence, your interpretation, one limitation,
-and your transfer-task response. A screenshot is optional; crop/redact identities
-and never include configuration secrets. Submit privately through your course system;
-independent learners keep their work locally. Execution success alone does not
-complete the reasoning task.
+Use the [submission template](../../submissions/template.md). Attach the relevant
+A1/A2 evidence, your A3 calculation and the completed private decision worksheet,
+including the change review. Avoid repeating the worksheet in a second essay.
+Text evidence is sufficient. Never include credentials or personal terminal details.
+Submit privately through the LMS; independent learners keep the same record locally.
 
 Assessment uses only the [AI decision rubric](ai_decision_template.md): lifecycle 20%,
 bias analysis/limitations 25%, mitigation tradeoffs 20%, transparency 15%, and

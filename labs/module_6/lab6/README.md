@@ -3,6 +3,23 @@
 **Outcomes:** SLO 5. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+
+## Why this lab matters
+
+An alert needs evidence and interpretation before it becomes an incident finding. You will separate real query observations from simulated events and decide what further investigation is needed.
+
+## Learning objectives
+
+These instructor-developed objectives support the outcomes listed above. You will:
+
+- Identify whether a finding comes from a live client or a synthetic fixture.
+- Explain a detection rule, one false positive and one missed-incident scenario.
+- Propose responsibility and protection for a stronger evidence source.
+
+## Skills you will practice
+
+Open a JSON report, correlate rule and event, and write a concise incident memo.
+
 ## Concept
 
 The access runner records what its client observed during live queries. Those records
@@ -31,44 +48,95 @@ and one missed-incident scenario in your memo.
 
 ## Before you begin
 
-Complete [setup](../../../docs/setup.md) and Lab 1. Complete the previous core labs for context.
-The runner checks its required state and reports missing prerequisites.
+Complete [Lab 5](../../module_5/lab5/README.md); its reader allow/deny checks are
+reused here.
+Run each command separately from the repository root in Ubuntu. Keep the same
+configured environment; do not repeat setup. If you need an environment, use
+[Student start here](../../../STUDENT_START_HERE.md). No prior SQL qualification
+is assumed. Copy commands from code blocks; write explanations in your private
+submission, not in the terminal.
 
-## Predict and run
+## Part A: Generate and read the evidence
 
-Read the expected result below and predict what would fail with the wrong identity or missing input.
-From the repository root in your Ubuntu terminal:
+### A1. Run the monitoring exercise
 
 ```bash
 .venv/bin/python scripts/course.py lab 6
 ```
 
-Expected: **Fresh live client observations plus three kinds of simulated incidents in .local/audit-report.json.** The final line is `LAB 6 COMPLETE`.
-Rerunning is supported; existing raw and governance data are preserved.
-Do not confuse a printed expectation with a passed assertion: the runner stops on unexpected outcomes.
+Expected:
 
-## Hands-on investigation
+```text
+PASS: connection, dedicated database, schemas and non-superuser builder.
+PASS: synthetic seed present (existing data preserved).
+PASS: nine access checks using separate authenticated connections, including escalation denials.
+PASS: live permission evidence + deterministic simulated incident analysis. See .local/audit-report.json.
+LAB 6 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+```
 
-Read `.local/audit-report.json` locally. For each flag, trace the rule in
-`labs/module_6/lab6/01_generate_audit_report.sql` and the corresponding synthetic
-fixture. Write one false-positive explanation and one possible missed incident.
-Distinguish what the live client observed from what the fixture merely simulates.
-Propose a server-side evidence source and who should control access to it.
+The runner repeats Lab 5's checks and writes a local report. It does not install
+a server audit extension. Rerunning refreshes this report; save any excerpt you
+need in your private submission before another run.
 
-For custom SQL, use the [query helper instructions](../../practice/README.md#execute-your-own-sql-without-managing-passwords).
+### A2. Open the report as readable text
 
-## Interpret and transfer
+```bash
+.venv/bin/python -m json.tool .local/audit-report.json
+```
 
-Write an incident memo distinguishing observed evidence, scenario assumptions, attempted violations and control failures. Explain why client observations are not tamper-proof server audit logs.
+This command prints the report; it changes no data. A JSON object uses named
+keys; a list uses square brackets. Read these three sections:
+
+| Key | Expected content | What to do with it |
+| --- | --- | --- |
+| `live_client_events` | Five recorded query outcomes: analyst sales allowed, analyst masked denied, analyst raw denied, steward masked allowed, steward raw denied | Choose one allow and one denial; record role, action and result. Time and configured role names vary. |
+| `simulated_incidents` | Three rows shown below | Interpret these as fixture findings, not actual misconduct by a user. |
+| `limitation` | Client observations are not an independent server audit trail | State what additional evidence would strengthen your conclusion. |
+
+The runner checks **nine** access outcomes but records **five** query observations
+in this report. The four remaining escalation checks are assertions, not extra
+rows you must find. `00000` denotes success; `42501` denotes permission denied.
+
+Expected simulated rows; positions are **rule, fictional actor, event count**:
+
+```json
+[["REPEATED_DENIAL", "analyst_demo", 3],
+ ["ROLE_SWITCH", "analyst_demo", 1],
+ ["AFTER_HOURS_EXPORT", "steward_demo", 1]]
+```
+
+### A3. Explain one rule using its fixture
+
+Read the event rows in [the fixture](00_prepare_audit_evidence.sql) and the
+matching condition in [the report query](01_generate_audit_report.sql).
+Choose **one** row above and write two or three sentences explaining why it
+was flagged. The query checks three or more denials, role-switch events, and
+exports before 07:00 or at/after 19:00 UTC respectively. A flag is a reason to
+investigate, not proof that data was stolen or a control failed.
+
+## Part B: Write an incident memo
+
+Write these three short sections in your private submission. No SQL edit is needed.
+
+1. **Evidence:** include the one live allow, one live denial, and the simulated
+   rule explained in A3. Label their sources. Explain whether the denied query
+   represents attempted access or a demonstrated control failure.
+2. **Detection limits:** give one legitimate activity that could trigger a rule
+   (false positive), and one harmful activity these rules could miss. Explain why.
+3. **Response and ownership:** propose one follow-up check, a server-side evidence
+   source, the role allowed to read it, and who controls retention and alteration.
+   Explain why this client report alone is insufficient.
+
+A few sentences per section are enough. Optional [Lab 12](../../extensions/server_audit.md)
+implements a server-logging experiment; it is not required to finish this memo.
 
 ## Submit
 
-Use the [submission template](../../../submissions/template.md). Include the command,
-relevant PASS lines or accessible text evidence, your interpretation, one limitation,
-and your transfer-task response. A screenshot is optional; crop/redact identities
-and never include configuration secrets. Submit privately through your course system;
-independent learners keep their work locally. Execution success alone does not
-complete the reasoning task.
+Use the [submission template](../../../submissions/template.md). Include A1's
+completion lines, the selected report excerpts and the three-part memo. These
+are your interpretation and transfer responses; no second essay is required.
+Use text or cropped screenshots. Keep complete local logs, identities and secrets
+private, and submit through the LMS. Independent learners retain their work locally.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.
