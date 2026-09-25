@@ -9,12 +9,33 @@ The repository contains the core lab sequence (1–7) and optional Labs 8–15.
 | --- | --- | --- |
 | Historical reproducibility baseline | `71653bf77f881a62cda029f5ebc344e6702adb4a`; [September 18 workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) | Earlier layout; retain as historical evidence, not the starting point for the migrated guides |
 | Previous CI-validated migration | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
-| Current CI-validated candidate | `af23876ea1b3c0bf6db50b40926dd16cdfbdd34e`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36150294346) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
+| Recorded CI-validated baseline | `2fb0ccb7e92499584d5bfe2fba241699d1a3c29f`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36154605293) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
 | Human-pilot-tested teaching release | Not yet established | Requires recorded novice and replacement-instructor pilots, a selected revision and a release tag |
 
-The named candidate is a reproducible technical baseline, not a claim of human
+The named baseline is a reproducible technical baseline, not a claim of human
 usability validation. Later commits need their own validation record; success at
 one revision does not automatically validate subsequent edits.
+
+## Frozen release candidate
+
+Use the [release-candidate record](https://github.com/ntious/IT4065C-Labs/releases)
+for the final correction set. Publish `teaching-2026-09-rc1` only after the exact
+selected commit passes the Ubuntu 22.04/24.04 workflow. Its release notes must
+record the full commit SHA, successful workflow URL and pending human pilots.
+Until that record is published, use the recorded baseline above.
+
+After publication, use a fresh rehearsal clone and run:
+
+```bash
+git fetch origin tag teaching-2026-09-rc1
+git checkout --detach teaching-2026-09-rc1
+```
+
+Keep this tag fixed. Later corrections require a new candidate and their own
+validation. Store final SHA and workflow evidence in the release record rather
+than editing source files merely to point at each new documentation commit.
+A release candidate supports technical rehearsal; it is not a human-pilot-tested
+teaching release.
 
 ## Framework maintenance
 
@@ -49,9 +70,9 @@ belongs to its earlier revision; do not use it as evidence for the updated model
 
 ## Verification and publication
 
-The current candidate above passed the complete Ubuntu 22.04/24.04 workflow,
+The recorded baseline above passed the complete Ubuntu 22.04/24.04 workflow,
 including student-test discovery and isolated infrastructure experiments. See
-[validation](validation.md#capstone-consistency-and-anchor-validation-2026-09-25) for its scope.
+[validation](validation.md#capstone-summary-validation-2026-09-25) for its scope.
 
 For a versioned release, select the intended commit, confirm its workflow result,
 record learner/instructor pilot status and historical credential-review status,
@@ -79,11 +100,11 @@ Keep these boundaries visible when other instructors adapt the course.
 
 ## Pin a tested baseline before adoption
 
-For a new instructor rehearsal, the current CI-validated candidate can be
+For a new instructor rehearsal, the recorded CI-validated baseline can be
 selected with:
 
 ```bash
-git checkout --detach af23876ea1b3c0bf6db50b40926dd16cdfbdd34e
+git checkout --detach 2fb0ccb7e92499584d5bfe2fba241699d1a3c29f
 ```
 
 Run this only in a fresh rehearsal clone, not a checkout with unsaved work.

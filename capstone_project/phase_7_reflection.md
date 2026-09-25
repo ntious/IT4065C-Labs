@@ -175,10 +175,10 @@ Weak reflections summarize activities without analyzing decisions.
 The capstone required you to:
 
 - Discover ambiguity  
-- Enforce structure  
+- Specify structural rules
 - Separate workloads  
 - Overlay governance  
-- Validate enforceability  
+- Evaluate enforcement evidence
 - Defend decisions  
 
 This reflection asks:
