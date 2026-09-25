@@ -3,6 +3,18 @@
 **Outcomes:** SLOs 3,4. **Estimated time:** 30–60 minutes first setup; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## At a glance
+
+| Before starting | Completed setup checks |
+| --- | --- |
+| You will run | Use setup results; repeat checks only for recovery. |
+| You will write | Account/configuration worksheet and short explanations. |
+| Done when | Technical checks and the worksheet are complete. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../docs/course_checklist.md) when this lab is complete.
+
 ## Why this lab matters
 
 A working environment lets you concentrate on the course concepts. You will read

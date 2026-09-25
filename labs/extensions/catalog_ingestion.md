@@ -4,7 +4,7 @@
 > Complete the independent task, explanation and evidence specified on this page.
 
 **Author:** Isaac K. Nti. **Outcomes:** SLOs 1, 2, 4. **Time:** 60–90 minutes.
-Optional enrichment; does not add a required assessment to the core course.
+Optional enrichment; does not add a required assessment to the required course path.
 
 ## Why this lab matters
 

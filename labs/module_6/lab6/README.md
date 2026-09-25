@@ -4,6 +4,18 @@
 **Environment:** your dedicated local course database. Synthetic data only.
 
 
+## At a glance
+
+| Before starting | Labs 1–5 |
+| --- | --- |
+| You will run | Run monitoring checks and inspect the incident scenario. |
+| You will write | Evidence excerpts and an incident memo. |
+| Done when | Your memo separates actual observations from simulated events. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
+
 ## Why this lab matters
 
 An alert needs evidence and interpretation before it becomes an incident finding. You will separate real query observations from simulated events and decide what further investigation is needed.
@@ -80,7 +92,7 @@ PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: synthetic seed present (existing data preserved).
 PASS: nine access checks using separate authenticated connections, including escalation denials.
 PASS: live permission evidence + deterministic simulated incident analysis. See .local/audit-report.json.
-LAB 6 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 6 TECHNICAL CHECKS COMPLETE. Return to labs/module_6/lab6/README.md for interpretation and deliverables.
 ```
 
 The runner repeats Lab 5's checks and writes a local report. It does not install

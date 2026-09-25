@@ -3,6 +3,18 @@
 **Outcomes:** SLO 4. **Estimated time:** 60–90 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## At a glance
+
+| Before starting | Labs 1–2 |
+| --- | --- |
+| You will run | Build models, inspect sales and run guided and independent tests. |
+| You will write | Three interpretations, one adapted test and named test results. |
+| Done when | Both named tests pass and the Part C evidence is assembled. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
+
 ## Progress checklist
 
 - [ ] [Part A](#part-a-guided-baseline-and-annotated-results): follow the example and record the requested interpretation.
@@ -145,7 +157,7 @@ PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: synthetic seed present (existing data preserved).
 PASS: dbt build --selector course
 PASS: 10 models and 37 data tests actually executed.
-LAB 3 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 3 TECHNICAL CHECKS COMPLETE. Return to labs/module_2/lab3/README.md for interpretation and deliverables.
 ```
 
 The build creates the models and executes tests. The model/test count is verified
@@ -315,7 +327,8 @@ through `scripts/query.py`. Do not replace `ref` with a password, schema or tabl
 Copy the complete example into the dbt test directory:
 
 ```bash
-cp -i labs/module_2/lab3/lab3_guided_test.sql dbt/it4065c_platform/tests/lab3_guided_daily_orders.sql
+mkdir -p dbt/it4065c_platform/student_tests
+cp -i labs/module_2/lab3/lab3_guided_test.sql dbt/it4065c_platform/student_tests/lab3_guided_daily_orders.sql
 ```
 
 **Expected after copying:** on the first successful copy, the terminal returns to
@@ -339,7 +352,7 @@ PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: synthetic seed present (existing data preserved).
 PASS: dbt build --selector course
 PASS: 10 models and 38 data tests actually executed.
-LAB 3 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 3 TECHNICAL CHECKS COMPLETE. Return to labs/module_2/lab3/README.md for interpretation and deliverables.
 ```
 
 **How to read this result:**
@@ -368,7 +381,7 @@ required for submission.
 Run this command from the repository root:
 
 ```bash
-nano dbt/it4065c_platform/tests/lab3_my_sales_rule.sql
+nano dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql
 ```
 
 **A blank editor is expected the first time.** This command opens a new file for
@@ -396,6 +409,11 @@ is enough. This rule assumes reported sales should be present and non-negative.
 With the supplied daily amounts, 129.97 and 9.98, it should find no violations.
 
 ![Annotated Nano starter: paste the SQL in the editing area, check the violation condition, recognize the unsaved-change asterisk, and save with Ctrl+O, Enter, then exit with Ctrl+X.](../../../sample_screenshots/lab3-b2-nano-guide.png)
+
+The illustration explains the SQL and editor controls. Use the `student_tests`
+path in the command above when saving your work; the editor title in the
+illustration shows the supplied-test directory.
+
 
 *Annotated teaching illustration based on the instructor's screenshot, shown
 **after pasting**, not the initial blank screen. Copy SQL from the text block,
@@ -460,8 +478,9 @@ explain it. Continue to B3 to execute it and verify the named result. If you run
 the unchanged starter for practice, label it as the supplied example; it does not
 complete the independent task.
 
-These test files live inside the dbt project so dbt can discover them; they are
-not ignored private files. Keep your work locally and submit through the LMS,
+These test files live in `student_tests`, which dbt searches alongside the
+supplied `tests` directory. Git ignores `student_tests` to reduce accidental publication.
+Ignoring files is not encryption or access control. Keep your work locally and submit through the LMS,
 not a public repository push. Never put personal data or credentials in them.
 
 ### B3. Execute and verify your named test
@@ -477,7 +496,7 @@ PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: synthetic seed present (existing data preserved).
 PASS: dbt build --selector course
 PASS: 10 models and 39 data tests actually executed.
-LAB 3 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 3 TECHNICAL CHECKS COMPLETE. Return to labs/module_2/lab3/README.md for interpretation and deliverables.
 ```
 
 Counts may be higher after earlier practice. Next, run the supplied

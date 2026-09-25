@@ -15,3 +15,6 @@ dbt/**/dbt_packages/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Private student-authored dbt tests
+dbt/it4065c_platform/student_tests/

@@ -22,7 +22,7 @@
  The staging layer exists to create a stable foundation for downstream models,
  such as:
    - `fct_orders` (core fact table)
-   - OLTP-style detail views
+   - Detailed reporting tables
    - OLAP-style aggregated metrics for dashboards
 
  IMPORTANT SAFETY / GOVERNANCE NOTES:
@@ -40,7 +40,7 @@
 
  Data Lineage (Conceptual):
  --------------------------
- raw.orders  -->  stg_orders  -->  fct_orders  --> marts/views
+ raw.orders  -->  stg_orders  -->  fct_orders  --> reporting marts
 
 ===============================================================================
 */

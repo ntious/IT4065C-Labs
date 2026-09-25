@@ -48,7 +48,7 @@ Expected:
 ```text
 PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: snapshot refresh and stale-data detection. This single-instance simulation does not prove multi-cluster administration.
-LAB 9 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 9 TECHNICAL CHECKS COMPLETE. Return to labs/extensions/infrastructure.md for interpretation and deliverables.
 ```
 
 ### A2. Read what was checked

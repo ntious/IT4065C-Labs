@@ -4,6 +4,27 @@ Use this guide to publish a versioned teaching release and preserve its validati
 record. The repository contains the seven-lab core and Optional Labs 8–15. No
 version tag is recorded as of 2026-09-18; use a verified commit when adopting it.
 
+## Framework maintenance
+
+Lab 7 uses NIST AI RMF 1.0 as the course's selected reference version. As checked
+on 2026-09-24, [NIST reports that the framework is being revised](https://www.nist.gov/itl/ai-risk-management-framework).
+Before each offering, check that source, record the selected version in release
+notes, and review prompts and rubric references together if changing versions.
+A successor's publication does not silently change an existing course assignment.
+
+## Release record
+
+Record the selected tag and full commit SHA, passing Ubuntu workflow URL,
+tested Python/dbt/PostgreSQL versions, validated activities, known limits, and
+separate novice and replacement-instructor pilot statuses. Use the historical
+validation below as evidence for its named revision only. Do not describe a
+new revision as recommended or pilot-tested until its own gates are complete.
+
+A future breaking release can normalize lab folders and rename
+`oltp_order_detail` to `order_detail_mart`. Update SQL references, student commands,
+links, screenshots and tests together, then rehearse a fresh checkout. This
+revision retains those names while correcting the model's teaching description.
+
 ## Included changes
 
 - Optional server CSV audit investigation with positive/negative query evidence.
@@ -24,6 +45,16 @@ record learner/instructor pilot status and historical credential-review status,
 then publish a tag and release notes. Clearly identify any adoption work without
 recorded completion. Optional activities do not by themselves establish that all
 students met every practical outcome in an adopting institution's syllabus.
+
+## Updating an instructor rehearsal checkout
+
+Fresh student clones use the ignored `dbt/it4065c_platform/student_tests` directory.
+For an existing rehearsal checkout, preserve any learner-created
+`lab3_guided_daily_orders.sql` and `lab3_my_sales_rule.sql` files before switching
+revisions. Move those two files from `tests` to `student_tests` after updating;
+keep only one copy of each test name inside dbt's configured test paths. Do not
+move the supplied repository tests. Rerun Lab 3 and its named-results checker.
+Do not force-add ignored student work to Git.
 
 ## Limits to retain in release notes
 

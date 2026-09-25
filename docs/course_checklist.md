@@ -1,7 +1,7 @@
-# Course checklist
+# Required course path
 
-Use this as your navigation and progress record. **The lab sequence** means Labs
-1–7. **The full course route** also includes the companion activities below and
+Use this as your navigation and progress record. **Core lab sequence** means Labs
+1–7. **Required course path** also includes the companion activities below and
 the capstone. This checklist consolidates existing requirements from the
 [module map](module_learning_map.md); it does not introduce new learning outcomes.
 Your LMS controls assigned work, dates and official grading when enrolled.
@@ -9,7 +9,7 @@ Your LMS controls assigned work, dates and official grading when enrolled.
 Independent learners may choose either scope using [self-study guidance](self_study.md).
 Keep one copy of each artifact and refer to it again; do not rewrite it for each page.
 
-## Follow the core route
+## Follow the required course path
 
 - [ ] [Install once](local_run.md): choose Windows/WSL or native Ubuntu.
 - [ ] [Lab 1](../labs/module1_preflight/README.md): setup evidence and account/configuration worksheet.

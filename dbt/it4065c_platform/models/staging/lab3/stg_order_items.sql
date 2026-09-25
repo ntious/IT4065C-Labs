@@ -35,7 +35,8 @@
  - Quantity and pricing fields directly affect financial reporting.
  - Errors at the line-item level can be amplified when aggregated.
  - Referential integrity (valid order_id and product_id values) is critical and
-   will be enforced later using dbt relationship tests.
+   are checked when dbt relationship tests run. These checks do not create
+   database foreign-key constraints.
  - This model does NOT perform financial calculations beyond standardization.
 
  Student Expectations:
@@ -51,7 +52,7 @@
         ↓
  fct_order_items
         ↓
- marts (OLTP / OLAP views)
+ marts (detail and aggregate reporting tables)
 
 ===============================================================================
 */

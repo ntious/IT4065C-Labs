@@ -3,6 +3,18 @@
 **Outcomes:** SLOs 2,4. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## At a glance
+
+| Before starting | Lab 3 |
+| --- | --- |
+| You will run | Generate documentation and inspect lineage in your browser. |
+| You will write | Source-to-mart paths and the lifecycle decision log. |
+| Done when | Your log explains dependencies, refresh needs and limitations. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
+
 ## Why this lab matters
 
 When a source record changes or is removed, the reports built from it may also
@@ -118,7 +130,7 @@ PASS: dbt build --selector course
 PASS: 10 models and 39 data tests actually executed.
 PASS: dbt docs generate
 PASS: raw.orders -> stg_orders lineage present; documentation generated.
-LAB 4 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 4 TECHNICAL CHECKS COMPLETE. Return to labs/module_3/lab4/README.md for interpretation and deliverables.
 ```
 
 ![Annotated Lab 4 output: connection and seed checks, model and test counts, documentation and lineage checks, and the remaining investigation.](../../../sample_screenshots/lab4-technical-output-guide.png)

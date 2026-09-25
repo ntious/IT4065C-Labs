@@ -3,6 +3,18 @@
 **Outcomes:** SLOs 1,5. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
+## At a glance
+
+| Before starting | Lab 1 and the configured environment |
+| --- | --- |
+| You will run | Initialize and inspect the register; insert a guided and independent entry. |
+| You will write | Two classification decisions and the requested register evidence. |
+| Done when | The entry is verified and your governance rationale is recorded. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../docs/course_checklist.md) when this lab is complete.
+
 ## Progress checklist
 
 - [ ] [Part A](#part-a-follow-the-worked-example-unchanged): follow the example and record the requested interpretation.
