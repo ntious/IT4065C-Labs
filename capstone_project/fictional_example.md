@@ -19,6 +19,12 @@ support lending and returns; a proposed daily aggregate supports demand planning
 The retention decision remains unresolved until the owner specifies purpose and
 applicable obligations. Do not invent a legal retention period.
 
+For the proposed borrower contact record, the team selects **Sensitive** handling
+and estimates **High** confidentiality impact because unwanted disclosure could
+expose contact details. Regulatory applicability remains **undetermined** until
+jurisdiction and purpose are established. These are separate judgments; the
+classification is not proof of a legal obligation.
+
 ## Traceable claim and evidence matrix
 
 | Requirement | Proposed control / owner | Illustrative evidence | Status and limit |
