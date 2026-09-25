@@ -1,5 +1,17 @@
 # Changes
 
+## 2026-09-25: Match lab paths to the learning sequence
+
+- Place required Labs 1–7 under `labs/core` and optional Labs 8–15 under `labs/optional`.
+- Rename the detailed reporting model to `order_detail_mart` and update dbt metadata.
+- Update commands, relative links, templates, wrappers and annotated references together.
+- Add a CI rehearsal for student test discovery in the ignored directory.
+- Rehearse all executable labs, negative checks and recovery after the migration.
+
+This changes file paths. Start from the current student guide when using a fresh
+clone; instructors updating a rehearsal checkout should follow release management.
+
+
 ## Independent review corrections
 
 - Align AI outcome attribution with the institutional notice and date public-source limits.

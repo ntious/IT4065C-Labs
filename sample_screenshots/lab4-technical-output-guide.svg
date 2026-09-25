@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="710" viewBox="0 0 1500 710" role="img" aria-labelledby="title desc">
+<title id="title">Lab 4: interpret the technical checks</title>
+<desc id="desc">Annotated teaching reference, not an execution screenshot. Equivalent commands and explanations appear in the lab guide.</desc>
+<rect width="1500" height="100%" fill="#f4f7fb"/>
+<text x="35" y="50" font-family="sans-serif" font-size="29" fill="#12304a">Lab 4: interpret the technical checks</text>
+<rect x="25" y="85" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="114" font-family="sans-serif" font-size="22" fill="#075b76">1. Run Lab 4</text>
+<text x="45" y="150" font-family="monospace" font-size="17" fill="#182430">.venv/bin/python scripts/course.py lab 4</text>
+<text x="45" y="185" font-family="sans-serif" font-size="19" fill="#334557">Connection and preserved seed checks run first.</text>
+<rect x="25" y="225" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="254" font-family="sans-serif" font-size="22" fill="#075b76">2. Read the build result</text>
+<text x="45" y="290" font-family="monospace" font-size="17" fill="#182430">PASS: dbt build --selector course</text>
+<text x="45" y="325" font-family="sans-serif" font-size="19" fill="#334557">10 models; the test count depends on saved student tests (37 baseline, 39 with both Lab 3 tests).</text>
+<rect x="25" y="365" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="394" font-family="sans-serif" font-size="22" fill="#075b76">3. Read documentation checks</text>
+<text x="45" y="430" font-family="monospace" font-size="17" fill="#182430">PASS: raw.orders -&gt; stg_orders lineage present; documentation generated.</text>
+<text x="45" y="465" font-family="sans-serif" font-size="19" fill="#334557">The runner generated documentation and checked this dependency edge.</text>
+<rect x="25" y="505" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="534" font-family="sans-serif" font-size="22" fill="#075b76">4. Continue the investigation</text>
+<text x="45" y="570" font-family="monospace" font-size="17" fill="#182430">LAB 4 TECHNICAL CHECKS COMPLETE.</text>
+<text x="45" y="605" font-family="sans-serif" font-size="19" fill="#334557">Return to labs/core/lab04-lineage-lifecycle/README.md for lineage and lifecycle work.</text>
+<text x="35" y="693" font-family="sans-serif" font-size="16" fill="#334557">Teaching reference | Isaac K. Nti | Use copyable commands and submission requirements in the lab guide.</text>
+</svg>

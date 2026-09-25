@@ -83,10 +83,10 @@ Where a link is a proposed design rather than an executed control, label it that
 
 | Activity | Implemented evidence | Limit |
 | --- | --- | --- |
-| [12. Server audit](../labs/extensions/server_audit.md) | Actual CSV query completion/denial correlated to a server session; reader denied server-file access | Student owns the server; no tamper-resistant external collector |
-| [13. Two instances](../labs/extensions/two_instance_transfer.md) | Distinct cluster identities; batch transfer; source shutdown; preserved target; measured recovery and retry | No streaming replication, automatic failover or separate physical hosts |
-| [14. TLS/rotation](../labs/extensions/tls_rotation.md) | Verified trust/hostname; wrong trust/hostname/plaintext rejected; old credential rejected after rotation | No storage/backup encryption or termination of existing sessions |
-| [15. Governance case](../labs/extensions/governance_case.md) | Primary-source scope analysis, control/evidence matrix and stewardship decision | Human assessment; not legal certification |
+| [12. Server audit](../labs/optional/lab12-server-audit/README.md) | Actual CSV query completion/denial correlated to a server session; reader denied server-file access | Student owns the server; no tamper-resistant external collector |
+| [13. Two instances](../labs/optional/lab13-transfer-recovery/README.md) | Distinct cluster identities; batch transfer; source shutdown; preserved target; measured recovery and retry | No streaming replication, automatic failover or separate physical hosts |
+| [14. TLS/rotation](../labs/optional/lab14-tls-rotation/README.md) | Verified trust/hostname; wrong trust/hostname/plaintext rejected; old credential rejected after rotation | No storage/backup encryption or termination of existing sessions |
+| [15. Governance case](../labs/optional/lab15-governance-case/README.md) | Primary-source scope analysis, control/evidence matrix and stewardship decision | Human assessment; not legal certification |
 | [External platforms](platforms.md) | Alation University and optional Snowflake workshop mappings with local alternatives | Restricted activities and student completion are not independently verified here |
 
 The server experiments passed the Ubuntu 22.04 and 24.04 workflow at commit

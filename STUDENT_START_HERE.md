@@ -6,7 +6,7 @@ You do not need previous SQL or Python experience to begin.
 
 1. [Choose your environment and install once](docs/local_run.md). Both routes join
    the same Ubuntu instructions. Setup includes Lab 1's technical checks.
-2. [Complete Lab 1's short writing activity](labs/module1_preflight/README.md)
+2. [Complete Lab 1's short writing activity](labs/core/lab01-environment/README.md)
    using your setup results. No repeat installation or check is needed after success.
 3. Follow the [required course path](docs/course_checklist.md). It lists Labs 2–7,
    the companion discussions and capstone in one place. Check off work as you go.
@@ -24,7 +24,7 @@ unless a specific activity says otherwise; text evidence is accepted.
 
 Use the [foundations bridge](docs/foundations.md) when a topic is new and the
 [glossary](docs/glossary.md) as a reference. You do not need to study every link first.
-Labs 8–15 are optional. Follow the checklist rather than folder names: Lab 7 is
-core even though its file lives in `extensions`.
+Labs 1–7 are in `labs/core`; Labs 8–15 are in `labs/optional`.
+Follow the required course path for companion activities and the capstone.
 
 Author: [Isaac K. Nti](AUTHORS.md).

@@ -41,10 +41,10 @@ notes, not additional installations or paid reading requirements.
 | 1 | [Foundations](foundations.md), [identity notes](lab_context_notes/lab1.md), [classification notes](lab_context_notes/lab2.md) | Explain one identity boundary and one contextual classification. |
 | 2 | [Grain and modeling notes](lab_context_notes/lab3.md) | State the grain before joining tables. |
 | 3 | [Lifecycle notes](lab_context_notes/lab4.md) | Trace one derived copy after source deletion. |
-| 4 | [Infrastructure comparison](../labs/extensions/infrastructure.md), [platform bridge](platforms.md) | Name an ownership or failure-domain tradeoff. |
+| 4 | [Infrastructure comparison](../labs/optional/lab09-infrastructure/README.md), [platform bridge](platforms.md) | Name an ownership or failure-domain tradeoff. |
 | 5 | [Access notes](lab_context_notes/lab5.md) | Predict one allowed and one denied action. |
 | 6 | [Monitoring notes](lab_context_notes/lab6.md) | Distinguish a client observation from independent server evidence. |
-| 7 | [AI decision and NIST resources](../labs/extensions/ai_decision_template.md) | Identify a harm that one metric misses. |
+| 7 | [AI decision and NIST resources](../labs/core/lab07-ai-governance/ai_decision_template.md) | Identify a harm that one metric misses. |
 | 8 | [Capstone guide](../capstone_project/README.md), [evidence descriptors](assessment_examples.md) | Trace a claim to evidence and a limitation. |
 
 ## Integrated governance operations record
@@ -61,7 +61,7 @@ This connects existing lab work; it is not an additional required technical lab.
 A fictional organization proposes reusing purchase records for support prioritization.
 It has not established jurisdiction, health-sector status, lawful authority or the
 source of labels. List the facts needed before selecting a regulatory framework.
-Use the [primary-source reading list](../labs/extensions/governance_case.md#read-primary-sources),
+Use the [primary-source reading list](../labs/optional/lab15-governance-case/README.md#read-primary-sources),
 or current sources assigned in the LMS. Reading the list does not require completing
 optional Lab 15. Map one potentially applicable
 obligation to an owner, control and evidence gap. Explain why sensitive data alone

@@ -23,6 +23,17 @@ jobs:
         run: .venv/bin/python -m unittest discover -s tests -v
       - name: Execute all labs twice and test failure recovery
         run: .venv/bin/python scripts/verify.py
+      - name: Rehearse student test discovery after path migration
+        run: |
+          mkdir -p dbt/it4065c_platform/student_tests
+          cp labs/core/lab03-modeling-quality/lab3_guided_test.sql dbt/it4065c_platform/student_tests/lab3_guided_daily_orders.sql
+          cat > dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql <<'SQL'
+          select order_date, gross_sales
+          from {{ ref('olap_sales_by_day') }}
+          where gross_sales is null or gross_sales < 0
+          SQL
+          .venv/bin/python scripts/course.py lab 3
+          .venv/bin/python labs/core/lab03-modeling-quality/check_test_results.py
       - name: Verify optional ingestion and safe publication
         run: |
           .venv/bin/python scripts/optional_labs.py catalog

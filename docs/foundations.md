@@ -50,7 +50,7 @@ readable. Lab 5 tests those permissions. You do not need to run that lab early.
 
 **Self-check:** Which identity saves a file? Which checks database privileges?
 Answer: the Ubuntu account controls file operations; PostgreSQL checks the
-connected database login's privileges. Continue to the [Lab 1 worksheet](../labs/module1_preflight/README.md#hands-on-investigation).
+connected database login's privileges. Continue to the [Lab 1 worksheet](../labs/core/lab01-environment/README.md#hands-on-investigation).
 
 ## Part C: Before Lab 3, learn keys, joins and grain
 
@@ -96,7 +96,7 @@ representations of a loan's fee, not additional loan fees.
 
 </details>
 
-Now continue to [Lab 3](../labs/module_2/lab3/README.md). Use the
+Now continue to [Lab 3](../labs/core/lab03-modeling-quality/README.md). Use the
 [glossary](glossary.md) for unfamiliar words as they appear; memorization is not required.
 
 ---

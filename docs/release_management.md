@@ -20,10 +20,11 @@ separate novice and replacement-instructor pilot statuses. Use the historical
 validation below as evidence for its named revision only. Do not describe a
 new revision as recommended or pilot-tested until its own gates are complete.
 
-A future breaking release can normalize lab folders and rename
-`oltp_order_detail` to `order_detail_mart`. Update SQL references, student commands,
-links, screenshots and tests together, then rehearse a fresh checkout. This
-revision retains those names while correcting the model's teaching description.
+The lab directories follow the student sequence under `labs/core` (1–7) and
+`labs/optional` (8–15). The detailed reporting model is `order_detail_mart`.
+When updating an existing instructor checkout, use current guide paths and
+regenerate dbt documentation with Lab 4. Previously generated local documentation
+belongs to its earlier revision; do not use it as evidence for the updated model.
 
 ## Included changes
 
