@@ -2,4 +2,4 @@
 
 Use the
 [central troubleshooting guide](../troubleshooting.md) and the recovery section
-on the [Lab 6 page](../../labs/module_6/lab6/README.md).
+on the [Lab 6 page](../../labs/core/lab06-monitoring/README.md).

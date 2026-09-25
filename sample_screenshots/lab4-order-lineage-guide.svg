@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+<title id="title">Lab 4: order-data dependency paths</title>
+<desc id="desc">Annotated teaching reference, not an execution screenshot. Equivalent commands and explanations appear in the lab guide.</desc>
+<rect width="1500" height="100%" fill="#f4f7fb"/>
+<text x="35" y="50" font-family="sans-serif" font-size="29" fill="#12304a">Lab 4: order-data dependency paths</text>
+<rect x="25" y="85" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="114" font-family="sans-serif" font-size="22" fill="#075b76">1. Source to staging</text>
+<text x="45" y="150" font-family="monospace" font-size="17" fill="#182430">raw.orders  -&gt;  stg_orders</text>
+<text x="45" y="185" font-family="sans-serif" font-size="19" fill="#334557">Read arrows as used by. Staging cleans the order fields.</text>
+<rect x="25" y="225" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="254" font-family="sans-serif" font-size="22" fill="#075b76">2. Staging to core</text>
+<text x="45" y="290" font-family="monospace" font-size="17" fill="#182430">stg_orders  -&gt;  fct_orders</text>
+<text x="45" y="325" font-family="sans-serif" font-size="19" fill="#334557">The core model supplies order-level data.</text>
+<rect x="25" y="365" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="394" font-family="sans-serif" font-size="22" fill="#075b76">3. Detail reporting</text>
+<text x="45" y="430" font-family="monospace" font-size="17" fill="#182430">fct_orders  -&gt;  order_detail_mart</text>
+<text x="45" y="465" font-family="sans-serif" font-size="19" fill="#334557">One row per order item. This is a reporting table, not a transaction-processing system.</text>
+<rect x="25" y="505" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="534" font-family="sans-serif" font-size="22" fill="#075b76">4. Aggregate reporting</text>
+<text x="45" y="570" font-family="monospace" font-size="17" fill="#182430">fct_orders  -&gt;  olap_sales_by_day</text>
+<text x="45" y="605" font-family="sans-serif" font-size="19" fill="#334557">Daily totals also depend on item data. These order paths are not the complete dependency graph.</text>
+<rect x="25" y="645" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="674" font-family="sans-serif" font-size="22" fill="#075b76">5. Test nodes</text>
+<text x="45" y="710" font-family="monospace" font-size="17" fill="#182430">olap_sales_by_day  -&gt;  lab3_guided_daily_orders / lab3_my_sales_rule</text>
+<text x="45" y="745" font-family="sans-serif" font-size="19" fill="#334557">Test nodes show dependencies. Check saved execution results to establish whether tests passed.</text>
+<text x="35" y="833" font-family="sans-serif" font-size="16" fill="#334557">Teaching reference | Isaac K. Nti | Use copyable commands and submission requirements in the lab guide.</text>
+</svg>

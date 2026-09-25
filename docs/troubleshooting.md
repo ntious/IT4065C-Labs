@@ -13,7 +13,7 @@
 | Lab 5 analyst query returns 42501 | The masked-data query is intentionally denied; compare the role/action matrix. A denied permitted sales query needs investigation. |
 | Lab 6 report interpreted as server log | Distinguish live client observations from the synthetic alert fixture; server evidence is Optional Lab 12. |
 | Lab 7 fairness conclusion unclear | Recalculate denominators and compare error costs; equal rates alone do not establish fairness. |
-| Optional server experiment fails | Follow [isolated setup and recovery](../labs/extensions/infrastructure_setup.md); do not reuse production databases. |
+| Optional server experiment fails | Follow [isolated setup and recovery](../labs/optional/infrastructure_setup.md); do not reuse production databases. |
 
 Enrolled students send the lab number, command, expected result and a short
 redacted error to their instructor's private support route. Independent learners

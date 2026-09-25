@@ -77,7 +77,7 @@ models:
               arguments: {to: "ref('dim_products')", field: product_id}
       - name: line_total
         data_tests: [not_null]
-  - name: oltp_order_detail
+  - name: order_detail_mart
     columns:
       - name: order_item_id
         data_tests: [not_null, unique]

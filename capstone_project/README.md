@@ -41,7 +41,7 @@ sets team size, checkpoints, due dates and official grading in the LMS.
 
 ## AI governance across the lifecycle
 
-Use the retailer support-prioritization scenario from [Lab 7](../labs/extensions/ai_governance.md)
+Use the retailer support-prioritization scenario from [Lab 7](../labs/core/lab07-ai-governance/README.md)
 as an explicit teaching extension to the interview, not a statement made by the
 original stakeholder. A model-training project is not required.
 
@@ -49,7 +49,7 @@ Carry one decision through the phases: establish intended and prohibited use;
 identify necessary data and proxy risks; separate evaluation access from operational
 access; evaluate bias and mitigation tradeoffs; design transparency and appeal;
 assign accountable reviewers; and define monitoring, rollback and retirement.
-Use the [AI decision template](../labs/extensions/ai_decision_template.md), including
+Use the [AI decision template](../labs/core/lab07-ai-governance/ai_decision_template.md), including
 its purpose-change review. Rejecting or deferring deployment is a valid conclusion.
 
 ## Evidence and learning expectations
