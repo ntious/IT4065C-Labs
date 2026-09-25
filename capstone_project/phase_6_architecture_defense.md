@@ -10,7 +10,7 @@ simulated, proposed and untested claims throughout; confidence is not evidence.
 | 2. Model | ERD, grain, keys, relationships and one justified modeling decision |
 | 3. Workloads | OLTP/OLAP placement and tradeoffs; explain measurements needed before claiming scalability. Analytics placement depends on workload and isolation requirements. |
 | 4. Lifecycle | Collection through retirement, derived copies, validation and refresh/deletion responsibilities |
-| 5. Governance | Owners, permitted uses, sensitivity and retention; distinguish policy from enforcement |
+| 5. Governance | Owners, handling classification, confidentiality impact, regulatory applicability, permitted uses and retention; distinguish policy from enforcement |
 | 6. Access | Tested role boundaries, masking limits, and proposed transport/storage protections |
 | 7. Monitoring | Actual observations, simulated alerts, gaps in server evidence and response ownership |
 | 8. AI and risk | Bias mitigation tradeoff, transparency, appeal, accountability and one harm scenario; state facts needed before making legal claims |
