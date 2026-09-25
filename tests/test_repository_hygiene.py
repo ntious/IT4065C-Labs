@@ -9,6 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryHygieneTests(unittest.TestCase):
+    def test_lab_sequence_has_one_guide_per_number(self):
+        for group, numbers in (("core", range(1, 8)), ("optional", range(8, 16))):
+            for number in numbers:
+                guides = list((ROOT / "labs" / group).glob(f"lab{number:02d}-*/README.md"))
+                self.assertEqual(len(guides), 1, f"Lab {number} needs one guide in {group}")
+
     def test_student_test_directory_is_discovered_and_ignored(self):
         import yaml
         project = yaml.safe_load((ROOT / "dbt/it4065c_platform/dbt_project.yml").read_text())
@@ -31,14 +37,9 @@ class RepositoryHygieneTests(unittest.TestCase):
             with self.subTest(path=name):
                 self.assertFalse(name == ".env" or name.startswith((".local/", ".venv/")))
                 self.assertNotIn(path.suffix, {".pdf", ".xlsx", ".log"}, "Review binary/runtime assets before publishing")
-                if name in {"labs/module_2/images/lab2-nano-guide.png",
-                            "labs/module_2/images/lab2-placeholder-guide.png",
-                            "sample_screenshots/lab2-part-a-walkthrough.png",
-                            "sample_screenshots/lab3-b2-nano-guide.png",
-                            "sample_screenshots/lab4-technical-output-guide.png",
+                if name in {"labs/core/lab02-classification/images/lab2-nano-guide.png",
+                            "labs/core/lab02-classification/images/lab2-placeholder-guide.png",
                             "sample_screenshots/lab4-open-lineage-guide.png",
-                            "sample_screenshots/lab4-order-lineage-guide.png",
-                            "sample_screenshots/lab4-focused-lineage-guide.png",
                             "sample_screenshots/lab5-access-results.png",
                             "sample_screenshots/lab11-kpi-results.png"}:
                     self.assertTrue(path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))

@@ -13,7 +13,7 @@ selected non-administrator role. Follow the [practice guide](../labs/practice/RE
 synthetic fixture. See [validation](../docs/validation.md) before running it.
 
 `infrastructure_labs.py` runs Optional Labs 12–14 on newly created, loopback-only
-instances, stopping them after each run. Follow the [optional setup](../labs/extensions/infrastructure_setup.md).
+instances, stopping them after each run. Follow the [optional setup](../labs/optional/infrastructure_setup.md).
 It never connects to the core database.
 
 ---

@@ -1,6 +1,6 @@
 # Current course guidance
 
-See [setup](../docs/setup.md), [labs](../labs/README.md), and the [instructor runbook](../docs/instructor.md).
+See [setup](setup.md), [labs](../labs/README.md), and the [instructor runbook](instructor.md).
 This file remains as a compatibility link; use the current shared commands.
 
 ---

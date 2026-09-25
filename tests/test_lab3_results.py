@@ -8,7 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1] / "labs/module_2/lab3/check_test_results.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "labs/core/lab03-modeling-quality/check_test_results.py"
 spec = importlib.util.spec_from_file_location("lab3_results", SCRIPT)
 checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
