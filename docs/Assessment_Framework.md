@@ -16,7 +16,7 @@ announce any adaptation in the LMS before students start. Keep answer keys and g
 | SLO 6 | AI governance decision and oral defense (Lab 7/capstone) |
 
 Labs 1–6 rubric: evidence 25%, interpretation 35%, transfer 30%, clarity/limits 10%.
-Lab 7 has its own [rubric](../labs/extensions/ai_decision_template.md).
+Lab 7 has its own [rubric](../labs/core/lab07-ai-governance/ai_decision_template.md).
 Use the [performance descriptors and example](assessment_examples.md) for consistent
 feedback. Required lifecycle and infrastructure discussion evidence is specified in
 the [module learning map](module_learning_map.md); optional Labs 8–9 deepen that

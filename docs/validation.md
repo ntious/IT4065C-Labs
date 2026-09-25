@@ -1,5 +1,26 @@
 # Reproducibility and security verification
 
+## Lab-path migration rehearsal: 2026-09-25
+
+The reorganized source was exercised in a private temporary copy using the
+configured Ubuntu course environment. Labs 1–9 ran twice through `scripts/verify.py`,
+including actual failing-data detection, restoration, reader privilege denials,
+connection cleanup and notebook execution. Optional catalog ingestion passed;
+quality promotion passed twice; isolated server audit, two-instance transfer and
+TLS/credential-rotation experiments each passed twice and stopped their instances.
+
+The relocated Lab 2 guided insert, practice queries, expected analyst denial,
+Lab 3 named-test checker, Lab 4 documentation generation and Lab 10 teaching
+contract also passed. The baseline executed 10 models and 37 tests; adding the two
+student tests executed 39 tests with both named results passing. The generated
+dbt manifest contains `order_detail_mart` under its new name.
+
+All 555 local Markdown links and section anchors resolved during the migration
+review. Lab 15 is a reading/decision exercise: its source links and instructions
+were checked, not reported as an executed lab. Human learner and instructor pilots
+remain separate validation gates. Fresh installation on both supported Ubuntu
+versions is covered by the published revision's CI, not inferred from this local run.
+
 ## Independent-review correction checks: 2026-09-24
 
 The correction set was rehearsed in a temporary source copy against the dedicated
@@ -92,7 +113,7 @@ of this workflow alone is not proof of a successful run.
 
 ## Reproduce optional infrastructure checks
 
-Follow the [optional prerequisites](../labs/extensions/infrastructure_setup.md), then:
+Follow the [optional prerequisites](../labs/optional/infrastructure_setup.md), then:
 
 ```bash
 .venv/bin/python scripts/infrastructure_labs.py audit

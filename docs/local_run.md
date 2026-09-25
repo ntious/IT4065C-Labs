@@ -154,7 +154,7 @@ Default configuration needs no edits. Custom configuration is documented in
 
 ## Common step 4: begin the learning activity
 
-Open [Lab 1](../labs/module1_preflight/README.md). Use your setup evidence and
+Open [Lab 1](../labs/core/lab01-environment/README.md). Use your setup evidence and
 complete its short worksheet. **Do not repeat installation or the technical check
 after success.** The next activity is Lab 2; follow the [course checklist](course_checklist.md)
 so discussions and the capstone are not hidden behind separate navigation routes.

@@ -2,4 +2,4 @@
 
 Use the
 [central troubleshooting guide](../troubleshooting.md) and the recovery section
-on the [Lab 3 page](../../labs/module_2/lab3/README.md).
+on the [Lab 3 page](../../labs/core/lab03-modeling-quality/README.md).

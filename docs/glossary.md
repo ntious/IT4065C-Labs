@@ -32,7 +32,7 @@ only when you need more detail. Vendor names appear in the [platform guide](plat
 | View / table / materialization | A regular view stores a query definition; a table stores rows. Materialization is the strategy used to create a model's database representation. This course uses staging views and core/mart tables; a materialized view is a different object that also stores results. |
 | Refresh / rebuild | Recompute stored results from their inputs. Deleting a source row does not automatically rebuild a downstream reporting table. |
 | ETL / ELT | Extract-transform-load transforms data before loading it into the target. Extract-load-transform loads first and transforms there, as the course's raw-to-dbt workflow does. |
-| OLTP / OLAP | Transaction-oriented work, such as recording an order / analytical work, such as summarizing daily sales. A reporting model named `oltp_order_detail` does not by itself implement a production transaction service. |
+| OLTP / OLAP | Transaction-oriented work, such as recording an order / analytical work, such as summarizing daily sales. The `order_detail_mart` table supports detailed reporting; it is not an OLTP transaction-processing system. |
 | Structured / semi-structured / unstructured | Consistent fields such as CSV columns / flexible labeled fields such as JSON / content such as prose without a fixed record layout. |
 | Metadata / catalog / provenance | Descriptions of data / an inventory of those descriptions / information about where data came from and how it was handled. |
 | Data curation | Selecting, documenting and preparing data for an intended use. |

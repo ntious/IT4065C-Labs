@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+<title id="title">Lab 3: write and save your SQL test</title>
+<desc id="desc">Annotated teaching reference, not an execution screenshot. Equivalent commands and explanations appear in the lab guide.</desc>
+<rect width="1500" height="100%" fill="#f4f7fb"/>
+<text x="35" y="50" font-family="sans-serif" font-size="29" fill="#12304a">Lab 3: write and save your SQL test</text>
+<rect x="25" y="85" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="114" font-family="sans-serif" font-size="22" fill="#075b76">1. Open your private test</text>
+<text x="45" y="150" font-family="monospace" font-size="17" fill="#182430">nano dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql</text>
+<text x="45" y="185" font-family="sans-serif" font-size="19" fill="#334557">A new file is blank. Paste only SQL, not terminal commands or output.</text>
+<rect x="25" y="225" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="254" font-family="sans-serif" font-size="22" fill="#075b76">2. Select evidence columns</text>
+<text x="45" y="290" font-family="monospace" font-size="17" fill="#182430">select order_date, gross_sales</text>
+<text x="45" y="325" font-family="sans-serif" font-size="19" fill="#334557">These columns help identify and investigate any violating row.</text>
+<rect x="25" y="365" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="394" font-family="sans-serif" font-size="22" fill="#075b76">3. Read the daily model</text>
+<text x="45" y="430" font-family="monospace" font-size="17" fill="#182430">from {{ ref(&#x27;olap_sales_by_day&#x27;) }}</text>
+<text x="45" y="465" font-family="sans-serif" font-size="19" fill="#334557">dbt resolves the model location. Keep this reference in the starter.</text>
+<rect x="25" y="505" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="534" font-family="sans-serif" font-size="22" fill="#075b76">4. Return violations</text>
+<text x="45" y="570" font-family="monospace" font-size="17" fill="#182430">where gross_sales is null or gross_sales &lt; 0</text>
+<text x="45" y="605" font-family="sans-serif" font-size="19" fill="#334557">The starter finds missing or negative sales. Adapt the rule as Part B instructs.</text>
+<rect x="25" y="645" width="1450" height="125" rx="8" fill="white" stroke="#acbac7"/>
+<text x="45" y="674" font-family="sans-serif" font-size="22" fill="#075b76">5. Save, then execute</text>
+<text x="45" y="710" font-family="monospace" font-size="17" fill="#182430">Ctrl+O, Enter, Ctrl+X</text>
+<text x="45" y="745" font-family="sans-serif" font-size="19" fill="#334557">An asterisk means unsaved changes. Saving does not execute SQL; continue with B3.</text>
+<text x="35" y="833" font-family="sans-serif" font-size="16" fill="#334557">Teaching reference | Isaac K. Nti | Use copyable commands and submission requirements in the lab guide.</text>
+</svg>

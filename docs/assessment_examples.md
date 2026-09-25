@@ -30,7 +30,7 @@ security claim. This is an example of reasoning, not a solution to the retail la
 
 ## AI decision assessment
 
-Use the [AI rubric](../labs/extensions/ai_decision_template.md). For each dimension,
+Use the [AI rubric](../labs/core/lab07-ai-governance/ai_decision_template.md). For each dimension,
 Developing means an unsupported assertion or missing lifecycle connection;
 Competent means a justified decision with relevant evidence and limitations;
 Strong means a defensible tradeoff, competing stakeholder perspective and a

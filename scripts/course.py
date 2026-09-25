@@ -97,15 +97,15 @@ def settings():
 
 
 LAB_GUIDES = {
-    1: "labs/module1_preflight/README.md",
-    2: "labs/module_2/M2_lab2_governance.md",
-    3: "labs/module_2/lab3/README.md",
-    4: "labs/module_3/lab4/README.md",
-    5: "labs/module_5/lab5/README.md",
-    6: "labs/module_6/lab6/README.md",
-    7: "labs/extensions/ai_governance.md",
-    8: "labs/extensions/retention.md",
-    9: "labs/extensions/infrastructure.md",
+    1: "labs/core/lab01-environment/README.md",
+    2: "labs/core/lab02-classification/README.md",
+    3: "labs/core/lab03-modeling-quality/README.md",
+    4: "labs/core/lab04-lineage-lifecycle/README.md",
+    5: "labs/core/lab05-access-control/README.md",
+    6: "labs/core/lab06-monitoring/README.md",
+    7: "labs/core/lab07-ai-governance/README.md",
+    8: "labs/optional/lab08-retention/README.md",
+    9: "labs/optional/lab09-infrastructure/README.md",
 }
 
 
@@ -215,7 +215,7 @@ class Course:
         count = self.execute("SELECT count(*) FROM information_schema.tables WHERE table_schema='raw' AND table_name IN ('customers','orders','products','order_items')")[0][0]
         require(count in {0, 4}, "Partial raw dataset found. Restore the missing table or use a fresh course database; automatic destructive reseeding is disabled.")
         if count == 0:
-            self.file("labs/module_2/lab2_seed.sql")
+            self.file("labs/core/lab02-classification/lab2_seed.sql")
         require(self.execute("SELECT count(*) FROM raw.customers")[0][0] > 0, "Raw dataset empty; use a fresh course database.")
         print("PASS: synthetic seed present (existing data preserved).")
 
@@ -243,8 +243,8 @@ class Course:
 
     def lab2(self):
         self.seed()
-        self.file("labs/module_2/lab2_governance_register.sql")
-        self.file("labs/module_2/lab2_insert_templates.sql")
+        self.file("labs/core/lab02-classification/lab2_governance_register.sql")
+        self.file("labs/core/lab02-classification/lab2_insert_templates.sql")
         rows = self.execute(self.sql.SQL("SELECT table_name,column_name,classification FROM {}.data_classification_register ORDER BY table_name,column_name").format(self.sql.Identifier(self.schema)))
         require(len(rows) >= 2, "Governance register must include at least two fields.")
         print("PASS: governance register. Add your own rationale in the submission template.")
@@ -270,8 +270,8 @@ class Course:
 
     def lab5(self):
         self.seed()
-        self.file("labs/module_5/lab5/02_build_safe_objects.sql")
-        self.file("labs/module_5/lab5/03_rbac_and_grants.sql")
+        self.file("labs/core/lab05-access-control/02_build_safe_objects.sql")
+        self.file("labs/core/lab05-access-control/03_rbac_and_grants.sql")
         events = []
         cases = [("analyst", "v_sales_by_day", True), ("analyst", "v_customers_masked", False),
                  ("analyst", "v_customers_raw_pii", False), ("steward", "v_customers_masked", True),
@@ -302,8 +302,8 @@ class Course:
         self.lab5()
         events = json.loads((self.private / "access-evidence.json").read_text())
         require(sum(e["sqlstate"] == "42501" for e in events) == 3, "Live observation count incorrect.")
-        self.file("labs/module_6/lab6/00_prepare_audit_evidence.sql")
-        rows = self.execute(self.template("labs/module_6/lab6/01_generate_audit_report.sql"))
+        self.file("labs/core/lab06-monitoring/00_prepare_audit_evidence.sql")
+        rows = self.execute(self.template("labs/core/lab06-monitoring/01_generate_audit_report.sql"))
         (self.private / "audit-report.json").write_text(json.dumps({"live_client_events": events,
             "simulated_incidents": rows, "limitation": "Client observations and a synthetic fixture; not tamper-proof server audit logging."}, indent=2, default=str), encoding="utf-8")
         require(len(rows) >= 2, "Expected simulated incidents missing.")
@@ -328,11 +328,11 @@ class Course:
         print("PASS: AI metrics calculated. Complete the governance decision; metric parity is not proof of fairness.")
 
     def lab8(self):
-        self.file("labs/extensions/retention.sql")
+        self.file("labs/optional/lab08-retention/retention.sql")
         print("PASS: retention, legal hold and deletion-ledger replay after simulated restoration.")
 
     def lab9(self):
-        self.file("labs/extensions/infrastructure.sql")
+        self.file("labs/optional/lab09-infrastructure/infrastructure.sql")
         print("PASS: snapshot refresh and stale-data detection. This single-instance simulation does not prove multi-cluster administration.")
 
     def run(self, number):
@@ -341,7 +341,7 @@ class Course:
             self.dbt("debug")
         else:
             getattr(self, f"lab{number}")()
-        print("LAB 1 CHECKS PASSED: complete the investigation in labs/module1_preflight/README.md." if number == 1
+        print("LAB 1 CHECKS PASSED: complete the investigation in labs/core/lab01-environment/README.md." if number == 1
               else f"LAB {number} TECHNICAL CHECKS COMPLETE. Return to {LAB_GUIDES[number]} for interpretation and deliverables.")
 
 
