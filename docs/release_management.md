@@ -18,7 +18,7 @@ one revision does not automatically validate subsequent edits.
 
 ## Frozen release candidate
 
-Use the [release-candidate record](https://github.com/ntious/IT4065C-Labs/releases/tag/teaching-2026-09-rc1)
+Use the [release-candidate record](https://github.com/ntious/IT4065C-Labs/releases)
 for the final correction set. Publish `teaching-2026-09-rc1` only after the exact
 selected commit passes the Ubuntu 22.04/24.04 workflow. Its release notes must
 record the full commit SHA, successful workflow URL and pending human pilots.

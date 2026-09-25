@@ -10,8 +10,8 @@ experiments and non-default configuration. This revision also aligns the capston
 summary and defense language with the governance classifications.
 
 For validation of the subsequent final wording corrections, use the exact SHA
-and workflow recorded in the [frozen release candidate](https://github.com/ntious/IT4065C-Labs/releases/tag/teaching-2026-09-rc1)
-once published. Historical runs below apply only to their named revisions.
+and workflow recorded in the [frozen release candidate](https://github.com/ntious/IT4065C-Labs/releases)
+for `teaching-2026-09-rc1` once published. Historical runs below apply only to their named revisions.
 Independent novice and replacement-instructor pilots remain pending.
 
 ## Capstone consistency and anchor validation: 2026-09-25
