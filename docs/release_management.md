@@ -1,8 +1,20 @@
 # Release management
 
-Use this guide to publish a versioned teaching release and preserve its validation
-record. The repository contains the seven-lab core and Optional Labs 8–15. No
-version tag is recorded as of 2026-09-18; use a verified commit when adopting it.
+Use this guide to choose a reproducible revision and record its adoption status.
+The repository contains the core lab sequence (1–7) and optional Labs 8–15.
+
+## Validated revisions and adoption status
+
+| Status | Revision and evidence | Meaning |
+| --- | --- | --- |
+| Historical reproducibility baseline | `71653bf77f881a62cda029f5ebc344e6702adb4a`; [September 18 workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) | Earlier layout; retain as historical evidence, not the starting point for the migrated guides |
+| Previous CI-validated migration | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
+| Current CI-validated candidate | `af23876ea1b3c0bf6db50b40926dd16cdfbdd34e`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36150294346) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
+| Human-pilot-tested teaching release | Not yet established | Requires recorded novice and replacement-instructor pilots, a selected revision and a release tag |
+
+The named candidate is a reproducible technical baseline, not a claim of human
+usability validation. Later commits need their own validation record; success at
+one revision does not automatically validate subsequent edits.
 
 ## Framework maintenance
 
@@ -37,9 +49,9 @@ belongs to its earlier revision; do not use it as evidence for the updated model
 
 ## Verification and publication
 
-The complete Ubuntu 22.04/24.04 workflow passed at commit `71653bf`, including the
-isolated infrastructure experiments. See [validation](validation.md) for the full
-commit, run link and assertion scope.
+The current candidate above passed the complete Ubuntu 22.04/24.04 workflow,
+including student-test discovery and isolated infrastructure experiments. See
+[validation](validation.md#capstone-consistency-and-anchor-validation-2026-09-25) for its scope.
 
 For a versioned release, select the intended commit, confirm its workflow result,
 record learner/instructor pilot status and historical credential-review status,
@@ -67,16 +79,22 @@ Keep these boundaries visible when other instructors adapt the course.
 
 ## Pin a tested baseline before adoption
 
-The review baseline is commit `71653bf77f881a62cda029f5ebc344e6702adb4a`, whose
-[workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) passed on
-2026-09-18. For a fresh clone, `git checkout --detach 71653bf77f881a62cda029f5ebc344e6702adb4a`
-selects that baseline. Do not switch an existing student checkout with unsaved work.
-This commit predates the independent-review corrections; it is a reproducibility
-reference, not a claim that the new corrections have passed Ubuntu CI.
+For a new instructor rehearsal, the current CI-validated candidate can be
+selected with:
 
-After publishing changes, select the new commit only once its own workflow passes.
+```bash
+git checkout --detach af23876ea1b3c0bf6db50b40926dd16cdfbdd34e
+```
+
+Run this only in a fresh rehearsal clone, not a checkout with unsaved work.
+This selects the exact tested capstone-correction revision. If adopting later corrections,
+select their exact commit after verifying that commit's workflow instead.
+Record the chosen revision and use its matching guides for the entire rehearsal.
+
 Complete and record both human pilots before describing a version as a pilot-tested
-teaching release. The maintainer chooses the tag, release notes and adoption date.
+teaching release. Record automated/assistant-led execution separately from a human
+instructor walkthrough; neither establishes independent novice or replacement-
+instructor readiness. The maintainer chooses the tag and adoption date.
 
 
 ---

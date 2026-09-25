@@ -34,7 +34,7 @@ sets team size, checkpoints, due dates and official grading in the LMS.
 | [1. Discovery](phase_1_discovery.md) | Requirements register: source, entity, relationship, uncertainty and follow-up question | SLO 1; Labs 1–2 |
 | [2. Structural foundation](phase_2_structural_foundation.md) | Editable ERD with grain, keys, cardinality and justified revisions | SLO 4; Lab 3 |
 | [3. Workload strategy](phase_3_workload_strategy.md) | OLTP/OLAP placement, lifecycle diagram and infrastructure comparison | SLOs 2–4; Labs 3–4; Lab 9 optional |
-| [4. Governance overlay](phase_4_governance_overlay.md) | Owner, sensitivity, permitted use, retention, risk and control register | SLOs 1, 5–6; Labs 2, 5, 7 |
+| [4. Governance overlay](phase_4_governance_overlay.md) | Owner, handling classification, confidentiality impact, regulatory applicability, permitted use, retention, risk and control register | SLOs 1, 5–6; Labs 2, 5, 7 |
 | [5. Integration and evidence](phase_5_integration_evidence.md) | Claim-to-evidence matrix, limitations, peer review and revision | SLOs 2, 4–6; Labs 3–7 |
 | [6. Architecture defense](phase_6_architecture_defense.md) | Ten-slide recommendation and responses to review-board questions | SLOs 1–6 |
 | [7. Individual reflection](phase_7_reflection.md) | One-page account of contribution, changed reasoning and next improvement | SLO 6 plus another selected outcome |

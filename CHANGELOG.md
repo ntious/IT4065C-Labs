@@ -1,5 +1,17 @@
 # Changes
 
+## 2026-09-25: Align capstone reasoning and adoption evidence
+
+- Distinguish logical relationships, proposed enforcement and executed checks in Phase 2.
+- Mark interview retention/legal assertions as stakeholder inputs requiring validation.
+- Align Phase 4 and the portfolio around handling classification, impact and applicability.
+- Separate historical validation, the CI-validated candidate and human-pilot release status.
+- Check local heading anchors in CI, including duplicate headings and renamed targets.
+
+Learning outcomes and assessment weights are unchanged. Clarified fields belong
+in the existing phase entries; no separate reports are added.
+
+
 ## 2026-09-25: Match lab paths to the learning sequence
 
 - Place required Labs 1–7 under `labs/core` and optional Labs 8–15 under `labs/optional`.

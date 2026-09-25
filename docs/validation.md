@@ -1,6 +1,29 @@
 # Reproducibility and security verification
 
+## Capstone consistency and anchor validation: 2026-09-25
+
+**CI-validated revision:** `af23876ea1b3c0bf6db50b40926dd16cdfbdd34e`.
+[Workflow 36150294346](https://github.com/ntious/IT4065C-Labs/actions/runs/36150294346)
+passed on Ubuntu 22.04 and 24.04. It includes all 33 repository tests, including
+permanent checks for local Markdown heading fragments and regression cases for
+renamed and duplicate headings, fenced examples and encoded fragments.
+
+The workflow also completed fresh setup, repeated labs and recovery, named student
+tests, optional experiments and non-default configuration. Capstone instructions,
+portfolio fields and the fictional example now distinguish proposed controls,
+impact and applicability. These results establish technical validation of the
+named revision; they do not establish human comprehension or instructor readiness.
+
 ## Lab-path migration rehearsal: 2026-09-25
+
+**CI-validated revision:** `da05a646d3f627e65150c523cf944149f2f19d19`.
+[Workflow 36096732831](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831)
+completed successfully on Ubuntu 22.04 and 24.04. It included fresh setup, 29
+repository tests, repeated labs and recovery, the 39-test student-work rehearsal,
+optional experiments and non-default database/user/schema configuration.
+
+The local execution below was assistant-led technical rehearsal, separate from
+the author's reported walkthrough. No independent human pilot is claimed.
 
 The reorganized source was exercised in a private temporary copy using the
 configured Ubuntu course environment. Labs 1–9 ran twice through `scripts/verify.py`,
@@ -19,7 +42,7 @@ All 555 local Markdown links and section anchors resolved during the migration
 review. Lab 15 is a reading/decision exercise: its source links and instructions
 were checked, not reported as an executed lab. Human learner and instructor pilots
 remain separate validation gates. Fresh installation on both supported Ubuntu
-versions is covered by the published revision's CI, not inferred from this local run.
+versions is established by the exact workflow linked above, not inferred from this local run.
 
 ## Independent-review correction checks: 2026-09-24
 

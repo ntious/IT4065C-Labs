@@ -1,6 +1,12 @@
 # Business Interview Transcript
 ## Retail Order & Sales System Modernization
 
+This is a fictional stakeholder interview. It is authoritative for the business
+requirements and beliefs expressed in this scenario, not for legal or regulatory
+applicability. Treat legal claims as assumptions to investigate using primary
+sources and stated jurisdiction, purpose and record categories. Record uncertainty
+and recommend review rather than inventing legal authority.
+
 **Stakeholders:**  
 - Interviewer (Data Team)  
 - Retail Operations Manager  
@@ -93,14 +99,22 @@ We need visibility into:
 
 ---
 
-## Internal Compliance Requirements
+## Stakeholder Retention Policy Assertions
 
-**Retention Policy**
+**Current policy as described by the stakeholder; legal basis not verified**
 
-- All Order and Transaction data must be retained for **7 years** (tax law compliance).
+- We currently retain Order and Transaction data for **7 years** and attribute
+  that period to tax requirements. The architecture team must verify the
+  applicable jurisdiction, record categories and authority before describing
+  this period as a legal obligation.
 - Temporary logs of “In-Progress” orders may be purged after **90 days**.
 - Monthly sales aggregates are **never deleted**.
 - After 2 years, aggregates move to **Cold Storage**.
+
+Record these as stakeholder policy assertions, including the indefinite aggregate
+retention request. Review purpose, necessity, applicable obligations, approved
+holds and exceptions before recommending a final schedule. Cold storage is a
+storage choice; it does not itself determine how long records should be kept.
 
 ---
 
@@ -123,25 +137,29 @@ We require full **auditability**:
 
 ---
 
-# Risk & Sensitivity Memo (Governance Input)
+# Stakeholder Impact Estimates (Governance Input)
 
-### Classification: HIGH (Red)
+### Estimated confidentiality impact: High
 **Customer Profiles (Email / Phone)**  
-A leak results in GDPR/privacy violations and legal fines.
+The stakeholder expects exposure could cause privacy harm and regulatory
+consequences. Determine which frameworks, if any, apply before concluding that
+a violation or fine follows.
 
-### Classification: MEDIUM (Yellow)
+### Estimated confidentiality impact: Medium
 **Order History & Financial Totals**  
 A leak exposes revenue trends and competitive intelligence.
 
-### Classification: LOW (Green)
+### Estimated confidentiality impact: Low
 **Product Catalog & Category Lists**  
-Public-facing information. No legal risk if exposed.
+The stakeholder describes the published catalog as public-facing with lower
+confidentiality impact. Review unpublished pricing, contractual and intellectual-
+property context before treating disclosure as risk-free.
 
 ---
 
 # Purpose of This Document
 
-This transcript serves as the authoritative source for:
+Use this transcript as the source of fictional stakeholder requirements for:
 
 - Phase 1 – Requirements Extraction  
 - Phase 2 – Logical Data Model  
@@ -150,7 +168,12 @@ This transcript serves as the authoritative source for:
 - Phase 5 – Evidence Validation  
 - Phase 6 – Executive Defense  
 
-All architectural and governance decisions must be traceable to this interview.
+Trace decisions to stakeholder requirements and identify assumptions, supporting
+sources and justified revisions. The impact estimates above are not handling
+classifications or determinations of legal applicability. In Phase 4, use the
+course handling labels Public / Internal / Sensitive / Restricted and record
+impact separately. You may challenge a stakeholder policy with evidence and
+document the proposed revision; the interview does not override legal authority.
 
 ---
 
