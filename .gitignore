@@ -18,3 +18,38 @@ desktop.ini
 
 # Private student-authored dbt tests
 dbt/it4065c_platform/student_tests/
+
+# Private submissions; retain only public scaffolds
+/submissions/*
+!/submissions/README.md
+!/submissions/template.md
+
+# Generated credentials and database exports
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.csr
+*.crt
+*.dump
+*.backup
+*.pgdump
+*.sqlite
+*.sqlite3
+
+# Local tooling and editor state
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
