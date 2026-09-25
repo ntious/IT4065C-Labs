@@ -104,7 +104,7 @@ It does not replace it.
 You must evaluate each entity using four pillars:
 
 1. Ownership (Accountability)  
-2. Sensitivity  
+2. Handling classification, confidentiality impact and regulatory applicability
 3. Retention  
 4. Protection (Risk Consequence)  
 
