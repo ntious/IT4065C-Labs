@@ -34,7 +34,7 @@
  -----------------------------------
  - Quantity and pricing fields directly affect financial reporting.
  - Errors at the line-item level can be amplified when aggregated.
- - Referential integrity (valid order_id and product_id values) is critical and
+ - Relationships (valid order_id and product_id references)
    are checked when dbt relationship tests run. These checks do not create
    database foreign-key constraints.
  - This model does NOT perform financial calculations beyond standardization.

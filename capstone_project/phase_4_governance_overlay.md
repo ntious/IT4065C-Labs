@@ -23,7 +23,7 @@ You are no longer designing how data flows.
 
 You are designing how the organization survives risk.
 
-Every table in your system carries:
+For each table, assess potential:
 
 - Legal exposure  
 - Financial liability  
@@ -49,19 +49,20 @@ They fail when:
 
 This phase simulates a governance review board.
 
-You are not inventing policies.
-
-You are extracting them from business reality.
+Start with stakeholder policies, then investigate their purpose, applicability
+and limitations. Distinguish stated requirements from your proposed revisions.
 
 Professional architects do not create arbitrary rules.
 
-They interpret stakeholder language into enforceable structure.
+They translate stakeholder needs into proposed controls, with named owners
+and a plan to verify implementation.
 
 ---
 
 ## Evidence Requirement: Transcript Grounding
 
-Every governance decision must be traceable to the business interview transcript.
+Trace governance decisions to the interview or the explicit AI scenario extension.
+Support legal applicability claims with primary sources and identify missing facts.
 
 If asked:
 
@@ -74,7 +75,9 @@ You must be able to reference:
 - A compliance constraint  
 - A business objective  
 
-Governance choices that contradict stakeholder evidence lack defensibility.
+A justified recommendation may challenge a stakeholder assertion. Preserve the
+original statement and explain the evidence, uncertainty and approval needed
+for your proposed change.
 
 This phase measures your ability to translate messy business language into structured governance architecture.
 
@@ -101,7 +104,7 @@ It does not replace it.
 You must evaluate each entity using four pillars:
 
 1. Ownership (Accountability)  
-2. Sensitivity  
+2. Handling classification, confidentiality impact and regulatory applicability
 3. Retention  
 4. Protection (Risk Consequence)  
 
@@ -123,50 +126,45 @@ Ownership must be defensible using transcript evidence.
 
 ---
 
-## 2. Sensitivity Classification
+## 2. Handling Classification and Impact
 
-Sensitivity reflects impact — not convenience.
+Use the same teaching categories as [Lab 2](../labs/core/lab02-classification/README.md)
+and the [glossary](../docs/glossary.md#governance-and-access):
 
-You must reason using professional classification language:
+| Handling classification | Meaning in this scenario |
+| --- | --- |
+| Public | Approved for public disclosure |
+| Internal | Intended for organizational use, not approved for public release |
+| Sensitive | Controlled access because disclosure or misuse could cause harm |
+| Restricted | Especially limited access under the scenario's highest handling restrictions |
 
-- Public
-- Internal
-- Confidential
-- Restricted
+In the existing **Phase_4_Governance** section, record these three distinctions:
 
-The portfolio records sensitivity as:
+- **Handling classification:** Public / Internal / Sensitive / Restricted, with rationale.
+- **Confidentiality impact:** Low / Medium / High, explaining the consequences of disclosure.
+- **Regulatory applicability:** the supported conclusion or the facts and sources still needed.
 
-- Low
-- Medium
-- High
+There is no automatic conversion between these fields. Restricted does not prove
+that a regulation applies, and low confidentiality impact does not mean no risk.
+Public data can still have significant integrity or availability requirements.
+Use the interview's impact estimates as stakeholder inputs, not a classification
+answer key. Explain departures from those estimates where justified.
 
-Use the following mapping logic:
-
-| Governance Classification | Retail Meaning | Portfolio Value |
-|----------------------------|---------------|----------------|
-| Public                     | Safe to disclose publicly | Low |
-| Internal                   | Operationally sensitive | Medium |
-| Confidential               | Customer or competitive harm | High |
-| Restricted                 | Regulated / legally protected data | High |
-
-Evaluate sensitivity based on:
-
-- Customer harm  
-- Competitive exposure  
-- Legal consequences  
-- Regulatory requirements  
-
-Sensitivity reflects impact severity.
+For example, a proposed record can be **Restricted**, have **High** confidentiality
+impact, and have **regulatory applicability undetermined** pending a jurisdiction
+and purpose review. Record these within your existing governance entry; no
+separate classification report is required.
 
 ---
 
 ## 3. Retention Strategy
 
-For each entity, determine:
+For each entity, distinguish:
 
-- Short-term (Operational / Hot)
-- Long-term (Analytical / Cold)
-- Both
+- **Retention:** the proposed duration or review/deletion trigger, purpose,
+  claimed authority, holds and unresolved exceptions.
+- **Storage tier:** operational/hot, analytical/cold or both. A tier is not
+  a retention period.
 
 Retention must align with:
 
@@ -175,7 +173,9 @@ Retention must align with:
 - Analytical value  
 - Legal mandates  
 
-You are interpreting retention logic from the stakeholder context — not inventing generic policy.
+The interview supplies proposed policy inputs, not verified legal periods.
+Record unresolved authority and recommend review where necessary, including for
+indefinite retention. Do not invent a universal legal schedule.
 
 ---
 
@@ -183,7 +183,8 @@ You are interpreting retention logic from the stakeholder context — not invent
 
 For each entity, write a precise 1–2 sentence risk consequence statement:
 
-> If this table leaked publicly, what specific legal, financial, or ethical consequence would occur?
+> If this table leaked publicly, what plausible legal, financial, or ethical consequences could follow, and
+> what facts would determine them?
 
 Weak example:
 
@@ -201,7 +202,7 @@ Your risk statement must:
 
 - Be retail-specific  
 - Reflect realistic consequences  
-- Align with your sensitivity level  
+- Explain the relationship between handling classification and impact
 - Match the business context  
 
 If your risk statement could apply to any company in any industry, it is insufficient.
@@ -216,7 +217,8 @@ Your governance decisions must align across pillars.
 
 For example:
 
-- A High sensitivity table should not have Low risk consequences.
+- A handling classification and impact estimate should each have a clear rationale;
+  explain their relationship instead of applying an automatic mapping.
 - Long-term retention of regulated data must be justified.
 - Ownership assignments must reflect operational responsibility.
 
@@ -234,8 +236,8 @@ Are decisions traceable to business context?
 ### Realistic Ownership Mapping
 Do owners reflect operational accountability?
 
-### Sensitivity Accuracy
-Do classifications reflect impact severity?
+### Classification and Impact Reasoning
+Are handling category, impact and regulatory applicability distinguished and justified?
 
 ### Risk Precision
 Are consequence statements specific and defensible?

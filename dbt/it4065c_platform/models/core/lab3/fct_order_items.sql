@@ -59,7 +59,7 @@
         ↓
  fct_order_items
         ↓
- marts (OLTP detail / OLAP aggregations)
+ marts (detail / aggregate reporting)
 
 ===============================================================================
 */

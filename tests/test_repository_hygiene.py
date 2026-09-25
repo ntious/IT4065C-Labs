@@ -5,6 +5,8 @@ import re
 import subprocess
 import unittest
 
+from scripts.markdown_links import local_link_errors
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -49,10 +51,8 @@ class RepositoryHygieneTests(unittest.TestCase):
                 self.assertIsNone(re.search(r"[A-Za-z]:[/\\]Users[/\\][^\s]+", text), "Personal Windows profile path")
                 self.assertIsNone(re.search(r"gh[pousr]_[A-Za-z0-9]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----", text), "Possible credential")
                 if path.suffix == ".md":
-                    for link in re.findall(r"\]\(([^)]+)\)", text):
-                        target = link.split("#")[0]
-                        if target and ":" not in target and not target.startswith("//"):
-                            self.assertTrue((path.parent / target).exists(), "Broken local link: " + target)
+                    self.assertEqual(local_link_errors(path), [])
+
 
 
 if __name__ == "__main__":

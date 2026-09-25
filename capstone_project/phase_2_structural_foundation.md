@@ -24,17 +24,19 @@ In Phase 2, you write the recipe.
 
 You are moving from discovery notes to a **Logical Data Model (LDM)**.
 
-This phase requires you to make structural decisions that ensure:
+This phase requires you to specify structural requirements for:
 
 - Data integrity
 - Referential consistency
 - Historical accuracy
-- Governance enforceability
+- Proposed governance controls
 - Business rule alignment
 
 Discovery identified possibilities.
 
-Structure enforces reality.
+The logical model records intended rules. Database constraints must be implemented
+and tested before you claim that a database enforces them. A dbt relationship
+test checks data when run; it does not create a foreign-key constraint.
 
 ---
 
@@ -47,12 +49,14 @@ You are hardening them into architecture.
 Return to your Phase 1 portfolio and apply two principles:
 
 ### 1. Refine
-Any entity marked as “Low Confidence” must now be:
+Review each entity marked as “Low Confidence” and either:
 
 - Confirmed and justified, or  
-- Removed and explained  
+- Removed and explained, or
+- Retained provisionally with an explicit assumption and follow-up question
 
-Ambiguity cannot remain in structural design.
+If evidence is insufficient, mark the entity as provisional and record the
+assumption and follow-up needed; do not invent confirmation.
 
 ---
 
@@ -98,20 +102,24 @@ Explain your choice.
 
 Primary keys define identity.
 
-Identity defines integrity.
+A proposed primary key identifies the intended uniqueness rule. Its implementation
+and verification determine whether duplicate or missing identifiers are rejected.
 
 ---
 
 ## 2. Resolve Many-to-Many Relationships
 
-You cannot directly link two entities in a Many-to-Many relationship.
+For the relational design in this project, resolve each many-to-many relationship
+through an associative/junction entity. A conceptual model may show an M:N
+relationship directly before this refinement.
 
 Example:
 
 An Order can contain many Products.  
 A Product can appear in many Orders.
 
-This requires a **junction table**.
+Represent this relationship with a **junction entity**, proposed for implementation
+as a table.
 
 Example solution:
 
@@ -132,25 +140,29 @@ You must:
 - Create appropriate junction entities
 - Document your logic in the “Junction Table Logic” column
 
-Structural shortcuts lead to data corruption.
+Explain how the chosen grain and keys address duplicate or inconsistent records.
 
 ---
 
-## 3. Enforce Referential Integrity
+## 3. Specify Referential-Integrity Requirements
 
-Every foreign key must:
+For each logical foreign-key relationship, annotate the existing ERD or rationale
+with the child field, parent key, cardinality, intended delete/update behavior,
+proposed enforcement and proposed verification. These notes belong in your
+**Phase_2_LDM** section; no additional submission or database implementation is
+required in this phase.
 
-- Reference a valid parent entity
-- Support business rules
-- Protect against orphaned records
+For example, in a different library scenario, `Loan.borrower_id` references
+`Borrower.borrower_id`. One borrower may have many loans. The design proposes a
+foreign key and rejection of borrower deletion while dependent loans remain.
+A future verification would attempt an orphaned loan and a prohibited deletion,
+and confirm that the database rejects both. Until implemented and checked,
+label this control **proposed**, not demonstrated.
 
-Ask:
-
-- What happens if a Product is deleted?
-- Should Orders remain?
-- Should deletion be restricted?
-
-Structural decisions have business consequences.
+Ask what should happen when a referenced product is deleted or its identifier
+changes. Justify the behavior against the business requirement; do not assume
+that deleting history is appropriate. Tests of existing records and database
+constraints preventing invalid writes provide different evidence.
 
 ---
 
@@ -166,11 +178,11 @@ Prompt:
 
 Example:
 
-Without an `Order_Line_Item` table:
+Without a place to preserve the price at sale for each order item:
 
-- The system cannot freeze “Price at Sale”
-- Historical revenue would change whenever product pricing updates
-- Financial reporting becomes unreliable
+- A report that uses current product prices could rewrite historical revenue.
+- The design needs another justified mechanism to preserve transaction history.
+- An order-line entity is the proposed mechanism in this relational design.
 
 This section demonstrates:
 
@@ -209,7 +221,8 @@ Are primary keys clearly defined and defensible?
 Are Many-to-Many relationships properly resolved?
 
 ### Referential Discipline
-Are foreign key dependencies logical and complete?
+Are logical relationships, delete/update behavior, proposed enforcement and
+verification clearly distinguished?
 
 ### Architectural Justification
 Does each entity have a clear business defense?
@@ -235,7 +248,7 @@ Common consequences of weak design:
 - Governance blind spots
 - Compliance risk exposure
 
-A Logical Data Model protects:
+A Logical Data Model specifies requirements that support:
 
 - Data accuracy
 - Business reporting

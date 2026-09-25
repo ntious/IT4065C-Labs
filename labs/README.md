@@ -14,7 +14,7 @@ the core sequence below.
 
 ## Core labs
 
-Labs 1–7 form the required sequence.
+Labs 1–7 form the core lab sequence.
 
 | Lab | Outcome | Time estimate |
 |---|---|---|
