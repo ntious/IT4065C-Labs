@@ -21,7 +21,7 @@ routes are not verified. The [validation record](docs/validation.md) names teste
 
 Setup automatically performs Lab 1's technical checks. After installation, complete
 its writing activity, then Labs 2–7 in order. Labs 8–15 are optional. Use the
-[required course path](docs/course_checklist.md) for the required course path, including the
+[required course path](docs/course_checklist.md) for the complete sequence, including the
 short discussions and capstone, or the [self-study guide](docs/self_study.md) to
 choose a personal learning scope. You do not need to read every reference page first.
 

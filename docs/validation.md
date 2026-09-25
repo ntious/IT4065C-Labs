@@ -2,6 +2,15 @@
 
 ## Lab-path migration rehearsal: 2026-09-25
 
+**CI-validated revision:** `da05a646d3f627e65150c523cf944149f2f19d19`.
+[Workflow 36096732831](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831)
+completed successfully on Ubuntu 22.04 and 24.04. It included fresh setup, 29
+repository tests, repeated labs and recovery, the 39-test student-work rehearsal,
+optional experiments and non-default database/user/schema configuration.
+
+The local execution below was assistant-led technical rehearsal, separate from
+the author's reported walkthrough. No independent human pilot is claimed.
+
 The reorganized source was exercised in a private temporary copy using the
 configured Ubuntu course environment. Labs 1–9 ran twice through `scripts/verify.py`,
 including actual failing-data detection, restoration, reader privilege denials,
@@ -19,7 +28,7 @@ All 555 local Markdown links and section anchors resolved during the migration
 review. Lab 15 is a reading/decision exercise: its source links and instructions
 were checked, not reported as an executed lab. Human learner and instructor pilots
 remain separate validation gates. Fresh installation on both supported Ubuntu
-versions is covered by the published revision's CI, not inferred from this local run.
+versions is established by the exact workflow linked above, not inferred from this local run.
 
 ## Independent-review correction checks: 2026-09-24
 
