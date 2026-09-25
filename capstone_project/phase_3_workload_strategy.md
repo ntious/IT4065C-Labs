@@ -19,7 +19,9 @@ rollback and retirement responsibilities as proposals unless tested.
 ## Overview
 
 In Phase 2, you designed a Logical Data Model that represents business structure.
-Implementation and constraint tests establish enforcement.
+Implemented database constraints can enforce selected integrity rules; negative
+tests provide evidence that those constraints reject invalid operations. A
+data-quality test alone does not create enforcement.
 
 In Phase 3, you decide how that structure behaves under real workloads.
 
@@ -76,8 +78,9 @@ Production tables are optimized for transactions.
 
 Analytical tables are optimized for insight.
 
-Select physical designs based on workload, isolation and freshness requirements;
-justify shared or separate structures for the proposed system.
+This workload distinction does not require separate products, servers or databases.
+Justify physical separation or co-location using workload, isolation, freshness
+and cost requirements.
 
 ---
 
