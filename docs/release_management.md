@@ -8,7 +8,8 @@ The repository contains the core lab sequence (1–7) and optional Labs 8–15.
 | Status | Revision and evidence | Meaning |
 | --- | --- | --- |
 | Historical reproducibility baseline | `71653bf77f881a62cda029f5ebc344e6702adb4a`; [September 18 workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) | Earlier layout; retain as historical evidence, not the starting point for the migrated guides |
-| CI-validated migration candidate | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
+| Previous CI-validated migration | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
+| Current CI-validated candidate | `af23876ea1b3c0bf6db50b40926dd16cdfbdd34e`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36150294346) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
 | Human-pilot-tested teaching release | Not yet established | Requires recorded novice and replacement-instructor pilots, a selected revision and a release tag |
 
 The named candidate is a reproducible technical baseline, not a claim of human
@@ -48,9 +49,9 @@ belongs to its earlier revision; do not use it as evidence for the updated model
 
 ## Verification and publication
 
-The migration candidate above passed the complete Ubuntu 22.04/24.04 workflow,
+The current candidate above passed the complete Ubuntu 22.04/24.04 workflow,
 including student-test discovery and isolated infrastructure experiments. See
-[validation](validation.md#lab-path-migration-rehearsal-2026-09-25) for its scope.
+[validation](validation.md#capstone-consistency-and-anchor-validation-2026-09-25) for its scope.
 
 For a versioned release, select the intended commit, confirm its workflow result,
 record learner/instructor pilot status and historical credential-review status,
@@ -78,15 +79,15 @@ Keep these boundaries visible when other instructors adapt the course.
 
 ## Pin a tested baseline before adoption
 
-For a new instructor rehearsal, the CI-validated migration candidate can be
+For a new instructor rehearsal, the current CI-validated candidate can be
 selected with:
 
 ```bash
-git checkout --detach da05a646d3f627e65150c523cf944149f2f19d19
+git checkout --detach af23876ea1b3c0bf6db50b40926dd16cdfbdd34e
 ```
 
 Run this only in a fresh rehearsal clone, not a checkout with unsaved work.
-This selects the exact tested migration revision. If adopting later corrections,
+This selects the exact tested capstone-correction revision. If adopting later corrections,
 select their exact commit after verifying that commit's workflow instead.
 Record the chosen revision and use its matching guides for the entire rehearsal.
 
