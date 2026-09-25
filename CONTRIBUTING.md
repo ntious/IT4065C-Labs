@@ -225,6 +225,25 @@ Retain Isaac K. Nti’s original author credit and copyright notices. Follow
 [CITATION.md](CITATION.md) when reusing curriculum or code. Credit third-party
 material accurately and describe adaptations without implying endorsement.
 
+## Private working files and publication checks
+
+Keep completed submissions, pilot records, raw screenshots, document exports and
+archives under `.local/` (or private `submissions/` files). Do not overwrite public
+templates with completed work. These directories and generated keys, certificates
+and database exports are ignored; ignore rules do not protect already tracked
+files or prevent force-adding them.
+
+Keep public source notebooks free of stored outputs, execution counts and embedded
+attachments. Clear execution state before committing; run notebooks in a private
+copy when saving results. CI checks these boundaries and rejects tracked ignored
+files. It is a safeguard, not a comprehensive secret or personal-data detector.
+
+Public teaching images and source formats remain permitted. Document and archive
+exports belong in `.local/` unless intentionally reviewed for publication. Do not
+bypass an ignored-file check to publish a fixture: document its synthetic purpose,
+review its contents, and add a narrowly scoped ignore exception in the same PR.
+Never make an exception for real credentials or learner records.
+
 ## Student project showcase
 
 To propose an entry for [the showcase](docs/student_projects.md), supply:
@@ -236,7 +255,9 @@ To propose an entry for [the showcase](docs/student_projects.md), supply:
 - Links to specific implementation, documentation or evidence supporting the description.
 - The course term only when confirmed, and a commit or release for a stable example.
 
-Confirm the team's agreement to the featured description and credit. Link to its
+Confirm the team's agreement to worldwide public publication of the featured
+description, link and credit; classroom-use permission alone is not enough. Keep
+a dated consent record privately, outside tracked course files. Link to its
 repository rather than copying student work into this one. Preserve the students'
 authorship and their project's license terms; the course's license does not apply
 automatically to external projects. Do not publish grades or private submission records.
