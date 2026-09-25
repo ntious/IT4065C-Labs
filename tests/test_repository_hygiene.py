@@ -9,6 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryHygieneTests(unittest.TestCase):
+    def test_student_test_directory_is_discovered_and_ignored(self):
+        import yaml
+        project = yaml.safe_load((ROOT / "dbt/it4065c_platform/dbt_project.yml").read_text())
+        self.assertIn("student_tests", project["test-paths"])
+        result = subprocess.run(
+            ["git", "check-ignore", "--no-index", "dbt/it4065c_platform/student_tests/example.sql"],
+            cwd=ROOT, capture_output=True)
+        self.assertEqual(result.returncode, 0)
+
     def test_current_source_and_local_links(self):
         command = ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"]
         result = subprocess.run(command, cwd=ROOT, capture_output=True)

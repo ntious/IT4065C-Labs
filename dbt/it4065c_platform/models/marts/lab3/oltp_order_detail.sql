@@ -6,19 +6,15 @@
 
  Model Type:
  -----------
- dbt MART model (OLTP-style view) — detailed, transaction-oriented output.
+ Detailed reporting mart, materialized as a table by dbt_project.yml.
 
  Purpose:
  --------
- This model produces an "order detail" view that resembles how data is commonly
- consumed in OPERATIONAL (OLTP-style) workflows.
-
- While dbt is frequently used for analytics (OLAP), organizations also build
- OLTP-style views for:
-   - Customer support investigations
-   - Order troubleshooting and reconciliation
-   - Operational reporting (e.g., "show me the exact items in this order")
-   - Debugging joins and verifying referential integrity
+ This model contains one row per order line item. It supports customer support
+ investigations, reconciliation and operational-style reporting questions.
+ It is not an OLTP transaction-processing system: detailed rows alone do not
+ demonstrate transaction writes, concurrency or operational state management.
+ The model name is retained for compatibility with existing lab commands.
 
  This model joins together:
    - Orders (transaction header)          → fct_orders
@@ -38,11 +34,11 @@
 
  IMPORTANT SAFETY / GOVERNANCE NOTES:
  -----------------------------------
- - This view can expose customer attributes (potential PII), such as:
+ - This table contains customer attributes, including masked contact fields:
      * names
-     * email
-     * phone numbers
- - In real systems, OLTP-style views like this are often:
+     * masked email
+     * masked phone numbers
+ - In real systems, detail reporting tables like this should be:
      * access-restricted (RBAC)
      * monitored/audited
      * split into "safe" and "sensitive" variants

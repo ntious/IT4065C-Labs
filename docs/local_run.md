@@ -71,14 +71,14 @@ On a dedicated Ubuntu VM the steps are the same. Continue below.
 ## Common step 1: obtain the course files
 
 Run each command separately in Ubuntu. The first two require your Linux sudo
-password. They prepare Git so you can download the repository.
+password. They install Git to download the repository and Python to run preflight.
 
 ```bash
 sudo apt-get update
 ```
 
 ```bash
-sudo apt-get install -y git
+sudo apt-get install -y git python3
 ```
 
 ```bash
@@ -114,8 +114,9 @@ Expected: readiness results labeled PASS, WARN or FAIL. This command installs no
   non-interactive sudo query is not automatically a failure. Follow the matching
   [setup guidance](setup.md#read-only-installation-preflight).
 - **FAIL:** resolve the named prerequisite using [recovery](troubleshooting.md)
-  before proceeding. If Python is missing, ask the Ubuntu administrator to install
-  `python3`; the preflight cannot run until an interpreter is available.
+  before proceeding. If `python3` is not found, complete Common step 1
+  (Git and Python installation) before retrying; contact your administrator if
+  installation is not permitted.
 
 For an unconfirmed sudo-policy WARN on your own Ubuntu environment, run `sudo -v`.
 It may request your Linux password; a return to the prompt without an error confirms

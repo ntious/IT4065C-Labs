@@ -13,6 +13,19 @@ spec.loader.exec_module(course)
 
 
 class DocsLifecycleTests(unittest.TestCase):
+    def test_lab_handoff_names_existing_guide(self):
+        for number in range(2, 10):
+            with self.subTest(lab=number):
+                runner = course.Course.__new__(course.Course)
+                out = io.StringIO()
+                with patch.object(runner, "preflight"), patch.object(runner, f"lab{number}"), contextlib.redirect_stdout(out):
+                    runner.run(number)
+                guide = course.LAB_GUIDES[number]
+                self.assertTrue((course.ROOT / guide).is_file())
+                self.assertIn("TECHNICAL CHECKS COMPLETE", out.getvalue())
+                self.assertIn(guide, out.getvalue())
+                self.assertNotIn("deliverables in labs/README.md", out.getvalue())
+
     def test_docs_interrupt_is_clean_and_instructions_precede_server(self):
         out = io.StringIO()
         def interrupt(*args):

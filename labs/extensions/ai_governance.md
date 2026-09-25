@@ -4,6 +4,18 @@
 **Environment:** your dedicated local course database. Synthetic data only.
 
 
+## At a glance
+
+| Before starting | Labs 1–6 |
+| --- | --- |
+| You will run | Calculate the supplied prediction metrics. |
+| You will write | One worksheet: metrics, decision and change review. |
+| Done when | All three worksheet sections and execution evidence are complete. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../docs/course_checklist.md) when this lab is complete.
+
 ## Why this lab matters
 
 Improving one AI error rate can worsen another. You will calculate a small example, discuss who is affected, and make a governance decision that includes oversight and a changed purpose.
@@ -65,7 +77,7 @@ Expected:
 ```text
 PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: AI metrics calculated. Complete the governance decision; metric parity is not proof of fairness.
-LAB 7 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 7 TECHNICAL CHECKS COMPLETE. Return to labs/extensions/ai_governance.md for interpretation and deliverables.
 ```
 
 ### A2. Read the report

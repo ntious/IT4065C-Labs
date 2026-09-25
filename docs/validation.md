@@ -1,5 +1,18 @@
 # Reproducibility and security verification
 
+## Independent-review correction checks: 2026-09-24
+
+The correction set was rehearsed in a temporary source copy against the dedicated
+local Ubuntu course database. Lab 3 built 10 models and ran 37 baseline tests.
+Adding the guided and sample independent tests in the ignored `student_tests`
+directory produced 39 executed tests; both named results were `pass`, with zero
+failures. The sample independent rule checked for missing or negative daily sales.
+The temporary copy and its private configuration were removed after the run.
+
+These checks validate test discovery and the revised runner handoff. They are not
+a fresh-install rehearsal on both supported Ubuntu versions or a human novice
+pilot. The published commit's CI result supplies its separate Ubuntu matrix record.
+
 ## Published Ubuntu result
 
 Commit `71653bf77f881a62cda029f5ebc344e6702adb4a` passed on 2026-09-18

@@ -4,6 +4,18 @@
 **Environment:** your dedicated local course database. Synthetic data only.
 
 
+## At a glance
+
+| Before starting | Labs 1–4 |
+| --- | --- |
+| You will run | Run the supplied authenticated access checks. |
+| You will write | Allowed/denied evidence and the Part B design explanations. |
+| Done when | Observed results and proposed controls are clearly distinguished. |
+| Safe stopping point | After a completed section; save your draft before closing the editor. |
+
+Follow the steps below in order. Keep configuration, generated logs and submissions private.
+Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
+
 ## Why this lab matters
 
 The same database can expose different information to different people. You will test access using two actual logins and explain why a denied query can be the correct result.
@@ -71,7 +83,7 @@ Expected with the supplied data:
 PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: synthetic seed present (existing data preserved).
 PASS: nine access checks using separate authenticated connections, including escalation denials.
-LAB 5 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 5 TECHNICAL CHECKS COMPLETE. Return to labs/module_5/lab5/README.md for interpretation and deliverables.
 ```
 
 This configures the teaching views and grants, then checks nine outcomes. It does

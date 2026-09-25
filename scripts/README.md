@@ -4,7 +4,7 @@
 Run `python3 scripts/preflight.py` before setup; see its `--help`.
 
 `setup.sh` installs the Ubuntu environment. `course.py` is the shared configuration,
-provisioning and lab runner. Run `python scripts/course.py --help`. SQL templates
+provisioning and lab runner. Run `.venv/bin/python scripts/course.py --help`. SQL templates
 with `{{schema}}` are executed by the runner, not pasted directly into psql.
 
 `query.py` executes your own local SQL file using the same configuration and a

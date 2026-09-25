@@ -43,7 +43,8 @@
  - Referential integrity is critical:
      * Every order_item must reference a valid order
      * Every order_item must reference a valid product
- - These constraints are enforced later using dbt relationship tests.
+ - These relationships are checked when dbt relationship tests run.
+ - Tests detect violations; they do not create database foreign-key constraints.
 
  Student Expectations:
  ---------------------

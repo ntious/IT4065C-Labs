@@ -21,33 +21,22 @@ routes are not verified. The [validation record](docs/validation.md) names teste
 
 Setup automatically performs Lab 1's technical checks. After installation, complete
 its writing activity, then Labs 2–7 in order. Labs 8–15 are optional. Use the
-[course checklist](docs/course_checklist.md) for the complete route, including the
+[required course path](docs/course_checklist.md) for the required course path, including the
 short discussions and capstone, or the [self-study guide](docs/self_study.md) to
 choose a personal learning scope. You do not need to read every reference page first.
 
-| Where to go | Purpose |
-|---|---|
-| [Foundations bridge](docs/foundations.md) | Supportive terminal, SQL and identity self-check |
-| [Module learning map](docs/module_learning_map.md) | Preparation, required evidence and optional enrichment |
-| [Learning progression](docs/learning_progression.md) | Worked examples, supported practice and independent tasks |
-| [Glossary and system overview](docs/glossary.md) | Plain-language terms and the path through the platform |
-| [Course platforms](docs/platforms.md) | Local requirements and occasional external exploration |
-| [Lab sequence](labs/README.md) | Commands, expected results, estimated time and deliverables |
-| [Configuration and setup](docs/setup.md) | One private .env, restart and troubleshooting |
-| [Instructor-developed public course framework](Public_Syllabus.md) | Outcomes, module map and public/private boundary |
-| [Capstone](capstone_project/README.md) | Stakeholder case, architecture and evidence portfolio |
-| [Student project showcase](docs/student_projects.md) | Student-created final projects and questions for exploring their work |
-| [Instructor runbook](docs/instructor.md) | Preparation, pacing, assessments and verification |
-| [Security](SECURITY.md) | Safe use and private reporting |
-| [Validation](docs/validation.md) | Verified environments, checks and demonstration boundaries |
-| [Changes](CHANGELOG.md) | Release history |
+For help while learning, use the [foundations bridge](docs/foundations.md),
+[glossary](docs/glossary.md), or [setup and recovery reference](docs/setup.md).
+The [documentation index](docs/README.md) holds curricular and maintenance
+references; these are not additional student assignments.
+
 
 ## What this environment demonstrates
 
 Raw synthetic records flow through dbt staging, core and reporting models.
 Separate database logins demonstrate allow/deny behavior. Lab 6 distinguishes
-observed query outcomes from fabricated incident data. Extensions address AI
-governance, retention/deletion and snapshot staleness. The snapshot exercise is
+observed query outcomes from fabricated incident data. Core Lab 7 addresses AI
+governance. Optional labs address retention/deletion and snapshot staleness. The snapshot exercise is
 explicitly single-instance; it is not a multi-cluster deployment.
 
 The supported setup is disposable and local. It is not a production deployment

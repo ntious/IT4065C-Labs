@@ -96,6 +96,19 @@ def settings():
     return values
 
 
+LAB_GUIDES = {
+    1: "labs/module1_preflight/README.md",
+    2: "labs/module_2/M2_lab2_governance.md",
+    3: "labs/module_2/lab3/README.md",
+    4: "labs/module_3/lab4/README.md",
+    5: "labs/module_5/lab5/README.md",
+    6: "labs/module_6/lab6/README.md",
+    7: "labs/extensions/ai_governance.md",
+    8: "labs/extensions/retention.md",
+    9: "labs/extensions/infrastructure.md",
+}
+
+
 class Course:
     def __init__(self):
         import psycopg2
@@ -329,7 +342,7 @@ class Course:
         else:
             getattr(self, f"lab{number}")()
         print("LAB 1 CHECKS PASSED: complete the investigation in labs/module1_preflight/README.md." if number == 1
-              else f"LAB {number} COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.")
+              else f"LAB {number} TECHNICAL CHECKS COMPLETE. Return to {LAB_GUIDES[number]} for interpretation and deliverables.")
 
 
 def main():

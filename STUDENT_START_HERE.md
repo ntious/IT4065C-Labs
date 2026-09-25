@@ -8,7 +8,7 @@ You do not need previous SQL or Python experience to begin.
    the same Ubuntu instructions. Setup includes Lab 1's technical checks.
 2. [Complete Lab 1's short writing activity](labs/module1_preflight/README.md)
    using your setup results. No repeat installation or check is needed after success.
-3. Follow the [course checklist](docs/course_checklist.md). It lists Labs 2–7,
+3. Follow the [required course path](docs/course_checklist.md). It lists Labs 2–7,
    the companion discussions and capstone in one place. Check off work as you go.
 4. Keep your responses private. Enrolled students use the LMS for deadlines,
    official grading and submissions. Independent learners use the

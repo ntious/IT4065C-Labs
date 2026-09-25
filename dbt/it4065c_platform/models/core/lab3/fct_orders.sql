@@ -46,7 +46,7 @@
 
  Data Lineage (Conceptual):
  --------------------------
- raw.orders  →  stg_orders  →  fct_orders  →  marts/views
+ raw.orders  →  stg_orders  →  fct_orders  →  reporting marts
 
 ===============================================================================
 */

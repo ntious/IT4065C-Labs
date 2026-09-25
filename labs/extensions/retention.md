@@ -39,7 +39,7 @@ Expected:
 ```text
 PASS: connection, dedicated database, schemas and non-superuser builder.
 PASS: retention, legal hold and deletion-ledger replay after simulated restoration.
-LAB 8 COMPLETE: technical checks passed; review interpretation and deliverables in labs/README.md.
+LAB 8 TECHNICAL CHECKS COMPLETE. Return to labs/extensions/retention.md for interpretation and deliverables.
 ```
 
 ### A2. Read what was checked
