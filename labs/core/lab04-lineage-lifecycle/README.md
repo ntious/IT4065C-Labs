@@ -1,6 +1,6 @@
 # Lab 4: Lifecycle and lineage
 
-**Outcomes:** SLOs 2,4. **Estimated time:** 45–60 minutes; allow additional time for installation and support.
+**Outcomes:** SLOs 2,4. **Estimated time:** 60–90 minutes; allow additional time for documentation startup and support.
 **Environment:** your dedicated local course database. Synthetic data only.
 
 ## At a glance
@@ -11,6 +11,7 @@
 | You will write | One prediction, two checked paths, one dependency explanation, three stage responses and three retention answers in one log. |
 | Done when | Technical checks pass and your decision log is complete, including evidence and limitations. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | Submit the private lifecycle decision log; do not also complete the shared template. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
@@ -214,9 +215,9 @@ Keep the Ubuntu server terminal running while you use the page.
 toolbars and personal bookmarks have been removed. Button placement can vary with
 window size or version; the model search offers an alternative route.*
 
-**Recommended route:** use the focused graph below. **Accessible alternative:**
+**Recommended route:** use the focused graph below. **Fallback / text alternative:**
 use the linked model SQL files later in this step if you prefer text or the browser
-is unavailable. You only need one route.
+is unavailable. You only need one route; the alternatives are not extra work.
 
 **Focus the graph:**
 

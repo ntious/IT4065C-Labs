@@ -11,6 +11,7 @@
 | You will write | One worksheet containing metric interpretation, an initial governance decision and a required change review. |
 | Done when | The technical evidence, one checked calculation and all three worksheet sections are complete. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | Use the shared template plus the completed decision worksheet; refer to worksheet sections instead of duplicating them. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.

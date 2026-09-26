@@ -11,6 +11,7 @@
 | You will write | One live allow, one live denial, one explained simulated finding, and a three-part incident memo. |
 | Done when | You can distinguish live observations from simulated findings and explain what the evidence supports, misses and requires next. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | Use the shared submission template and refer to the three-part memo rather than duplicating it. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
@@ -338,6 +339,17 @@ Use the [submission template](../../../submissions/template.md). Include:
 - one evidence limitation;
 - recovery notes if an unexpected error occurred;
 - assistance disclosure following current course rules.
+
+### How the shared submission template maps to Lab 6
+
+| Shared template section | What to do for Lab 6 |
+| --- | --- |
+| 1. Lab and execution evidence | Include the Lab 6 command, relevant A1 PASS lines and the selected live/simulated excerpts requested above. |
+| 2. Prediction or initial expectation | Write `Not required for this activity` unless your instructor asked you to record one. |
+| 3. Observed result and explanation | Briefly identify what the selected live evidence establishes, or refer to the **Evidence** section of your memo if it already says the same thing. |
+| 4. Investigation and independent transfer | Include or attach the three-part incident memo from Part B. |
+| 5. Evidence limitations and questions | Refer to the limits already stated in the memo; add an unresolved question only if one remains. Do not rewrite the memo. |
+| 6. Assistance and verification | State AI/tool assistance and how you checked the result, or `None`, following course rules. |
 
 Do **not** paste the full JSON report unless your instructor specifically asks for it.
 Narrow excerpts are sufficient.

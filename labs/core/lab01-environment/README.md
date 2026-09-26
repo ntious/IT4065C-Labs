@@ -11,6 +11,7 @@
 | You will write | One private document using the four-section outline below. |
 | Done when | Setup checks passed and all four submission sections are complete. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | One private four-section Lab 1 document; do not also complete the shared template. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.

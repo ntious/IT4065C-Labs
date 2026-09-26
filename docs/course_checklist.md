@@ -9,6 +9,20 @@ Your LMS controls assigned work, dates and official grading when enrolled.
 Independent learners may choose either scope using [self-study guidance](self_study.md).
 Keep one copy of each artifact and refer to it again; do not rewrite it for each page.
 
+## Evidence labels used across the course
+
+Use these labels consistently when you describe what a lab establishes:
+
+- **Observed:** directly supported by your own execution or an artifact you actually inspected.
+- **Expected:** predicted or specified behavior; it is not proof that the behavior occurred.
+- **Proposed:** a control, role, policy or design you recommend but did not implement or test.
+- **Simulated:** a supplied fixture or scenario created for analysis; it is not a real-world incident or production observation.
+- **Supplied example:** instructor-provided teaching material; it can guide your reasoning but is not your independent work or execution evidence.
+
+These labels describe evidence status, not quality scores. When a lab gives more
+specific wording, follow that lab and preserve the same distinction between what
+was observed, what was assumed and what remains untested.
+
 ## Follow the required course path
 
 - [ ] [Install once](local_run.md): choose Windows/WSL or native Ubuntu.

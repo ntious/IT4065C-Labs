@@ -7,6 +7,8 @@ completed worksheet structure, attach it and refer to its sections here rather
 than answering the same question twice. Independent learners can use the
 [self-check guide](../docs/self_study.md#check-whether-your-answer-is-sufficient). The terminal supplies
 execution evidence, not your interpretation or independent-task response.
+Use the [course-wide evidence labels](../docs/course_checklist.md#evidence-labels-used-across-the-course)
+when they help distinguish observed, expected, proposed, simulated and supplied material.
 
 ## 1. Lab and execution evidence
 

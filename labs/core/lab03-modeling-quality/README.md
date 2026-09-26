@@ -9,8 +9,9 @@
 | --- | --- |
 | You will run | Build models, inspect sales and run guided and independent tests. |
 | You will write | Three interpretations, one adapted data-quality test, and a short explanation of its rule, prediction, result and limitation. |
-| Done when | Both named tests pass and the Part C evidence is assembled. |
+| Done when | Both named tests execute, their results are explained, unintended errors are resolved, and the Part C evidence is assembled. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | Use the shared submission template; label Part A and Part B and do not repeat the same explanation. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
@@ -24,6 +25,11 @@ Return to the [required course path](../../../docs/course_checklist.md) when thi
 You may complete one part per session. Read the current step, run its command,
 then check its expected result before moving on. Reference images and recovery
 notes are support, not extra submissions.
+
+**Required route:** complete Part A (build, inspect and explain), then Part B
+(guided test, independent test and named-result verification), then Part C
+(submission). Optional tours, screenshots and reference material support that
+route; they are not additional requirements.
 
 ## Why this lab matters
 

@@ -12,6 +12,7 @@
 | You will write | Three access explanations, a proposed view and a short remote-server discussion in one private document. |
 | Done when | Observed results and proposed controls are clearly distinguished. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | One private Lab 5 document using the headings in Submit; no shared template is needed. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
@@ -31,6 +32,16 @@ These instructor-developed objectives support the outcomes listed above. You wil
 ## Skills you will practice
 
 Predict access, run supplied read-only SQL, interpret SQLSTATE 42501, and justify data minimization.
+
+## What you will produce
+
+- A1 technical evidence from the supplied access checks.
+- Three A2–A4 prediction/result explanations tied to grants and view projections.
+- One short authorization-error comparison.
+- One proposed weekly-sales view and one short remote-server discussion.
+- One evidence limitation stating what the tested cases do not establish.
+
+Keep these in one private Lab 5 document; do not write a second essay.
 
 ## Concept
 
@@ -228,9 +239,21 @@ different purposes in two or three sentences. Verified encrypted transport and
 managed individual credentials are examples of protections addressing different
 problems. No installation or optional TLS experiment is required.
 
+### B5. State one evidence limitation
+
+Under **Evidence limitation**, write one or two sentences naming something your
+A1–A4 execution does **not** establish. Distinguish the access cases you actually
+tested from a broader claim about every database object, every future configuration
+or the security of the entire system.
+
+Do not simply repeat B3's remaining privacy risk unless it genuinely answers this
+evidence question. A privacy risk and an evidence limitation can be related, but
+they are not automatically the same claim.
+
 **Part B complete:** your document explains the three observations, distinguishes
-an authorization denial from another error, and contains the proposed view and
-remote-server discussion. The proposals are written work, not executed controls.
+an authorization denial from another error, contains the proposed view and
+remote-server discussion, and states one evidence limitation. The proposals are
+written work, not executed controls.
 
 ## Submit
 

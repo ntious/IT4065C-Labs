@@ -9,8 +9,9 @@
 | --- | --- |
 | You will run | Initialize and inspect the register; insert a guided and independent entry. |
 | You will write | Two classification decisions and the requested register evidence. |
-| Done when | The entry is verified and your governance rationale is recorded. |
+| Done when | Both independent field decisions are complete and the inserted entry is verified before and after the rerun. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
+| Submission format | Use the shared submission template; label Part A and Part B evidence clearly. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
 Return to the [required course path](../../../docs/course_checklist.md) when this lab is complete.
@@ -304,7 +305,9 @@ These names come from the CREATE TABLE definitions in `labs/core/lab02-classific
 For each chosen field, write its purpose, classification, rationale, owner role,
 retention assumptions and permitted AI use in your private submission draft.
 Choose **one of those two fields** to insert below. The other is written analysis
-only; you do not need a fifth register row. Avoid pairs already in your register.
+only; you do not need a fifth register row. Writing two decisions practices transfer
+across different field contexts; inserting one keeps the database exercise focused.
+Avoid pairs already in your register.
 
 ### How to justify your independent decisions
 
@@ -367,6 +370,16 @@ the final rationale:
 | Retention rule and assumptions |  |  |
 | Permitted/restricted AI or analytical use |  |  |
 
+#### Consider one defensible alternative
+
+Before moving to B2, choose either of your two fields and name one **different
+classification** that could become reasonable under a changed purpose, exposure
+or harm assumption. State the changed assumption in one or two sentences. There
+is no single required alternative; the point is to show that classification is
+contextual rather than automatic.
+
+This is the alternative-classification comparison required in Part C. Write it
+now so it is not a new reasoning task discovered only at submission time.
 
 ### B2. Create a separate draft from the working example
 
