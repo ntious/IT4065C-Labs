@@ -9,7 +9,7 @@
 | Before starting | Labs 1–4 |
 | --- | --- |
 | You will run | Run the supplied authenticated access checks. |
-| You will write | Allowed/denied evidence and the Part B design explanations. |
+| You will write | Three access explanations, a proposed view and a short remote-server discussion in one private document. |
 | Done when | Observed results and proposed controls are clearly distinguished. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
 
@@ -69,6 +69,10 @@ configured environment; do not repeat setup. If you need an environment, use
 is assumed. Copy commands from code blocks; write explanations in your private
 submission, not in the terminal.
 
+Create one private document titled **Lab 5: Access control and masking** in your
+text editor or word processor. Use the headings listed in **Submit** below.
+Write notes there as you work; no separate general submission template is needed.
+
 ## Part A: Follow the supplied access checks
 
 ### A1. Build and check the access rules
@@ -88,10 +92,27 @@ LAB 5 TECHNICAL CHECKS COMPLETE. Return to labs/core/lab05-access-control/README
 
 This configures the teaching views and grants, then checks nine outcomes. It does
 not complete your explanation. Rerunning preserves existing raw/governance data.
+The nine checks comprise five view-access checks and four raw-data/escalation
+checks. A2–A4 are three representative outcomes for you to observe and explain;
+you do not need to recreate the other checks manually.
+
+### Before A2–A4: record three expectations
+
+In your private document, create the headings **A2: Analyst sales**, **A3: Analyst
+masked customers**, and **A4: Steward masked customers**. Under each, write
+**Prediction: Allowed** or **Prediction: Denied** before running that command.
+Use the Concept section to reason about the grants. Keep your original predictions;
+if you already ran a query, write that no advance prediction was recorded and
+label your explanation as a later interpretation.
+
+**Why each output mentions the builder:** the helper first checks the environment
+using the builder. It then executes the SQL through a separate authenticated
+connection using the identity selected by `--role`. The initial builder PASS does
+not mean that the reader query ran as the builder.
 
 ### A2. Read sales as the analyst
 
-Predict allowed or denied in your notes, then run:
+After recording your predictions, run:
 
 ```bash
 .venv/bin/python scripts/query.py labs/practice/read_sales.sql --role analyst
@@ -120,7 +141,9 @@ Expected after the connection PASS line:
 SQL stopped: SQLSTATE 42501. Permission denied. Check the role and the lab's expected allow/deny behavior.
 ```
 
-**This expected denial is successful protection.** The command exits unsuccessfully;
+**Record this as “Denied as expected” for this query and role.**
+Do not change grants to make the query succeed. This observation demonstrates
+the tested boundary, not that the entire database is secure. The command exits unsuccessfully;
 continue to A4 only if the code is **42501**. The initial connection PASS checks
 the builder configuration; it does not grant the analyst access to this view.
 A missing table or wrong password is a different error and needs investigation.
@@ -142,6 +165,10 @@ Positions mean **customer_id, email_masked, phone_masked**. `null` means the sou
 phone number is missing; it is not an error. The domain, suffix and customer ID
 remain visible. These synthetic values illustrate partial masking, not anonymity.
 
+**Write under A4:** identify one thing hidden and one thing still revealed,
+including what a missing phone value tells you. This is the masking response
+requested in B1; write it once.
+
 ![Annotated results for analyst sales, analyst denial, and steward masked access.](../../../sample_screenshots/lab5-access-results.png)
 
 This visual renders the observed results without personal terminal details.
@@ -149,38 +176,85 @@ Copy commands from the text above; use your own results as submission evidence.
 
 ## Part B: Explain and propose a different access decision
 
-No new SQL file or database edits are required for this part.
+No new SQL file or database edits are required. Add your answers to the same
+private document. One to three sentences per explanation are normally enough.
 
-1. In your private submission, make a three-row table with **command/role,
-   prediction, actual result, explanation** for A2–A4. If you already ran a
-   command, label your prediction as a later interpretation.
-2. Read the supplied [view definitions](02_build_safe_objects.sql) and
-   [grants](03_rbac_and_grants.sql). For each result, identify the view being
-   requested and whether that reader has SELECT permission. You only need to
-   inspect those statements, not understand every SQL line.
-3. Propose a view for a fictional manager who needs weekly sales trends.
-   State which fields and level of detail they need, which customer fields you
-   would omit, and why. Label this **proposed**, not implemented. Explain one
-   remaining privacy risk and why any error is not equivalent to a 42501 denial.
+### B1. Explain your three observations
 
-4. **Remote-server discussion:** suppose this database moves to a shared remote
-   server. Propose one protection for the connection and one change to credential
-   or access management. For example, verified encrypted transport addresses the
-   connection, while managed individual credentials address identity. Explain the
-   different purpose of each. Two or three sentences are sufficient; no remote
-   server installation or optional TLS experiment is required.
+Read the supplied [view definitions](02_build_safe_objects.sql) and
+[grants](03_rbac_and_grants.sql). Inspect the relevant `CREATE ... VIEW`,
+`GRANT USAGE` and `GRANT SELECT` statements; you do not need to understand every
+line. A **projection** is the set of columns or expressions a view exposes.
 
-**Part B complete:** you have three interpreted outcomes, one justified access
-proposal and the short remote-server discussion. You do not need to recreate the runner's nine internal checks manually.
+Under each A2–A4 heading, complete these labels. A table is optional; labeled
+paragraphs are sufficient and easier to edit in a terminal.
+
+- **Command and role:** the command you ran and the selected reader identity.
+- **Prediction:** preserve the expectation recorded earlier, or your timing note.
+- **Actual result:** the relevant returned rows or the exact denial message.
+- **Permission explanation:** name the requested view, whether the supplied
+  grants permit this role to read it, and the SQL file supporting your explanation.
+- **Projection explanation:** for an allowed query, explain what the view exposes
+  or hides, using its definition. For the denied query, state that no customer
+  rows were returned; do not claim to have observed masked values through it.
+- **Comparison:** state whether the result matched your recorded prediction, if any.
+
+Keep your A4 masking observation here; do not repeat it elsewhere.
+
+### B2. Distinguish authorization evidence from another error
+
+Under **Authorization evidence**, explain why A3's `42501` supports a denial claim
+for the tested query and role. Name one different error, such as a wrong-password,
+missing-object or syntax error, and explain why it would not demonstrate the same
+boundary. Do not deliberately cause that error; this is a short written comparison.
+
+### B3. Propose a weekly-sales view
+
+Under **Proposed weekly-sales view**, answer these prompts for a fictional manager
+who needs weekly sales trends. A short sentence or list for each is enough.
+
+- **Purpose:** what business question should the manager answer?
+- **Grain:** what should one row represent?
+- **Fields included:** which sales fields are necessary for that purpose?
+- **Fields omitted:** which customer-level fields should be excluded, and why?
+- **Remaining risk:** what could still be inferred or exposed?
+- **Status:** label your design **Proposed**; you are not implementing or testing it.
+
+### B4. Discuss a shared remote server
+
+Under **Remote-server discussion**, propose one protection for the connection
+and one change to identity, credential or access management. Explain their
+different purposes in two or three sentences. Verified encrypted transport and
+managed individual credentials are examples of protections addressing different
+problems. No installation or optional TLS experiment is required.
+
+**Part B complete:** your document explains the three observations, distinguishes
+an authorization denial from another error, and contains the proposed view and
+remote-server discussion. The proposals are written work, not executed controls.
 
 ## Submit
 
-Use the [submission template](../../../submissions/template.md). Include A1's
-completion evidence, your A2–A4 table with the relevant results, and the Part B
-proposal, remote-server discussion and limitation. Text output is sufficient; screenshots are optional.
-Do not submit `.env`, credentials or personal terminal prompts. Submit through the
-LMS or retain privately for independent study. Do not repeat the same explanation
-in a second essay.
+See the optional Lab 5 [sample submission](Lab5_Sample_Submission_README.md)
+for selected actual walkthrough results and examples of the expected detail.
+Use your own evidence and reasoning. The sample is not an additional assignment.
+
+Submit one private document with these headings:
+
+1. **A1: Technical evidence:** command and relevant PASS lines.
+2. **A2: Analyst sales**, **A3: Analyst masked customers**, and **A4: Steward
+   masked customers:** the labeled responses from B1, including A4's masking observation.
+3. **Authorization evidence:** the B2 error comparison.
+4. **Proposed weekly-sales view:** the six brief B3 responses.
+5. **Remote-server discussion:** your B4 response.
+6. **Evidence limitation:** one conclusion your execution does not establish.
+7. **Recovery and assistance:** describe recovery only if an unexpected error
+   occurred; the expected A3 denial is not a fault to repair. State any AI
+   assistance and how you checked it, or `None`, following course rules.
+
+No separate general template, repeated essay or screenshot is required. Do not
+submit `.env`, credentials, full logs or personal terminal prompts. Submit through
+the LMS using the instructor's file-format requirements, or retain privately for
+self-study. Do not publish the completed document in this repository.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.
