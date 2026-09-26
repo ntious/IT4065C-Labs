@@ -224,13 +224,11 @@ contains these two items. Matching an order to its items is called a **join**:
 The item amounts add to **29.99 + 49.99 = 79.98**. Adding the repeated order totals
 would give **159.96**, even though the customer placed only one order worth 79.98.
 
-**That 159.96 is an intentionally incorrect result,it should not appear in your
-A2 output.** The model avoids this double counting by reducing the joined item rows
-to one row per order before calculating the daily result. For January 10, the correct
-daily revenue is Order 1's 79.98 plus Order 2's 49.99 = **129.97**, which matches A2.
-
-The daily sales model first combines the items into one row per order, then
-combines orders into one row per day. What one row represents is called its **grain**.
+**That 159.96 is an intentionally incorrect result—it should not appear in your
+A2 output.** The model avoids this double counting by first reducing the joined
+item rows to one row per order and then combining orders into one row per day.
+For January 10, the correct daily revenue is Order 1's 79.98 plus Order 2's 49.99
+= **129.97**, which matches A2. What one row represents is called its **grain**.
 
 **Response 1:** In your own words, why would adding the repeated order totals give
 the wrong revenue? Finish with: “One row in the daily sales output represents …”
@@ -494,6 +492,10 @@ Use this compact planning table in your private notes before writing the final S
 | Why the rule matters |  |
 | One limitation |  |
 
+**This table is a planning aid, not an additional submission artifact.** Part C
+tells you which conclusions and evidence from these notes to include in your final
+submission.
+
 Before editing, use this pattern from a **different inventory scenario**:
 
 | Rule | Valid example | Violating example | SQL condition selecting violations |
@@ -615,19 +617,25 @@ not need to repeat setup or completed steps; keep your database and draft files.
 ## Part C: Submit evidence and reasoning
 
 Use a private copy of the [shared template](../../../submissions/template.md).
-Label Part A and Part B. Readable text is sufficient; screenshots are optional.
-Use the checklist below inside the template; do not write duplicate answers to
-the same question. If you already ran a test before recording a prediction, state
-that honestly rather than inventing a prior prediction.
+Label Part A and Part B. Keep the submission concise: use the narrow command/result
+excerpts requested below and short explanations rather than a full terminal history
+or lab narrative. Readable text is sufficient; screenshots are optional.
+
+For written reasoning, **one to three sentences per item are normally enough**
+unless a calculation or SQL block is requested. The B2 planning table is working
+support; you do not need to reproduce the entire table in the submission. Use the
+checklist below inside the template and do not write duplicate answers to the same
+question. If you already ran a test before recording a prediction, state that
+honestly rather than inventing a prior prediction.
 
 | Item | Required evidence |
 | --- | --- |
 | Part A execution | Lab 3 command, relevant PASS lines, the two inspected daily rows, and your A1 prediction/limitation (or a note that you already ran it) |
 | Part A interpretation | The three short responses from A3: repeated totals, January 11 and total revenue, and the completed-order rule |
-| Part B guided practice | Your prediction and the named guided-test result from B3 |
-| Part B independent work | File name, complete SQL, rule/assumption, prediction and named actual result |
-| Test reasoning | A hypothetical violating row, why your predicate catches it, one overlap or difference from existing checks, and one limitation |
-| Recovery and assistance | Any errors and actual recovery; AI assistance and how verified, or None, following course rules |
+| Part B guided practice | One short prediction and the named guided-test result from B3 |
+| Part B independent work | File name and complete SQL; one short rule/assumption statement; one prediction; named actual result |
+| Test reasoning | One hypothetical violating row and why the predicate catches it; one overlap or difference from the existing check; one limitation |
+| Recovery and assistance | If an error occurred, briefly state what failed, what you changed and the successful rerun; disclose AI assistance and how you verified it, or None, following course rules |
 
 Do not submit full dbt logs, personal shell prompts, `.env`, credentials or generated
 artifact directories. Logs can contain local paths; use the narrow result excerpts
