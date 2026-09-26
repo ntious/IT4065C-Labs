@@ -8,8 +8,8 @@
 | Before starting | Lab 3 |
 | --- | --- |
 | You will run | Generate documentation and inspect lineage in your browser. |
-| You will write | Source-to-mart paths and the lifecycle decision log. |
-| Done when | Your log explains dependencies, refresh needs and limitations. |
+| You will write | One prediction, two checked paths, one dependency explanation, three stage responses and three retention answers in one log. |
+| Done when | Technical checks pass and your decision log is complete, including evidence and limitations. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
@@ -55,7 +55,7 @@ you do not need to draw a diagram or write a new pipeline for this lab.
 ## What you will produce
 
 - The relevant execution results from the Lab 4 runner.
-- A source-to-report lineage path, shown in text or an optional screenshot.
+- Two source-to-report lineage paths, shown in text or an optional screenshot.
 - A completed [lifecycle decision log](_turnin_template.md), including your
   explanation of which downstream copies might remain after a source record is
   removed and what you would investigate or refresh.
@@ -63,8 +63,9 @@ you do not need to draw a diagram or write a new pipeline for this lab.
   of your evidence. The retention scenario is a reasoning task, not an instruction
   to delete records.
 
-Use the shared submission template to organize this evidence and include the
-completed decision log. You do not need to repeat the same explanation in both.
+The decision log is your complete Lab 4 submission. It includes spaces for your
+execution evidence, prediction and assistance disclosure. You do not need to
+complete the general submission template separately.
 
 ## Terms you need for this lab
 
@@ -114,7 +115,10 @@ including any saved tests you added during Lab 3.
 
 ## Predict and run
 
-Read the expected result below and predict what would fail with the wrong identity or missing input.
+Before running, write one or two sentences in your private notes predicting
+whether the runner should succeed or stop if the configured database login cannot
+authenticate. You do not need to predict an exact error message or change any
+settings. Later, copy this prediction into section 0 of your decision log.
 From the repository root in your Ubuntu terminal:
 
 ```bash
@@ -147,7 +151,7 @@ Use the command above for copying; the table below explains each result.*
 | dbt build and model/test count | Lab 4 rebuilt the Lab 3 project and its selected tests passed. It is normal to see these checks again. |
 | dbt docs generate PASS | dbt generated local documentation artifacts. This does not open them in your browser. |
 | Lineage PASS | The generated manifest records that `stg_orders` depends on `raw.orders`. This specific check does not verify every downstream relationship, access restriction or deletion action. |
-| LAB 4 COMPLETE | The automated checks finished. The investigation and written decision log remain to be completed. |
+| LAB 4 TECHNICAL CHECKS COMPLETE | The automated checks finished. The investigation and written decision log remain to be completed. |
 
 **Your test count can differ:** the unchanged supplied project has 37 tests.
 Adding the B1 guided test and the B2 test file in Lab 3 brings it to 39. Other
@@ -210,11 +214,11 @@ Keep the Ubuntu server terminal running while you use the page.
 toolbars and personal bookmarks have been removed. Button placement can vary with
 window size or version; the model search offers an alternative route.*
 
-**Choose one viewing route:** use the focused view below to reduce clutter, or
-follow the same paths in the full graph. Both satisfy this step; no extra
-submission is required for trying both.
+**Recommended route:** use the focused graph below. **Accessible alternative:**
+use the linked model SQL files later in this step if you prefer text or the browser
+is unavailable. You only need one route.
 
-**Focused view (alternative navigation):**
+**Focus the graph:**
 
 1. In the open Lineage Graph, locate the **`--select`** field along the bottom.
    If the filter bar is not visible, use the graph's expand control at the top-right.
@@ -228,10 +232,12 @@ submission is required for trying both.
 3. Leave **`--exclude`** empty and click **Update Graph**. Keep the resource and
    package filters at their defaults, using the instructions below.
 
-![Focused graph navigation: enter +stg_orders+ in the bottom select field, click Update Graph, then trace raw.orders through stg_orders and fct_orders to both reporting models.](../../../sample_screenshots/lab4-focused-lineage-guide.svg)
+![Annotated focused lineage: raw.orders feeds the stg_orders view, then the fct_orders table and two reporting tables. Separate callouts identify data tests.](../../../sample_screenshots/lab4-focused-lineage-annotated.png)
 
-*Annotated guide to the graph controls and paths, not an execution screenshot.
-Equivalent instructions and paths are provided in text.*
+*Annotated teaching illustration based on the supplied screenshot, not unmodified
+execution evidence. Storage types come from `dbt_project.yml`, not node colors.
+The text below provides equivalent paths; tests are not reporting tables or proof
+of successful execution.*
 
 The leading `+` includes upstream dependencies and the trailing `+` includes
 downstream dependents of `stg_orders`. You should see `raw.orders`, `stg_orders`,
@@ -260,10 +266,6 @@ they passed. Your saved Lab 3 test results provide that execution evidence.
 Other test nodes may also be visible. You do not need to describe every node or
 recreate the graph.
 
-If you prefer the catalog route, close the graph using the bottom-right **X**,
-then use model search to find `stg_orders`, `fct_orders` and both reporting models.
-Inspect their SQL references. The text-based route below is also acceptable.
-
 Use these paths as a guide, and check them against the model references:
 
 ```text
@@ -279,8 +281,12 @@ marts also use other models, including item data. For a text-based route, read
 and [the detail mart](../../../dbt/it4065c_platform/models/marts/lab3/order_detail_mart.sql).
 `source` identifies raw input and `ref` identifies another model used by the query.
 
-**Keep for submission:** record the two paths in text and one sentence explaining a
-reference you inspected. A cropped lineage screenshot is an optional alternative
+Whichever route you choose, inspect at least one `source()` or `ref()` expression
+in a linked model SQL file. For example, `ref('fct_orders')` identifies
+`fct_orders` as an input model. You do not need to explain every expression.
+
+**Keep for submission:** record the two paths, the SQL file and expression you
+inspected, and one sentence explaining which input that dependency identifies. A cropped lineage screenshot is an optional alternative
 to the text paths; keep the explanatory sentence either way. If the browser route
 failed, state that you used the supplied SQL files instead. Then continue to step 3 to complete
 your private lifecycle decision log.
@@ -313,17 +319,18 @@ nano .local/lab4-decision-log.md
 
 A successful copy is normally silent. If prompted to overwrite existing work,
 answer `n` to keep it, then review your existing log. Edit only the private copy.
-**Expected in the editor:** a worksheet with a completed Raw example, the model
-names and grains already filled in, prompts for three student rows, and three
-retention questions. This is written work, not SQL to execute.
+**Expected in the editor:** a worksheet with execution-evidence fields, a completed Raw example,
+three vertically labeled stage sections with supplied model names and grains,
+three retention questions and an assistance-disclosure field. This is written work, not SQL to execute.
 
-Keep the Raw row labeled as the supplied example. Complete the Staging, Core and
-Marts rows for the path ending at `olap_sales_by_day`, replacing each `[Write: ...]`
-prompt with your explanation. Record your checked paths and explanatory sentence
+First fill section 0 from your saved command output and prediction notes.
+Keep the Raw section labeled as the supplied example. Complete the Staging, Core and
+Marts sections for the path ending at `olap_sales_by_day`, replacing each bracketed
+answer prompt with your explanation. Record your checked paths and explanatory sentence
 in section 1 of the same worksheet so the evidence stays together:
 
 
-| Column | What to write |
+| Worksheet label | What to write |
 | --- | --- |
 | Input and grain | Model/source name and what one row represents |
 | Transformation | What changes at that stage; raw input can say “stored source records” |
@@ -331,11 +338,16 @@ in section 1 of the same worksheet so the evidence stays together:
 | Permitted role | The role you propose should use the data; label it proposed unless access was actually tested |
 | Evidence and limitation | The file, output or observation supporting the entry, and what it cannot establish |
 
-The Raw example uses `lab2_seed.sql` as evidence of the source fixture and explicitly
-says that it does not prove access restrictions. Apply the same distinction to
-your three rows. Keep the `|` separators when editing the table; spacing need not
-align. You may instead write one labeled paragraph per stage using the column
-names, or complete the worksheet in a word processor.
+The Raw example uses `lab2_seed.sql` as source-fixture evidence; it does not prove
+access restrictions. Apply that distinction to your three stage responses.
+For quality checks, use a specifically evidenced observation or label your
+recommendation **Proposed**. No new test is required for each stage. A permitted
+role may be a business responsibility or database role; explain which you mean
+and why it fits. Label access **Proposed** unless you tested it.
+
+Type your short answers underneath each label. No wide table or separator editing
+is required. You may use a word processor or table if you prefer the same content
+in another format; submit only one version.
 
 Save with **Ctrl+O**, **Enter**, then exit with **Ctrl+X**. This saves your notes;
 it does not execute SQL. No screenshot of the editor is required.
@@ -344,7 +356,16 @@ it does not execute SQL. No screenshot of the editor is required.
 
 This is a written scenario: **do not delete data or run a refresh for this task.**
 Suppose an approved retention decision removes an order from `raw.orders`.
-Complete the three labeled answer spaces in section 3 of your private worksheet:
+Use this reasoning sequence to organize your response:
+
+```text
+Dependency -> view or stored table -> what could remain
+-> proposed refresh -> verification evidence -> limitation
+```
+
+Consult `dbt_project.yml` using the link below to identify storage types; graph
+colors alone do not establish them. Complete the three labeled answer spaces in
+section 3 of your private worksheet:
 
 1. Which downstream stored tables could still contain the order or its contribution
    to a total? Name the affected models along the paths you traced.
@@ -359,20 +380,26 @@ its underlying data when queried; a stored table does not automatically rebuild
 when an upstream record changes. Exports and backups need separate investigation.
 Describe your refresh and checks as **proposed**, not demonstrated deletion.
 
-**Investigation complete:** retain the checked paths, the four-row decision log
+**Investigation complete:** retain the checked paths, the supplied Raw example and three completed stage sections
 and these three scenario answers. They are the interpretation and transfer work
 for this lab; no separate repeated essay is required.
 
 ## Submit
 
-Use the [submission template](../../../submissions/template.md). Include the command,
-relevant PASS lines, your prediction (or note that you already ran it), the checked
-paths and explanatory sentence from step 2, and the decision log with the three
-scenario answers from steps 3–4. These include your interpretation and limitations;
-do not repeat them in a second essay. A screenshot is optional; crop/redact identities
-and never include configuration secrets. Submit privately through your course system;
-independent learners keep their work locally. Execution success alone does not
-complete the reasoning task.
+Submit your completed private `.local/lab4-decision-log.md`, or the same content
+in your instructor's requested document format. Check that it contains:
+
+- Section 0: command, relevant PASS lines, prediction or honest timing note, and
+  comparison with the actual result.
+- Section 1: both checked paths and one named SQL dependency with its explanation.
+- Section 2: the supplied Raw example and your three completed stage sections.
+- Section 3: three retention answers, including proposed verification and limits.
+- Section 4: assistance disclosure or `None`.
+
+This is one submission; no separate shared template or repeated essay is required.
+A screenshot is optional. Crop personal details and omit configuration secrets.
+Submit privately through the LMS, or retain locally for self-study. Technical
+success alone does not complete the reasoning task.
 
 Rubric: correct execution/evidence 25%; accurate interpretation 35%; transfer and
 tradeoff reasoning 30%; clarity and evidence limitations 10%.

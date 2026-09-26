@@ -5,16 +5,30 @@
 This is a writing worksheet, not a SQL script. Edit your private copy in `.local`
 or use a word processor. Do not run this file in the terminal.
 
-1. Read the completed Raw example. You may keep it unchanged as the supplied example.
-2. Complete the Staging, Core and Marts rows: replace each `[Write: ...]` prompt
-   with a short explanation. Model names and grain are provided for you.
-3. Answer the three retention questions below. No records should be deleted.
+This file is your complete Lab 4 submission. Keep the headings and replace the
+bracketed answer prompts. Short responses are enough. No separate general
+submission template is needed.
 
-In Nano, type between the table's `|` separators; preserve them. Wide rows can
-extend beyond the screen, which is normal. You do not need to align the spacing.
-If editing a Markdown table is difficult, write a labeled paragraph for each
-stage using the same column names instead. Save with Ctrl+O, Enter, then exit
-with Ctrl+X. Saving records your answers; it does not execute SQL.
+1. Record your execution evidence and prediction in section 0.
+2. Confirm the two lineage paths and explain one dependency in section 1.
+3. Keep the supplied Raw example and complete the three stage sections in section 2.
+4. Answer the three retention questions in section 3, then complete section 4.
+
+The labeled sections are designed for Nano. You may use a word processor or
+organize the same answers in a table instead; only one format is required.
+Save in Nano with Ctrl+O, Enter, then exit with Ctrl+X. Saving does not execute SQL.
+
+## 0. Execution evidence and prediction
+
+Command actually run: [Write here]
+
+Relevant PASS lines from my run: [Paste here, without personal shell prompts]
+
+Prediction recorded before running: [Paste your one- or two-sentence prediction,
+or state that you ran the command before recording a prediction. Do not invent one.]
+
+Comparison with my result: [Briefly explain whether the checks passed and how
+that compares with your prediction, if you recorded one.]
 
 ## 1. Record the lineage you inspected
 
@@ -27,28 +41,76 @@ raw.orders -> stg_orders -> fct_orders -> order_detail_mart
 
 Method used (graph or model SQL): [Write here]
 
-One connection I inspected and what it means: [Write one sentence here]
+One source() or ref() dependency I inspected: [Name the SQL file and expression]
 
-## 2. Complete the decision table
+What that dependency means: [Write one sentence identifying its input]
 
-Use the path ending at `olap_sales_by_day` for this table. A grain describes what
-one row represents. The raw row is a worked example, not evidence of your own test.
+## 2. Explain each lifecycle stage
 
-| Stage | Input and grain | Transformation | Quality check | Permitted role | Evidence and limitation |
-| --- | --- | --- | --- | --- | --- |
-| Raw (supplied example) | raw.orders; one row per order | Stores supplied synthetic orders | Proposed: check order_id is present and unique | Proposed: course builder for maintenance | lab2_seed.sql describes the source fixture; it does not establish access restrictions |
-| Staging | stg_orders; one row per order with standardized fields | [Write: what is standardized?] | [Write: a relevant check and whether observed or proposed] | [Write: a proposed role, or tested role with evidence] | [Write: supporting file/output and one limitation] |
-| Core | fct_orders; one row per order | [Write: what does the core model select and store?] | [Write: a relevant check and whether observed or proposed] | [Write: a proposed role, or tested role with evidence] | [Write: supporting file/output and one limitation] |
-| Marts | olap_sales_by_day; one row per day of completed-order sales | [Write: what is filtered and combined?] | [Write: a relevant check and whether observed or proposed] | [Write: a proposed role, or tested role with evidence] | [Write: supporting file/output and one limitation] |
+Use the path ending at `olap_sales_by_day`. Grain means what one row represents.
+Keep the Raw example labeled as supplied; it is not evidence of your own test.
+For each other stage, replace the four prompts with brief responses.
 
-### Help with the columns
+### Raw: supplied example
+
+**Input and grain:** `raw.orders`; one row per order.
+
+**Transformation:** Stores supplied synthetic orders.
+
+**Quality check:** Proposed: check that `order_id` is present and unique.
+
+**Permitted role:** Proposed: course builder for maintenance.
+
+**Evidence and limitation:** `lab2_seed.sql` describes the source fixture;
+it does not establish access restrictions.
+
+### Staging: `stg_orders`
+
+**Input and grain:** One row per order with standardized fields.
+
+**Transformation:** [Write briefly what is standardized.]
+
+**Quality check:** [Name an observed check with evidence, or label a check Proposed.]
+
+**Permitted role:** [Propose who should use the data and why, or cite tested access.]
+
+**Evidence and limitation:** [Name a supporting file/output and what it cannot prove.]
+
+### Core: `fct_orders`
+
+**Input and grain:** One row per order.
+
+**Transformation:** [Write briefly what the core model selects and stores.]
+
+**Quality check:** [Name an observed check with evidence, or label a check Proposed.]
+
+**Permitted role:** [Propose who should use the data and why, or cite tested access.]
+
+**Evidence and limitation:** [Name a supporting file/output and what it cannot prove.]
+
+### Marts: `olap_sales_by_day`
+
+**Input and grain:** One row per day of completed-order sales.
+
+**Transformation:** [Write briefly what is filtered, combined and aggregated.]
+
+**Quality check:** [Name an observed check with evidence, or label a check Proposed.]
+
+**Permitted role:** [Propose who should use the data and why, or cite tested access.]
+
+**Evidence and limitation:** [Name a supporting file/output and what it cannot prove.]
+
+### Help with the responses
 
 - **Transformation:** describe what happens to the input. Look at the model's SQL.
 - **Quality check:** choose a check relevant to that stage. A test is observed
   only if your execution evidence supports the claim. A check you recommend but
-  have not run must say “Proposed.” You do not need to run an additional test here.
+  have not run must say “Proposed.” You do not need to discover or execute a new test for each stage.
+  If you lack specific execution evidence, propose a relevant check instead.
 - **Permitted role:** identify who should use the data and why. Label this
   “Proposed” unless you have tested that role's access. A graph cannot prove access.
+  You may name a business responsibility or a database role; make clear which
+  you mean. A business responsibility alone does not establish database grants.
 - **Evidence and limitation:** name a file, test result or observation and state
   what it does not establish. A general PASS count does not identify a specific test.
 
@@ -93,13 +155,19 @@ unknown about copies such as exports or backups.
 
 Answer: [Write here]
 
+## 4. Assistance disclosure
+
+[If you used AI assistance, describe where it helped and how you checked the
+result. Otherwise write None. Follow your course's AI-use rules.]
+
 ## Completion checklist
 
+- I included my command, relevant output and honest prediction record.
 - I confirmed both paths and explained one connection.
-- I completed the three student rows; the Raw row remains labeled as supplied.
+- I completed the three student stage sections; the Raw example remains labeled as supplied.
 - I distinguished observed evidence from proposed checks and roles.
 - I answered all three scenario questions without claiming I executed deletion.
-- I removed the answer placeholders and included this log in my private submission.
+- I removed the answer placeholders and saved this log as my private submission.
 
 Keep credentials and personal terminal details out of the submission. Do not
 submit the supplied example as an independently tested result.
