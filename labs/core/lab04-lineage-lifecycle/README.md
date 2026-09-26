@@ -386,6 +386,11 @@ for this lab; no separate repeated essay is required.
 
 ## Submit
 
+See the optional Lab 4 [sample submission](Lab4_Sample_Submission_README.md)
+for the expected structure, selected walkthrough observations and level of detail.
+Complete your own decision log; the sample is not an additional assignment.
+
+
 Submit your completed private `.local/lab4-decision-log.md`, or the same content
 in your instructor's requested document format. Check that it contains:
 
