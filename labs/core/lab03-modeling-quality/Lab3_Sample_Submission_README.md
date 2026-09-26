@@ -1,6 +1,6 @@
 # Lab 3 sample submission: Modeling and data quality
 
-> **Student-facing example — format and level of detail only**
+> **Student-facing example: format and level of detail only**
 >
 > This file demonstrates how to organize a concise Lab 3 submission using the
 > course [submission template](../../../submissions/template.md). It is **not**
