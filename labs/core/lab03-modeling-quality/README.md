@@ -223,6 +223,12 @@ contains these two items. Matching an order to its items is called a **join**:
 
 The item amounts add to **29.99 + 49.99 = 79.98**. Adding the repeated order totals
 would give **159.96**, even though the customer placed only one order worth 79.98.
+
+**That 159.96 is an intentionally incorrect result,it should not appear in your
+A2 output.** The model avoids this double counting by reducing the joined item rows
+to one row per order before calculating the daily result. For January 10, the correct
+daily revenue is Order 1's 79.98 plus Order 2's 49.99 = **129.97**, which matches A2.
+
 The daily sales model first combines the items into one row per order, then
 combines orders into one row per day. What one row represents is called its **grain**.
 
