@@ -3,13 +3,30 @@
 Use this guide to choose a reproducible revision and record its adoption status.
 The repository contains the core lab sequence (1–7) and optional Labs 8–15.
 
+## History cleanup: 2026-09-25
+
+Two historical literal credentials were removed from published branches and tags.
+The current course file tree was unchanged by the rewrite. Pre-cleanup commit IDs
+and workflow records below are historical evidence, not fresh checkout targets.
+
+The cleaned baseline is `c768edb67279b8d370132ceb567c0d2a5ca0b141`, validated by
+[workflow 36178628941](https://github.com/ntious/IT4065C-Labs/actions/runs/36178628941)
+on Ubuntu 22.04 and 24.04. The next candidate is `teaching-2026-09-rc2`.
+
+Replace old clones with fresh clones, preserving private work separately. Never
+merge or push old history. RC1 was rewritten from `9a75f787e0153577aeefb20e116f226fc350cbe8` to
+`4997bd928a851dd6961291bfac4b64fdb4527f0b`, preserving its course content.
+Its reachable history was included in the clean-mirror and fresh-clone scans; RC2 supersedes it for new rehearsals. Rewriting refs
+does not erase outside copies or GitHub cached/PR objects. Credential revocation
+and server-side removal remain separate checks.
+
 ## Validated revisions and adoption status
 
 | Status | Revision and evidence | Meaning |
 | --- | --- | --- |
 | Historical reproducibility baseline | `71653bf77f881a62cda029f5ebc344e6702adb4a`; [September 18 workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) | Earlier layout; retain as historical evidence, not the starting point for the migrated guides |
 | Previous CI-validated migration | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
-| Recorded CI-validated baseline | `2fb0ccb7e92499584d5bfe2fba241699d1a3c29f`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36154605293) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
+| Historical pre-cleanup CI baseline | `2fb0ccb7e92499584d5bfe2fba241699d1a3c29f`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36154605293) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
 | Human-pilot-tested teaching release | Not yet established | Requires recorded novice and replacement-instructor pilots, a selected revision and a release tag |
 
 The named baseline is a reproducible technical baseline, not a claim of human
@@ -19,16 +36,17 @@ one revision does not automatically validate subsequent edits.
 ## Frozen release candidate
 
 Use the [release-candidate record](https://github.com/ntious/IT4065C-Labs/releases)
-for the final correction set. Publish `teaching-2026-09-rc1` only after the exact
+for the final correction set. Publish `teaching-2026-09-rc2` only after the exact
 selected commit passes the Ubuntu 22.04/24.04 workflow. Its release notes must
 record the full commit SHA, successful workflow URL and pending human pilots.
-Until that record is published, use the recorded baseline above.
+Until that record is published, use the cleaned baseline
+`c768edb67279b8d370132ceb567c0d2a5ca0b141` from the history-cleanup section.
 
 After publication, use a fresh rehearsal clone and run:
 
 ```bash
-git fetch origin tag teaching-2026-09-rc1
-git checkout --detach teaching-2026-09-rc1
+git fetch origin tag teaching-2026-09-rc2
+git checkout --detach teaching-2026-09-rc2
 ```
 
 Keep this tag fixed. Later corrections require a new candidate and their own
@@ -100,15 +118,15 @@ Keep these boundaries visible when other instructors adapt the course.
 
 ## Pin a tested baseline before adoption
 
-For a new instructor rehearsal, the recorded CI-validated baseline can be
+For a new instructor rehearsal, the cleaned CI-validated baseline can be
 selected with:
 
 ```bash
-git checkout --detach 2fb0ccb7e92499584d5bfe2fba241699d1a3c29f
+git checkout --detach c768edb67279b8d370132ceb567c0d2a5ca0b141
 ```
 
 Run this only in a fresh rehearsal clone, not a checkout with unsaved work.
-This selects the exact tested capstone-correction revision. If adopting later corrections,
+This selects the exact tested history-cleanup baseline. If adopting later corrections,
 select their exact commit after verifying that commit's workflow instead.
 Record the chosen revision and use its matching guides for the entire rehearsal.
 

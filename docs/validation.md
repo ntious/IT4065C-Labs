@@ -1,5 +1,22 @@
 # Reproducibility and security verification
 
+## History-cleanup validation: 2026-09-25
+
+The cleaned baseline `c768edb67279b8d370132ceb567c0d2a5ca0b141` passed
+[workflow 36178628941](https://github.com/ntious/IT4065C-Labs/actions/runs/36178628941)
+on Ubuntu 22.04 and 24.04, including 36 repository tests and the full lab,
+recovery, optional-experiment and non-default-configuration workflow.
+
+The rewrite left the current course tree identical. Both targeted values were
+absent from all 1,830 objects in the cleaned mirror and a fresh GitHub clone's
+reachable history. This does not establish removal from cached/PR objects,
+outside clones or private backups, and does not establish credential revocation.
+Earlier records describe pre-rewrite IDs; their CI results must not be relabeled
+as executions of rewritten commits.
+
+See [release management](release_management.md#history-cleanup-2026-09-25) for
+migration and the superseding release candidate. Human pilots remain pending.
+
 ## Capstone summary validation: 2026-09-25
 
 **CI-validated revision:** `2fb0ccb7e92499584d5bfe2fba241699d1a3c29f`.
@@ -11,7 +28,7 @@ summary and defense language with the governance classifications.
 
 For validation of the subsequent final wording corrections, use the exact SHA
 and workflow recorded in the [frozen release candidate](https://github.com/ntious/IT4065C-Labs/releases)
-for `teaching-2026-09-rc1` once published. Historical runs below apply only to their named revisions.
+for `teaching-2026-09-rc2` once published. Historical runs below apply only to their named revisions.
 Independent novice and replacement-instructor pilots remain pending.
 
 ## Capstone consistency and anchor validation: 2026-09-25
