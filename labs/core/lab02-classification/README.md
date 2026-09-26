@@ -507,6 +507,8 @@ text evidence is sufficient. Do not submit full installation logs, personal shel
 prompts, `.env`, passwords or connection strings. Use the private course system;
 independent learners retain work locally.
 
+See the Lab 3 [sample submission](Lab2_Sample_Submission_README.md) for an example of the expected structure, evidence and level of detail.
+
 Rubric: evidence 25%; interpretation 35%; transfer/tradeoffs 30%; clarity/limits 10%.
 These are activity-level weights; institutional course weights remain in the LMS.
 

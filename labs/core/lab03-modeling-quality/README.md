@@ -641,8 +641,6 @@ Do not submit full dbt logs, personal shell prompts, `.env`, credentials or gene
 artifact directories. Logs can contain local paths; use the narrow result excerpts
 above. Keep written work private. Independent learners retain their evidence locally.
 
-See the Lab 3 [sample submission](Lab3_Sample_Submission_README.md).
-See Lab 3 [sample submission template](labs/core/lab03-modeling-quality/Lab3_Sample_Submission_README.md).
 See the Lab 3 [sample submission](Lab3_Sample_Submission_README.md) for an example of the expected structure, evidence and level of detail.
 
 Rubric: evidence 25%; interpretation 35%; transfer/tradeoffs 30%; clarity/limits 10%.
