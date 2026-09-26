@@ -8,7 +8,7 @@
 | Before starting | Labs 1–2 |
 | --- | --- |
 | You will run | Build models, inspect sales and run guided and independent tests. |
-| You will write | Three interpretations, one adapted test and named test results. |
+| You will write | Three interpretations, one adapted data-quality test, and a short explanation of its rule, prediction, result and limitation. |
 | Done when | Both named tests pass and the Part C evidence is assembled. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
 
@@ -66,6 +66,9 @@ you do not need to build a complete pipeline from scratch.
 | dbt model | A saved SQL transformation, not an AI prediction model. |
 | Raw → staging → core → mart | Source records → cleaned fields → reusable business records → reporting results. Follow an order through `raw.orders`, `stg_orders`, `fct_orders`, then daily sales. |
 | Fixture / baseline | Prepared example data / the initial result against which you compare changes. |
+| Grain | What one row represents. State the grain before deciding whether a join, aggregation or test rule makes sense. |
+| Predicate / `WHERE` condition | A logical condition that selects rows. In a dbt data test, it should select rows that violate the rule. |
+| `ref()` | dbt syntax for referring to another model and recording that dependency. |
 | View / table | A regular view stores a query; a table stores rows. This course uses staging views and core/mart tables. |
 
 Use the [glossary](../../../docs/glossary.md#data-and-transformations) for more detail; this is reference support, not another assignment.
@@ -419,11 +422,71 @@ to confirm the filename. Press **Ctrl+X** to exit. The title's `*` indicates uns
 changes. Saving does not run the test. If Nano reports a save error, resolve it
 before proceeding.
 
+**Do not run this starter yet unless you want optional extra practice.** B1 already
+provided the executed teaching example. In B2.2 you will adapt this same file into
+your required independent rule, then B3 will execute and verify the adapted test.
+This keeps the required route clear: guided test → learn the pattern → design your
+own rule → execute and verify it.
+
 #### B2.2. Adapt the same file for your independent rule
 
 The starter above is supported practice. For the independent submission, adapt it
 rather than submitting the unchanged example as your own design. Reopen the same
 file with the command in B2.1; you do not need a second file.
+
+#### How to design your independent test
+
+Do not begin with the SQL operator. Begin with what one model row represents and
+what should be true about the field you choose.
+
+Work through these questions before editing the starter:
+
+1. **State the grain.** One row in `olap_sales_by_day` represents one day of
+   completed-order reporting. Your rule should make sense at that daily grain.
+
+2. **Choose the field and state what it means.** Select either `avg_order_value`
+   or `items_sold` and describe the value in plain language.
+
+3. **State the expectation in plain language.** Write what should be true about
+   that value on a reported day before translating the idea into SQL.
+
+4. **Give one valid example.** Choose a value that should **not** be returned by
+   your test.
+
+5. **Give one violating example.** Choose a value that **should** be returned by
+   your test.
+
+6. **Translate the violation into the `WHERE` condition.** The condition should
+   select bad rows, not good rows. Choose the operator that matches your rule;
+   for example, `< 0` and `<= 0` express different expectations.
+
+7. **Predict the result on the current data.** Use the values you observed in A2
+   to decide whether the supplied dataset should pass or fail your rule.
+
+8. **State why the rule matters and one limitation.** Explain the problem the
+   rule is intended to catch and name something important that it does not establish.
+
+A strong test design forms this chain:
+
+**model grain → field meaning → business expectation → violating example → SQL predicate → predicted result → limitation**
+
+A passing test means that no row violated that specific rule during that execution.
+It does not prove that the field, model or dataset is completely correct.
+
+Use this compact planning table in your private notes before writing the final SQL:
+
+| Test-design decision | Your answer |
+| --- | --- |
+| Selected field | `avg_order_value` or `items_sold` |
+| What one model row represents | One day of completed-order reporting |
+| What the field means |  |
+| Rule in plain language |  |
+| One valid example |  |
+| One violating example |  |
+| `WHERE` condition that selects the violation |  |
+| Predicted result using A2 data |  |
+| Why the rule matters |  |
+| One limitation |  |
 
 Before editing, use this pattern from a **different inventory scenario**:
 
@@ -437,12 +500,18 @@ should be absent from the result and the negative row should appear. Zero rows
 on current data means no violations were found; it does not prove that an
 incorrect predicate would catch future bad data.
 
-**Self-check before saving:** write one valid value and one violating value for
-your chosen sales field. Read your WHERE condition against each: would it exclude
-the valid value and include the violation? Include these two examples in your
-existing rule notes, not a separate report. This is reasoning, not an executed
-failure injection. Do not use `stock_count` in the sales model; it is only the
-inventory teaching example.
+**Self-check before saving:** compare your plain-language rule, valid example,
+violating example and `WHERE` condition. Ask:
+
+- Does the valid value stay out of the result?
+- Does the violating value appear in the result?
+- Does your operator match the rule you actually stated?
+- Does the rule make sense at the daily grain of `olap_sales_by_day`?
+- Can you explain why this rule matters without claiming it proves all data is correct?
+
+Include the valid and violating examples in your existing rule notes, not a separate
+report. This is reasoning, not an executed failure injection. Do not use
+`stock_count` in the sales model; it is only the inventory teaching example.
 
 Choose **one** direction:
 
@@ -479,6 +548,10 @@ Ignoring files is not encryption or access control. Keep your work locally and s
 not a public repository push. Never put personal data or credentials in them.
 
 ### B3. Execute and verify your named test
+
+Before running, save the file and reread your test-design chain from B2.2. dbt can
+successfully execute a weak or poorly justified rule. **Technical success shows
+that the test ran; your reasoning determines whether the rule is meaningful.**
 
 ```bash
 .venv/bin/python scripts/course.py lab 3
@@ -572,7 +645,7 @@ in `scripts/verify.py` is an instructor rehearsal, not an extra student requirem
 | Symptom | What to check |
 | --- | --- |
 | Build stops | Read the first relevant error in `.local/dbt-last.log` locally; do not publish the full log. |
-| New test missing | Confirm the exact `.sql` file is saved in the dbt tests directory, uses a valid ref, and rerun Lab 3. |
+| New test missing | Confirm the exact `.sql` file is saved under `dbt/it4065c_platform/student_tests/`, uses a valid `ref()`, and rerun Lab 3. |
 | SQL syntax error | Check selected column names, WHERE syntax and the ref expression. Do not run this dbt test through query.py. |
 | Test returns failures | Inspect the rule and violating condition; distinguish data failure from an unjustified assumption. |
 | Revenue differs | Check source/model changes and cancellation policy; do not reset or delete data to match the fixture. |
