@@ -306,6 +306,68 @@ retention assumptions and permitted AI use in your private submission draft.
 Choose **one of those two fields** to insert below. The other is written analysis
 only; you do not need a fifth register row. Avoid pairs already in your register.
 
+### How to justify your independent decisions
+
+For each field, reason from what the field actually contains and the purpose you
+are assuming. Do not choose a classification simply because it sounds more secure.
+
+Work through these questions for **both** fields before editing the SQL:
+
+1. **What does the field actually contain?**  
+   Describe the value stored in this column, not information that might exist in
+   another system. For example, a value such as `Card` is not the same thing as a
+   card number or bank-account number.
+
+2. **What legitimate purpose requires the field?**  
+   State the business use you are assuming. Different purposes can justify
+   different handling decisions.
+
+3. **What could reasonably happen if the field were exposed, misused or retained too long?**  
+   Identify a plausible consequence based on the actual value and its context.
+   Do not invent legal, financial or privacy consequences that the scenario has
+   not established.
+
+4. **Which classification best matches that reasoning?**  
+   Choose exactly `Public`, `Internal`, `Sensitive` or `Restricted`, then explain
+   why the label fits the stated purpose and potential harm. A more restrictive
+   label is not automatically a better answer.
+
+5. **Who should be accountable for the decision?**  
+   Name a fictional business owner or steward role connected to the field's
+   purpose. This is a governance role, not a PostgreSQL login.
+
+6. **How long should the organization keep the field?**  
+   Connect retention to the stated purpose. If the scenario does not establish a
+   legal requirement, describe the rule as a proposed policy or assumption rather
+   than claiming that a law requires it.
+
+7. **What AI or analytical use is permitted?**  
+   State a use, restriction or review condition that actually fits this field.
+   Do not copy the guided account-age rule unless account-age reporting really
+   applies to your selected field.
+
+A strong decision should form a consistent chain:
+
+**actual field → purpose → potential harm → classification → accountable role → retention → permitted use**
+
+There may be more than one defensible answer. Assessment focuses on whether the
+reasoning is consistent with the field, the scenario and the assumptions you state.
+
+You can use this compact planning table in your private submission before writing
+the final rationale:
+
+| Decision element | Field 1 | Field 2 |
+| --- | --- | --- |
+| Table and column |  |  |
+| What the field actually contains |  |  |
+| Legitimate purpose |  |  |
+| Potential harm or misuse |  |  |
+| Classification and why |  |  |
+| Accountable owner/steward role |  |  |
+| Retention rule and assumptions |  |  |
+| Permitted/restricted AI or analytical use |  |  |
+
+
 ### B2. Create a separate draft from the working example
 
 ```bash
@@ -343,6 +405,23 @@ indicates unsaved edits. Saving changes the file, not the database.
 
 ### B3. Execute your independent INSERT
 
+Before executing, reread all seven values and complete this independent-decision check:
+
+- Does the rationale describe what this field actually contains?
+- Did you state a legitimate purpose instead of inventing one?
+- Can you explain why the classification fits the stated purpose and potential harm?
+- Is the owner/steward role connected to this field and purpose?
+- Is the retention statement a justified proposal or assumption rather than an unsupported legal claim?
+- Does the AI-use statement make sense for this field?
+- Did any wording remain from the guided `customers.created_at` example that does not apply to your field?
+
+If any answer is unclear, revise the file before executing it.
+
+**Technical success and governance reasoning are different checks:** PostgreSQL can
+accept and store a logically weak governance decision. Successful execution shows
+that the SQL ran; it does not prove that the classification or rationale is well
+justified.
+
 Check that all seven values reflect your decision, then run:
 
 ```bash
@@ -362,6 +441,10 @@ the classification label. It does not mean permission denied.
 ```
 
 Find your chosen table/column pair and compare all seven values with your file.
+Seeing the row confirms that it was stored; it does **not** confirm that the
+classification, rationale, retention rule or AI-use decision is correct. Recheck
+the reasoning chain above before treating the independent decision as complete.
+
 Normally you now have **four entries**: two baseline, one guided and one independent.
 If only the three teaching entries appear, Part A still succeeded but Part B has
 not added its row. Check for an unchanged guided pair or an earlier SQL error.

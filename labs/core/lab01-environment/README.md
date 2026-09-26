@@ -8,8 +8,8 @@
 | Before starting | Completed setup checks |
 | --- | --- |
 | You will run | Use setup results; repeat checks only for recovery. |
-| You will write | Account/configuration worksheet and short explanations. |
-| Done when | Technical checks and the worksheet are complete. |
+| You will write | One private document using the four-section outline below. |
+| Done when | Setup checks passed and all four submission sections are complete. |
 | Safe stopping point | After a completed section; save your draft before closing the editor. |
 
 Follow the steps below in order. Keep configuration, generated logs and submissions private.
@@ -31,7 +31,7 @@ required for this first activity.
 ## Your route
 
 - [ ] Review the two setup PASS lines below.
-- [ ] Complete the three blanks and three short answers in the worksheet.
+- [ ] Copy the submission outline below; complete the configuration path and three short answers.
 - [ ] Save your evidence and move to Lab 2.
 
 ## Terms you need for this lab
@@ -129,8 +129,15 @@ additional required step after successful setup.
 
 ## Hands-on investigation
 
-This is a writing task. Use a private document or a copy of the
-[submission template](../../../submissions/template.md); do not type answers into the terminal.
+This is a writing task, with no new commands required. Create one private document
+in your preferred text editor or word processor and name it **Lab 1: Environment
+readiness**. Save it in your private coursework folder.
+
+Copy the [Lab 1 submission outline](#lab-1-submission-outline) below into that
+document. Replace each bracketed prompt with your own response. This outline is
+your complete Lab 1 submission; you do not need to complete the general
+submission template separately. Keep the repository README unchanged.
+**Do not type your responses into the terminal or edit `.env`.**
 
 ### 1. Complete the configuration path
 
@@ -138,20 +145,25 @@ The Ubuntu account starts the runner. The runner reads private configuration as
 data and passes the connection settings to the database client. PostgreSQL checks
 the database login and its privileges.
 
-Copy this text flow and replace its three blanks using **PostgreSQL**, **Ubuntu
-account**, and **private .env configuration**. No actual names or passwords belong here.
+**Where to write:** section 2, **Configuration path**, in your private document.
+The outline already supplies the first sentence as a completed example:
 
 ```text
-[Blank 1] starts the course runner.
-The runner reads [Blank 2] and supplies settings to the client.
-The client connects to [Blank 3], which checks the database login.
+The Ubuntu account starts the course runner.
 ```
 
-The supplied example is enough to complete this task. You do not need to draw a
-new diagram or inspect implementation code.
+Complete the next two sentences by replacing `[Blank 2]` and `[Blank 3]` with
+**private .env configuration** and **PostgreSQL**, using each term once. Keep the
+rest of each sentence unchanged. Use the paragraph above to decide which term
+belongs in each blank. No actual usernames, file contents or passwords belong here.
+
+**Completion check:** section 2 contains three complete sentences, including the
+supplied first sentence, with no blanks remaining. You do not need to draw a new
+diagram or inspect implementation code.
 
 ### 2. Write three short explanations
 
+**Where to write:** answers 3.1, 3.2 and 3.3 in your private document.
 Use two or three sentences per answer. The concept table and
 [identity definitions](../../../docs/foundations.md#part-b-after-setup-before-the-lab-1-worksheet)
 provide the information you need.
@@ -182,18 +194,54 @@ Use the public example rather than publishing your private configuration.
 
 ## Submit
 
-Keep one private record containing:
+### Lab 1 submission outline
 
-- Lab number and the setup command you actually ran.
-- Your own two relevant PASS lines from setup.
-- The completed three-blank flow and three short answers above.
-- The assistance disclosure from the shared template, including `None` when applicable.
+Copy the entire text block below into your private document. The bracketed text
+marks where you write; it is not a command. Refer to the three numbered questions
+in **Write three short explanations** above when completing section 3.
 
-For the prediction field, write `Not required for this activity` unless you
-actually recorded an expectation before setup. Do not invent one afterward.
-The third answer already contains your limitation; do not repeat it in another essay.
-Text evidence is sufficient. Submit via the LMS when enrolled, or retain privately
-for self-study. Omit credentials and personal terminal details.
+```text
+Lab 1: Environment readiness
+
+1. Setup evidence
+Command I actually ran: [Write the setup command you used.]
+My two PASS lines: [Paste the two required PASS lines from your own output.]
+
+2. Configuration path
+The Ubuntu account starts the course runner.
+The runner reads [Blank 2] and supplies settings to the client.
+The client connects to [Blank 3], which checks the database login.
+
+3. Three short explanations
+3.1 Ubuntu account and database login:
+[Answer question 1 in two or three sentences.]
+
+3.2 Schema name and permission:
+[Answer question 2 in two or three sentences.]
+
+3.3 What dbt debug establishes and what it does not:
+[Answer question 3 in two or three sentences, including an example and a limitation.]
+
+4. Assistance disclosure
+[If you used AI assistance, describe where it helped and how you checked the
+result. Otherwise write None. Follow your course's AI-use rules.]
+```
+
+### Check and submit your document
+
+- [ ] Section 1 contains the command you used and your own two required PASS lines.
+- [ ] Section 2 contains three completed sentences with no blanks.
+- [ ] Section 3 contains three answers, including the example and limitation in 3.3.
+- [ ] Section 4 contains your assistance disclosure or `None`.
+- [ ] All bracketed prompts are replaced. Credentials, personal shell prompts and
+      personal filesystem paths are omitted.
+
+These four sections are the complete Lab 1 submission. No prediction, separate
+limitations essay, new diagram or screenshot is required. Do not invent a
+prediction after running setup. Text evidence is sufficient.
+Submit this one document through the course LMS using the instructor's file-format
+requirements, or retain it privately for self-study. Do not commit your completed
+document to the public repository.
 
 **Safe stopping point:** save this record; installation is finished. Next time,
 follow [stop and resume](../../../docs/local_run.md#stop-and-resume), then begin Lab 2.
