@@ -53,9 +53,11 @@ introduce failures into a participant's only working checkout.
 
 ## Workload record
 
-Use one row per lab or session. Minutes are approximate active time, not a speed
-assessment. Record an activity under only one category; keep downloads/waiting
-and breaks separate. Leave unknown values blank rather than entering zero.
+Use one copy of this table per lab or session, with one row per activity category.
+Minutes are approximate, not a speed assessment. Record active work under only
+one category. Put download or other waiting time in the matching row’s Wait
+minutes column; exclude it from active minutes. Record breaks separately below
+the table. Leave unknown values blank rather than entering zero.
 
 | Activity / phase | Active minutes | Wait minutes | Help or obstacle |
 | --- | --- | --- | --- |
@@ -65,6 +67,10 @@ and breaks separate. Leave unknown values blank rather than entering zero.
 | Reading and interpretation | | | |
 | Writing and packaging evidence | | | |
 | Troubleshooting and recovery | | | |
+
+Lab/session identifier: __________. Break minutes (excluded from work totals): __________.
+For an instructor pilot, add rows for session preparation, failure rehearsal and
+submission calibration as needed; do not also count those minutes in another row.
 
 Record unfinished work and assistance alongside totals. Keep lab time estimates
 as planning estimates until learner observations support a revision. When updating
