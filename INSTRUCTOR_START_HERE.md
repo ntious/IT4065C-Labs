@@ -16,9 +16,12 @@
    [delivery plan](docs/delivery_plan.md), then assess a
    [fictional example](docs/assessment_examples.md). Complete the novice and
    replacement-instructor [pilots](docs/adoption_checklist.md); record actual
-   timing and difficulties in the [pilot form](docs/pilot_record.md).
+   timing and difficulties in the [pilot form](docs/pilot_record.md). Use the
+   [reasoning check-ins](docs/teaching_sessions.md#brief-reasoning-check-ins) within
+   existing lab feedback.
 5. **Configure and freeze the offering.** Publish dates, grade weights,
    accommodations, support and submission routes privately in the LMS.
+   Use the [support arrangements checklist](docs/adoption_checklist.md#support-arrangements-for-an-offering).
    Keep instructor calibration submissions private. Record known limits and
    pilot status before publishing a versioned teaching release.
 

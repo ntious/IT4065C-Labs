@@ -32,6 +32,25 @@ After each session, record common difficulties and time spent without student na
 Use that record to improve instructions. Students may need different forms of evidence;
 assess the same concept rather than requiring screenshots.
 
+## Brief reasoning check-ins
+
+Use these prompts within the existing lab discussion or written interpretation.
+They are instructor options, not additional required submissions or a new grading
+scheme. Allow an equivalent short written response when an oral exchange is not
+suitable. Plan about five minutes per learner as an initial scheduling estimate;
+adjust from experience. Ask for reasoning before offering a hint.
+
+| After | Prompt using the learner's own work | Feedback cues |
+| --- | --- | --- |
+| Lab 3 | Why can joining orders to order items overcount an order total? Explain using the grain of each source. | Look for repeated order-level values across item rows and an appropriate aggregation boundary. A passing test alone is not an explanation. |
+| Lab 5 | What does the observed `42501` establish for this role and query, and what does it leave untested? | Look for an observed authorization denial, the expected policy outcome, and a limit on generalizing to other operations or identities. |
+| Lab 7 | Why would matching false-negative rates not, by itself, establish fairness? | Look for denominators, other errors or harms, context and affected people; one metric cannot settle the governance decision. |
+
+Give one supported strength, one specific gap and one next action. Let the learner
+revise the existing explanation where course rules allow. Record recurring
+misconceptions privately for the next offering; do not publish learner responses
+or add scores outside the announced assessment scheme.
+
 ## Optional workshops
 
 Labs 8–11 extend the main work. Inspect their prerequisites and deliverables before
