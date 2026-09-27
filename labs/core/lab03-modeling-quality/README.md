@@ -622,6 +622,14 @@ not need to repeat setup or completed steps; keep your database and draft files.
 
 ## Part C: Submit evidence and reasoning
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab03.py .local/lab3-report.md
+```
+
 Use a private copy of the [shared template](../../../submissions/template.md).
 Label Part A and Part B. Keep the submission concise: use the narrow command/result
 excerpts requested below and short explanations rather than a full terminal history

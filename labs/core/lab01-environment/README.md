@@ -195,6 +195,14 @@ Use the public example rather than publishing your private configuration.
 
 ## Submit
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab01.py .local/lab1-report.md
+```
+
 ### Lab 1 submission outline
 
 Copy the entire text block below into your private document. The bracketed text

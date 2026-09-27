@@ -380,6 +380,16 @@ task, not another script to execute.
 
 ## Submit
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Include both files if your worksheet is separate; omit the second path
+if it is embedded in your report. Warnings are suggestions, not grades or new
+submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab07.py .local/lab7-report.md .local/lab7-decision.md
+```
+
 Use the [submission template](../../../submissions/template.md), but do **not**
 duplicate the completed worksheet in a second essay.
 

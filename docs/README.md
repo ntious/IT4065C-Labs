@@ -17,6 +17,7 @@
 - [External platforms](platforms.md)
 - [Fictional AI decision example](ai_decision_example.md)
 - [Peer review](peer_review.md)
+- [Optional local report checker](report_checker.md)
 
 ## Instructor and maintenance references
 

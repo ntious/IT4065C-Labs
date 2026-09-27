@@ -489,6 +489,14 @@ not need to repeat setup or completed steps; keep your database and draft files.
 
 ## Part C: Submit evidence and reasoning
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab02.py .local/lab2-report.md
+```
+
 Create one private Lab 2 submission using the [shared template](../../../submissions/template.md).
 Do not edit or commit the shared template. Label your evidence Part A and Part B.
 

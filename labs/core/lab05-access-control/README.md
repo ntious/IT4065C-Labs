@@ -257,6 +257,14 @@ written work, not executed controls.
 
 ## Submit
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab05.py .local/lab5-report.md
+```
+
 See the optional Lab 5 [sample submission](Lab5_Sample_Submission_README.md)
 for selected actual walkthrough results and examples of the expected detail.
 Use your own evidence and reasoning. The sample is not an additional assignment.
