@@ -22,6 +22,26 @@ expected results, diagnose a prepared failure and assess a fictional submission.
 Record missing information and revise before inviting broad adoption. Neither pilot
 has been completed merely because automated tests passed.
 
+Use the [private observation and workload worksheets](pilot_record.md#private-observation-worksheet)
+to record both routes. An instructor's successful technical walkthrough is valuable
+rehearsal evidence; it does not substitute for either independent pilot.
+
+## Support arrangements for an offering
+
+Before teaching, configure these items in the LMS using the staff and resources
+actually available. These are planning decisions, not support promises made by
+this public repository.
+
+- Name the help channel and the person or team responsible for monitoring it.
+- State staffed lab/help times, response expectations and a backup escalation route.
+- Explain how to report a blocker: lab/step, command, redacted error and attempted
+  recovery. Never request passwords, `.env` contents or an unredacted log dump.
+- Provide an accessible alternative to oral check-ins and screenshot evidence.
+- Identify what learners can do while blocked and how to request deadline support
+  under the offering's policies; do not tell them to bypass a failed prerequisite.
+- Schedule feedback and an opportunity to clarify or revise reasoning under the
+  existing assessment rules. Consider the [brief reasoning check-ins](teaching_sessions.md#brief-reasoning-check-ins).
+
 ## Release gate
 
 - Both Ubuntu workflow jobs pass at the intended executable revision.

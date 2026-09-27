@@ -1,5 +1,14 @@
 # Reproducibility and security verification
 
+## Instructor walkthrough report: 2026-09-26
+
+Isaac K. Nti reports completing the instructor walkthrough of core Labs 1–7,
+with all execution steps working. This records the instructor's report, not a
+new automated run. An exact revision and per-step timing were not supplied with
+this confirmation, so it is not a revision-specific benchmark or workload study.
+Independent novice and replacement-instructor pilots remain pending; use the
+[private pilot record](pilot_record.md) to collect that separate evidence.
+
 ## History-cleanup validation: 2026-09-25
 
 The cleaned baseline `c768edb67279b8d370132ceb567c0d2a5ca0b141` passed

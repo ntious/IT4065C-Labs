@@ -26,6 +26,52 @@ Prepare one session from Instructor Start Here, diagnose a safe prepared failure
 and assess the fictional capstone paragraph using the rubric. Record preparation
 time, missing context, discrepancies in interpretation and assessment rationale.
 
+## Private observation worksheet
+
+Copy these fields into a private document for each pilot. Use a participant code,
+not a name. Participation and recording should follow institutional requirements;
+collect only information needed to improve the materials.
+
+- Pilot type and exact repository revision:
+- Selected lab/session and starting experience:
+- Environment and access route (no device identifiers):
+- Task attempted and page/step:
+- What the participant expected:
+- What they did or observed:
+- Assistance requested and supplied:
+- What they explained independently afterward:
+- Outcome: completed independently / completed with help / stopped:
+- Finding: blocking / workaround available / improvement:
+- Proposed correction, owner and retest result:
+
+For the novice, record whether they can find the next step and submission route,
+and distinguish technical success from the explanation they must submit. For the
+replacement instructor, record whether they can prepare a session, explain an
+expected denial, recover from a safe prepared failure, and justify feedback using
+the existing rubric. Use a disposable environment for failure rehearsal; do not
+introduce failures into a participant's only working checkout.
+
+## Workload record
+
+Use one row per lab or session. Minutes are approximate active time, not a speed
+assessment. Record an activity under only one category; keep downloads/waiting
+and breaks separate. Leave unknown values blank rather than entering zero.
+
+| Activity / phase | Active minutes | Wait minutes | Help or obstacle |
+| --- | --- | --- | --- |
+| Setup (record separately from lab work) | | | |
+| Guided practical work | | | |
+| Independent investigation or edits | | | |
+| Reading and interpretation | | | |
+| Writing and packaging evidence | | | |
+| Troubleshooting and recovery | | | |
+
+Record unfinished work and assistance alongside totals. Keep lab time estimates
+as planning estimates until learner observations support a revision. When updating
+them, report the number of participants, their preparation, completion status and
+range of observed times; do not generalize a small pilot to every learner. Keep
+individual records private and publish only appropriately anonymized summaries.
+
 ## Exit and follow-up
 
 Classify each finding as blocking, workaround available or improvement. Retest
