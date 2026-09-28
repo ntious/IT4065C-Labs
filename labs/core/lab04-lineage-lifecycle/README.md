@@ -387,6 +387,14 @@ for this lab; no separate repeated essay is required.
 
 ## Submit
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab04.py .local/lab4-decision-log.md
+```
+
 See the optional Lab 4 [sample submission](Lab4_Sample_Submission_README.md)
 for the expected structure, selected walkthrough observations and level of detail.
 Complete your own decision log; the sample is not an additional assignment.

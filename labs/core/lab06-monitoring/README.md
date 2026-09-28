@@ -329,6 +329,14 @@ server-logging experiment; it is not required to finish this memo.
 
 ## Submit
 
+Optional: use the [local report checker](../../../docs/report_checker.md) after
+writing your submission. Replace the path below with your actual private report
+filename. Warnings are suggestions, not grades or new submission requirements.
+
+```bash
+.venv/bin/python scripts/report_checks/lab06.py .local/lab6-report.md
+```
+
 Use the [submission template](../../../submissions/template.md). Include:
 
 - the Lab 6 command and relevant A1 PASS lines;
