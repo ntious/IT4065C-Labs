@@ -56,3 +56,6 @@ coverage.xml
 
 # Downloaded report-checker distribution; integrated source is tracked
 /IT4065C_Report_Checker_DropIn.zip
+
+# Local assistant configuration
+.codex/
