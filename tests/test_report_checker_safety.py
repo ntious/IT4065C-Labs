@@ -19,6 +19,25 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class CheckerSafetyTests(unittest.TestCase):
+    def test_directory_is_not_a_sql_test_file(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / 'dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql').mkdir(parents=True)
+            result = _lab3_local_artifacts(root)
+            self.assertEqual(next(x.status for x in result if x.name == 'Local independent test file'), 'WARN')
+
+    def test_default_worksheet_respects_report_read_limit(self):
+        from grading.report_checker import _lab7_default_worksheet
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / '.local').mkdir()
+            p = root / '.local/lab7-decision.md'
+            p.write_text('x' * 2000)
+            with patch('grading.readers.MAX_REPORT_BYTES', 1000):
+                self.assertEqual(_lab7_default_worksheet(root)[0].status, 'WARN')
+            p.write_bytes(b'\xff')
+            self.assertEqual(_lab7_default_worksheet(root)[0].status, 'WARN')
+
     def test_actual_blank_worksheets_are_flagged(self):
         for lab, name in ((4, 'lab04-lineage-lifecycle/_turnin_template.md'),
                           (7, 'lab07-ai-governance/ai_decision_template.md')):

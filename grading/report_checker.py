@@ -157,7 +157,7 @@ def _load_json(path: Path) -> dict | list | None:
 def _lab3_local_artifacts(root: Path) -> list[CheckResult]:
     results: list[CheckResult] = []
     test_file = root / "dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql"
-    if test_file.exists():
+    if test_file.is_file():
         results.append(CheckResult("PASS", "Local independent test file", str(test_file.relative_to(root)), "local"))
     else:
         results.append(CheckResult("WARN", "Local independent test file", "dbt/it4065c_platform/student_tests/lab3_my_sales_rule.sql was not found. This may be expected if the report is being checked outside the student's working repository.", "local"))
@@ -249,7 +249,10 @@ def _lab7_default_worksheet(root: Path) -> list[CheckResult]:
     path = root / ".local/lab7-decision.md"
     if not path.exists():
         return [CheckResult("WARN", "Local Lab 7 worksheet", ".local/lab7-decision.md not found. If the worksheet is embedded in another submitted file, this warning can be ignored.", "local")]
-    text = path.read_text(encoding="utf-8", errors="replace")
+    try:
+        text = read_report(path)
+    except (ReportReadError, OSError):
+        return [CheckResult("WARN", "Local Lab 7 worksheet", "Default worksheet could not be read within the report limits. Check its format, size and access.", "local")]
     if any(pattern.search(text) for pattern in PLACEHOLDER_PATTERNS):
         return [CheckResult("WARN", "Local Lab 7 worksheet", "The default worksheet still appears to contain unfinished placeholders.", "local")]
     return [CheckResult("PASS", "Local Lab 7 worksheet", "Default worksheet exists and no common placeholders were detected.", "local")]
