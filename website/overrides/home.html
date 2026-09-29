@@ -1,0 +1,42 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="course-home">
+<section class="course-hero" aria-labelledby="data-technologies-thoughtful-decisions">
+  <div class="hero-copy">
+    <p class="eyebrow">IT4065C · Data Technologies Administration</p>
+    <h1 id="data-technologies-thoughtful-decisions">Build with data.<br><span>Lead with evidence.</span></h1>
+    <p class="hero-intro">A practical path from your first database connection to a governed data architecture. Learn the tools, investigate the results, and explain the decisions.</p>
+    <div class="hero-actions">
+      <a class="course-button primary" href="{{ 'STUDENT_START_HERE/' | url }}">Start learning <span aria-hidden="true">↗</span></a>
+      <a class="course-button secondary" href="{{ 'INSTRUCTOR_START_HERE/' | url }}">Teach this course <span aria-hidden="true">→</span></a>
+    </div>
+    <p class="hero-note">Local tools. Synthetic data. No paid cloud account required.</p>
+  </div>
+  <div class="hero-diagram" aria-label="Learning journey: connect, model, govern, and defend">
+    <p class="diagram-label">THE LEARNING JOURNEY</p>
+    <ol>
+      <li><span class="step-num">01</span><div><strong>Connect & explore</strong><span>Understand your environment</span></div></li>
+      <li><span class="step-num">02</span><div><strong>Model & test</strong><span>Turn records into reliable reports</span></div></li>
+      <li><span class="step-num">03</span><div><strong>Govern & monitor</strong><span>Investigate access, lineage, and risk</span></div></li>
+      <li><span class="step-num">04</span><div><strong>Explain & defend</strong><span>Make evidence-informed decisions</span></div></li>
+    </ol>
+    <div class="diagram-footer">PostgreSQL <span>+</span> dbt <span>+</span> Your reasoning</div>
+  </div>
+</section>
+<div class="course-strip"><span><strong>7</strong> core labs</span><span><strong>8</strong> optional extensions</span><span><strong>1</strong> integrated capstone</span></div>
+<section class="home-section" aria-labelledby="choose-path">
+  <p class="eyebrow">A CLEAR PLACE TO BEGIN</p>
+  <h2 id="choose-path">Choose your next step</h2>
+  <div class="path-grid">
+    <a class="path-card" href="{{ 'docs/course_checklist/' | url }}"><span class="card-tag">YOUR COURSE ROUTE</span><h3>Follow the learning path</h3><p>See the core labs, required companion activities, and capstone in one checklist.</p><span class="card-link">Open the course checklist →</span></a>
+    <a class="path-card" href="{{ 'labs/index.html' | url }}"><span class="card-tag">HANDS-ON PRACTICE</span><h3>Explore the labs</h3><p>Find guided examples, expected outputs, independent tasks, and submission guidance.</p><span class="card-link">Browse lab activities →</span></a>
+    <a class="path-card" href="{{ 'capstone_project/index.html' | url }}"><span class="card-tag">CONNECT THE IDEAS</span><h3>Design a governed system</h3><p>Bring requirements, architecture, governance, and evidence together in the capstone.</p><span class="card-link">Explore the capstone →</span></a>
+  </div>
+</section>
+<section class="support-band" aria-labelledby="support-title">
+  <div><p class="eyebrow">LEARN AT YOUR OWN PACE</p><h2 id="support-title">New to the tools? Start here.</h2><p>Use short foundations exercises, plain-language definitions, and recovery guidance whenever you need them.</p></div>
+  <div class="support-links"><a href="{{ 'docs/foundations/' | url }}">Foundations & practice →</a><a href="{{ 'docs/glossary/' | url }}">Course glossary →</a><a href="{{ 'docs/troubleshooting/' | url }}">Troubleshooting →</a><a href="{{ 'docs/self_study/' | url }}">Self-study guidance →</a></div>
+</section>
+<section class="home-section home-about"><p class="eyebrow">ABOUT THESE MATERIALS</p><h2>Practical skills. Careful claims.</h2><p>Technical checks are a starting point. These activities ask you to distinguish what you observed, what a simulation illustrates, and what a proposed design still needs to demonstrate.</p><p>Instructional materials developed by <strong>Isaac K. Nti</strong> while teaching IT4065C at the University of Cincinnati School of Information Technology. This independently maintained resource is not an official University syllabus or website. Your official syllabus and LMS govern your course offering.</p><a href="{{ 'AUTHORS/' | url }}">Institutional context, authorship, and reuse →</a></section>
+</div>
+{% endblock %}

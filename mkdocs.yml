@@ -1,0 +1,86 @@
+site_name: IT4065C · Data Technologies Administration
+site_url: https://ntious.github.io/IT4065C-Labs/
+site_description: Practical PostgreSQL and dbt labs for data administration, governance, and evidence-informed architecture.
+site_author: Isaac K. Nti
+repo_url: https://github.com/ntious/IT4065C-Labs
+repo_name: Course repository
+docs_dir: .site-build/source
+site_dir: .site-build/output
+use_directory_urls: true
+theme:
+  name: material
+  custom_dir: website/overrides
+  font: false
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  icon:
+    logo: material/database-outline
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+extra_css:
+  - stylesheets/course.css
+extra:
+  generator: false
+copyright: Instructional materials by Isaac K. Nti. Independently maintained; not an official University website.
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - fenced_code
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+  - pymdownx.highlight
+  - pymdownx.superfences
+validation:
+  nav:
+    omitted_files: info
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+nav:
+  - Home: index.md
+  - Learn:
+      - Start here: STUDENT_START_HERE.md
+      - Required course path: docs/course_checklist.md
+      - Core labs:
+          - Lab 1 · Environment: labs/core/lab01-environment/index.md
+          - Lab 2 · Classification: labs/core/lab02-classification/index.md
+          - Lab 3 · Modeling and quality: labs/core/lab03-modeling-quality/index.md
+          - Lab 4 · Lineage and lifecycle: labs/core/lab04-lineage-lifecycle/index.md
+          - Lab 5 · Access control: labs/core/lab05-access-control/index.md
+          - Lab 6 · Monitoring: labs/core/lab06-monitoring/index.md
+          - Lab 7 · AI governance: labs/core/lab07-ai-governance/index.md
+      - Optional labs: labs/optional/index.md
+      - Submission guidance: submissions/index.md
+      - Local report checker: docs/report_checker.md
+  - Capstone:
+      - Overview: capstone_project/index.md
+  - Reference:
+      - Setup: docs/local_run.md
+      - Foundations: docs/foundations.md
+      - Glossary: docs/glossary.md
+      - Troubleshooting: docs/troubleshooting.md
+      - Self-study: docs/self_study.md
+      - Public syllabus: Public_Syllabus.md
+  - Teach:
+      - Instructor start: INSTRUCTOR_START_HERE.md
+      - Teaching sessions: docs/teaching_sessions.md
+      - Assessment: docs/Assessment_Framework.md
+      - Adoption checklist: docs/adoption_checklist.md
+      - Release management: docs/release_management.md
+  - About:
+      - Repository overview: repository.md
+      - Authorship and institutional context: AUTHORS.md
+      - Citation and reuse: CITATION.md

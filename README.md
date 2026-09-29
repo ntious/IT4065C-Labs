@@ -1,5 +1,8 @@
 # IT4065C: Data Technologies Administration
 
+
+[Open the course website](https://ntious.github.io/IT4065C-Labs/) for searchable, mobile-friendly lab instructions and student/instructor navigation.
+
 **Author:** [Isaac K. Nti](AUTHORS.md). [Cite this repository](CITATION.md).
 
 Learn to classify, model, protect and evaluate a synthetic retail data platform.
