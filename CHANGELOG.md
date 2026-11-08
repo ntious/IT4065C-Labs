@@ -3,6 +3,7 @@
 ## 2026-11-07: Archival release 2026.11.07
 
 - Prepare the current course repository and website for a citable Zenodo archive.
+- Update Material for MkDocs to 9.7.7, addressing the reported search-suggestion XSS.
 - Update citation version and release date; preserve code/content licensing boundaries.
 - Preserve existing learning outcomes, lab commands and assessment requirements.
 
