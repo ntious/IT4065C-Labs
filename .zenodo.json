@@ -1,0 +1,33 @@
+{
+  "title": "IT4065C-Labs: Data Technologies Administration",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Nti, Isaac K.",
+      "affiliation": "University of Cincinnati"
+    }
+  ],
+  "description": "<p>An independently maintained instructional repository by Isaac K. Nti for data technologies administration, with reproducible PostgreSQL/dbt labs, data governance, lifecycle management, access control, monitoring, AI ethics and governance, optional experiments, and a capstone portfolio.</p><p>Licensing is component-specific: original code is licensed under the MIT License (LICENSE); original instructional content is licensed under Creative Commons Attribution 4.0 International (LICENSE-CONTENT.md). University of Cincinnati and third-party materials retain their own terms and are excluded unless expressly stated otherwise. The archive label Other (Open) describes this combination; it does not replace or expand the permissions in the included license notices.</p><p>This resource is not an official University syllabus or website and does not imply University endorsement. Automated technical validation does not establish completion of independent novice or replacement-instructor usability pilots.</p>",
+  "access_right": "open",
+  "license": "other-open",
+  "version": "2026.11.07.1",
+  "keywords": [
+    "data governance",
+    "PostgreSQL",
+    "dbt",
+    "data administration",
+    "open educational resources"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ntious/IT4065C-Labs",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://ntious.github.io/IT4065C-Labs/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ]
+}
