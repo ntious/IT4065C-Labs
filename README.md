@@ -12,6 +12,8 @@ in the setup guide. No institutional account or paid service is required.
 
 [![Course checks](https://github.com/ntious/IT4065C-Labs/actions/workflows/course.yml/badge.svg?branch=main)](https://github.com/ntious/IT4065C-Labs/actions/workflows/course.yml)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24046602.svg)](https://doi.org/10.5281/zenodo.24046602)
+
 ## Start here
 
 - **Students:** [Student start here](STUDENT_START_HERE.md).

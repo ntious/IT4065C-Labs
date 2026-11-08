@@ -4,6 +4,7 @@ message: If you use or adapt this course repository in teaching, research, or cu
   and required attribution guidance.
 title: 'IT4065C-Labs: Data Technologies Administration'
 type: software
+doi: 10.5281/zenodo.24046603
 version: "2026.11.07.1"
 authors:
 - family-names: Nti
@@ -37,6 +38,7 @@ abstract: An open course repository by Isaac K. Nti for data technologies admini
   This independently maintained resource is not an official University syllabus or website.
 preferred-citation:
   type: software
+  doi: 10.5281/zenodo.24046603
   version: "2026.11.07.1"
   title: 'IT4065C-Labs: Data Technologies Administration'
   authors:

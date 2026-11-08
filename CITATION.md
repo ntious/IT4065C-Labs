@@ -14,18 +14,27 @@ GitHub's **Cite this repository** control reads [CITATION.cff](CITATION.cff).
 ## Suggested citation
 
 Nti, I. K. (2026). *IT4065C-Labs: Data Technologies Administration*
-[Course repository and software]. https://github.com/ntious/IT4065C-Labs
+(Version 2026.11.07.1) [Course repository and software]. Zenodo.
+https://doi.org/10.5281/zenodo.24046603
 
-Include the release tag or commit used and your access date when reproducibility
-matters. No DOI or release version is claimed until one has actually been issued.
+Use the version-specific DOI above when citing this archived edition. The
+[all-versions DOI](https://doi.org/10.5281/zenodo.24046602) identifies the evolving
+resource and links to its latest archived version. If you use later, unarchived
+changes, also identify the Git commit and access date.
+
+The archive was published on November 8, 2026 (UTC), from release
+[`v2026.11.07.1`](https://github.com/ntious/IT4065C-Labs/releases/tag/v2026.11.07.1).
+The release date in CFF uses the author's local date, November 7.
 
 ```bibtex
 @misc{nti2026it4065c,
   author = {Nti, Isaac K.},
   title = {{IT4065C-Labs: Data Technologies Administration}},
   year = {2026},
-  howpublished = {Course repository and software},
-  url = {https://github.com/ntious/IT4065C-Labs}
+  howpublished = {Zenodo: Course repository and software},
+  version = {2026.11.07.1},
+  doi = {10.5281/zenodo.24046603},
+  url = {https://doi.org/10.5281/zenodo.24046603}
 }
 ```
 
