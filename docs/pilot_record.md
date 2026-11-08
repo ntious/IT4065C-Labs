@@ -3,6 +3,10 @@
 Use a private copy for each volunteer. This is a blank protocol, not a completed
 pilot. Do not publish names, device identifiers, credentials, grades or raw logs.
 
+Keep completed copies under ignored `local-docs/pilots/` or `.local/`; keep this
+public blank protocol unchanged. Use one copy per participant. No completion or
+accessibility certification is implied by the existence of this form.
+
 ## Common record
 
 - Participant role: novice learner or replacement instructor; no public identity.
@@ -77,6 +81,26 @@ as planning estimates until learner observations support a revision. When updati
 them, report the number of participants, their preparation, completion status and
 range of observed times; do not generalize a small pilot to every learner. Keep
 individual records private and publish only appropriately anonymized summaries.
+
+## Focused accessibility worksheet
+
+Complete privately alongside both routes. Record browser/assistive-tool versions
+only as needed, with permission; do not publish disability or participant details.
+
+| Task | Check | Result / barrier / equivalent route / retest |
+| --- | --- | --- |
+| Student start and installation | Keyboard navigation, visible focus, descriptive link names, heading order and zoom/reflow | |
+| Labs 1–3 commands | Copy commands without prompts; distinguish terminal from written work; interpret text output | |
+| Lab 3 models and tables | Explain grain from text; navigate table headers and code with a screen reader | |
+| Lab 4 lineage | Reach and understand dependencies with keyboard/assistive tools; compare source/model text if graph interaction is inaccessible | |
+| Lab 5 access evidence | Understand allow/deny without color or screenshot; use supplied textual results | |
+| Submission and feedback | Produce equivalent text/diagram evidence without mandatory screenshots; find private submission route | |
+
+For each row record pass / barrier / not tested, tools and task, assistance,
+severity, owner, correction and retest. A text alternative must support the same
+learning and assessment criterion; merely omitting the activity is not equivalent.
+Review screenshot alt text, heading hierarchy and link names in changed pages.
+Do not describe a route as tested when only its HTML or source was inspected.
 
 ## Exit and follow-up
 

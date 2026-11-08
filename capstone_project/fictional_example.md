@@ -38,6 +38,29 @@ For real evidence, record revision, date, environment, identity role, command,
 expected/actual result and relevant redacted excerpt. Link the artifact privately.
 Use **demonstrated** only for an actually executed assertion in the named environment.
 
+## Complete worked trace: restricted volunteer reporting
+
+The following is an illustrative design trace for this fictional lending case,
+not a solution to the retail capstone. No new implementation or execution is claimed.
+The existing retail Lab 5 artifacts illustrate the same mechanism; they do not
+prove that the proposed lending system implements it.
+
+| Trace step | Worked example and evidence boundary |
+| --- | --- |
+| Stakeholder statement | The coordinator asks volunteers to identify overdue tools while reserving contact details for coordinators. This is an interview assertion requiring scope confirmation. |
+| Requirement R1 | Volunteers may read loan/tool identifiers needed for overdue follow-up; they must not retrieve borrower contacts. Clarify dates, permitted use and approval owner. |
+| Decision D1 and alternative | Propose a restricted owner-controlled reporting view and separate volunteer login. Reject broad SELECT on borrower tables because it exposes unnecessary contacts. Escalating contact requests costs coordinator time. |
+| Data/model decision | LoanItem has tool-on-loan grain; join Loan, Tool and LoanItem for overdue status. Exclude Borrower contact columns. Counting joined rows counts loan items, not distinct loans. A proposed dbt aggregate would require separate grain, reconciliation and freshness checks. |
+| PostgreSQL mechanism | The proposed view projects only approved fields; revoke direct raw access and grant SELECT on the restricted view. The repository's [Lab 5 views](../labs/core/lab05-access-control/02_build_safe_objects.sql) and [grants](../labs/core/lab05-access-control/03_rbac_and_grants.sql) illustrate this mechanism using retail roles and data. They are not lending implementation files. |
+| Control and owner | Service owner approves purpose/fields; platform administrator configures separate logins and grants. Verify that role membership and alternate objects cannot bypass the intended boundary. |
+| Evidence plan | With separate authenticated logins, query the restricted view (expected allow), then request contact/raw data as volunteer (expected SQLSTATE 42501). Record revision, role, command, expected/actual result and redacted excerpt privately. Wrong password or missing table is not authorization evidence. |
+| Illustrative evidence | E1/E2 above are **simulated**. The lending control remains **proposed** until implemented and tested. The [Lab 5 guide](../labs/core/lab05-access-control/README.md) supplies a real retail exercise for learning this verification pattern; do not relabel its output as lending evidence. |
+| Limitation and next check | These cases would not establish administrator protection, TLS, independent audit retention, legal compliance or all possible access paths. Review the full view definition after changes and retest negative access. |
+| Executive justification | Recommend D1 subject to owner approval and actual testing: it reduces routine contact exposure while preserving overdue follow-up. Review coordinator delay and access after a role, field or purpose change. |
+
+Use the existing [portfolio claim/revision record](portfolio_template.md#claim-and-revision-record)
+for your own trace. This example adds no report or assessment requirement.
+
 ## Weak claim, revision and recommendation
 
 Weak: "Our database is secure and compliant because the view works."

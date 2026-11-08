@@ -1,5 +1,16 @@
 # Reproducibility and security verification
 
+## Published November executable evidence
+
+As checked on 2026-11-08, commit `5068af8664b12317cd0494ea2660515452d63390`
+passed [course workflow 42436042190](https://github.com/ntious/IT4065C-Labs/actions/runs/42436042190)
+and [website workflow 42436042199](https://github.com/ntious/IT4065C-Labs/actions/runs/42436042199).
+The archive tag `v2026.11.07.1` resolves to `c24e088154cfca35c91dd6f5d80c7ea3617ef920`,
+which passed [course workflow 42435781924](https://github.com/ntious/IT4065C-Labs/actions/runs/42435781924).
+These are existing remote runs, not new local executions. They do not establish
+independent learner usability or course-offering approval. See
+[release meanings](release_management.md#release-meanings-and-current-evidence).
+
 ## Instructor walkthrough report: 2026-09-26
 
 Isaac K. Nti reports completing the instructor walkthrough of core Labs 1–7,
@@ -37,7 +48,7 @@ summary and defense language with the governance classifications.
 
 For validation of the subsequent final wording corrections, use the exact SHA
 and workflow recorded in the [frozen release candidate](https://github.com/ntious/IT4065C-Labs/releases)
-for `teaching-2026-09-rc2` once published. Historical runs below apply only to their named revisions.
+for the published `teaching-2026-09-rc2`. Historical runs below apply only to their named revisions.
 Independent novice and replacement-instructor pilots remain pending.
 
 ## Capstone consistency and anchor validation: 2026-09-25

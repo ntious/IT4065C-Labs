@@ -7,7 +7,7 @@ from scripts.build_site import allowed, page_name, rewrite
 class SiteBuilderTests(unittest.TestCase):
     def test_private_and_runtime_files_excluded(self):
         for name in ('.env', '.local/report.md', '.site-build/source/index.md',
-                     'dbt/project/target/manifest.json', 'private/report.md', 'submissions/report.md',
+                     'dbt/project/target/manifest.json', 'private/report.md', 'local-docs/planning.md', 'local-docs/pilots/completed.md', 'submissions/report.md',
                      'dbt/project/student_tests/report.md',
                      'submissions/.private/report.md', 'data/export.csv'):
             self.assertFalse(allowed(name), name)

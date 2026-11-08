@@ -32,6 +32,7 @@ student assignments.
 - [Assessment framework](Assessment_Framework.md) and [calibration examples](assessment_examples.md)
 - [Adoption checklist](adoption_checklist.md) and [pilot record](pilot_record.md)
 - [Release management](release_management.md) and [validation history](validation.md)
+- [Resource compatibility](compatibility.md) and [future lab authoring](lab_authoring_template.md)
 
 ---
 
