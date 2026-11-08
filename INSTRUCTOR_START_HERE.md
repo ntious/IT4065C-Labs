@@ -22,6 +22,8 @@
 5. **Configure and freeze the offering.** Publish dates, grade weights,
    accommodations, support and submission routes privately in the LMS.
    Use the [support arrangements checklist](docs/adoption_checklist.md#support-arrangements-for-an-offering).
+   Verify assigned LMS links against the [compatibility register](docs/compatibility.md).
+   Keep completed Canvas and pilot worksheets in ignored `local-docs/` or `.local/`.
    Keep instructor calibration submissions private. Record known limits and
    pilot status before publishing a versioned teaching release.
 

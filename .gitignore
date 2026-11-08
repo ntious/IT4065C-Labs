@@ -5,6 +5,9 @@
 dbt-venv/
 venv/
 .local/
+
+# Offline planning, Canvas checks, completed pilots and instructor-only records
+/local-docs/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/

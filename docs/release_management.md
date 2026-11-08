@@ -3,6 +3,35 @@
 Use this guide to choose a reproducible revision and record its adoption status.
 The repository contains the core lab sequence (1–7) and optional Labs 8–15.
 
+## Release meanings and current evidence
+
+These are separate records; they need not identify the same commit:
+
+| Record | Meaning | Verified reference as of 2026-11-08 |
+| --- | --- | --- |
+| Archival release | Fixed scholarly snapshot for citation; preserve its tag and DOI | [v2026.11.07.1](https://github.com/ntious/IT4065C-Labs/releases/tag/v2026.11.07.1), commit `c24e088154cfca35c91dd6f5d80c7ea3617ef920`; use [citation guidance](../CITATION.md) |
+| Validated executable revision | Exact source revision with successful automated course evidence | `5068af8664b12317cd0494ea2660515452d63390`, [course workflow 42436042190](https://github.com/ntious/IT4065C-Labs/actions/runs/42436042190); [website workflow 42436042199](https://github.com/ntious/IT4065C-Labs/actions/runs/42436042199) passed separately |
+| Teaching release | Revision approved by the instructor for a named offering, with known limits and support arrangements | Approval belongs in the private offering record; no offering approval is inferred from an archive or CI pass |
+
+The archival commit also passed [course workflow 42435781924](https://github.com/ntious/IT4065C-Labs/actions/runs/42435781924).
+Neither automated result establishes human usability. Independent novice and
+replacement-instructor pilot results remain unrecorded in the public evidence.
+A teaching release may be approved with explicitly recorded limitations; describe
+it as **pilot-tested** only after the separate pilots and retests are documented.
+
+For a new technical rehearsal, use a fresh clone and select the validated revision:
+
+```bash
+git checkout --detach 5068af8664b12317cd0494ea2660515452d63390
+```
+
+Use that revision's matching guides throughout. This is a recorded technical
+baseline, not an instruction to switch an active cohort. Later maintenance changes
+need their own workflow evidence before adoption. Record the offering's selected
+SHA/tag, approval date, assigned activities, known limits, support arrangements and
+pilot status privately. Keep dates, LMS URLs and participant records offline.
+Before changing paths, consult the [compatibility register](compatibility.md).
+
 ## History cleanup: 2026-09-25
 
 Two historical literal credentials were removed from published branches and tags.
@@ -11,7 +40,7 @@ and workflow records below are historical evidence, not fresh checkout targets.
 
 The cleaned baseline is `c768edb67279b8d370132ceb567c0d2a5ca0b141`, validated by
 [workflow 36178628941](https://github.com/ntious/IT4065C-Labs/actions/runs/36178628941)
-on Ubuntu 22.04 and 24.04. The next candidate is `teaching-2026-09-rc2`.
+on Ubuntu 22.04 and 24.04. The subsequently published candidate is recorded below.
 
 Replace old clones with fresh clones, preserving private work separately. Never
 merge or push old history. RC1 was rewritten from `9a75f787e0153577aeefb20e116f226fc350cbe8` to
@@ -27,33 +56,22 @@ and server-side removal remain separate checks.
 | Historical reproducibility baseline | `71653bf77f881a62cda029f5ebc344e6702adb4a`; [September 18 workflow](https://github.com/ntious/IT4065C-Labs/actions/runs/35360533985) | Earlier layout; retain as historical evidence, not the starting point for the migrated guides |
 | Previous CI-validated migration | `da05a646d3f627e65150c523cf944149f2f19d19`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36096732831) | Migrated folders/model; fresh installation and full workflow passed on Ubuntu 22.04 and 24.04 |
 | Historical pre-cleanup CI baseline | `2fb0ccb7e92499584d5bfe2fba241699d1a3c29f`; [successful Ubuntu matrix](https://github.com/ntious/IT4065C-Labs/actions/runs/36154605293) | Includes capstone consistency corrections and automated heading-anchor validation; Ubuntu 22.04 and 24.04 passed |
-| Human-pilot-tested teaching release | Not yet established | Requires recorded novice and replacement-instructor pilots, a selected revision and a release tag |
+| Human-pilot-tested status | Not yet established in public evidence | Separate from offering approval; requires recorded novice and replacement-instructor pilots and retests |
 
 The named baseline is a reproducible technical baseline, not a claim of human
 usability validation. Later commits need their own validation record; success at
 one revision does not automatically validate subsequent edits.
 
-## Frozen release candidate
+<a id="frozen-release-candidate"></a>
 
-Use the [release-candidate record](https://github.com/ntious/IT4065C-Labs/releases)
-for the final correction set. Publish `teaching-2026-09-rc2` only after the exact
-selected commit passes the Ubuntu 22.04/24.04 workflow. Its release notes must
-record the full commit SHA, successful workflow URL and pending human pilots.
-Until that record is published, use the cleaned baseline
-`c768edb67279b8d370132ceb567c0d2a5ca0b141` from the history-cleanup section.
+## Published rehearsal candidate
 
-After publication, use a fresh rehearsal clone and run:
-
-```bash
-git fetch origin tag teaching-2026-09-rc2
-git checkout --detach teaching-2026-09-rc2
-```
-
-Keep this tag fixed. Later corrections require a new candidate and their own
-validation. Store final SHA and workflow evidence in the release record rather
-than editing source files merely to point at each new documentation commit.
-A release candidate supports technical rehearsal; it is not a human-pilot-tested
-teaching release.
+`teaching-2026-09-rc2` was published on September 26, 2026. Its fixed commit is
+`709e7862d947c5fa0c84d4409afa106205b99e11`; the
+[release record](https://github.com/ntious/IT4065C-Labs/releases/tag/teaching-2026-09-rc2)
+links [passing Ubuntu workflow 36242017725](https://github.com/ntious/IT4065C-Labs/actions/runs/36242017725).
+It remains historical rehearsal material, with independent human pilots pending.
+Use its matching guides if reproducing that candidate. Do not move its tag.
 
 ## Framework maintenance
 
@@ -116,10 +134,11 @@ audit records. TLS protects transport, not files/backups. Password rotation does
 terminate established sessions. The governance activity is educational analysis.
 Keep these boundaries visible when other instructors adapt the course.
 
-## Pin a tested baseline before adoption
+<a id="pin-a-tested-baseline-before-adoption"></a>
 
-For a new instructor rehearsal, the cleaned CI-validated baseline can be
-selected with:
+## Reproduce the historical cleaned baseline
+
+For a historical rehearsal, the cleaned CI-validated baseline can be selected with:
 
 ```bash
 git checkout --detach c768edb67279b8d370132ceb567c0d2a5ca0b141

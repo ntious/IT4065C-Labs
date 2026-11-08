@@ -105,6 +105,11 @@ If your change touches execution:
 - Include expected outputs or verification checks
 - Note the environment you tested (WSL / Linux / Sandbox)
 
+For every PR, identify affected student paths/commands, compatibility impact,
+validation and rollback. Check the [compatibility register](docs/compatibility.md)
+before moving a resource. New lab authors can use the
+[authoring template](docs/lab_authoring_template.md); it adds no student deliverables.
+
 ---
 
 ## Documentation Style Guide
@@ -227,8 +232,10 @@ material accurately and describe adaptations without implying endorsement.
 
 ## Private working files and publication checks
 
-Keep completed submissions, pilot records, raw screenshots, document exports and
-archives under `.local/` (or private `submissions/` files). Do not overwrite public
+Keep local planning/reviewer documents, Canvas checks, completed pilot/accessibility
+records and instructor-only material under ignored `local-docs/` or `.local/`.
+Keep completed submissions, raw screenshots, document exports and archives under
+those directories (or private `submissions/` files). Do not overwrite public
 templates with completed work. These directories and generated keys, certificates
 and database exports are ignored; ignore rules do not protect already tracked
 files or prevent force-adding them.

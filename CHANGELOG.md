@@ -1,5 +1,17 @@
 # Changes
 
+## 2026-11-08: Focused maintenance and adoption guidance
+
+- Distinguish archival snapshots, CI-validated revisions and offering approval;
+  replace stale candidate-publication instructions with verified release records.
+- Record known historical resource moves without changing current lab paths.
+- Extend blank pilot guidance with accessibility checks; keep completed records,
+  Canvas checks and local planning documents offline under ignored directories.
+- Add a future-author template and a fictional end-to-end capstone trace without
+  changing learning outcomes, rubrics or submission requirements.
+- Add scheduled external-link monitoring for public tracked Markdown; existing
+  local-link checks and course/website validation remain separate.
+
 ## 2026-11-07: Archival metadata correction 2026.11.07.1
 
 - Add explicit Zenodo metadata because its citation importer does not accept the

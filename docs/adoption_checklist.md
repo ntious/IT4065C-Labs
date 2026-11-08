@@ -42,6 +42,10 @@ this public repository.
 - Schedule feedback and an opportunity to clarify or revise reasoning under the
   existing assessment rules. Consider the [brief reasoning check-ins](teaching_sessions.md#brief-reasoning-check-ins).
 
+Use the [focused accessibility worksheet](pilot_record.md#focused-accessibility-worksheet)
+for navigation, commands, lineage and equivalent evidence. Keep completed records
+offline; publish only consented, appropriately anonymized findings.
+
 ## Release gate
 
 - Both Ubuntu workflow jobs pass at the intended executable revision.
@@ -50,6 +54,9 @@ this public repository.
 - Owner reviews historical credential revocation and sensitive Git history separately.
 - Pilot blockers are resolved or clearly listed with a usable workaround.
 - Maintainer selects a version tag and publishes release notes linking exact test results.
+- Record offering approval separately from archival and automated validation status,
+  following [release meanings](release_management.md#release-meanings-and-current-evidence).
+- Verify assigned Canvas links privately against the [compatibility register](compatibility.md).
 
 A tag is a stable reference, not a guarantee that installations will remain identical
 forever: distribution packages and external resources can change. Keep the tested

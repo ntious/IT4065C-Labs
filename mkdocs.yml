@@ -80,6 +80,8 @@ nav:
       - Assessment: docs/Assessment_Framework.md
       - Adoption checklist: docs/adoption_checklist.md
       - Release management: docs/release_management.md
+      - Resource compatibility: docs/compatibility.md
+      - Lab authoring: docs/lab_authoring_template.md
   - About:
       - Repository overview: repository.md
       - Authorship and institutional context: AUTHORS.md

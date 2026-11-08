@@ -1,0 +1,30 @@
+name: Course instruction or execution problem
+description: Report a reproducible problem in public course materials.
+title: "Course problem: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include passwords, .env, full logs, grades, LMS URLs or student records. Use SECURITY.md for sensitive reports."
+  - type: input
+    id: revision
+    attributes:
+      label: Repository commit or release
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Ubuntu version and access route (native, WSL or VM)
+  - type: input
+    id: step
+    attributes:
+      label: Lab, public page and step
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected result, actual result and attempted recovery
+      description: Include only the relevant redacted error and command; remove personal paths and private data.
+    validations:
+      required: true

@@ -19,3 +19,14 @@ It never connects to the core database.
 ---
 
 Author: [Isaac K. Nti](../AUTHORS.md). [Citation and reuse terms](../CITATION.md).
+
+## Public external-link monitoring
+
+Run `python3 -m scripts.check_external_links` from the repository root. The weekly
+and manually dispatched workflow writes a report to its Actions job summary.
+It checks only tracked public Markdown inline links/autolinks outside fences,
+retries transient failures and marks authentication/rate limits for review.
+Query/credential URLs and remote fragments are excluded. No private files are
+scanned and no learner logs are uploaded. Potential failures are advisory: verify
+in a browser before changing a source link. Local file/anchor checks remain in
+the mandatory repository tests. Keep any local reports in an ignored directory.

@@ -31,6 +31,8 @@ class RepositoryHygieneTests(unittest.TestCase):
         private = [
             "submissions/lab5-my-work.md", "submissions/week1/evidence.json",
             ".local/pilot-record.md", ".local/report.docx", ".local/export.zip",
+            "local-docs/planning/review.md", "local-docs/canvas-check.md",
+            "local-docs/pilots/completed.md", "local-docs/instructor/grading.md",
             ".env", ".env.backup", "dbt/it4065c_platform/target/manifest.json",
             "dbt/it4065c_platform/logs/dbt.log", "server.key", "ca.pem",
             "identity.p12", "identity.pfx", "trust.jks", "trust.keystore",
