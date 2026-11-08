@@ -1,5 +1,15 @@
 # Changes
 
+## 2026-11-07: Archival release 2026.11.07
+
+- Prepare the current course repository and website for a citable Zenodo archive.
+- Update Material for MkDocs to 9.7.7, addressing the reported search-suggestion XSS.
+- Update citation version and release date; preserve code/content licensing boundaries.
+- Preserve existing learning outcomes, lab commands and assessment requirements.
+
+This archival version records the technical teaching resource. It does not certify
+completion of the independent novice or replacement-instructor pilots.
+
 ## 2026-09-25: Align capstone reasoning and adoption evidence
 
 - Distinguish logical relationships, proposed enforcement and executed checks in Phase 2.
