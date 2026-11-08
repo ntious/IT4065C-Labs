@@ -1,5 +1,15 @@
 # Changes
 
+## 2026-11-07: Archival metadata correction 2026.11.07.1
+
+- Add explicit Zenodo metadata because its citation importer does not accept the
+  multiple-license list supported by CFF. Zenodo reads `.zenodo.json` in preference
+  to `CITATION.cff`; keep their title, author and version synchronized.
+- Use the archive label Other (Open) with explicit component-specific licensing:
+  MIT for original code and CC BY 4.0 for original instructional content. Existing
+  University and third-party exclusions remain unchanged.
+- Preserve the original release tag; this correction does not change lab behavior.
+
 ## 2026-11-07: Archival release 2026.11.07
 
 - Prepare the current course repository and website for a citable Zenodo archive.
