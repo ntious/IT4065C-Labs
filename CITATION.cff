@@ -4,11 +4,12 @@ message: If you use or adapt this course repository in teaching, research, or cu
   and required attribution guidance.
 title: 'IT4065C-Labs: Data Technologies Administration'
 type: software
+version: "2026.11.07"
 authors:
 - family-names: Nti
   given-names: Isaac K.
   affiliation: University of Cincinnati
-date-released: 2026-02-13
+date-released: 2026-11-07
 license: &id001
 - MIT
 - CC-BY-4.0
@@ -31,15 +32,18 @@ keywords:
 abstract: An open course repository by Isaac K. Nti for data technologies administration,
   with reproducible PostgreSQL/dbt labs, data governance, lifecycle management, access
   control, monitoring, AI ethics and governance, optional ingestion/promotion experiments,
-  and a capstone portfolio.
+  and a capstone portfolio. Original code is licensed under MIT and original instructional
+  content under CC BY 4.0; University and third-party materials retain their own terms.
+  This independently maintained resource is not an official University syllabus or website.
 preferred-citation:
   type: software
+  version: "2026.11.07"
   title: 'IT4065C-Labs: Data Technologies Administration'
   authors:
   - family-names: Nti
     given-names: Isaac K.
     affiliation: University of Cincinnati
   year: 2026
-  date-released: 2026-02-13
+  date-released: 2026-11-07
   repository-code: https://github.com/ntious/IT4065C-Labs
   license: *id001
