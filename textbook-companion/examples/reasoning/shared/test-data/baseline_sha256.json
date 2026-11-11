@@ -1,0 +1,11 @@
+{
+  "scripts/course.py": "eb1122644edbc03bb07f01854cd6d25ed872ec1de2e9eb6dca2bffcb26708444",
+  "scripts/optional_labs.py": "b3182e03828153f297514e363a38f7fb9306bedfd17046ef3a48c5aba8e39a3f",
+  "data/ingestion/sales.csv": "50d9281d35e253ce8f8c79688f0738d67bd34909f431bf1d334f7cc1709cfe8a",
+  "data/ingestion/events.jsonl": "a5c29d14d2f4104d690b026e49eb389b6018dfe54336b73f2e1ea35d13764f2a",
+  "data/ingestion/purpose.txt": "9ecae3ec0c0b9e88381a9714b174fa4f9feb68a73a61ab2f71b39d7cea1486d5",
+  "data/ai_predictions.csv": "8c1cdba72093cb8af85752fcce64c4e2e21a18f56034b9e9551393d7f1393181",
+  "LICENSE": "3dcc5da25bcaaf8e45601d80924c046d482b7a758bc6421ceb508258ee5f8931",
+  "LICENSE-CONTENT.md": "1281e9537ebaf8f6386642537d9eb6f09ecc1cd601f0f837f3a3641b3f291f87",
+  "AUTHORS.md": "e37f1facf7f8c212059528e89bc61b164ab016780a99f98da715f31d3ba738d2"
+}

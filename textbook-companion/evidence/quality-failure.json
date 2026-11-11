@@ -1,0 +1,26 @@
+{
+  "baseline": "d860dd98256a8090ffc6bd3766c59cb15a553c12",
+  "observed_date": "2026-11-10",
+  "fixture": "Synthetic course order items; controlled quantity zero then original quantity restored",
+  "states": {
+    "before": {
+      "success": 10,
+      "pass": 37
+    },
+    "controlled_failure": {
+      "success": 8,
+      "pass": 30,
+      "fail": 2,
+      "skipped": 7
+    },
+    "restored": {
+      "success": 10,
+      "pass": 37
+    }
+  },
+  "failing_tests": [
+    "test.it4065c_platform.positive_line_values",
+    "test.it4065c_platform.order_reconciliation"
+  ],
+  "scope": "Observed engineering rehearsal in a disposable environment. Ordinary Lab 3 learners are not instructed to inject the bad row."
+}
