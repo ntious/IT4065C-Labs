@@ -30,6 +30,8 @@ class RepositoryHygieneTests(unittest.TestCase):
     def test_private_paths_are_ignored_and_public_sources_are_not(self):
         private = [
             "submissions/lab5-my-work.md", "submissions/week1/evidence.json",
+            ".codex-attachments/session/screenshot.jpg",
+            "UBUNTU_26_04_SUPPORT_IMPLEMENTATION_PLAN.local.md",
             ".local/pilot-record.md", ".local/report.docx", ".local/export.zip",
             "local-docs/planning/review.md", "local-docs/canvas-check.md",
             "local-docs/pilots/completed.md", "local-docs/instructor/grading.md",

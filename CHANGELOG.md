@@ -1,5 +1,19 @@
 # Changes
 
+## 2026-11-10: Stop setup after failed installation diagnostics
+
+- Run offline preflight inside setup before package installation, service changes,
+  virtual-environment creation or database provisioning.
+- Report the detected Python version and clarify the supported Ubuntu 22.04/24.04
+  route, including recovery from unsupported Ubuntu 26.04/Python 3.14 installations.
+- Add process-level tests proving rejected preflight cannot reach administration
+  or create course configuration; retain the passing installation route.
+- Ignore private diagnostic attachments and the local implementation plan, with
+  regression checks for those publication boundaries.
+
+This change does not add native Ubuntu 26.04 support or change dependency pins,
+lab paths, datasets, learning objectives or assessment requirements.
+
 ## 2026-11-08: Focused maintenance and adoption guidance
 
 - Distinguish archival snapshots, CI-validated revisions and offering approval;

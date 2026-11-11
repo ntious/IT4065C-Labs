@@ -2,6 +2,8 @@
 
 | Symptom | Check and safe next step |
 | --- | --- |
+| Preflight rejects Ubuntu 26.04 or Python 3.14 | Stop before setup; use an Ubuntu 24.04 VM with its default Python. See [unsupported runtime recovery](setup.md#unsupported-ubuntu-or-python). |
+| `psycopg2-binary` wheel build fails / `libpq-fe.h` missing | A source build lacks client headers, often after a wheel/runtime mismatch. Check OS/Python first; adding headers alone does not validate the locked stack. See [runtime diagnosis](setup.md#unsupported-ubuntu-or-python). |
 | Setup unavailable on a managed computer | Use the instructor-managed VM route in [setup](setup.md#managed-computers); do not bypass restrictions. |
 | Python or sudo missing | Run the preflight in Ubuntu, not PowerShell. Ask the VM administrator to provide the prerequisites. |
 | Installation cannot download packages | Check approved network access; do not disable TLS verification or replace locked packages with unverified downloads. |

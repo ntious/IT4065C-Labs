@@ -60,8 +60,12 @@ coverage.xml
 # Downloaded report-checker distribution; integrated source is tracked
 /IT4065C_Report_Checker_DropIn.zip
 
-# Local assistant configuration
+# Local assistant configuration and private diagnostic attachments
 .codex/
+.codex-attachments/
 
 # Generated course website and isolated website tools
 .site-build/
+
+# Private root-level Ubuntu compatibility implementation plan
+/UBUNTU_26_04_SUPPORT_IMPLEMENTATION_PLAN.local.md

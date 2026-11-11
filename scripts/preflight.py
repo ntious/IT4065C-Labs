@@ -55,10 +55,15 @@ def main(argv=None):
             failures += 1
         print(f'{level}: {message}')
 
-    report('PASS' if supported_os() else 'FAIL',
+    os_ok = supported_os()
+    python_ok = (3, 10) <= sys.version_info[:2] <= (3, 12)
+    report('PASS' if os_ok else 'FAIL',
            'Supported installation target is Ubuntu 22.04/24.04; run inside Ubuntu, including on WSL.')
-    report('PASS' if (3, 10) <= sys.version_info[:2] <= (3, 12) else 'FAIL',
-           'Python 3.10–3.12 is the tested range.')
+    report('PASS' if python_ok else 'FAIL',
+           f'Python {sys.version_info[0]}.{sys.version_info[1]} detected; Python 3.10–3.12 is the tested range.')
+    if not os_ok or not python_ok:
+        print('NEXT: Do not run setup on this runtime. Use Ubuntu 24.04 with its default Python, '
+              'in a VM if retaining a newer host OS. See docs/setup.md#unsupported-ubuntu-or-python.')
     if hasattr(os, 'geteuid') and os.geteuid() == 0:
         report('FAIL', 'Use an ordinary Ubuntu account; setup requests sudo only for administration.')
     for tool in ('sudo', 'apt-get', 'git'):

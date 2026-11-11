@@ -21,10 +21,23 @@ class PreflightTests(unittest.TestCase):
             for text, expected in [('ID=ubuntu\nVERSION_ID="24.04"', True),
                                    ('ID=ubuntu\nVERSION_ID="22.04"', True),
                                    ('ID=debian\nVERSION_ID="12"', False),
-                                   ('ID=ubuntu\nVERSION_ID="20.04"', False)]:
+                                   ('ID=ubuntu\nVERSION_ID="20.04"', False),
+                                   ('ID=ubuntu\nVERSION_ID="26.04"', False)]:
                 path.write_text(text)
                 self.assertEqual(preflight.supported_os(path), expected)
             self.assertFalse(preflight.supported_os(Path(directory) / 'missing'))
+
+    def test_python314_reports_detected_version_and_recovery(self):
+        output = io.StringIO()
+        with patch.object(preflight, 'supported_os', return_value=True), \
+             patch.object(preflight.sys, 'version_info', (3, 14, 3)), \
+             patch.object(preflight.shutil, 'which', return_value=None), \
+             patch.object(preflight, 'port_listening', return_value=False), \
+             redirect_stdout(output):
+            self.assertEqual(preflight.main(['--offline']), 1)
+        self.assertIn('FAIL: Python 3.14 detected', output.getvalue())
+        self.assertIn('Do not run setup', output.getvalue())
+        self.assertIn('Ubuntu 24.04', output.getvalue())
 
     def test_port_bounds(self):
         for value in ('0', '-1', '65536', 'not-a-port'):

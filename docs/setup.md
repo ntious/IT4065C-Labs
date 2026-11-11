@@ -16,10 +16,49 @@ so private-file permissions behave as expected. Windows users run the commands i
 not PowerShell. macOS users can use an Ubuntu VM. No institutional account is
 required. Do not run setup on a shared or production PostgreSQL server.
 
-From your checkout run `bash scripts/setup.sh`. It installs Ubuntu packages,
+From your checkout run `bash scripts/setup.sh`. It first runs offline preflight
+and stops on FAIL before installing packages, starting services or creating the
+virtual environment. On a passing runtime, it installs Ubuntu packages,
 starts PostgreSQL, installs the hash-locked Python dependencies into `.venv`,
 creates `.env` if absent, provisions course identities, and executes Lab 1.
 It does not upgrade the entire operating system or delete existing data.
+
+## Unsupported Ubuntu or Python
+
+The supported route currently validates Ubuntu 22.04/24.04 with Python 3.10–3.12.
+A newer Ubuntu release is not automatically compatible with the pinned Python
+packages, PostgreSQL tools or service setup. Ubuntu 26.04/Python 3.14 is not yet
+validated by the course workflow. Keep the host OS and use an individual Ubuntu
+24.04 VM with its default Python for the supported route; WSL is unnecessary on
+an Ubuntu host. Do not replace the host's system Python to match this course.
+
+If preflight reports FAIL for the OS or Python version, stop before setup.
+Setup repeats offline preflight so directly invoking it cannot skip this check.
+A passing preflight checks prerequisites, not successful completion of every lab.
+
+A failure such as `Failed building wheel for psycopg2-binary` followed by
+`libpq-fe.h: No such file or directory` means pip attempted a source build and
+could not find the PostgreSQL client headers. This can happen when a pinned
+package has no matching wheel for the interpreter/platform. The current pin is
+`psycopg2-binary==2.9.10`; its upstream
+[release notes](https://www.psycopg.org/docs/news.html) add Python 3.14 support in
+2.9.11. Upstream [build prerequisites](https://www.psycopg.org/docs/install.html#build-prerequisites)
+identify the client headers, normally supplied by `libpq-dev` on Ubuntu.
+Installing headers alone does not validate the old pin or the rest of the locked
+stack on Python 3.14. Do not remove hash checks or upgrade one package manually
+inside the course environment to bypass the supported configuration.
+
+If an older setup already failed after installing packages, preserve the checkout,
+private work and any database state. There is no need to uninstall PostgreSQL,
+delete the database or rerun setup repeatedly. Create a fresh clone inside the
+supported VM and follow its matching setup instructions. Move only needed private
+work through an appropriate private route; keep the new environment's generated
+credentials rather than copying the failed host's configuration over them.
+
+Native support for a new release requires a reviewed dependency/lock update,
+fresh installation on that release and full lab/recovery verification, while
+retaining checks on existing supported releases. Until that is recorded, the
+new release remains unvalidated rather than silently added to the allowlist.
 
 ## Your one configuration file
 

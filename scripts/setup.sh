@@ -3,6 +3,12 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+# Stop before apt, service changes or venv creation when diagnostics reject the host.
+if ! python3 scripts/preflight.py --offline; then
+  echo 'Setup stopped before installation: resolve preflight FAIL results first.' >&2
+  echo 'For Ubuntu 26.04 or another unvalidated release, use an Ubuntu 24.04 VM; see docs/setup.md.' >&2
+  exit 1
+fi
 echo 'Installing Ubuntu prerequisites (sudo may ask for your Linux password).'
 sudo apt-get update
 sudo apt-get install -y python3 python3-venv python3-pip postgresql postgresql-client

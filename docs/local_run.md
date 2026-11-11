@@ -7,6 +7,7 @@ steps once. Course commands run in an **Ubuntu terminal**, including on Windows.
 | --- | --- |
 | Windows | A: Ubuntu through WSL2 |
 | Ubuntu 24.04 or 22.04 | B: use Ubuntu directly; WSL is unnecessary |
+| Ubuntu 26.04 or another unvalidated Ubuntu release | Use an individual Ubuntu 24.04 VM, then B. Do not run setup on the host. |
 | Another Linux distribution or macOS | Use an individual Ubuntu 24.04 VM, then B. The scripts use Ubuntu packages; other distributions are not verified installation targets. |
 
 Ubuntu 24.04 is recommended for a new environment; Ubuntu 22.04 is also supported.
@@ -65,7 +66,10 @@ Open the Terminal application. Confirm your Ubuntu release:
 cat /etc/os-release
 ```
 
-Look for Ubuntu and version 22.04 or 24.04. No WSL installation is needed.
+Look for Ubuntu and version 22.04 or 24.04. Ubuntu 26.04 is not yet a validated
+installation target; use an Ubuntu 24.04 VM while retaining your host OS.
+See [unsupported runtime recovery](setup.md#unsupported-ubuntu-or-python).
+No WSL installation is needed.
 On a dedicated Ubuntu VM the steps are the same. Continue below.
 
 ## Common step 1: obtain the course files
@@ -113,7 +117,8 @@ Expected: readiness results labeled PASS, WARN or FAIL. This command installs no
 - **WARN:** read the explanation. An existing database listener or an unconfirmed
   non-interactive sudo query is not automatically a failure. Follow the matching
   [setup guidance](setup.md#read-only-installation-preflight).
-- **FAIL:** resolve the named prerequisite using [recovery](troubleshooting.md)
+- **FAIL:** stop; setup also refuses to install until preflight succeeds.
+  Resolve the named prerequisite using [recovery](troubleshooting.md)
   before proceeding. If `python3` is not found, complete Common step 1
   (Git and Python installation) before retrying; contact your administrator if
   installation is not permitted.
